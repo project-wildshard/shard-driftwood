@@ -10,3 +10,12 @@ blob-report/
 .env.*
 # No worktrees here (D27); ignored so a stray one never gets committed.
 .claude/worktrees/
+
+# Lifted from singleplayer (P5).
+out/
+tmp/
+.cache/
+public/assets/driftwood-isle/map/top.webp
+/public/assets/driftwood-isle/entry-reads.json
+/src/shards/driftwood-isle/discovery.generated.ts
+/public/assets/driftwood-isle/

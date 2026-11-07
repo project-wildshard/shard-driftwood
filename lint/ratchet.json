@@ -1,0 +1,9 @@
+{
+  "budgets": {},
+  "wildshard/shard-game-imports": {
+    "src/shards/driftwood-isle/blender/fp-arms/bake.mjs": 1
+  },
+  "wildshard/shard-game-plugins": {
+    "src/shards/driftwood-isle/blender/fp-arms/bake.mjs": 1
+  }
+}

@@ -1,0 +1,20 @@
+import {lendDriftwoodReturns} from '../fixtures/driftwood-return-modules';
+import perchRows from '../../src/shards/driftwood-isle/data/mixedPopulation.json' with { type: 'json' };
+import { Scope } from '../../src/shared/engine/app/scope';
+import { PerchBodyBinding } from '@wildshard/engine/game/population/perchBody';
+import { RETURN_PROGRAM } from '../fixtures/driftwood-guest-programs';
+import { MONKEY_CLIPS } from '../../src/shards/driftwood-isle/generators/monkeyClips';
+import type { SpeciesRow } from '../../src/server/engine/ai/species';
+import { app } from '../../src/client/engine/app/runtime';
+import type { ShardContext } from '../../src/client/game/plugin/context';
+import { legacyDouble } from '@wildshard/engine/test/FakeGame';
+import { DRIFTWOOD_ENEMY_PROGRAM } from '../../src/shards/driftwood-isle/generators/speciesPrograms';
+
+/** Test-only authored intake; shipping consumers bind the verified product section. */
+export const DRIFTWOOD_SPECIES = new PerchBodyBinding({ clips: MONKEY_CLIPS, program: RETURN_PROGRAM, perch: perchRows.perch }, lendDriftwoodReturns(new Scope('fixture.monkey'))).species(legacyDouble<ShardContext>({ app }), DRIFTWOOD_ENEMY_PROGRAM, {bind:()=>{throw new Error('Fixture Captain requires an admitted product guest');}});
+function row(kind: string): SpeciesRow {
+  const found = DRIFTWOOD_SPECIES.find(value => value.kind === kind);
+  if (found === undefined) throw new Error(`Missing fixture species: ${kind}`);
+  return found;
+}
+export const CRAB = row('crab'), MONKEY = row('monkey'), SAILOR = row('sailor');
