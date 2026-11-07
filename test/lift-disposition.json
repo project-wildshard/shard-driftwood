@@ -1,0 +1,1308 @@
+[
+  {
+    "file": "test/approved-geometry-groups.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: predecessor document SHA and validator-object identity pins. The frozen original-document oracle was not lifted; no fabricated substitute is introduced.",
+    "evidence": [
+      "test('the complete geometry group root retains its author value and original body',()=>{",
+      "test('geometry groups refuse missing, foreign and invalid nullable bindings',()=>{"
+    ]
+  },
+  {
+    "file": "test/author-figure-contacts.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test.each(fixtures)('author contacts retain every native field, signed zero and wire order', source => {",
+      "test('absent figure colliders retain empty contact ownership', () => {",
+      "test('full figure admission keeps native malformed and executable row refusals', () => {"
+    ]
+  },
+  {
+    "file": "test/author-format-rows.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('finite author admission retains complete native output types and excludes nonvalidators', () => {",
+      "test('native strict/default/semantic admission and complete issue ordering remain exact', () => {",
+      "test('native defaults are admitted without adding fields to the author input', () => {"
+    ]
+  },
+  {
+    "file": "test/channel-quest-author-ports.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('channel limits and public channel/dialogue types retain their exact native definitions', () => {",
+      "test('every original focus, dialogue, interaction, catalogue and animation-program byte remains unchanged', () => {",
+      "test('the two classified current source labels retain their exact IDs and leave the authored rows untouched', () => {"
+    ]
+  },
+  {
+    "file": "test/client-ambient-life.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('entered life ticks the original resident draw once without replacing or disposing it', async () => {",
+      "test('missing draws and duplicate ids refuse before any product read', async () => {",
+      "test.each(['entered', 'construction'] as const)('leaving %s during the product read prevents installation', async kind => {"
+    ]
+  },
+  {
+    "file": "test/client-catalogue.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('starter status rows retain the exact authored tuning and order', () => {",
+      "test('catalogue metadata retains original equipment, effects, economy and skin registration order', () => {",
+      "test('catalogue reference failures and unknown ownership refuse before any registration', () => {"
+    ]
+  },
+  {
+    "file": "test/coconut-continuation.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('a missing body service neither advances the volley cursor nor draws launch randomness', () => {",
+      "test('body rows refuse content callbacks and invalid mechanics before creating a native body', () => {",
+      "test('coconut continuation reattaches saved bodies without respawning and consumes the current player contact once', async () => {"
+    ]
+  },
+  {
+    "file": "test/collections-display.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('cosmetic part-array builders preserve independent native mesh copies and shadow flags', () => {",
+      "test('a made-up shard drives count slots, paired trophies and loose drops from different rows', () => {",
+      "test('collect, slot and continue use the existing flags and Owned save, including historical saves', () => {"
+    ]
+  },
+  {
+    "file": "test/director-emit-bindings.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('named emits run admitted native events in order and keep continuation restore quiet', async () => {",
+      "test('preflights every named action and finite callback roster before author initialization', async () => {",
+      "test('matching sources refuse bootstrap and wrong-key events while optional preserves bootstrap and legacy publication', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-audio-environment.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "it('emits the completed world facts in their original tier order, with the four floor gaps',()=>{",
+      "it.each(['phone','desktop'] as const)('preflights original %s loans into the existing play/audio phase exactly once',async tier=>{",
+      "it.each(['bridge','buildings','retired'] as const)('refuses missing or %s construction before any audio effect',async missing=>{"
+    ]
+  },
+  {
+    "file": "test/driftwood-barrel-saves.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('an old save adopts its barrel body: same body count, handle and position, no second spawn, the script steers it', async () => {",
+      "test('a migrated save restores into a fresh host with the same body count, handle, position and watch clocks', async () => {",
+      "test('the finite body capability preserves full legacy registries, phases and snapshot bytes', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-barrel-watch.test.ts",
+    "disposition": "ran",
+    "reason": "Real authored guest/format admission through release exports; remove private snapshots and engine implementation bindings.",
+    "evidence": [
+      "test('it spawns its declared body once and leaves a barrel at home alone', async () => {",
+      "test('past its leash it goes home upright at once, onto its lifted home', async () => {",
+      "test('lost offshore it goes home after 4 s, not before; on a tide plate never', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-boot-inventory.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('offline boot rows preserve ordered sources and filtered late reads for all four choices', () => {",
+      "test('offline mode selectors retain duplicates and legacy lists and callbacks', () => {",
+      "test('offline recipes use supplied file facts without installing application services', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-bridge-facts.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('keeps deck owners and the walk floor on the live chain poses', () => {",
+      "it('refuses an unbaked site', () => {",
+      "it('draws the baked deck skinned to its segments, and refuses to draw before it loads', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-bridge-inputs.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('owned bridge author ports retain native spans, segments and original ground/rest facts', () => {",
+      "test('both native spans retain all original post/deck geometry channel bits', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-capture-poses.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('offline capture poses preserve all original terrain-bound eyes and angles exactly', () => {",
+      "test('the authored manifest reads independent copies of generated poses without a runtime loader', async () => {",
+      "test('JSON pose admission refuses malformed vectors, angles and undeclared fields', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-control-audio.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('Driftwood keeps exact calm and inventory while only tension leaves the phone control set', async () => {",
+      "test('the opted-in control decoder skips tension and the full after-control decoder still prepares it', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-cove.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('admits the stair as real ascending treads between the native cave floors', () => {",
+      "it('lends independent collider facts', () => {",
+      "it('reads the authored cave and its baked floor rects, which keep the floor law', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-cover-policy.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('retains the complete cover maps and plant cells on the authored ground policy', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-creature-bodies.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('refuses a body before the bake has loaded', () => {",
+      "it('draws every baked body exactly as the page built it', async () => {",
+      "it('bakes the boar and bear the island factory resolved from the shared looks', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-creature-look.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('declares the bodies as valid graph toon looks reading the tint and flash ports', () => {",
+      "it('keeps a species look faceted on the graph body', () => {",
+      "it('halves a blow on the crab shell from the front, not from the flank', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-cumulus.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('instances one icosahedron per puff row and refuses malformed rows', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-data-authors.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('reconstructs native declaration bytes across the approved collection reference', async () => {",
+      "test('quest selectors and derived author ports preserve complete defining types and object identity', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-deck-files.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('the unplaced shrine retains its explicit demand policy',async()=>{",
+      "test('the existing reader preserves all geometry attributes, bounds and independent ownership',async()=>{"
+    ]
+  },
+  {
+    "file": "test/driftwood-discovery-product.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('product completion copy, ordered places and guide thresholds retain the shipped catalogue', () => {",
+      "test('admitted places keep actual POI and late anchor resolution, pre-existing discovery and marker order', () => {",
+      "test('discovery catalogue refuses malformed coordinates and unknown completion policy', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-enemy-placement.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('native bake generation refuses divergent recipes and floor metadata', () => {",
+      "test('offline placements retain the frozen page/native populations, herds, yaw and coconut stream', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-entry-pier-layout.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('authored pier rows retain the complete original entry coordinates, order and sea facts', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-faceted-ground.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('bakes the faceted ground on the heights the runtime walks, in the provoking-vertex order', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-finale-controller.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('page and native finale edges share their ordering and resume the old stage envelope quietly', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-fixed-author-policy.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('authored sea policy and pier contacts retain their complete native contracts', () => {",
+      "test('the complete original sea row and every grid/floor byte retain their names and hashes', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-fixed-preload.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "it('declares inert handles before admission and refuses unresolved slot data', async () => {",
+      "it('preloads fixed and cover handles from admitted geometry without fetching', async () => {",
+      "it('admits the original source declarations plus native bridge units and every original channel alias', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-fixed-scene-identity.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "it('assembles the original fixed model identities from the declared tiles and library', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-fixed-selection.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('the original L0 partitions and whole templates cover every individual fixed file', async () => {",
+      "test('whole-covered fixed files leave phone play but stay available to posed and no-owner readers', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-foliage-aliases.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('owned foliage aliases preserve every original tier, choice and exact payload identity', () => {",
+      "test('foliage aliases refuse missing or ambiguous owned content', () => {",
+      "test('cold metadata aliases construct their real bank under the unchanged native renderer guard', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-foliage-pose.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('the foliage pose and collider copies match the engine exactly', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-foliage-scenes.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('runtime foliage uses the finished GLBs without dangling retired transport aliases', () => {",
+      "test('finished foliage scene GLBs preserve every (compact) native channel, full copy box and bent trunk contact', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-gear-health.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('GEAR borrows live player max health through upgrades, revokes and other health-owner changes', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-generation-outputs.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('the defining Driftwood fixed bank owns every tile, template and named model blob', async () => {",
+      "test('map reuse retains the complete admitted fixed bank and detached byte ownership', async () => {",
+      "test('incomplete or foreign fixed-bank receipts refuse before reuse', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-ground-bake.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('the committed Driftwood terrain bake is the native ground its rows compile, as its sidecar records', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-ground-bounds.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('owned ground policy retains native field/area contracts and the exact clip boundary', () => {",
+      "test('both ground and slab keep original GLB bytes, names, order and aliases', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-ground-ocean-aliases.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('all ground and ocean aliases retain original values and exact owned payload identities', () => {",
+      "test('ground slots refuse missing, renamed and ambiguous producer-owned aliases', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-gull-perches.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('admits the whole perch list with its original wet-sand suffix', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-island-inputs.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('fresh explicit inputs preserve all original placement bytes and sixteen complete foliage blobs/aliases', () => {",
+      "test('both tiers remain byte-identical without changing ambient tier, level or heightfield bindings', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-island-look.test.ts",
+    "disposition": "ran",
+    "reason": "Real authored guest/format admission through release exports; remove private snapshots and engine implementation bindings.",
+    "evidence": [
+      "it('declares every cove material as a valid graph toon look', () => {",
+      "it('reads no per-instance attributes on the copies: tint, origin, edge and ground come from the engine and the graph', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-island-proto-output.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('native prototype construction and persistent hits return the cold bytes without a src handoff', async () => {",
+      "test('missing or extra native inputs and missing/empty/extra cached output refuse', async () => {",
+      "test('prototype source bundles without generated handoffs or filesystem/compiler services', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-keepsake-effects.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('owned keepsakes apply and revoke gameplay through the existing effect binding', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-manifest-inputs.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('admits source fauna plans in their declared placement order', () => {",
+      "test('discovery compilation needs no opaque spawn-evaluation subprocess', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-monkey-author-variants.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('owned monkey variants retain native gameplay fields, labels and ordered weights', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-mover-entry.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('the actual emitted mover row retains exact boat floats and original construction owners', async () => {",
+      "test('the admitted ambient row borrows the original draw after world bindings without a second file', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-named-assets.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('only the eight migrated public prefetch groups retire; remaining boot content stays selected', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-native-author-ports.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('native author ports retain every melee field and complete drawn-log placement contract', () => {",
+      "test('both complete original melee contact profiles retain every byte', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-native-catalogue-product.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('native cards bind the same catalogue and owned sources at boot and product admission', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-native-population-policy.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('authored native population policy and fenced oracle retain the original native turn law', () => {",
+      "test('the quest page consumes only the exact native interaction projection', () => {",
+      "test('the real quest input waits for its cold book with no full native book available', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-native-rest-intake.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('the complete native rest catalogue is renderer-free and retains exact cross-realm bytes', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-native-specimens.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('native card rows preserve the actual factories, pivots, colliders and shadows', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-ocean-bake.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('bakes the coarsening grid with its still depth, seed and alternating diagonals', () => {",
+      "it('round-trips the grid GLB through the runtime intake with its depth and seed channels', async () => {",
+      "it('bakes the sea floor at each texel centre', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-page-plans.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('product cove plans equal the published plans', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-palms.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('owns compacted palm channels independently while retaining full picking bounds and refusing corrupt data', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-physics-binary.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('modern authoring refuses complete and malformed inline floors before decoding', () => {",
+      "test('one pure producer emits the original native floor and standard named binary declarations', async () => {",
+      "test('the shipped assembly reads the raw files and retains native collision, save and restore order', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-pier-coarse.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('every occupied coarse parent stays hash-bound, within the original budgets and clear of all four roads', () => {",
+      "test('all four authored pier decks have actual surfaces throughout their distant parent tiles', () => {",
+      "test('coarse placement facts leave the complete original near pier geometry and world ownership unchanged', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-piers.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('bakes all seven pier choices and every original local/native contact', () => {",
+      "it('baked floor profiles preserve all four flared entries, flat decks and landing ramps', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-plan-rows.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test.each(['phone', 'desktop'] as const)('%s retains every consumed plan field without packed unused bounds', async tier => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-prepared-cards.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "it('keeps the kit card preparation inside its own view', async () => {",
+      "it('prepared cards retain material ownership and authored scale behavior', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-product-reads.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('Driftwood client reads resolve against the emitted output', async () => {",
+      "test('effect rows retain identity values while refusing invalid effect ids and unnamespaced tags', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-proof-late.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('owned proof hull publication keeps original bytes, names and decoded charges', async () => {",
+      "test('proof timing excludes the entire family but critical and dependency readers win', async () => {",
+      "test('missing tracked hull inputs refuse rather than minting a late-file pin', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-quest-policy.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('authored quest frames retain all six native site origins and rotations', () => {",
+      "test('native quest content retains command ABI, save adapter key and contact thresholds', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-reef-aliases.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('owned reef aliases retain every original content identity and choice', () => {",
+      "test('reef alias admission refuses missing and duplicate owned content', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-reef-inputs.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('explicit reef inputs retain every predecessor placement, school and fish seed', () => {",
+      "test('reef scatter uses only the supplied bounds, water, road mask and numeric samplers', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-reef.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('owns the native reef wind channels and full picking boxes without a geometry template', () => {",
+      "it('keeps every baked reef card byte-exact through Z2, with its sway and borrowed look', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-runtime-mirrors.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('only the resolved book ships; native view facts stay in their defining producers', () => {",
+      "test('render setup retains the live uniforms used by parked views', () => {",
+      "test('canonical palette key order retains authored rock geometry', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-shore-boulders.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('keeps the admitted shoreline clear of the wreck with unchanged placements', () => {",
+      "it('does not scatter the authored rocks over deep water', () => {",
+      "it('retains the sailboat rest floor and native hull dimensions', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-shrine.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('declares the knoll and flat Explorer shrine without executable parameters', () => {",
+      "it('keeps the native stair, terraces, pool causeway and independent collision owners', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-sword-scene.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('a second shard drives held claim geometry, materials and cards entirely from rows', async () => {",
+      "test('claim guard facts preserve live deaths and existing absent-roster saves', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-terrain-clip.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('bakes the native terrain index without the baked island, keeping its runs in order', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-tile-bake.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('the compact Driftwood tile bake reconstructs every original world draw (normals / colours within their storage step)', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-trail-aliases.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('owned trail aliases retain original order, metadata and every payload hash', () => {",
+      "test('trail aliases refuse missing or ambiguous owned content', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-trail-font.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('composes readable trail signs from quad runs while leaving unsupported characters blank', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-trail-layout.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('the emitted trail keeps its original geometry owner and material', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-trail-specimens.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('transfers sole geometry ownership and leaves no template behind', async () => {",
+      "it('loads all authored trail cards through their native material and refuses unbaked shapes', async () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-trail.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('keeps trail treads walkable and rail rotations independent of the generated facts', () => {",
+      "it('refuses malformed static facts instead of silently changing collision', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-trophy-content.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('authored trophies keep variant eligibility and suppress owned rewards without RNG', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-world-build-data.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('published world-build data preserves both tiers of foliage in authored order', () => {",
+      "test('the moved build decoder retains cached-row and positive-footprint refusals', () => {",
+      "test('canonical placement admission refuses unbounded foliage', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-wreck.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "it('declares both authored wreck copies without an executable ground sampler', () => {",
+      "it('keeps the native hold, ramp and deck queries over the authored floor rows', () => {"
+    ]
+  },
+  {
+    "file": "test/driftwood-zipline-cable.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('the build-time zipline cable matches the engine CableLayout exactly', () => {"
+    ]
+  },
+  {
+    "file": "test/entered-quest-figures.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test.each([false, true])('entered figures preserve real cold/hot meshes, poses and borrowed smoke (hot: %s)', async hot => {",
+      "test('a partial placed descriptor refuses before any figure allocation', () => {"
+    ]
+  },
+  {
+    "file": "test/headless-assembly.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('the shipped assembly passes its wire fence without admitting native expressions elsewhere', () => {",
+      "test('refuses native body scripts before real ground admission or after its host ends', () => {",
+      "test('native restore checks the restored ground before releasing the host', () => {"
+    ]
+  },
+  {
+    "file": "test/headless-derived-inputs.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('the admitted physics reconstructs every original native catalogue byte in order', () => {",
+      "test('the emitted toon section retains the entire native day input without an assembly copy', () => {",
+      "test('native catalogue derivation keeps order and borrows bodies while refusing divergent identities', () => {"
+    ]
+  },
+  {
+    "file": "test/held-claims-entry.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('claim phases use the actual entered preparation and preserve native weapon order', async () => {",
+      "test.each([false, true])('retired claim preparation never publishes a late loan (ancestor: %s)', async ancestor => {",
+      "test('both native Toon swords use the shared factory with their original arm loans and order', async () => {"
+    ]
+  },
+  {
+    "file": "test/hunt-memory-codec.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('old memory resumes its actual hunt fields and real path vectors in both modes',()=>{",
+      "test('missing, retyped or corrupt path fields refuse before memory mutation',()=>{"
+    ]
+  },
+  {
+    "file": "test/island-book.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('whole-plan admission preflights a strict finite matching book before any read',()=>{",
+      "test('cold Explorer and construction readers resolve the same pinned record in either order',async()=>{",
+      "test('unknown, duplicated or changed declarations refuse rather than creating another book',async()=>{"
+    ]
+  },
+  {
+    "file": "test/kit-cards-schema.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('kit cards emit the defining numeric figure and standard metadata as named JSON', () => {",
+      "test('kit card admission refuses ignored model knobs, reflected selectors and callbacks', () => {"
+    ]
+  },
+  {
+    "file": "test/kit-figure-card.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('kit cards admit only fixed ids and require their explicit live view owner', async () => {",
+      "test('a real cold card frees its copies and flame while leaving borrowed kit material alive', async () => {",
+      "test('ancestor retirement during catalogue read publishes no cold geometry or figure', async () => {"
+    ]
+  },
+  {
+    "file": "test/living-buildings-platform.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('the shrine material pulse matches its original clock math day and night', () => {",
+      "test('a second building reverses its prompted collider leaf and restores in motion', () => {",
+      "test('door pieces and prompts retain one ordered owner across admitted batches', () => {"
+    ]
+  },
+  {
+    "file": "test/loot-bag.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('the continuation projects exactly the original Bag fields and shares every defining grammar with native economy', () => {",
+      "test('basic and explicit Bag paths never inspect the row economy, and basic retains its coin-only owners', () => {",
+      "test('live Bag reads preserve original progress, flags, health, wear, marks and chime without writing native save bytes', () => {"
+    ]
+  },
+  {
+    "file": "test/loot-economy.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('emitted goods keep prices, prerequisites and spend-before-grant transaction order', () => {",
+      "test('a refused purse debit never grants a good or changes modal ownership', () => {",
+      "test('chart rows preserve all shipping world positions, order and saved-flag visibility', async () => {"
+    ]
+  },
+  {
+    "file": "test/loot-progression.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('all finite reward states retain original thresholds, notices, grant order and real save resume', () => {",
+      "test('the existing curve is exactly the original glow at every sampled night value', () => {",
+      "test('gear reads only the declared beach flags and observes live progress without a new counter owner', async () => {"
+    ]
+  },
+  {
+    "file": "test/loot-table-data.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('emitted coin and trophy selectors preserve old order, ownership and RNG continuation', () => {",
+      "test('weighted selection and ranged counts still consume the original stream in order', () => {",
+      "test('matching short circuits ownership and respects resident registration lifetime', () => {"
+    ]
+  },
+  {
+    "file": "test/manual-coat-bow-tools.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": []
+  },
+  {
+    "file": "test/memory-action-brain.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('act-before-think stays quiet and a miss claims the actor field before its borrowed effect', () => {",
+      "test('monkey rows select one existing bite or coconut owner and retain restored attack memory', () => {",
+      "test('preflights every action and refuses unsafe fields before registration or effects', () => {"
+    ]
+  },
+  {
+    "file": "test/monkey-numeric-clips.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('monkey numeric joints preserve frozen gait, scratch, throw, bite, fall, climb and landing on both rigs', () => {",
+      "test('predecessor native monkey saves retain root authority, pose LOD and exact continuation', async () => {"
+    ]
+  },
+  {
+    "file": "test/named-json-driftwood.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('every Driftwood named JSON has a defining schema and corrupt scenes refuse', async () => {"
+    ]
+  },
+  {
+    "file": "test/named-json-producers.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('registered author contracts preserve the defining named documents', () => {",
+      "test('registered author contracts refuse missing and inherited names', () => {",
+      "test('named schema conversion refuses unrecognised author predicates', () => {"
+    ]
+  },
+  {
+    "file": "test/native-compiler-fixture.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('cold DOM fixture compiles all original guest bytes in native Node', async () => {"
+    ]
+  },
+  {
+    "file": "test/native-fauna-boot.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('authored fauna preserves the shipping reader spawn, yaw, herd centres and memory stream', () => {",
+      "test('native adoption preflights identities and complete owned streams before any effect', async () => {"
+    ]
+  },
+  {
+    "file": "test/native-keeper-rows.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('keeper compilation retains the captured native recipes, placement order and stream checkpoints', () => {"
+    ]
+  },
+  {
+    "file": "test/native-kill-progress.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('native kill counters resume old progress, keep flag/emission order and refuse malformed saves', async () => {",
+      "test('delivery rows debit the registered native pack before flags and grants across restore', async () => {"
+    ]
+  },
+  {
+    "file": "test/native-oracle-products.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('the fenced Pine oracle retains every former shipping fact byte', async () => {",
+      "test('the fenced Driftwood oracle retains every former shipping fact byte', () => {",
+      "test('a restored Pine construction cannot lend divergent typed terrain facts',async()=>{"
+    ]
+  },
+  {
+    "file": "test/native-quest-composition.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('an orchard quest resolves native services by ids and restores carried reward and prop handles', async () => {"
+    ]
+  },
+  {
+    "file": "test/native-quest-props.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('salt-marsh physical quest props own drops, floor layers and same-tick latches', async () => {",
+      "test('Driftwood prop compilation keys the tide barrel to its declared body and retains the drop, gate and hold grid', () => {"
+    ]
+  },
+  {
+    "file": "test/navmesh-build-slicing.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('an unspent navigation slice builds every ordered tile before another microtask', async () => {",
+      "test('a real navigation pause blocks subsequent tiles and preserves the complete mesh', async () => {",
+      "test('a navigation pause refusal still rejects the build before publication', async () => {"
+    ]
+  },
+  {
+    "file": "test/npc-focus-programs.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test.each([['castaway', CASTAWAY_FACING, CASTAWAY_HEAD_FOCUS], ['trader', TRADER_FACING, TRADER_HEAD_FOCUS]] as const)("
+    ]
+  },
+  {
+    "file": "test/npc-pose-clips.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('trader clips pose the existing pivots for idle, beckon, tidy and offer', () => {",
+      "test('castaway clips retain the wave envelope, talking arm and moving head/flame pivots', () => {"
+    ]
+  },
+  {
+    "file": "test/npc-rest-scenes.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('trader rows retain borrowed graph material, native pivots and ordered hierarchy', () => {",
+      "test('castaway rows retain entry placement and the native flame/smoke objects outside the turning figure', () => {",
+      "test('plain scenes refuse collider bindings without actual baked metadata and missing geometry still refuses', () => {"
+    ]
+  },
+  {
+    "file": "test/page-preparation.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('a prepared native guest has the same initialization and continuation as a fresh guest', async () => {",
+      "test('leases refuse overlap, release once and reject disposal during preparation', async () => {",
+      "test('orchard terrain openings preserve yawed triangle bounds and vertical exclusion', () => {"
+    ]
+  },
+  {
+    "file": "test/population-projection.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('both tiers bake every leaning crown and base with the installed native terrain law', () => {",
+      "test('the admitted return guest retains hidden-corpse gates and samples at ten Hz', () => {"
+    ]
+  },
+  {
+    "file": "test/posed-draw.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('Pine product packing preserves every matrix, pose lane and strict flight threshold', async () => {",
+      "test('Driftwood flock uses the same data draw with its original scale and channels', () => {",
+      "test('a disposed atlas drops the page-wide library set so a re-entry loads a fresh one', async () => {"
+    ]
+  },
+  {
+    "file": "test/product-creatures-leave.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('a page left during any awaited install read binds no creature rows', async () => {",
+      "test('a refused perch leaves later inputs unread and binds no rows', async () => {"
+    ]
+  },
+  {
+    "file": "test/quest-continuation-product.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('the real product emits the admitted continuation with exact owner and cosmetic identities', async () => {",
+      "test('the defining named schema rejects reflected owners, wrong cosmetic ids and malformed loot flags', async () => {"
+    ]
+  },
+  {
+    "file": "test/quest-continuation.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test.each(['cosmetics', 'shop'].flatMap(phase => [false, true].map(ancestor => ({ phase, ancestor }))))(",
+      "test('continuation intake refuses callbacks, reflected paths and invalid collection ids', () => {",
+      "test('finite continuation dispatch refuses unbound placements before installing services', async () => {"
+    ]
+  },
+  {
+    "file": "test/quest-entry-resources.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('the defining page admits the original resource values without new document names', () => {",
+      "test('fixed resource readers refuse unknown selectors, malformed facts and accessor rows', () => {"
+    ]
+  },
+  {
+    "file": "test/quest-interaction-source-contract.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('the complete original authoring, native table and placed metadata retain all 9886 bytes', () => {",
+      "test('only the exact name and defining root gain family credit without rewriting the wire', () => {",
+      "test('whole-document admission refuses omitted, extra, nonfinite or mismatched placement data', () => {"
+    ]
+  },
+  {
+    "file": "test/quest-page-composition.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('an orchard page borrows entered figures and its existing shop by ids', () => {",
+      "test('world and figure channels are scoped, and page intake refuses code', () => {",
+      "test('page composition admits an authored place frame rather than a fixed island vocabulary', () => {"
+    ]
+  },
+  {
+    "file": "test/quest-placement-authors.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('complete authored placement ports retain native optional fields and generic frame identities', () => {",
+      "test('frame arithmetic, dynamic floors, strict reach and anchor precedence retain native results', () => {",
+      "test('all native coordinate, frame, floor and anchor bounds still refuse', () => {"
+    ]
+  },
+  {
+    "file": "test/quest-presentation-entry.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('hint installation borrows actual native owners and preserves priority and system order', () => {",
+      "test('hint admission rejects missing native owners, accessors and ancestor retirement before registration', () => {",
+      "test('flag publication borrows its bound chapter, snapshots live sorted flags and restores the previous hook', () => {"
+    ]
+  },
+  {
+    "file": "test/quest-presentation-tail.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('the actual preparation guard refuses replaced owners before map or flags publication', () => {",
+      "test('held hint reads refuse every replaced native owner before any feed, listener or system', async () => {",
+      "test('ancestor retirement fences the real held read and preparation before effects', async () => {"
+    ]
+  },
+  {
+    "file": "test/quest-prop-authors.test.ts",
+    "disposition": "deleted",
+    "reason": "J186: private predecessor byte/type/array/order pins, reflected source structure, generator caches, geometry channels or mocked per-component implementation assertions.",
+    "evidence": [
+      "test('all native automatic flags retain their exact key and absence policy', () => {",
+      "test('complete physical quest facts preserve the original pin and full condition/schema types', () => {",
+      "test('quest author admission executes in native Node without a physical or renderer owner', () => {"
+    ]
+  },
+  {
+    "file": "test/quest-trader-page.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('a placed trader prompt binds through its admitted page rows', () => {"
+    ]
+  },
+  {
+    "file": "test/quest-world-admission.test.ts",
+    "disposition": "ran",
+    "reason": "Real authored guest/format admission through release exports; remove private snapshots and engine implementation bindings.",
+    "evidence": [
+      "test('the defining named quest world schema preserves the original anchors and POI order', () => {",
+      "test('named quest world admission refuses reflected paths and invalid anchor values', () => {"
+    ]
+  },
+  {
+    "file": "test/quest-world.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('authored quest anchors equal actual fixed site placement, with no second rotation', () => {",
+      "test('quest world borrows its actual entered flock and leaves static rows independent', async () => {",
+      "test.each([false, true])('quest world refuses a read completed after retirement (ancestor: %s)', async ancestor => {"
+    ]
+  },
+  {
+    "file": "test/registered-building-life.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('the whole site-life document keeps exact bytes, defaults and its native root', () => {",
+      "test('complete root admission preserves native refusals and checks before file IO', async () => {"
+    ]
+  },
+  {
+    "file": "test/resolved-island-library.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('the strict resolved book refuses selectors and executable additions',()=>{",
+      "test('cold geometry is intaken once, construction re-admits figures on its own owner and later cards borrow it',async()=>{",
+      "test('retiring an older source cannot invalidate the same catalogue re-admitted by construction',async()=>{"
+    ]
+  },
+  {
+    "file": "test/script-v2-transport.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('ABI2 named contracts survive reconstruction, disk, browser and native worker validation', async () => {",
+      "test('missing, conflicting, wrong-page and understated-memory view declarations refuse without ABI sniffing', async () => {"
+    ]
+  },
+  {
+    "file": "test/toon-look-platform.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('rejects executable look rows and missing or unsorted day keys', () => {",
+      "test('the data clock preserves shipping sky curves at all 1001 day/night phases', () => {",
+      "test('builds different ground ids and owns their toon follow within the prepared scope', async () => {"
+    ]
+  },
+  {
+    "file": "test/vertex-wear.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('each part wears its attributes as normalized views over the file, after the texture', async () => {",
+      "test('a part baked for other geometry, an unknown part or a missing file refuses', async () => {",
+      "test('Driftwood declares its island cover per tier for every baked part', () => {"
+    ]
+  },
+  {
+    "file": "test/wire-chapter-wake.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('a wake chapter on the wire binds cue effects and draws its bar off the row, and stands up no body', async () => {"
+    ]
+  },
+  {
+    "file": "test/wire-population-projection.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('a marsh\\'s views run on the rows a server sends: memory effects, a seated light, and the habitat back at the end', async () => {"
+    ]
+  },
+  {
+    "file": "test/world-ambient-stage.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('ambient construction preserves the original seeded flock, draw buffers, material clone and original root', async () => {",
+      "test('missing original draw, loaded intake, graph or root refuses before copying or cloning', async () => {",
+      "test('retired or retiring construction admits no ambient allocation and a sliced retirement publishes no entered loans', async () => {"
+    ]
+  },
+  {
+    "file": "test/world-assembly.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('a frozen graph dependency publishes its complete placement without a second tile owner', async () => {",
+      "test('each declared stage publishes its owner loans in order, sliced by its label', async () => {",
+      "test('a stage out of its declared order, past the end or after its owner left refuses', async () => {"
+    ]
+  },
+  {
+    "file": "test/world-construction.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('one declared stage walk preserves original progress, floor, yields, capture order and exact GPU root identities',async()=>{",
+      "test.each(['unknown','duplicate','future-floor'] as const)('%s checkpoint refuses before the original load or file read',async mode=>{",
+      "test('leave across the original early read stops before constructing even the first stage',async()=>{"
+    ]
+  },
+  {
+    "file": "test/world-cover-stage.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('cover construction retains original decoder buffers, viewer, update receiver and one labelled slice', async () => {",
+      "test('missing cover authorities and geometry bindings refuse before reading or placement', async () => {",
+      "test('a leave during the read or placement prevents later cover allocations and registration', async () => {"
+    ]
+  },
+  {
+    "file": "test/world-site-life.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('life preflights original draws, product and publication before allocating the site', async () => {",
+      "test('retiring during the original site slice creates no cloud and reads no life file', async () => {",
+      "test('leaving during the life read cannot construct or publish buildings or dispose a lent look', async () => {"
+    ]
+  },
+  {
+    "file": "test/world-updates.test.ts",
+    "disposition": "engine",
+    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "evidence": [
+      "test('the original five ordered callbacks retain frame math, receivers and lazy awake/alpha reads',()=>{",
+      "test('all loans preflight before registering even the first wind callback',()=>{",
+      "test('a later missing toon loan still leaves zero registered updates',()=>{"
+    ]
+  }
+]
