@@ -17,3 +17,8 @@ The installed engine v0.1.0 has no public cook entry point. Cooking, client
 boot and authored quest/encounter tapes remain explicit plan gaps, rather
 than reaching into the installed package's private tree. This proof shows
 server admission, walking and continuation, not drawn client play.
+
+The queue is now ratcheted at zero. A TypeScript AST import pass checks
+that installed engine exports resolve and shard source cannot import a
+second shard folder. This runs in CI only. The parser is declared and
+pinned, rather than relying on a transitive or home-directory install.

@@ -80,6 +80,8 @@ jobs:
             pnpm install --frozen-lockfile
           fi
       - run: pnpm check
+      - name: Keep the cleared queue and public imports honest
+        run: node scripts/check-test-boundary.mjs
       - name: Build shard products on the runner
         run: pnpm build:shards
       - run: pnpm test:shards
