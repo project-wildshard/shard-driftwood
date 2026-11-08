@@ -10,13 +10,14 @@
   },
   {
     "file": "test/author-figure-contacts.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private rendering/author representation: geometry, transforms, materials, buffers, source selection, generated row layout or sampled guest arithmetic. The asserted contract is the internal representation itself, including its direct admission guards.",
     "evidence": [
       "test.each(fixtures)('author contacts retain every native field, signed zero and wire order', source => {",
       "test('absent figure colliders retain empty contact ownership', () => {",
       "test('full figure admission keeps native malformed and executable row refusals', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/author-format-rows.test.ts",
@@ -40,73 +41,84 @@
   },
   {
     "file": "test/client-ambient-life.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 12 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('entered life ticks the original resident draw once without replacing or disposing it', async () => {",
       "test('missing draws and duplicate ids refuse before any product read', async () => {",
       "test.each(['entered', 'construction'] as const)('leaving %s during the product read prevents installation', async kind => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/client-catalogue.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 14 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('starter status rows retain the exact authored tuning and order', () => {",
       "test('catalogue metadata retains original equipment, effects, economy and skin registration order', () => {",
       "test('catalogue reference failures and unknown ownership refuse before any registration', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/coconut-continuation.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "moved-engine",
+    "reason": "Removed direct row guards/no-service arithmetic; kept native body reattachment/contact consumption and external pickup removal.",
     "evidence": [
       "test('a missing body service neither advances the volley cursor nor draws launch randomness', () => {",
       "test('body rows refuse content callbacks and invalid mechanics before creating a native body', () => {",
       "test('coconut continuation reattaches saved bodies without respawning and consumes the current player contact once', async () => {"
-    ]
+    ],
+    "engineOutcome": "migrated",
+    "engineTarget": "project-wildshard/engine/test/coconut-continuation.test.ts",
+    "ring": 1
   },
   {
     "file": "test/collections-display.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 7 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('cosmetic part-array builders preserve independent native mesh copies and shadow flags', () => {",
       "test('a made-up shard drives count slots, paired trophies and loose drops from different rows', () => {",
       "test('collect, slot and continue use the existing flags and Owned save, including historical saves', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/director-emit-bindings.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 2 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('named emits run admitted native events in order and keep continuation restore quiet', async () => {",
       "test('preflights every named action and finite callback roster before author initialization', async () => {",
       "test('matching sources refuse bootstrap and wrong-key events while optional preserves bootstrap and legacy publication', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-audio-environment.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 16 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "it('emits the completed world facts in their original tier order, with the four floor gaps',()=>{",
       "it.each(['phone','desktop'] as const)('preflights original %s loans into the existing play/audio phase exactly once',async tier=>{",
       "it.each(['bridge','buildings','retired'] as const)('refuses missing or %s construction before any audio effect',async missing=>{"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-barrel-saves.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "moved-engine",
+    "reason": "Removed complete private registry/phase/byte parity; kept old-save body adoption and fresh-host continuation using the published watch module.",
     "evidence": [
       "test('an old save adopts its barrel body: same body count, handle and position, no second spawn, the script steers it', async () => {",
       "test('a migrated save restores into a fresh host with the same body count, handle, position and watch clocks', async () => {",
       "test('the finite body capability preserves full legacy registries, phases and snapshot bytes', async () => {"
-    ]
+    ],
+    "engineOutcome": "migrated",
+    "engineTarget": "project-wildshard/engine/test/driftwood-barrel-saves.test.ts",
+    "ring": 1
   },
   {
     "file": "test/driftwood-barrel-watch.test.ts",
@@ -159,12 +171,13 @@
   },
   {
     "file": "test/driftwood-control-audio.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 5 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('Driftwood keeps exact calm and inventory while only tension leaves the phone control set', async () => {",
       "test('the opted-in control decoder skips tension and the full after-control decoder still prepares it', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-cove.test.ts",
@@ -232,13 +245,14 @@
   },
   {
     "file": "test/driftwood-discovery-product.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('product completion copy, ordered places and guide thresholds retain the shipped catalogue', () => {",
       "test('admitted places keep actual POI and late anchor resolution, pre-existing discovery and marker order', () => {",
       "test('discovery catalogue refuses malformed coordinates and unknown completion policy', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-enemy-placement.test.ts",
@@ -267,11 +281,12 @@
   },
   {
     "file": "test/driftwood-finale-controller.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('page and native finale edges share their ordering and resume the old stage envelope quietly', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-fixed-author-policy.test.ts",
@@ -284,30 +299,33 @@
   },
   {
     "file": "test/driftwood-fixed-preload.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 2 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "it('declares inert handles before admission and refuses unresolved slot data', async () => {",
       "it('preloads fixed and cover handles from admitted geometry without fetching', async () => {",
       "it('admits the original source declarations plus native bridge units and every original channel alias', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-fixed-scene-identity.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private rendering/author representation: geometry, transforms, materials, buffers, source selection, generated row layout or sampled guest arithmetic. The asserted contract is the internal representation itself, including its direct admission guards.",
     "evidence": [
       "it('assembles the original fixed model identities from the declared tiles and library', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-fixed-selection.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('the original L0 partitions and whole templates cover every individual fixed file', async () => {",
       "test('whole-covered fixed files leave phone play but stay available to posed and no-owner readers', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-foliage-aliases.test.ts",
@@ -338,11 +356,12 @@
   },
   {
     "file": "test/driftwood-gear-health.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('GEAR borrows live player max health through upgrades, revokes and other health-owner changes', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-generation-outputs.test.ts",
@@ -418,11 +437,12 @@
   },
   {
     "file": "test/driftwood-keepsake-effects.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('owned keepsakes apply and revoke gameplay through the existing effect binding', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-manifest-inputs.test.ts",
@@ -443,12 +463,13 @@
   },
   {
     "file": "test/driftwood-mover-entry.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('the actual emitted mover row retains exact boat floats and original construction owners', async () => {",
       "test('the admitted ambient row borrows the original draw after world bindings without a second file', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-named-assets.test.ts",
@@ -469,11 +490,12 @@
   },
   {
     "file": "test/driftwood-native-catalogue-product.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('native cards bind the same catalogue and owned sources at boot and product admission', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-native-population-policy.test.ts",
@@ -495,11 +517,12 @@
   },
   {
     "file": "test/driftwood-native-specimens.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 4 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('native card rows preserve the actual factories, pivots, colliders and shadows', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-ocean-bake.test.ts",
@@ -566,31 +589,34 @@
   },
   {
     "file": "test/driftwood-prepared-cards.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 2 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "it('keeps the kit card preparation inside its own view', async () => {",
       "it('prepared cards retain material ownership and authored scale behavior', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-product-reads.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('Driftwood client reads resolve against the emitted output', async () => {",
       "test('effect rows retain identity values while refusing invalid effect ids and unnamespaced tags', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-proof-late.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('owned proof hull publication keeps original bytes, names and decoded charges', async () => {",
       "test('proof timing excludes the entire family but critical and dependency readers win', async () => {",
       "test('missing tracked hull inputs refuse rather than minting a late-file pin', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-quest-policy.test.ts",
@@ -659,12 +685,13 @@
   },
   {
     "file": "test/driftwood-sword-scene.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 7 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('a second shard drives held claim geometry, materials and cards entirely from rows', async () => {",
       "test('claim guard facts preserve live deaths and existing absent-roster saves', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-terrain-clip.test.ts",
@@ -727,21 +754,23 @@
   },
   {
     "file": "test/driftwood-trophy-content.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 1 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('authored trophies keep variant eligibility and suppress owned rewards without RNG', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-world-build-data.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('published world-build data preserves both tiers of foliage in authored order', () => {",
       "test('the moved build decoder retains cached-row and positive-footprint refusals', () => {",
       "test('canonical placement admission refuses unbounded foliage', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/driftwood-wreck.test.ts",
@@ -762,22 +791,26 @@
   },
   {
     "file": "test/entered-quest-figures.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 14 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test.each([false, true])('entered figures preserve real cold/hot meshes, poses and borrowed smoke (hot: %s)', async hot => {",
       "test('a partial placed descriptor refuses before any figure allocation', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/headless-assembly.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "moved-engine",
+    "reason": "Kept real missing/static/restored ground admission; removed schema mirroring and borrowed-module identity/read-count units.",
     "evidence": [
       "test('the shipped assembly passes its wire fence without admitting native expressions elsewhere', () => {",
       "test('refuses native body scripts before real ground admission or after its host ends', () => {",
       "test('native restore checks the restored ground before releasing the host', () => {"
-    ]
+    ],
+    "engineOutcome": "migrated",
+    "engineTarget": "project-wildshard/engine/test/headless-assembly.test.ts",
+    "ring": 1
   },
   {
     "file": "test/headless-derived-inputs.test.ts",
@@ -791,32 +824,35 @@
   },
   {
     "file": "test/held-claims-entry.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 12 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('claim phases use the actual entered preparation and preserve native weapon order', async () => {",
       "test.each([false, true])('retired claim preparation never publishes a late loan (ancestor: %s)', async ancestor => {",
       "test('both native Toon swords use the shared factory with their original arm loans and order', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/hunt-memory-codec.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Pins private encoding/compilation representation, byte equality, cached object identity, generated arrays or predecessor guest arithmetic. These are implementation units rather than an outer-edge operation.",
     "evidence": [
       "test('old memory resumes its actual hunt fields and real path vectors in both modes',()=>{",
       "test('missing, retyped or corrupt path fields refuse before memory mutation',()=>{"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/island-book.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 31 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('whole-plan admission preflights a strict finite matching book before any read',()=>{",
       "test('cold Explorer and construction readers resolve the same pinned record in either order',async()=>{",
       "test('unknown, duplicated or changed declarations refuse rather than creating another book',async()=>{"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/kit-cards-schema.test.ts",
@@ -829,63 +865,69 @@
   },
   {
     "file": "test/kit-figure-card.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 6 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('kit cards admit only fixed ids and require their explicit live view owner', async () => {",
       "test('a real cold card frees its copies and flame while leaving borrowed kit material alive', async () => {",
       "test('ancestor retirement during catalogue read publishes no cold geometry or figure', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/living-buildings-platform.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('the shrine material pulse matches its original clock math day and night', () => {",
       "test('a second building reverses its prompted collider leaf and restores in motion', () => {",
       "test('door pieces and prompts retain one ordered owner across admitted batches', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/loot-bag.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 16 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('the continuation projects exactly the original Bag fields and shares every defining grammar with native economy', () => {",
       "test('basic and explicit Bag paths never inspect the row economy, and basic retains its coin-only owners', () => {",
       "test('live Bag reads preserve original progress, flags, health, wear, marks and chime without writing native save bytes', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/loot-economy.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly binds private economy rows to callback purses and pins prices, array order and spend/grant callback ordering. Real pack credit/debit/restore is covered by native-kill-progress and native-quest-composition.",
     "evidence": [
       "test('emitted goods keep prices, prerequisites and spend-before-grant transaction order', () => {",
       "test('a refused purse debit never grants a good or changes modal ownership', () => {",
       "test('chart rows preserve all shipping world positions, order and saved-flag visibility', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/loot-progression.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins progression table thresholds, sampled glow arithmetic, callback grant order and row guards; no actual host, page or durable store is traversed.",
     "evidence": [
       "test('all finite reward states retain original thresholds, notices, grant order and real save resume', () => {",
       "test('the existing curve is exactly the original glow at every sampled night value', () => {",
       "test('gear reads only the declared beach flags and observes live progress without a new counter owner', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/loot-table-data.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 5 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('emitted coin and trophy selectors preserve old order, ownership and RNG continuation', () => {",
       "test('weighted selection and ranged counts still consume the original stream in order', () => {",
       "test('matching short circuits ownership and respects resident registration lifetime', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/manual-coat-bow-tools.test.ts",
@@ -895,13 +937,14 @@
   },
   {
     "file": "test/memory-action-brain.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Pins private encoding/compilation representation, byte equality, cached object identity, generated arrays or predecessor guest arithmetic. These are implementation units rather than an outer-edge operation.",
     "evidence": [
       "test('act-before-think stays quiet and a miss claims the actor field before its borrowed effect', () => {",
       "test('monkey rows select one existing bite or coconut owner and retain restored attack memory', () => {",
       "test('preflights every action and refuses unsafe fields before registration or effects', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/monkey-numeric-clips.test.ts",
@@ -940,12 +983,13 @@
   },
   {
     "file": "test/native-fauna-boot.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Pins the retired shipping spawn coordinates and exact RNG draw positions, then replaces Hunt.adopt with a spy to assert private preflight ordering.",
     "evidence": [
       "test('authored fauna preserves the shipping reader spawn, yaw, herd centres and memory stream', () => {",
       "test('native adoption preflights identities and complete owned streams before any effect', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/native-keeper-rows.test.ts",
@@ -957,12 +1001,15 @@
   },
   {
     "file": "test/native-kill-progress.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "moved-engine",
+    "reason": "Run the real host, wire, physics or durable-store flow against engine and admitted pin data; remove imports of retired shard author modules.",
     "evidence": [
       "test('native kill counters resume old progress, keep flag/emission order and refuse malformed saves', async () => {",
       "test('delivery rows debit the registered native pack before flags and grants across restore', async () => {"
-    ]
+    ],
+    "engineOutcome": "migrated",
+    "engineTarget": "project-wildshard/engine/test/native-kill-progress.test.ts",
+    "ring": 1
   },
   {
     "file": "test/native-oracle-products.test.ts",
@@ -976,30 +1023,37 @@
   },
   {
     "file": "test/native-quest-composition.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "moved-engine",
+    "reason": "Replaced the custom legacy director and exact adapter-key list with the actual published composition, credited inventory, fresh-host restore and physical body count/identity checks.",
     "evidence": [
       "test('an orchard quest resolves native services by ids and restores carried reward and prop handles', async () => {"
-    ]
+    ],
+    "engineOutcome": "migrated",
+    "engineTarget": "project-wildshard/engine/test/native-quest-composition.test.ts",
+    "ring": 1
   },
   {
     "file": "test/native-quest-props.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "moved-engine",
+    "reason": "Removed the author compilation equality check; kept real physical drops, floors and latches.",
     "evidence": [
       "test('salt-marsh physical quest props own drops, floor layers and same-tick latches', async () => {",
       "test('Driftwood prop compilation keys the tide barrel to its declared body and retains the drop, gate and hold grid', () => {"
-    ]
+    ],
+    "engineOutcome": "migrated",
+    "engineTarget": "project-wildshard/engine/test/native-quest-props.test.ts",
+    "ring": 1
   },
   {
     "file": "test/navmesh-build-slicing.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Pins internal build microtask boundaries, ordered tile callbacks and byte-identical meshes against the unsliced implementation.",
     "evidence": [
       "test('an unspent navigation slice builds every ordered tile before another microtask', async () => {",
       "test('a real navigation pause blocks subsequent tiles and preserves the complete mesh', async () => {",
       "test('a navigation pause refusal still rejects the build before publication', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/npc-focus-programs.test.ts",
@@ -1030,69 +1084,78 @@
   },
   {
     "file": "test/page-preparation.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('a prepared native guest has the same initialization and continuation as a fresh guest', async () => {",
       "test('leases refuse overlap, release once and reject disposal during preparation', async () => {",
       "test('orchard terrain openings preserve yawed triangle bounds and vertical exclusion', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/population-projection.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 1 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('both tiers bake every leaning crown and base with the installed native terrain law', () => {",
       "test('the admitted return guest retains hidden-corpse gates and samples at ten Hz', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/posed-draw.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 5 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('Pine product packing preserves every matrix, pose lane and strict flight threshold', async () => {",
       "test('Driftwood flock uses the same data draw with its original scale and channels', () => {",
       "test('a disposed atlas drops the page-wide library set so a re-entry loads a fresh one', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/product-creatures-leave.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 6 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('a page left during any awaited install read binds no creature rows', async () => {",
       "test('a refused perch leaves later inputs unread and binds no rows', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/quest-continuation-product.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "moved-engine",
+    "reason": "Replaced generator/owner-order goldens with admission of the published document and rejection of corrupt/executable inputs.",
     "evidence": [
       "test('the real product emits the admitted continuation with exact owner and cosmetic identities', async () => {",
       "test('the defining named schema rejects reflected owners, wrong cosmetic ids and malformed loot flags', async () => {"
-    ]
+    ],
+    "engineOutcome": "migrated",
+    "engineTarget": "project-wildshard/engine/test/quest-continuation-product.test.ts",
+    "ring": 1
   },
   {
     "file": "test/quest-continuation.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 15 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test.each(['cosmetics', 'shop'].flatMap(phase => [false, true].map(ancestor => ({ phase, ancestor }))))(",
       "test('continuation intake refuses callbacks, reflected paths and invalid collection ids', () => {",
       "test('finite continuation dispatch refuses unbound placements before installing services', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/quest-entry-resources.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('the defining page admits the original resource values without new document names', () => {",
       "test('fixed resource readers refuse unknown selectors, malformed facts and accessor rows', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/quest-interaction-source-contract.test.ts",
@@ -1106,13 +1169,14 @@
   },
   {
     "file": "test/quest-page-composition.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('an orchard page borrows entered figures and its existing shop by ids', () => {",
       "test('world and figure channels are scoped, and page intake refuses code', () => {",
       "test('page composition admits an authored place frame rather than a fixed island vocabulary', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/quest-placement-authors.test.ts",
@@ -1126,23 +1190,25 @@
   },
   {
     "file": "test/quest-presentation-entry.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 20 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('hint installation borrows actual native owners and preserves priority and system order', () => {",
       "test('hint admission rejects missing native owners, accessors and ancestor retirement before registration', () => {",
       "test('flag publication borrows its bound chapter, snapshots live sorted flags and restores the previous hook', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/quest-presentation-tail.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 25 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('the actual preparation guard refuses replaced owners before map or flags publication', () => {",
       "test('held hint reads refuse every replaced native owner before any feed, listener or system', async () => {",
       "test('ancestor retirement fences the real held read and preparation before effects', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/quest-prop-authors.test.ts",
@@ -1156,11 +1222,12 @@
   },
   {
     "file": "test/quest-trader-page.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Builds a synthetic page/context and swaps in a hand-written shop to count private prompt callbacks and radius changes, without an actual page/player interaction.",
     "evidence": [
       "test('a placed trader prompt binds through its admitted page rows', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/quest-world-admission.test.ts",
@@ -1173,136 +1240,152 @@
   },
   {
     "file": "test/quest-world.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 3 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('authored quest anchors equal actual fixed site placement, with no second rotation', () => {",
       "test('quest world borrows its actual entered flock and leaves static rows independent', async () => {",
       "test.each([false, true])('quest world refuses a read completed after retirement (ancestor: %s)', async ancestor => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/registered-building-life.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('the whole site-life document keeps exact bytes, defaults and its native root', () => {",
       "test('complete root admission preserves native refusals and checks before file IO', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/resolved-island-library.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 18 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('the strict resolved book refuses selectors and executable additions',()=>{",
       "test('cold geometry is intaken once, construction re-admits figures on its own owner and later cards borrow it',async()=>{",
       "test('retiring an older source cannot invalidate the same catalogue re-admitted by construction',async()=>{"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/script-v2-transport.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "moved-engine",
+    "reason": "Replaced private author compiler/writer fixtures with the sealed published ABI2 product, browser admission and actual native resident execution.",
     "evidence": [
       "test('ABI2 named contracts survive reconstruction, disk, browser and native worker validation', async () => {",
       "test('missing, conflicting, wrong-page and understated-memory view declarations refuse without ABI sniffing', async () => {"
-    ]
+    ],
+    "engineOutcome": "migrated",
+    "engineTarget": "project-wildshard/engine/test/script-v2-transport.test.ts",
+    "ring": 2
   },
   {
     "file": "test/toon-look-platform.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 3 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('rejects executable look rows and missing or unsorted day keys', () => {",
       "test('the data clock preserves shipping sky curves at all 1001 day/night phases', () => {",
       "test('builds different ground ids and owns their toon follow within the prepared scope', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/vertex-wear.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private rendering/author representation: geometry, transforms, materials, buffers, source selection, generated row layout or sampled guest arithmetic. The asserted contract is the internal representation itself, including its direct admission guards.",
     "evidence": [
       "test('each part wears its attributes as normalized views over the file, after the texture', async () => {",
       "test('a part baked for other geometry, an unknown part or a missing file refuses', async () => {",
       "test('Driftwood declares its island cover per tier for every baked part', () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/wire-chapter-wake.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Directly pins private row/factory/owner representation or an internal callback projection against a copied fixture. Its asserted contract is the implementation layout or projection, including direct guards for that layout.",
     "evidence": [
       "test('a wake chapter on the wire binds cue effects and draws its bar off the row, and stands up no body', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/wire-population-projection.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 2 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('a marsh\\'s views run on the rows a server sends: memory effects, a seated light, and the habitat back at the end', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/world-ambient-stage.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 7 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('ambient construction preserves the original seeded flock, draw buffers, material clone and original root', async () => {",
       "test('missing original draw, loaded intake, graph or root refuses before copying or cloning', async () => {",
       "test('retired or retiring construction admits no ambient allocation and a sliced retirement publishes no entered loans', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/world-assembly.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 41 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('a frozen graph dependency publishes its complete placement without a second tile owner', async () => {",
       "test('each declared stage publishes its owner loans in order, sliced by its label', async () => {",
       "test('a stage out of its declared order, past the end or after its owner left refuses', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/world-construction.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 29 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('one declared stage walk preserves original progress, floor, yields, capture order and exact GPU root identities',async()=>{",
       "test.each(['unknown','duplicate','future-floor'] as const)('%s checkpoint refuses before the original load or file read',async mode=>{",
       "test('leave across the original early read stops before constructing even the first stage',async()=>{"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/world-cover-stage.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 9 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('cover construction retains original decoder buffers, viewer, update receiver and one labelled slice', async () => {",
       "test('missing cover authorities and geometry bindings refuse before reading or placement', async () => {",
       "test('a leave during the read or placement prevents later cover allocations and registration', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/world-site-life.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 13 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('life preflights original draws, product and publication before allocating the site', async () => {",
       "test('retiring during the original site slice creates no cloud and reads no life file', async () => {",
       "test('leaving during the life read cannot construct or publish buildings or dispose a lent look', async () => {"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   },
   {
     "file": "test/world-updates.test.ts",
-    "disposition": "engine",
-    "reason": "Runtime lifecycle, combat/loot, save migration, resource ownership or world admission tests use engine-owned hosts/fixtures. Preserve for the engine port without moving it now.",
+    "disposition": "deleted",
+    "reason": "J186: Coupled unit harness with 30 mock/spy references. It fabricates page/owner/service dependencies and asserts private construction, preparation, ownership or callback behavior instead of traversing a real player/author boundary.",
     "evidence": [
       "test('the original five ordered callbacks retain frame math, receivers and lazy awake/alpha reads',()=>{",
       "test('all loans preflight before registering even the first wind callback',()=>{",
       "test('a later missing toon loan still leaves zero registered updates',()=>{"
-    ]
+    ],
+    "engineOutcome": "deleted-j186"
   }
 ]
