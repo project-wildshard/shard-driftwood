@@ -1,0 +1,16 @@
+{
+  "driftwood-isle": {
+    "plan": { "version": 1, "observe": [], "segments": [
+      { "id": "distant-chest", "ticks": 1, "commands": [{ "kind": "script", "actorId": "driftwood.interact", "value": 100 }] },
+      { "id": "walk-to-castaway", "ticks": 5000, "commands": [], "route": [{"x":0,"z":-186.5},{"x":-8,"z":-172},{"x":-17,"z":-161},{"x":-20,"z":-150},{"x":-30,"z":-142},{"x":-30,"z":-130},{"x":-30,"z":-118},{"x":-30,"z":-106},{"x":-30,"z":-104},{"x":-24,"z":-80},{"x":-22,"z":-74},{"x":-22,"z":-71.5}] },
+      { "id": "talk-to-castaway", "ticks": 1, "commands": [{ "kind": "script", "actorId": "driftwood.interact", "value": 0 }] },
+      { "id": "walk-to-chest", "ticks": 900, "commands": [], "route": [{"x":-22,"z":-71.5},{"x":-22,"z":-68.9},{"x":-22,"z":-67.6},{"x":-22,"z":-66.7},{"x":-22,"z":-65.2},{"x":-22,"z":-62.9}] },
+      { "id": "open-chest", "ticks": 1, "commands": [{ "kind": "script", "actorId": "driftwood.interact", "value": 100 }] }
+    ] },
+    "expect": [
+      { "at": "distant-chest", "absent": ["open:castaway-chest", "has:flint"] },
+      { "at": "talk-to-castaway", "flags": ["talked:castaway"] },
+      { "at": "open-chest", "flags": ["open:castaway-chest", "has:flint"] }
+    ]
+  }
+}
