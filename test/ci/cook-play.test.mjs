@@ -1,4 +1,6 @@
-// Ring 2, J186: the actual cold cook takes 36.18 s locally. Full served
+// Ring 2, J186: the actual cold cook takes 36.18 s locally and 207.73 s
+// on Linux (220.69 s complete); the 180 s first attempt timed out.
+// Full served
 // admission, earned flint and restore run outside the quick candidate.
 // Use the shipped cooker/encoder, then only extracted server-pack bytes.
 // This complete publish/serve/play journey never joins hooks or Ring 3.
@@ -20,7 +22,7 @@ const {outputDescriptor,serverReadsFile}=await import('@wildshard/engine/game/sh
 const {loadRapier}=await import('@wildshard/engine/physics/rapier');
 const require=createRequire(import.meta.url);
 
-test('the real cooked Driftwood earns flint and resumes using only served server files',{timeout:180_000},async()=>{
+test('the real cooked Driftwood earns flint and resumes using only served server files',{timeout:300_000},async()=>{
  const parent=process.env.WS_PROOF_SCRATCH??tmpdir();mkdirSync(parent,{recursive:true});
  const root=mkdtempSync(join(parent,'driftwood-cook-')),worlds=[];
  const previous=process.env.WILDSHARD_SPAWN_PART_CACHE;

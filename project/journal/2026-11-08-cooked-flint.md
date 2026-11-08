@@ -18,3 +18,9 @@ row/diagnostic-object corpus in driftwood-world-author-ports. Its actual
 road-socket caller-ownership law is preserved unchanged. Complete real
 build/cook/play is the author boundary; no visual ownership proof is
 claimed by removing a wrapper fixture. No engine or rendering changes.
+
+Pinned Linux run 42467667690 reproduced a Ring 2 deadline failure at
+180 seconds. The same actual case continued and completed every assertion:
+207.73 seconds in the cold cook, 220.69 seconds total, flint earned and
+five restored ticks. Only this explicit Ring 2 case gets a 300-second
+deadline; the quick candidate cap and hook discovery remain unchanged.
