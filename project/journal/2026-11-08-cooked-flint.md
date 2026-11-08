@@ -24,3 +24,13 @@ Pinned Linux run 42467667690 reproduced a Ring 2 deadline failure at
 207.73 seconds in the cold cook, 220.69 seconds total, flint earned and
 five restored ticks. Only this explicit Ring 2 case gets a 300-second
 deadline; the quick candidate cap and hook discovery remain unchanged.
+
+Candidate 42468112313 also reproduced an intermittent existing schema
+wrapper failure: registered-baked-plan tries to emit and compare the whole
+JSON Schema, and engine emission rejects RegExp flags. The same graph's
+previous run 42467665074 passed it. Body review removes only the whole-
+schema/factory-identity and private reader-path assertions plus duplicate
+nameBlob assertions. Original phone/desktop partition/matrix/collider byte
+fingerprints, real registered/platform admission, native limits and -0
+law remain unchanged, all four cases. No golden, generator or runtime is
+changed. This J186 trim does not claim to fix engine's schema emission.

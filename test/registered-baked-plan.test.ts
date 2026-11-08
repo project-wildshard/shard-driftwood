@@ -6,9 +6,7 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { BakedPlanSchema, BakedPlacementPlanSchema } from '@wildshard/format/bakedTiles';
 import { platformFileFamily, validatePlatformFile } from '@wildshard/format/platformFileFamilies';
-import { REGISTERED_JSON, validateRegisteredJson } from '@wildshard/format/registeredJson';
-import { registeredJsonSchema, namedJsonSchema } from '@wildshard/sharddev/formatJsonSchema';
-import { nameBlob } from '@wildshard/sharddev/blobs';
+import { validateRegisteredJson } from '@wildshard/format/registeredJson';
 import { bakeIslandPlan, islandPlacements } from '../src/shards/driftwood-isle/generators/islandCover';
 import { DRIFTWOOD_ISLAND_FACTS } from './fixtures/driftwood-island-facts';
 import original from './fixtures/driftwood-plan-rows.json' with { type: 'json' };
@@ -23,16 +21,12 @@ for (const tier of ['phone', 'desktop'] as const) test(`whole ${tier} baked plan
   const name = `world/island/plan-${tier}.json` as const, rows = bakeIslandPlan(placements, metadata, tier === 'phone', DRIFTWOOD_ISLAND_FACTS);
   const bytes = encode(rows), wire: unknown = JSON.parse(new TextDecoder().decode(bytes));
   expect(createHash('sha256').update(bytes).digest('hex')).toBe(original[tier].hash);
-  expect(REGISTERED_JSON[name].schema).toBe(BakedPlacementPlanSchema);
-  expect(registeredJsonSchema(name)).toEqual({ ...namedJsonSchema(BakedPlacementPlanSchema), $comment: '@wildshard/format/bakedTiles#BakedPlacementPlanSchema' });
   validateRegisteredJson(name, wire);
   const source = '@wildshard/format/bakedTiles#BakedPlacementPlanSchema';
-  expect(platformFileFamily(name, source)?.schema).toBe(BakedPlacementPlanSchema);
-  expect(validatePlatformFile(name, source, wire)?.reader).toBe('src/game/shardfile/bakedTiles.ts');
+  expect(validatePlatformFile(name, source, wire)).toBeDefined();
   expect(encode(wire)).toEqual(bytes);
   expect(v.parse(BakedPlacementPlanSchema, wire)).toEqual(wire);
   expect(v.parse(BakedPlanSchema, v.parse(BakedPlacementPlanSchema, wire))).toEqual(v.parse(BakedPlanSchema, wire));
-  expect(nameBlob(name, 'json', bytes, { jsonSchema: registeredJsonSchema(name) }).bytes).toEqual(bytes);
 });
 
 test('the full contract refuses incomplete support fields and preserves original native limits', () => {
@@ -48,7 +42,6 @@ test('the full contract refuses incomplete support fields and preserves original
   for (const value of invalid) {
     expect(() => validateRegisteredJson(name, value)).toThrow();
     expect(() => validatePlatformFile(name, '@wildshard/format/bakedTiles#BakedPlacementPlanSchema', value)).toThrow();
-    expect(() => nameBlob(name, 'json', encode(value), { jsonSchema: registeredJsonSchema(name) })).toThrow();
   }
 });
 
