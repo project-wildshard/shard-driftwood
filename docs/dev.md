@@ -11,6 +11,10 @@ Run from the repo root.
 - `pnpm check`: typecheck + lint + format:check + unit tests + asks. The pre-push hook runs it.
 - `pnpm test`: `node:test` on `src/**/*.test.ts`, run as .ts by Node's type stripping.
 - `pnpm test:hooks`: the `.githooks/` suite (CI, and pre-commit when hooks change).
+- `node --test test/ci/director-shadow.test.mjs`: compile real shipping
+  and shadow director AS, compare actual admitted event streams and
+  restored continuations across captain/reward boundaries and 1,200
+  ticks. CI only, outside hooks; no shadow module is shipped.
 - `pnpm lint:fix` / `pnpm format`: the hooks only check; these fix.
 - `node src/cli/main.ts --help`: the CLI without installing it.
 - `pnpm md:wrap`: rewraps Markdown prose to ~72 columns.
