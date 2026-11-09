@@ -85,6 +85,8 @@ jobs:
         run: node scripts/check-test-boundary.mjs
       - name: Prove real shipping and shadow director parity
         run: node --test test/ci/director-shadow.test.mjs
+      - name: Execute every preserved authored script port
+        run: node --experimental-transform-types --test test/ci/script-ports.test.mjs
       - name: Execute the actual return guest and saved RNG laws
         run: node --experimental-transform-types --test test/ci/returns-author.test.mjs
       - name: Build shard products on the runner
