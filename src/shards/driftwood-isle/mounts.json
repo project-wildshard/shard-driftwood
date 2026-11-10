@@ -2,6 +2,8 @@
  "version": 1,
  "outputs": {
   "driftwood-isle": [
+   "/assets/baked/driftwood-isle/tex/giant.jpg",
+   "/assets/baked/driftwood-isle/tex/giant.phone.webp",
    "/assets/driftwood-isle/baked/fixed-models/boat-gear.glb",
    "/assets/driftwood-isle/baked/fixed-models/boat-hull.glb",
    "/assets/driftwood-isle/baked/fixed-models/boat-sail.glb",
