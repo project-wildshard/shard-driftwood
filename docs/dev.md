@@ -137,3 +137,14 @@ to its independent lane, including repeated-input frames. A full-body
 elapsed assertion and Node timeout both cap it at 9.5 seconds. This is
 numeric evaluation only; it changes no pose source or rendered look.
 Run it with the same --import engine loader as the native floor proof.
+
+## Global-store trial
+
+The root default remains off until the ordered GVS rollout.
+An isolated trial uses `pnpm install --frozen-lockfile
+--config.ci=false --config.enableGlobalVirtualStore=true`.
+Hosted CI proves and caches the real store while runner CI stays true.
+The engine0.1.2 extension declares its installed author-tool dependencies;
+source pins and package resolution records stay unchanged.
+The literal dev command still refuses its generation-input root before
+browser startup. A build or headless play proof does not close that gap.
