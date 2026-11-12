@@ -18,6 +18,12 @@ export const TO_HEADLAND = [[-22, -71.5], [-22, -76], [0, -40], [15.6, -7], [20,
 // The lookout stair to the platform (walk-routes.json `lookout`).
 export const STAIR = [[86.94, 83.68], [87.68, 84.76], [90.27, 88.55], [92.76, 92.18], [93.44, 93.17], [94.17, 94.25]];
 
+// From the lookout's foot south-east over the headland to the zipline's launch deck, 1.8 m back up the slope from the
+// cable's top (spotsRows.json `zipline`, laid out as the engine's CableLayout lays it); the deck is in the prompt's reach.
+// It is stepped onto from the north-west, where the ground is 0.3 m under it: its back edge stands 0.6 m proud and the
+// west slope is too steep to climb. Six arrival offsets of up to 0.4 m on the first two points pass.
+export const TO_ZIPLINE = [[101, 70.5], [112, 59.2], [116.23, 58.33]];
+
 // The pier and the plateau ramp (content-tapes.json), down to the creek as the Lookout journey goes, then east along
 // the shore past the crabs' sand to Wreck Cove, south of the driftwood piles.
 export const TO_COVE = [[0, -186.5], [-8, -172], [-17, -161], [-20, -150], [-30, -142], [-30, -130], [-30, -118], [-30, -106], [-30, -104],
