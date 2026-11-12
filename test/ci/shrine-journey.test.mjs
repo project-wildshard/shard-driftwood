@@ -20,8 +20,9 @@ const until = (route, [x, z]) => { const at = route.findIndex(([px, pz]) => px =
 const CAVE_TO_HATCH = [...back(TO_GATE), [145.17, -0.15]], HOLD_TO_COVE = [...back(INTO_HOLD), [145.6, 0.8], [142, -4]];
 // Up from the creek the walk keeps east of the straight line to the hut front (a hut-side post stops it at (-16, -68)).
 const UP_TO_HUT = [[-6, -58], [-16, -74], [-22, -76]], COVE_TO_HUT = [...until(back(TO_COVE), [0, -40]), ...UP_TO_HUT];
-// Down the headland trail the other way, south of the plank step that stops a straight descent at (81.3, 79.3).
-const HEADLAND_TO_CREEK = [[86.1, 82.45], [85.5, 81], [80, 77], ...until(back(TO_HEADLAND), [0, -40]).slice(1)];
+// Down the headland the other way, a few metres south of the plank trail to (66, 66): straight down the trail the walk
+// snags on its steps and fence posts ((81.3, 79.3), (77.5, 75.3)) as soon as it arrives a few centimetres off.
+const HEADLAND_TO_CREEK = [[86.1, 82.45], [86, 79], [80, 74], [72, 70], ...until(back(TO_HEADLAND), [0, -40]).slice(2)];
 const SHARDS = ['shard:lookout', 'shard:cave', 'shard:wreck'];
 
 test('driftwood-isle: the glyph shards set in the altar and the Captain beaten on real inputs', { timeout: 90_000 }, async () => {

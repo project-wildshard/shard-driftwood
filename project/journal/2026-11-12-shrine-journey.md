@@ -10,7 +10,9 @@
 - No captain exists before `used:altar`. He rises from the pool at full health (320) and falls to about 37 clicks
   in about 1,300 ticks; the player survives.
 - Routes the other way needed two detours: up from the creek to the hut front (a hut-side post at (-16, -68)) and
-  down the headland trail (a plank step at (81.3, 79.3)).
+  down the headland, a few metres south of the plank trail. Straight down the trail the walk snags on its steps and
+  posts at (81.3, 79.3) or (77.5, 75.3) when it arrives a few centimetres off; the first push run failed there on the
+  pinned engine, and the new line passed seven arrival offsets of up to 0.2 m.
 - The shared routes, the barrel shove and the fight loop move to `test/ci/island-legs.mjs`; the Lookout, Cave and
   Wreck journeys import them, with the same tick counts.
 - Breaking the altar rule on purpose (a fourth needed flag in `questGraph.ts`) fails the run at the altar.
