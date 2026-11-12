@@ -5,17 +5,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { boot, rider } from './journey-rider.mjs';
-
-// The pier and the plateau ramp to the castaway (content-tapes.json), then into the hut to his chest.
-const TO_CASTAWAY = [[0, -186.5], [-8, -172], [-17, -161], [-20, -150], [-30, -142], [-30, -130], [-30, -118], [-30, -106], [-30, -104],
-  [-24, -80], [-22, -74], [-22, -71.5]];
-const TO_CHEST = [[-22, -68.9], [-22, -67.6], [-22, -66.7], [-22, -65.2], [-22, -62.9]];
-// Out of the hut and down to the creek. The rope bridge has no server deck (NL5), so the walk rounds the gully's
-// south-east end, climbs its far bank and joins the headland's plank trail (GRADED path 2) to the lookout's foot.
-const TO_HEADLAND = [[-22, -71.5], [-22, -76], [0, -40], [15.6, -7], [20, -3], [46, -3], [46, 8], [47, 16], [47, 24], [45, 26], [42, 25],
-  [36, 27], [34, 30], [35, 34], [37.5, 36], [40, 39], [46, 46], [56, 56], [66, 66], [76, 76], [86.1, 82.45]];
-// The lookout stair to the platform (walk-routes.json `lookout`).
-const STAIR = [[86.94, 83.68], [87.68, 84.76], [90.27, 88.55], [92.76, 92.18], [93.44, 93.17], [94.17, 94.25]];
+import { STAIR, TO_CASTAWAY, TO_CHEST, TO_HEADLAND } from './island-legs.mjs';
 
 test('driftwood-isle: the Lookout glyph shard earned on real inputs', { timeout: 30_000 }, async () => {
   const started = performance.now(), { shard, resident } = await boot();
