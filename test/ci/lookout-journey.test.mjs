@@ -2,19 +2,9 @@
 // Wendell on the plateau, his sea chest for the flint, round the gully's south end and up the headland's plank trail,
 // the lookout stair to the platform, the beacon lit and the shard taken. Only what the page sends drives it: movement
 // and the [E] press each prompt's net route names. No flag, quest or pose is written. About 3,700 ticks.
-import '@wildshard/engine/scripts/sim-node-loader.mjs';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import { createRequire } from 'node:module';
-import { join, resolve } from 'node:path';
 import { test } from 'node:test';
-
-const { loadHeadlessProduct } = await import('@wildshard/engine/host/headlessProduct');
-const { createTrustedHeadlessResident } = await import('@wildshard/engine/host/headlessRuntime');
-const { outputDescriptor, serverReadsFile } = await import('@wildshard/engine/game/shardfile/outputDescriptor');
-const { loadRapier } = await import('@wildshard/engine/physics/rapier');
-const { actRoutes } = await import('@wildshard/engine/sim/actRoutes');
-const engineRequire = createRequire(import.meta.resolve('@wildshard/engine/package.json'));
+import { boot, rider } from './journey-rider.mjs';
 
 // The pier and the plateau ramp to the castaway (content-tapes.json), then into the hut to his chest.
 const TO_CASTAWAY = [[0, -186.5], [-8, -172], [-17, -161], [-20, -150], [-30, -142], [-30, -130], [-30, -118], [-30, -106], [-30, -104],
@@ -26,42 +16,6 @@ const TO_HEADLAND = [[-22, -71.5], [-22, -76], [0, -40], [15.6, -7], [20, -3], [
   [36, 27], [34, 30], [35, 34], [37.5, 36], [40, 39], [46, 46], [56, 56], [66, 66], [76, 76], [86.1, 82.45]];
 // The lookout stair to the platform (walk-routes.json `lookout`).
 const STAIR = [[86.94, 83.68], [87.68, 84.76], [90.27, 88.55], [92.76, 92.18], [93.44, 93.17], [94.17, 94.25]];
-
-async function boot() {
-  const directory = resolve('out/driftwood-isle'), product = await loadHeadlessProduct(directory), shard = product.shardfile;
-  const descriptor = outputDescriptor(shard); assert.ok(descriptor, 'The built shard must pass admission');
-  const assets = new Map(descriptor.index.files.filter(file => serverReadsFile(file, shard.terrain?.collider) && (file.name === undefined || file.kind === 'wasm' || file.kind === 'tile'))
-    .map(file => [file.commons === true ? `commons:${file.hash}` : file.hash, readFileSync(join(directory, file.path))]));
-  const rapier = await loadRapier(readFileSync(engineRequire.resolve('@dimforge/rapier3d-simd/rapier_wasm3d_bg.wasm')));
-  return { shard, resident: await createTrustedHeadlessResident({ shard, assets, product, rapier }) };
-}
-
-function rider(resident) {
-  const { host } = resident, player = [...host.players.values()][0]; assert.ok(player);
-  const routes = actRoutes(host).interactions;
-  // Run (the page's sprint) to each point in turn; a point not reached in its allowance fails the route there.
-  const walk = points => {
-    for (const [x, z] of points) {
-      const allowance = Math.max(300, Math.ceil(Math.hypot(x - player.position.x, z - player.position.z) * 60));
-      let reached = false;
-      for (let tick = 0; tick < allowance && !reached; tick++) {
-        const dx = x - player.position.x, dz = z - player.position.z, distance = Math.hypot(dx, dz);
-        if (distance < 0.25) { reached = true; break; }
-        resident.step([{ kind: 'player', moveX: dx / distance, moveZ: dz / distance, yaw: Math.atan2(-dx, -dz), commandVersion: 1, sprint: true,
-          steer: { keyX: 0, keyY: 1, stickX: 0, stickY: 0 } }]);
-      }
-      assert.ok(reached, `The walk is blocked at ${x}, ${z}: ${player.position.x}, ${player.position.y}, ${player.position.z}`);
-    }
-  };
-  // [E] where the player stands: the act the prompt's net route names, beside a standing player frame.
-  const press = name => {
-    const route = routes.get(name); assert.ok(route, `The product must route the ${name} prompt`);
-    resident.step([{ kind: 'player', moveX: 0, moveZ: 0, yaw: 0, commandVersion: 1, steer: { keyX: 0, keyY: 0, stickX: 0, stickY: 0 } },
-      { kind: 'script', actorId: route.actorId, value: route.value }]);
-  };
-  const has = flag => host.flags.all.has?.(flag) ?? [...host.flags.all].includes(flag);
-  return { host, player, walk, press, has };
-}
 
 test('driftwood-isle: the Lookout glyph shard earned on real inputs', { timeout: 30_000 }, async () => {
   const started = performance.now(), { shard, resident } = await boot();
