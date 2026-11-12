@@ -2,7 +2,7 @@ name: ci
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'plan/**']
   pull_request:
   workflow_dispatch:
     inputs:
@@ -23,7 +23,9 @@ permissions:
 
 concurrency:
   group: ci-${{ github.ref }}-${{ github.event_name }}-${{ inputs.engine || github.event.client_payload.engine }}-${{ inputs.sharddev || github.event.client_payload.sharddev }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  # A newer push to a plan branch cancels its older run; land reads a
+  # cancelled run as red and stops, so push a plan branch only via land.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' || startsWith(github.ref, 'refs/heads/plan/') }}
 
 jobs:
   check:
@@ -209,12 +211,15 @@ jobs:
       - name: Prove the installed global store
         run: node scripts/assert-store-layout.mjs
       # The paths ring-2-cook.yml's push trigger watched, plus ci.yml.
-      # An unknown base (first push, failed compare, 300+ files) plays.
+      # A plan/** push compares against main, not the branch's last tip, so
+      # land never fast-forwards a branch whose watched change skipped Ring 2.
+      # An unknown base (a main branch's first push, failed compare, 300+
+      # files) plays.
       - name: Decide whether this push plays Ring 2
         id: ring2
         env:
           GH_TOKEN: ${{ github.token }}
-          BEFORE: ${{ github.event.before }}
+          BEFORE: ${{ startsWith(github.ref, 'refs/heads/plan/') && 'main' || github.event.before }}
         run: |
           watched='^(\.github/workflows/(ci|ring-2-cook)\.yml$|\.github/actions/|src/|test/|scripts/|public/|lint/|package\.json$|pnpm-lock\.yaml$|pnpm-workspace\.yaml$|tsconfig[^/]*\.json$|vitest\.config\.[^/]*$|\.npmrc$|\.gitattributes$|\.oxlintrc\.author\.json$)'
           play=true
