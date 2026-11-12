@@ -1,0 +1,492 @@
+{
+ "about": "G859 24-camera set: cameras 1-4 are the CO6 cameras (art/legacy-vs-shardfile/round-1-2026-10-28/cameras.json); 5-24 are POI, coverage, aerial and hands views. yaw / pitch in degrees (yaw 0 = -z, 90 = +x; the engine camera rotation.y is -yaw). probe = the player pose (radians); eye = the camera, resolved from the LEGACY capture (the player eye after settling, plus lift).",
+ "cameras": {
+  "driftwood-isle": [
+   {
+    "name": "pier",
+    "eye": [
+     -1.0548928770701286e-05,
+     2.8939167784216027,
+     -193.99999835725035
+    ],
+    "yaw": -180,
+    "pitch": 0,
+    "probe": {
+     "name": "pier",
+     "x": 0,
+     "z": -194,
+     "yaw": 3.141592653589793,
+     "pitch": 0
+    },
+    "fov": 86.79865242363684,
+    "kind": "co6",
+    "poi": "CO6 camera pier",
+    "n": 1
+   },
+   {
+    "name": "beach",
+    "eye": [
+     -9.999505816598536,
+     2.3847274137720387,
+     -150.00002120093396
+    ],
+    "yaw": -246.371851906254,
+    "pitch": 0,
+    "probe": {
+     "name": "beach",
+     "x": -10,
+     "z": -150,
+     "yaw": 4.3,
+     "pitch": 0
+    },
+    "fov": 86.79865242363684,
+    "kind": "co6",
+    "poi": "CO6 camera beach",
+    "n": 2
+   },
+   {
+    "name": "wreck",
+    "eye": [
+     105.00385959041883,
+     4.489226589673919,
+     -0.006441806207720826
+    ],
+    "yaw": 90,
+    "pitch": 0,
+    "probe": {
+     "name": "wreck",
+     "x": 105,
+     "z": 0,
+     "yaw": -1.5707963267948966,
+     "pitch": 0
+    },
+    "fov": 86.79865242363684,
+    "kind": "co6",
+    "poi": "CO6 camera wreck",
+    "n": 3
+   },
+   {
+    "name": "spawn-opposite",
+    "feet": [
+     0,
+     1.2,
+     -194
+    ],
+    "yaw": -360,
+    "pitch": 0,
+    "spawnFallback": true,
+    "eye": [
+     -1.0540551631494072e-05,
+     2.8939816285849664,
+     -193.99999985222888
+    ],
+    "fov": 86.79865242363684,
+    "kind": "co6",
+    "poi": "CO6 camera spawn-opposite",
+    "n": 4
+   },
+   {
+    "name": "jetty-end",
+    "kind": "poi",
+    "poi": "Jetty (manifest poi)",
+    "probe": {
+     "x": 0.0,
+     "z": -220.0,
+     "yaw": -0.0,
+     "pitch": 0.0
+    },
+    "yaw": 0.0,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 5,
+    "eye": [
+     0.0,
+     2.9,
+     -220.0
+    ]
+   },
+   {
+    "name": "hut",
+    "kind": "poi",
+    "poi": "Hut (manifest poi)",
+    "probe": {
+     "x": -14.0,
+     "z": -47.9,
+     "yaw": 0.460767,
+     "pitch": 0.0
+    },
+    "yaw": -26.4,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 6,
+    "eye": [
+     -13.998,
+     19.931,
+     -47.903
+    ]
+   },
+   {
+    "name": "shrine",
+    "kind": "poi",
+    "poi": "Ring shrine (manifest poi)",
+    "probe": {
+     "x": -85.8,
+     "z": 92.1,
+     "yaw": 2.487094,
+     "pitch": 0.0
+    },
+    "yaw": -142.5,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 7,
+    "eye": [
+     -85.798,
+     8.451,
+     92.096
+    ]
+   },
+   {
+    "name": "lookout",
+    "kind": "poi",
+    "poi": "Lookout (manifest poi)",
+    "probe": {
+     "x": 82.5,
+     "z": 80.1,
+     "yaw": -2.450442,
+     "pitch": 0.0
+    },
+    "yaw": 140.4,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 8,
+    "eye": [
+     82.507,
+     36.15,
+     80.098
+    ]
+   },
+   {
+    "name": "wreck-cove",
+    "kind": "poi",
+    "poi": "Wreck cove (manifest poi), close",
+    "probe": {
+     "x": 128,
+     "z": -18,
+     "yaw": -2.246239,
+     "pitch": 0.0
+    },
+    "yaw": 128.7,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 9,
+    "eye": [
+     128.002,
+     1.797,
+     -18.002
+    ]
+   },
+   {
+    "name": "rope-bridge",
+    "kind": "poi",
+    "poi": "Rope bridge (manifest poi)",
+    "probe": {
+     "x": 16.1,
+     "z": 8.1,
+     "yaw": -2.624975,
+     "pitch": 0.0
+    },
+    "yaw": 150.4,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 10,
+    "eye": [
+     16.099,
+     6.802,
+     8.099
+    ]
+   },
+   {
+    "name": "lookout-back",
+    "kind": "poi",
+    "poi": "beside the Lookout, back over the island",
+    "probe": {
+     "x": 78,
+     "z": 76,
+     "yaw": 0.591667,
+     "pitch": 0.0
+    },
+    "yaw": -33.9,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 11,
+    "eye": [
+     78.024,
+     36.635,
+     75.982
+    ]
+   },
+   {
+    "name": "shrine-sea",
+    "kind": "poi",
+    "poi": "by the Ring shrine, out to sea",
+    "probe": {
+     "x": -82,
+     "z": 92,
+     "yaw": -4.712389,
+     "pitch": 0.0
+    },
+    "yaw": 270,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 12,
+    "eye": [
+     -81.998,
+     8.204,
+     91.996
+    ]
+   },
+   {
+    "name": "grid-110-110",
+    "kind": "grid",
+    "poi": "coverage (-110, -110) looking south-east",
+    "probe": {
+     "x": -110,
+     "z": -110,
+     "yaw": -2.356194,
+     "pitch": 0.0
+    },
+    "yaw": 135,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 13,
+    "eye": [
+     -110.001,
+     4.657,
+     -110.002
+    ]
+   },
+   {
+    "name": "grid+0-110",
+    "kind": "grid",
+    "poi": "coverage (0, -110) looking north",
+    "probe": {
+     "x": 10,
+     "z": -110,
+     "yaw": 0.0,
+     "pitch": 0.0
+    },
+    "yaw": 0,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 14,
+    "eye": [
+     10.001,
+     5.128,
+     -110.004
+    ]
+   },
+   {
+    "name": "grid+110-110",
+    "kind": "grid",
+    "poi": "coverage (110, -110) looking south-west",
+    "probe": {
+     "x": 110,
+     "z": -110,
+     "yaw": -3.926991,
+     "pitch": 0.0
+    },
+    "yaw": 225,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 15,
+    "eye": [
+     110.002,
+     3.888,
+     -110.002
+    ]
+   },
+   {
+    "name": "grid-110+0",
+    "kind": "grid",
+    "poi": "coverage (-110, 0) looking west",
+    "probe": {
+     "x": -110,
+     "z": 0,
+     "yaw": -4.712389,
+     "pitch": 0.0
+    },
+    "yaw": 270,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 16,
+    "eye": [
+     -110.003,
+     4.84,
+     -0.004
+    ]
+   },
+   {
+    "name": "grid+110+0",
+    "kind": "grid",
+    "poi": "coverage (110, 0) looking east",
+    "probe": {
+     "x": 110,
+     "z": 0,
+     "yaw": -1.570796,
+     "pitch": 0.0
+    },
+    "yaw": 90,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 17,
+    "eye": [
+     110.016,
+     4.396,
+     -0.009
+    ]
+   },
+   {
+    "name": "grid-110+110",
+    "kind": "grid",
+    "poi": "coverage (-110, 110) looking north-east",
+    "probe": {
+     "x": -120,
+     "z": 80,
+     "yaw": -0.785398,
+     "pitch": 0.0
+    },
+    "yaw": 45,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 18,
+    "eye": [
+     -120.003,
+     4.454,
+     80.001
+    ]
+   },
+   {
+    "name": "grid+0+110",
+    "kind": "grid",
+    "poi": "coverage (0, 110) looking south",
+    "probe": {
+     "x": 0,
+     "z": 110,
+     "yaw": -3.141593,
+     "pitch": 0.0
+    },
+    "yaw": 180,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 19,
+    "eye": [
+     0.001,
+     7.013,
+     110.0
+    ]
+   },
+   {
+    "name": "grid+110+110",
+    "kind": "grid",
+    "poi": "coverage (110, 110) looking north-west",
+    "probe": {
+     "x": 110,
+     "z": 110,
+     "yaw": -5.497787,
+     "pitch": 0.0
+    },
+    "yaw": 315,
+    "pitch": 0,
+    "fov": 86.79865242363684,
+    "n": 20,
+    "eye": [
+     110.0,
+     32.856,
+     110.0
+    ]
+   },
+   {
+    "name": "aerial-south",
+    "kind": "aerial",
+    "poi": "the whole shard from hover height",
+    "probe": {
+     "x": 0,
+     "z": -235,
+     "yaw": -3.141593,
+     "pitch": -0.383972
+    },
+    "yaw": 180.0,
+    "pitch": -22,
+    "lift": 80,
+    "fov": 86.79865242363684,
+    "n": 21,
+    "eye": [
+     0.387,
+     81.74,
+     -234.727
+    ]
+   },
+   {
+    "name": "aerial-east",
+    "kind": "aerial",
+    "poi": "the whole shard from hover height",
+    "probe": {
+     "x": 150,
+     "z": 60,
+     "yaw": 1.232202,
+     "pitch": -0.488692
+    },
+    "yaw": -70.6,
+    "pitch": -28,
+    "lift": 90,
+    "fov": 86.79865242363684,
+    "n": 22,
+    "eye": [
+     150.001,
+     100.018,
+     59.997
+    ]
+   },
+   {
+    "name": "hands-down",
+    "kind": "hands",
+    "poi": "hands and held item, first-person close-up",
+    "probe": {
+     "x": 0,
+     "z": -194,
+     "yaw": 3.141593,
+     "pitch": -0.558505
+    },
+    "yaw": -180,
+    "pitch": -32,
+    "fov": 86.79865242363684,
+    "n": 23,
+    "eye": [
+     -0.0,
+     2.895,
+     -194.0
+    ]
+   },
+   {
+    "name": "hands-up",
+    "kind": "hands",
+    "poi": "hands and held item, first-person close-up",
+    "probe": {
+     "x": -10,
+     "z": -150,
+     "yaw": 4.300491,
+     "pitch": 0.244346
+    },
+    "yaw": -246.4,
+    "pitch": 14,
+    "fov": 86.79865242363684,
+    "n": 24,
+    "eye": [
+     -9.999,
+     2.387,
+     -150.001
+    ]
+   }
+  ]
+ }
+}
