@@ -109,6 +109,8 @@ jobs:
         run: pnpm build:shards
       - name: Walk the owned 1800-tick authored route
         run: node --experimental-transform-types --test test/ci/owned-journey.test.mjs
+      - name: Earn the Lookout glyph shard on real inputs
+        run: node --experimental-transform-types --test test/ci/lookout-journey.test.mjs
       - run: pnpm test:shards
       - name: Boot, play and resume every built product
         run: node --test --test-concurrency=1 test/ci/product-play.test.mjs test/ci/package-products.test.mjs
