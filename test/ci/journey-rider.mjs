@@ -1,6 +1,6 @@
 // The headless rider the CI journeys share (J186 Ring 2): the built driftwood-isle product booted on the pinned engine,
 // and a player driven only by what the page sends: movement frames toward points, and the [E] press each prompt's net
-// route names. No flag, quest or pose is written.
+// route names, and the attack a click on the locked target sends. No flag, quest or pose is written.
 import '@wildshard/engine/scripts/sim-node-loader.mjs';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -51,6 +51,10 @@ export function rider(resident) {
     resident.step([{ kind: 'player', moveX: 0, moveZ: 0, yaw: 0, commandVersion: 1, steer: { keyX: 0, keyY: 0, stickX: 0, stickY: 0 } },
       { kind: 'script', actorId: route.actorId, value: route.value }]);
   };
+  // A click on the locked target: the page's attack frame, standing and facing it.
+  const strike = (targetId, dx, dz) => {
+    resident.step([{ kind: 'player', moveX: 0, moveZ: 0, yaw: Math.atan2(-dx, -dz), commandVersion: 1, attack: { targetId }, steer: { keyX: 0, keyY: 0, stickX: 0, stickY: 0 } }]);
+  };
   const has = flag => host.flags.all.has?.(flag) ?? [...host.flags.all].includes(flag);
-  return { host, player, head, walk, press, has };
+  return { host, player, head, walk, press, strike, has };
 }
