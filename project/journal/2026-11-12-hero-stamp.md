@@ -21,3 +21,7 @@ The first push kept engine `80d5cc0`, and Ring 2's owned journey failed
 ("Native body scripts require admitted ground"): the old engine cannot
 play a product the new sharddev builds. Engine moves to `867f3b9`, the
 engine sharddev pins, and every Ring 2 step passes locally.
+
+The engine's `packageExtensions` entry named `@wildshard/engine@0.1.2`, so
+the new engine (0.1.13) lost its `vite` and the lint plugin could not
+load; the selector now names the package, as sharddev's does.
