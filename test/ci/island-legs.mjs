@@ -11,9 +11,9 @@ export const back = route => [...route].reverse();
 export const TO_CASTAWAY = [[0, -186.5], [-8, -172], [-17, -161], [-20, -150], [-30, -142], [-30, -130], [-30, -118], [-30, -106], [-30, -104],
   [-24, -80], [-22, -74], [-22, -71.5]];
 export const TO_CHEST = [[-22, -68.9], [-22, -67.6], [-22, -66.7], [-22, -65.2], [-22, -62.9]];
-// Out of the hut and down to the creek. The rope bridge has no server deck (NL5), so the walk rounds the gully's
+// Out of the hut and down to the creek, by the hut path east of Wendell, who has a body since SERVER-PARITY SS10b. The rope bridge has no server deck (NL5), so the walk rounds the gully's
 // south-east end, climbs its far bank and joins the headland's plank trail (GRADED path 2) to the lookout's foot.
-export const TO_HEADLAND = [[-22, -71.5], [-22, -76], [0, -40], [15.6, -7], [20, -3], [46, -3], [46, 8], [47, 16], [47, 24], [45, 26], [42, 25],
+export const TO_HEADLAND = [[-22, -71.5], [-22, -76], [-16, -74], [-6, -58], [0, -40], [15.6, -7], [20, -3], [46, -3], [46, 8], [47, 16], [47, 24], [45, 26], [42, 25],
   [36, 27], [34, 30], [35, 34], [37.5, 36], [40, 39], [46, 46], [56, 56], [66, 66], [76, 76], [86.1, 82.45]];
 // The lookout stair to the platform (walk-routes.json `lookout`).
 export const STAIR = [[86.94, 83.68], [87.68, 84.76], [90.27, 88.55], [92.76, 92.18], [93.44, 93.17], [94.17, 94.25]];
@@ -27,7 +27,7 @@ export const TO_ZIPLINE = [[101, 70.5], [112, 59.2], [116.23, 58.33]];
 // The pier and the plateau ramp (content-tapes.json), down to the creek as the Lookout journey goes, then east along
 // the shore past the crabs' sand to Wreck Cove, south of the driftwood piles.
 export const TO_COVE = [[0, -186.5], [-8, -172], [-17, -161], [-20, -150], [-30, -142], [-30, -130], [-30, -118], [-30, -106], [-30, -104],
-  [-24, -80], [-22, -76], [0, -40], [15.6, -7], [20, -3], [46, -3], [58, 2], [80, 1], [100, 1], [120, 0], [128, -6], [136, -6], [142, -4]];
+  [-24, -80], [-22, -76], [-16, -74], [-6, -58], [0, -40], [15.6, -7], [20, -3], [46, -3], [58, 2], [80, 1], [100, 1], [120, 0], [128, -6], [136, -6], [142, -4]];
 
 // Round the driftwood piles to the shut sluice (walk-routes.json `cave`), and back out.
 export const TO_GATE = [[145.6, 0.8], [146.4, 6], [146.2, 10.2], [144.75, 12.95], [142.6, 14.4], [142, 16], [142, 17.5], [142, 19.25]];
@@ -63,19 +63,27 @@ export function findBarrel(host) {
 
 /** Walk (no sprint) into the barrel until it rests on tide plate B, as a player shoves it: line up on its far side from
  *  where it should go, then lean through its centre. It goes by a point east of the straight line, clear of the
- *  driftwood piles it would wedge on. Returns the ticks the shove took. */
+ *  driftwood piles it would wedge on, and stop once it rests on the plate. Returns the ticks the shove took. */
 export function shoveBarrel({ host, player, head, has }, barrel) {
   const pushStart = host.state.tick, BARREL_LINE = [[146.3, 7.6], [PLATE_B.x, PLATE_B.z]];
   let leg = 0;
-  for (let tick = 0; tick < 1500 && !has('plate:tide-plate-b'); tick++) {
-    const at = barrel.translation();
+  // Shoved at a full walk the barrel can tip onto its side and roll on past the plate (SERVER-PARITY SS10b moved the
+  // contacts enough to show it), so within 3.5 m of the plate the player leans on it every other tick. The shove ends
+  // once the barrel rests (30 still ticks) with the plate held; a plate the player alone holds does not count.
+  let resting = 0;
+  for (let tick = 0; tick < 2400 && resting < 30; tick++) {
+    const at = barrel.translation(), speed = Math.hypot(barrel.linvel().x, barrel.linvel().z);
+    const toPlate = Math.hypot(PLATE_B.x - at.x, PLATE_B.z - at.z);
+    if (has('plate:tide-plate-b') && toPlate < 1) { resting = speed < 0.05 ? resting + 1 : 0; head(0, 0, false); continue; }
+    resting = 0;
+    if (toPlate < 3.5 && tick % 2 === 1) { head(0, 0, false); continue; }
     if (leg < BARREL_LINE.length - 1 && Math.hypot(BARREL_LINE[leg][0] - at.x, BARREL_LINE[leg][1] - at.z) < 0.5) leg++;
     const ux = BARREL_LINE[leg][0] - at.x, uz = BARREL_LINE[leg][1] - at.z, u = Math.hypot(ux, uz);
     const vx = at.x - player.position.x, vz = at.z - player.position.z, v = Math.hypot(vx, vz);
     if ((vx * ux + vz * uz) / (v * u) > 0.99 && v < 1.6) head(vx / v + ux / u, vz / v + uz / u, false);
     else head(at.x - ux / u * 1.5 - player.position.x, at.z - uz / u * 1.5 - player.position.z, false);
   }
-  assert.ok(has('plate:tide-plate-b'), `The barrel is shoved onto the second plate: ${JSON.stringify(barrel.translation())}`);
+  assert.ok(resting >= 30 && has('plate:tide-plate-b'), `The barrel is shoved onto the second plate: ${JSON.stringify(barrel.translation())}`);
   return host.state.tick - pushStart;
 }
 
