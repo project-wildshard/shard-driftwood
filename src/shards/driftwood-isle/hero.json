@@ -1,10 +1,10 @@
 {
   "content": "0cf0ec75861acf6445cdc776f906e139aca80222e61d908e4490b709683981f8",
-  "captured": "2026-11-13T10:35:43.533Z",
-  "base": "http://127.0.0.1:4861/",
+  "captured": "2026-11-13T20:58:43.156Z",
+  "base": "http://127.0.0.1:4893/",
   "card": {
-    "thumbs/driftwood-isle.jpg": "eb3273a02f6f9306fa12fc1c8d0fc2f317c360665684df3a23f5f381f125a545",
-    "thumbs/driftwood-isle-portrait.jpg": "d70e08b050b8a35e064c10ecd23ddf02fa034f58a73c36143b21d0bda5e990e3",
-    "thumbs/driftwood-isle-landscape.jpg": "1e2b8a817db3b3aca1c609af9c29dc96a73d0ff7819183376227aa82d34501df"
+    "thumbs/driftwood-isle.jpg": "e39b32da59dfad9e75e4e01115116603a6deb64994721d56196bc854ab7b4517",
+    "thumbs/driftwood-isle-portrait.jpg": "c58a0d2e5ee3362493fe2f408d879b45108128a728cb04e9fdfd38bdd839ae85",
+    "thumbs/driftwood-isle-landscape.jpg": "8e295ace9e106415c0606cb8d610e999abccc504c5d9444b2854dbc80887315e"
   }
 }
