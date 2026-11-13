@@ -1,10 +1,10 @@
 import { expect, expectTypeOf, test } from 'vitest';
 import * as v from 'valibot';
-import { decodeEntryDecks, ENTRY_DECKS } from '../src/shards/driftwood-isle/generators/entryDecks';
-import { ENTRY_LANDINGS, type EntryLanding } from '../src/shards/driftwood-isle/generators/entryLandings';
-import { driftwoodEntryDeckRows } from '../src/shards/driftwood-isle/generators/entryDeck';
-import { driftwoodEntryFloorRows } from '../src/shards/driftwood-isle/generators/entryFloors';
-import { ENTRY_ROWS } from '../src/shards/driftwood-isle/generators/entryRows';
+import { decodeEntryDecks, ENTRY_DECKS } from '../src/generators/entryDecks';
+import { ENTRY_LANDINGS, type EntryLanding } from '../src/generators/entryLandings';
+import { driftwoodEntryDeckRows } from '../src/generators/entryDeck';
+import { driftwoodEntryFloorRows } from '../src/generators/entryFloors';
+import { ENTRY_ROWS } from '../src/generators/entryRows';
 
 const finite = v.pipe(v.number(), v.finite()), positive = v.pipe(finite, v.minValue(0.005), v.maxValue(500));
 const rect = v.pipe(v.strictObject({ minX: finite, minZ: finite, maxX: finite, maxZ: finite }),

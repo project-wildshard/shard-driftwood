@@ -1,13 +1,13 @@
 import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { expect, test } from 'vitest';
-import { cargoModels } from '../src/shards/driftwood-isle/generators/cargoCatalogue';
-import { DRIFTWOOD_EXCHANGE } from '../src/shards/driftwood-isle/generators/economy';
-import { OCEAN_GRAPHS } from '../src/shards/driftwood-isle/generators/oceanGraphs';
-import { POOL_GRAPHS } from '../src/shards/driftwood-isle/generators/poolGraphs';
-import { reefCatalogue } from '../src/shards/driftwood-isle/generators/reefCatalogue';
-import { REEF_GRAPHS } from '../src/shards/driftwood-isle/generators/reefGraphs';
-import { DRIFTWOOD_SPAWNS } from '../src/shards/driftwood-isle/generators/spawnTables';
-import { CASCADE_GRAPHS } from '../src/shards/driftwood-isle/generators/waterfallGraphs';
+import { cargoModels } from '../src/generators/cargoCatalogue';
+import { DRIFTWOOD_EXCHANGE } from '../src/generators/economy';
+import { OCEAN_GRAPHS } from '../src/generators/oceanGraphs';
+import { POOL_GRAPHS } from '../src/generators/poolGraphs';
+import { reefCatalogue } from '../src/generators/reefCatalogue';
+import { REEF_GRAPHS } from '../src/generators/reefGraphs';
+import { DRIFTWOOD_SPAWNS } from '../src/generators/spawnTables';
+import { CASCADE_GRAPHS } from '../src/generators/waterfallGraphs';
 import { DRIFTWOOD_LAYOUTS } from './fixtures/driftwood-layout-source';
 import original from './fixtures/driftwood-graph-scene-original.json' with { type: 'json' };
 

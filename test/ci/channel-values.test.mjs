@@ -5,7 +5,7 @@ import { admittedClientChannels, planMergedChannels, publishMergedChannels } fro
 
 test('driftwood-isle actual pose programs publish exact independent lane values', { timeout: 9500 }, async () => {
   const started = performance.now();
-  const { CRAB_CLIPS: clips } = await import('../../src/shards/driftwood-isle/generators/crabClips.ts');
+  const { CRAB_CLIPS: clips } = await import('../../src/generators/crabClips.ts');
   const programs = parseClientChannels(clips.programs.map(row => ({ ...row, numeric: { ...row.numeric, inputs: [] } })));
   assert.ok(programs.length > 0);
   for (const program of programs) assert.ok(program.channels.length > 0);

@@ -1,14 +1,14 @@
-import { FIGURE_CATALOGUE } from '../../src/shards/driftwood-isle/generators/figureCatalogue';
-import { TOON_LOOK } from '../../src/shards/driftwood-isle/generators/toonPresentation';
+import { FIGURE_CATALOGUE } from '../../src/generators/figureCatalogue';
+import { TOON_LOOK } from '../../src/generators/toonPresentation';
 import { HELD_ARMS } from './driftwood-layout-source';
-import inventory from '../../src/shards/driftwood-isle/data/fixedGeometry.json' with { type: 'json' };
+import inventory from '../../src/data/fixedGeometry.json' with { type: 'json' };
 import { encodeCanonicalJson, hashImmutableBytes } from '@wildshard/format/immutable';
 import { createShardProduct } from '@wildshard/engine/game/shardfile/shardProduct';
 import { emptyShardfile } from '@wildshard/sharddev/author';
 import { DRIFTWOOD_CLIENT_SECTIONS } from './driftwoodLegacyLayouts';
-import { DRIFTWOOD_CLIENT_SECTIONS as PLATFORM_ROWS } from '../../src/shards/driftwood-isle/generators/clientSections';
+import { DRIFTWOOD_CLIENT_SECTIONS as PLATFORM_ROWS } from '../../src/generators/clientSections';
 import { admitDriftwoodRows } from './driftwoodLegacyRows';
-import { NPC_FOCUS_PROGRAMS } from '../../src/shards/driftwood-isle/generators/npcFocusPrograms';
+import { NPC_FOCUS_PROGRAMS } from '../../src/generators/npcFocusPrograms';
 import { fixtureProductFile, fixtureJsonCheck } from './productFile';
 
 /** Node fixture (W2b): admit Driftwood's client row sections from the same definitions the build emits, as plain

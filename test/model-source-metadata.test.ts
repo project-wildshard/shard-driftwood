@@ -4,7 +4,7 @@ import * as v from 'valibot';
 import { readFileSync } from 'node:fs';
 import { modelPrototypeFacts, modelSourceMetadata, modelCoverMetadata } from '@wildshard/sharddev/bake/sourceMetadata';
 import original from './fixtures/driftwood-island-original.json' with { type: 'json' };
-import type { DriftwoodIslandFacts } from '../src/shards/driftwood-isle/generators/islandFacts';
+import type { DriftwoodIslandFacts } from '../src/generators/islandFacts';
 
 const finite = v.pipe(v.number(), v.finite()), point = v.object({ x: finite, y: finite, z: finite });
 const planted = v.object({ x: finite, z: finite, h: finite, lean: finite, leanDir: finite, rot: finite, fronds: finite });

@@ -1,6 +1,6 @@
 import { driftwoodNativeGuestProgram } from './driftwood-native-program';
 import * as v from 'valibot';
-import { driftwoodGuestRows } from '../../src/shards/driftwood-isle/generators/guestPrograms';
+import { driftwoodGuestRows } from '../../src/generators/guestPrograms';
 
 const compiled = v.parse(v.array(v.tuple([v.string(), v.string()])), JSON.parse(await driftwoodNativeGuestProgram()));
 if (new Set(compiled.map(([name]) => name)).size !== compiled.length) throw new Error('Duplicate native guest fixture file');

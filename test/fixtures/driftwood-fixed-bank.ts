@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { driftwoodFixedBytes, DRIFTWOOD_FIXED_INPUTS } from '../../src/shards/driftwood-isle/generators/fixedProgram';
+import { driftwoodFixedBytes, DRIFTWOOD_FIXED_INPUTS } from '../../src/generators/fixedProgram';
 
 let files: Promise<ReadonlyMap<string, Uint8Array>> | undefined;
 /** Original fixed files come from the defining producer over committed native inputs. */

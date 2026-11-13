@@ -1,7 +1,7 @@
 import { DRIFTWOOD_LAYOUTS } from './fixtures/driftwood-layout-source';
 import { expect, test } from 'vitest';
 import { QuestWorldSchema } from '@wildshard/format/questWorld';
-import { driftwoodQuestWorld } from '../src/shards/driftwood-isle/generators/questWorld';
+import { driftwoodQuestWorld } from '../src/generators/questWorld';
 import * as v from 'valibot';
 
 

@@ -1,8 +1,8 @@
 import { expect, test } from 'vitest';
 import * as v from 'valibot';
 import { KitFigureSchema } from '@wildshard/format/kitFigure';
-import { FIGURE_CATALOGUE } from '../src/shards/driftwood-isle/generators/figureCatalogue';
-import { kitFocusProgram } from '../src/shards/driftwood-isle/generators/npcFocusPrograms';
+import { FIGURE_CATALOGUE } from '../src/generators/figureCatalogue';
+import { kitFocusProgram } from '../src/generators/npcFocusPrograms';
 
 /** An unrelated harbour's net-mender: a kit figure that mends on a timer when you are away and lifts the net on a signal. */
 const mender = {

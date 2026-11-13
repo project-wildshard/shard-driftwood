@@ -12,9 +12,9 @@ const { ReturnProgram } = await import('@wildshard/engine/game/population/return
 const { Rng } = await import('@wildshard/engine/core/rng');
 const { Scope } = await import('@wildshard/engine/app/scope');
 const { setTerrainHeight } = await import('@wildshard/engine/world/terrainHeight');
-const { driftwoodGuestBytes } = await import('../../src/shards/driftwood-isle/generators/guestPrograms.ts');
-const { driftwoodGroundField } = await import('../../src/shards/driftwood-isle/generators/groundRows.ts');
-const { WORLD_DROP, SHORE_LEVEL } = await import('../../src/shards/driftwood-isle/generators/landscapeRows.ts');
+const { driftwoodGuestBytes } = await import('../../src/generators/guestPrograms.ts');
+const { driftwoodGroundField } = await import('../../src/generators/groundRows.ts');
+const { WORLD_DROP, SHORE_LEVEL } = await import('../../src/generators/landscapeRows.ts');
 
 function rngAfter(seed, draws) {
   const random = new Rng(seed);
@@ -23,7 +23,7 @@ function rngAfter(seed, draws) {
 }
 
 test('actual Driftwood return guest keeps all six public signal laws and opaque RNG continuation', { timeout: 9500 }, async () => {
-  const root = 'src/shards/driftwood-isle', owner = new Scope('driftwood-return-proof');
+  const root = 'src', owner = new Scope('driftwood-return-proof');
   const inputs = new Map(['behaviour/returns.as', 'behaviour/bridgeSway.as', 'behaviour/director.as', 'data/director.json'].map(file => [file, new Uint8Array(readFileSync(`${root}/${file}`))]));
   const compiler = { compileDecisionRows: compileDecisionScripts, compileScript, compileScriptV2 };
   let program;

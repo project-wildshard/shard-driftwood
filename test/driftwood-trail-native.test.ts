@@ -1,8 +1,8 @@
 import { expect, test } from 'vitest';
 import { BufferAttribute } from 'three';
-import { originalTrailside } from '../src/shards/driftwood-isle/generators/driftwoodTrailside.mjs';
-import { islandTrailsideSpec, trailsideSpecKey } from '../src/shards/driftwood-isle/generators/trailsideLayout';
-import { driftwoodTrailRows } from '../src/shards/driftwood-isle/generators/fixedFacts';
+import { originalTrailside } from '../src/generators/driftwoodTrailside.mjs';
+import { islandTrailsideSpec, trailsideSpecKey } from '../src/generators/trailsideLayout';
+import { driftwoodTrailRows } from '../src/generators/fixedFacts';
 
 const bake = driftwoodTrailRows();
 

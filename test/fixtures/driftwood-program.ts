@@ -6,10 +6,10 @@ import {resolve} from 'node:path';
 import {createProjectGeneration} from '@wildshard/sharddev/projectGeneration';
 import {hashImmutableBytes} from '@wildshard/format/immutable';
 import type {Shardfile} from '@wildshard/format/shardSchema';
-import build from '../../src/shards/driftwood-isle/shard.config';
+import build from '../../src/shard.config';
 import {runSnapshot} from './runSnapshot';
 
-const project = 'src/shards/driftwood-isle';
+const project = 'src';
 const inputs = [{prefix:'/src/shards/driftwood-isle/',directory:project},
   {prefix:'/assets/',directory:resolve('public/assets')}];
 /** The declaration admitted by Driftwood's real source program over its CLI input roots (CI7: once per CI run). */

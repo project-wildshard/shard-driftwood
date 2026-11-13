@@ -24,7 +24,7 @@ Only the scaffold exists:
 
 ## Coming with the import
 
-- `src/shards/driftwood-isle/`
+- `src/`
 - `public/assets/driftwood-isle/`
 - `scripts/blender/driftwood-isle/`
 - `art/driftwood*`

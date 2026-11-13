@@ -3,9 +3,9 @@
 import { readFileSync } from 'node:fs';
 import { createProjectGeneration } from '@wildshard/sharddev/projectGeneration';
 import { hashImmutableBytes } from '@wildshard/format/immutable';
-import { driftwoodGuestFiles } from '../../src/shards/driftwood-isle/generators/guestPrograms.ts';
+import { driftwoodGuestFiles } from '../../src/generators/guestPrograms.ts';
 
-const source = 'src/shards/driftwood-isle/generators/guestPrograms.ts';
-const context = createProjectGeneration('src/shards/driftwood-isle', hashImmutableBytes(new Uint8Array(readFileSync(source))), new Map(), process.argv[2]);
+const source = 'src/generators/guestPrograms.ts';
+const context = createProjectGeneration('src', hashImmutableBytes(new Uint8Array(readFileSync(source))), new Map(), process.argv[2]);
 const files = await driftwoodGuestFiles(context);
 process.stdout.write(JSON.stringify([...files].map(([name, bytes]) => [name, Buffer.from(bytes).toString('base64')])));

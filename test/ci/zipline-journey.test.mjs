@@ -4,7 +4,7 @@
 // movement and the [E] press the prompt's net route names. No flag, ride state or pose is written. About 4,500 ticks.
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import spots from '../../src/shards/driftwood-isle/data/spotsRows.json' with { type: 'json' };
+import spots from '../../src/data/spotsRows.json' with { type: 'json' };
 import { boot, rider } from './journey-rider.mjs';
 import { TO_CASTAWAY, TO_COVE, TO_HEADLAND, TO_ZIPLINE } from './island-legs.mjs';
 

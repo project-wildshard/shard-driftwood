@@ -1,5 +1,5 @@
-import { driftwoodOceanWaterRow } from '../../src/shards/driftwood-isle/generators/clientSections';
-import { driftwoodOceanBank } from '../../src/shards/driftwood-isle/generators/oceanBank';
+import { driftwoodOceanWaterRow } from '../../src/generators/clientSections';
+import { driftwoodOceanBank } from '../../src/generators/oceanBank';
 import { DRIFTWOOD_LAYOUTS } from './driftwood-layout-source';
 import { hashImmutableBytes } from '@wildshard/format/immutable';
 

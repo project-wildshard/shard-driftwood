@@ -1,6 +1,6 @@
 import original from './driftwood-layout-original.json' with { type: 'json' };
-import { parseDriftwoodFixedLayouts } from '../../src/shards/driftwood-isle/generators/namedSchemas';
-import { driftwoodHeldArms } from '../../src/shards/driftwood-isle/generators/heldArms';
+import { parseDriftwoodFixedLayouts } from '../../src/generators/namedSchemas';
+import { driftwoodHeldArms } from '../../src/generators/heldArms';
 
 /** Complete original native site facts, frozen before GR7 reader retirement. */
 export const DRIFTWOOD_ORIGINAL_LAYOUTS = original;

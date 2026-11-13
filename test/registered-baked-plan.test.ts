@@ -7,7 +7,7 @@ import { createHash } from 'node:crypto';
 import { BakedPlanSchema, BakedPlacementPlanSchema } from '@wildshard/format/bakedTiles';
 import { platformFileFamily, validatePlatformFile } from '@wildshard/format/platformFileFamilies';
 import { validateRegisteredJson } from '@wildshard/format/registeredJson';
-import { bakeIslandPlan, islandPlacements } from '../src/shards/driftwood-isle/generators/islandCover';
+import { bakeIslandPlan, islandPlacements } from '../src/generators/islandCover';
 import { DRIFTWOOD_ISLAND_FACTS } from './fixtures/driftwood-island-facts';
 import original from './fixtures/driftwood-plan-rows.json' with { type: 'json' };
 

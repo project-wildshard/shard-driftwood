@@ -19,7 +19,7 @@ function hash(bytes) { return createHash('sha256').update(bytes).digest('hex'); 
 
 test('driftwood-isle retains every native floor byte through inline and raw intake', { timeout: 9500 }, async () => {
   const started = performance.now();
-  const module = await import('../../src/shards/driftwood-isle/generators/physics.ts');
+  const module = await import('../../src/generators/physics.ts');
   const row = v.parse(v.object({ ground: nativeGroundRecordSchema(256, true) }), module.driftwoodPhysics()).ground;
   const bytes = typeof row.heights === 'string'
     ? Uint8Array.from(Buffer.from(row.heights, 'base64'))

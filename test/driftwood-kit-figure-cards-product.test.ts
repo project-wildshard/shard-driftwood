@@ -1,9 +1,9 @@
 import { expect, test } from 'vitest';
 import * as v from 'valibot';
 import { QuestFigureSchema } from '@wildshard/format/questFigures';
-import { driftwoodKitFigureCards } from '../src/shards/driftwood-isle/generators/kitFigureCards';
-import { driftwoodQuestFigures } from '../src/shards/driftwood-isle/generators/questFigures';
-import inventory from '../src/shards/driftwood-isle/data/fixedGeometry.json' with { type: 'json' };
+import { driftwoodKitFigureCards } from '../src/generators/kitFigureCards';
+import { driftwoodQuestFigures } from '../src/generators/questFigures';
+import inventory from '../src/data/fixedGeometry.json' with { type: 'json' };
 
 test('the cold kit card keeps the live bindings but its original Explorer origin and fire', () => {
   const rows = driftwoodKitFigureCards(), card = rows.cards['castaway'], live = driftwoodQuestFigures().figures[0];

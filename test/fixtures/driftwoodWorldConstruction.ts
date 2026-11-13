@@ -16,7 +16,7 @@ import type * as THREE from 'three';
 import { sites } from './driftwoodLegacyCatalogue';
 import { macrotask, slicer, type StepProgress } from '@wildshard/engine/boot/plan';
 import type { World } from '@wildshard/engine/core/bootstrap';
-import manifest from '../../src/shards/driftwood-isle/discovery.generated';
+import manifest from '../../src/discovery.generated';
 import type { BakedTiles } from '@wildshard/engine/game/shardfile/bakedTiles';
 import { sharedModelContext } from '@wildshard/engine/models/model';
 import type { Placed } from '@wildshard/engine/models/place';

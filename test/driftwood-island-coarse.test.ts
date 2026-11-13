@@ -1,10 +1,10 @@
 import { expect, test } from 'vitest';
 import { Vector3 } from 'three';
-import { islandCoarse } from '../src/shards/driftwood-isle/generators/islandCoarse';
-import { islandFoliagePlacements } from '../src/shards/driftwood-isle/generators/islandDressing';
-import { shoreBoulderFacts } from '../src/shards/driftwood-isle/generators/shoreBoulders';
-import { palmAxisAt } from '../src/shards/driftwood-isle/generators/palm';
-import { inArea } from '../src/shards/driftwood-isle/generators/blenderArea';
+import { islandCoarse } from '../src/generators/islandCoarse';
+import { islandFoliagePlacements } from '../src/generators/islandDressing';
+import { shoreBoulderFacts } from '../src/generators/shoreBoulders';
+import { palmAxisAt } from '../src/generators/palm';
+import { inArea } from '../src/generators/blenderArea';
 
 // D200: Driftwood's coarse L1 tiles stand in for the island's palms and shore boulders past the render ring
 test('every palm outside the cove and every shore boulder has its far silhouette where it stands', () => {

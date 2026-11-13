@@ -2,10 +2,10 @@ import { DRIFTWOOD_NAVIGATION } from './driftwood-navigation';
 import { DRIFTWOOD_GUEST_ROWS } from './driftwood-guest-programs';
 import { DRIFTWOOD_ISLAND_FACTS } from './driftwood-island-facts';
 import fixed from './driftwood-fixed-original.json' with { type: 'json' };
-import { driftwoodFixedProductRows } from '../../src/shards/driftwood-isle/generators/fixedProduct';
-import { driftwoodProductRows } from '../../src/shards/driftwood-isle/generators/product';
+import { driftwoodFixedProductRows } from '../../src/generators/fixedProduct';
+import { driftwoodProductRows } from '../../src/generators/product';
 
-import { driftwoodAudio } from '../../src/shards/driftwood-isle/generators/audio';
+import { driftwoodAudio } from '../../src/generators/audio';
 import { DRIFTWOOD_LAYOUTS } from './driftwood-layout-source';
 
 // Complete original fixed-world declaration oracle, frozen before the GR7 source cut.

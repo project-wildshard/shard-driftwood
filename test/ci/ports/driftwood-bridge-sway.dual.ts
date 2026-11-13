@@ -3,8 +3,8 @@ import {readFileSync} from 'node:fs';
 import {assertClose} from '../guest-pair.ts';
 /** Shadow the shipped H9 view body under both ABIs. Its private sway and clock
  * survive display frames; no live view source, producer or module is changed. */
-const bridge=readFileSync('src/shards/driftwood-isle/behaviour/bridgeSway.as','utf8');
-import page from '../../../src/shards/driftwood-isle/data/questPageComposition.json' with { type: 'json' };
+const bridge=readFileSync('src/behaviour/bridgeSway.as','utf8');
+import page from '../../../src/data/questPageComposition.json' with { type: 'json' };
 import { ViewLane } from '@wildshard/engine/script/viewLane';
 import type { DualPortFixture } from '../port-types.ts';
 

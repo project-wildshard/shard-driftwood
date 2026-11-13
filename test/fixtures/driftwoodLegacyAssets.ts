@@ -1,6 +1,6 @@
 import { IslandLibrary } from '@wildshard/engine/game/models/islandLibrary';
 import type { NamedRowValue } from '@wildshard/sharddev/formatJsonSchema';
-import type { FixedGeometryGroupsSchema } from '../../src/shards/driftwood-isle/generators/sections';
+import type { FixedGeometryGroupsSchema } from '../../src/generators/sections';
 type FixedGeometryGroups = NamedRowValue<typeof FixedGeometryGroupsSchema>;
 
 /** G586: Driftwood's Blender island library, declared as data on the game's island library host: its 90 fixed draws

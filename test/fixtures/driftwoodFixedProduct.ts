@@ -1,4 +1,4 @@
-import inventory from '../../src/shards/driftwood-isle/data/fixedGeometry.json' with { type: 'json' };
+import inventory from '../../src/data/fixedGeometry.json' with { type: 'json' };
 import { encodeCanonicalJson, hashImmutableBytes } from '@wildshard/format/immutable';
 // oxlint-disable-next-line import/no-nodejs-modules -- Admit the fixture's real source bytes with their original content identity.
 import { createHash } from 'node:crypto';
@@ -8,19 +8,19 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { createShardProduct } from '../../src/shared/game/shardfile/shardProduct';
 import { emptyShardfile } from '@wildshard/sharddev/author';
-import { DRIFTWOOD_BANK_BLOBS, DRIFTWOOD_OUTPUT } from '../../src/shards/driftwood-isle/generators/assets';
-import { DRIFTWOOD_CLIENT_SECTIONS } from '../../src/shards/driftwood-isle/generators/clientSections';
-import { FIGURE_CATALOGUE } from '../../src/shards/driftwood-isle/generators/figureCatalogue';
-import { NPC_FOCUS_PROGRAMS } from '../../src/shards/driftwood-isle/generators/npcFocusPrograms';
+import { DRIFTWOOD_BANK_BLOBS, DRIFTWOOD_OUTPUT } from '../../src/generators/assets';
+import { DRIFTWOOD_CLIENT_SECTIONS } from '../../src/generators/clientSections';
+import { FIGURE_CATALOGUE } from '../../src/generators/figureCatalogue';
+import { NPC_FOCUS_PROGRAMS } from '../../src/generators/npcFocusPrograms';
 import { createProjectGeneration } from '@wildshard/sharddev/projectGeneration';
-import { driftwoodFixedModelOutput } from '../../src/shards/driftwood-isle/generators/fixedModels';
+import { driftwoodFixedModelOutput } from '../../src/generators/fixedModels';
 import { nameMeshoptBlob } from '@wildshard/sharddev/blobs';
 import { driftwoodSceneBanks } from './driftwoodSceneBanks';
 import { fixtureProductFile, fixtureJsonCheck } from './productFile';
 
 // The fixed producer owns these logical files since GR7; the static asset table
 // intentionally omits them. Admit its real native outputs into this fixture too.
-const fixedModels = driftwoodFixedModelOutput(createProjectGeneration('src/shards/driftwood-isle',
+const fixedModels = driftwoodFixedModelOutput(createProjectGeneration('src',
   hashImmutableBytes(new TextEncoder().encode('driftwood-fixed-product-fixture-v1')), new Map(), undefined,
   [{ prefix: '/assets/', directory: resolve('public/assets') }]));
 
@@ -31,7 +31,7 @@ const cargoModels = driftwoodSceneBanks().then(banks => Promise.all([...banks.ca
 /** Real published GLB source bytes with the same admitted asset and layout rows as the product writer. */
 export async function driftwoodFixedProduct(_legacy = false): Promise<ReturnType<typeof createShardProduct>> {
   const blobs = await Promise.all(DRIFTWOOD_OUTPUT.blobs.map(async row => {
-    const bytes = new Uint8Array(await readFile(resolve('src/shards/driftwood-isle', row.source)));
+    const bytes = new Uint8Array(await readFile(resolve('src', row.source)));
     return {name: row.name, source: row.source, bytes, hash: createHash('sha256').update(bytes).digest('hex')};
   }));
   // the banks' blobs (GR7) carry their bytes; their source label is their name

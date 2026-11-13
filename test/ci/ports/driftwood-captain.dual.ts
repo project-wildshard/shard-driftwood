@@ -3,8 +3,8 @@ import {readFileSync} from 'node:fs';
 import {assertClose} from '../guest-pair.ts';
 /** Real captain AS behind two shadow ABIs. Commands stay buffered: reads see
  * the supplied actor snapshot, while pending reset columns update immediately. */
-const captain=readFileSync('src/shards/driftwood-isle/behaviour/captain.as','utf8');
-import { CAPTAIN_FIELDS } from '../../../src/shards/driftwood-isle/generators/captainFields';
+const captain=readFileSync('src/behaviour/captain.as','utf8');
+import { CAPTAIN_FIELDS } from '../../../src/generators/captainFields';
 import { SCRIPT_V1_COMMANDS } from '@wildshard/format/scriptAbiV1';
 import { simulationPair } from '../guest-pair.ts';
 import type { DualPortFixture } from '../port-types.ts';

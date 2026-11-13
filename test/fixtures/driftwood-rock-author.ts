@@ -1,9 +1,9 @@
 import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { BufferAttribute, type BufferGeometry } from 'three';
-import { driftwoodIslandFactsFrom } from '../../src/shards/driftwood-isle/generators/islandFacts';
-import { driftwoodIslandPlan } from '../../src/shards/driftwood-isle/generators/productPageFiles';
-import { shoreBoulderFacts } from '../../src/shards/driftwood-isle/generators/shoreBoulders';
-import { bakeRockScenes } from '../../src/shards/driftwood-isle/generators/rockScenes';
+import { driftwoodIslandFactsFrom } from '../../src/generators/islandFacts';
+import { driftwoodIslandPlan } from '../../src/generators/productPageFiles';
+import { shoreBoulderFacts } from '../../src/generators/shoreBoulders';
+import { bakeRockScenes } from '../../src/generators/rockScenes';
 
 /** Observe every native rock channel and contact before any transport codec runs. */
 export async function originalRockObservation(read: (url: string) => Uint8Array) {

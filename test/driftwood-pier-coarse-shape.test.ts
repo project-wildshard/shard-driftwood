@@ -1,10 +1,10 @@
 import { expect, test } from 'vitest';
-import { pierCoarse, PIER_COARSE_FROM, PENNANT_BLUE } from '../src/shards/driftwood-isle/generators/pierCoarse';
-import { PIER_PALETTE } from '../src/shards/driftwood-isle/generators/pier';
-import { pierDeckAt } from '../src/shards/driftwood-isle/generators/pierLayout';
-import { worldPierSites, resolvePierParams } from '../src/shards/driftwood-isle/generators/pierSites';
-import { driftwoodGroundSampler } from '../src/shards/driftwood-isle/generators/groundSampling';
-import { DECLARED_SEA } from '../src/shards/driftwood-isle/generators/sea';
+import { pierCoarse, PIER_COARSE_FROM, PENNANT_BLUE } from '../src/generators/pierCoarse';
+import { PIER_PALETTE } from '../src/generators/pier';
+import { pierDeckAt } from '../src/generators/pierLayout';
+import { worldPierSites, resolvePierParams } from '../src/generators/pierSites';
+import { driftwoodGroundSampler } from '../src/generators/groundSampling';
+import { DECLARED_SEA } from '../src/generators/sea';
 
 const ground = driftwoodGroundSampler();
 const piers = worldPierSites().map(site => resolvePierParams(site, ground, DECLARED_SEA.level));

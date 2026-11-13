@@ -1,8 +1,8 @@
-import { FIGURE_CATALOGUE } from '../../src/shards/driftwood-isle/generators/figureCatalogue';
-import { driftwoodQuestFigures } from '../../src/shards/driftwood-isle/generators/questFigures';
-import { driftwoodKitFigureCards } from '../../src/shards/driftwood-isle/generators/kitFigureCards';
-import { driftwoodCatalogueEconomy } from '../../src/shards/driftwood-isle/generators/catalogueEconomy';
-import { TRADER_STALL } from '../../src/shards/driftwood-isle/generators/questShop';
+import { FIGURE_CATALOGUE } from '../../src/generators/figureCatalogue';
+import { driftwoodQuestFigures } from '../../src/generators/questFigures';
+import { driftwoodKitFigureCards } from '../../src/generators/kitFigureCards';
+import { driftwoodCatalogueEconomy } from '../../src/generators/catalogueEconomy';
+import { TRADER_STALL } from '../../src/generators/questShop';
 import { hashImmutableBytes } from '@wildshard/format/immutable';
 
 /** Complete original figure/card and trade-policy wires before contextual product assembly. */

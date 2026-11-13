@@ -2,8 +2,8 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 /** Real barrel AS, with continuation columns and sampled body authorities.
  * The native body owner, public producer and save adapters remain unchanged. */
-const barrels=readFileSync('src/shards/driftwood-isle/behaviour/barrels.as','utf8');
-import { BARREL_DECISION } from '../../../src/shards/driftwood-isle/generators/barrelDecision';
+const barrels=readFileSync('src/behaviour/barrels.as','utf8');
+import { BARREL_DECISION } from '../../../src/generators/barrelDecision';
 import { simulationPair } from '../guest-pair.ts';
 import type { DualPortFixture } from '../port-types.ts';
 

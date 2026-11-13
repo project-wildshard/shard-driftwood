@@ -1,10 +1,10 @@
-import barrelSource from '../src/shards/driftwood-isle/behaviour/barrels.as?raw';
+import barrelSource from '../src/behaviour/barrels.as?raw';
 import { expect, test } from 'vitest';
 import { compileDecisionScripts } from '@wildshard/sharddev/buildDecisionScripts';
 import { decisionBindingMap } from '@wildshard/format/decisionBindings';
 import { DecisionHost, type DecisionScript } from '@wildshard/engine/script/decision';
 import { SCRIPT_V1_READS, type ScriptV1ReadName, type ScriptV1Command } from '@wildshard/format/scriptAbiV1';
-import { BARREL_DECISION } from '../src/shards/driftwood-isle/generators/barrelDecision';
+import { BARREL_DECISION } from '../src/generators/barrelDecision';
 import { BARREL_HALF } from '@wildshard/engine/world/interact/barrel';
 
 // G566: the tide barrel's never-jam watch (PHYSICS P7-L1 BarrelWatch) as Driftwood AS over declared body ops.

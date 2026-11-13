@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest';
 import { validateGraph } from '@wildshard/format/materialGraph';
-import { ISLAND_LOOKS } from '../src/shards/driftwood-isle/generators/islandLook';
-import lookGraphs from '../src/shards/driftwood-isle/data/lookGraphs.json' with { type: 'json' };
+import { ISLAND_LOOKS } from '../src/generators/islandLook';
+import lookGraphs from '../src/data/lookGraphs.json' with { type: 'json' };
 
 test('the authored cove material graphs admit through the released format', () => {
   for (const id of Object.values(ISLAND_LOOKS)) {

@@ -1,10 +1,10 @@
 import { HullLookBook } from '../../src/client/game/looks/speciesBook';
 // oxlint-disable-next-line import/no-nodejs-modules -- The fake reads the bodies' committed head and captain.
 import { readFileSync } from 'node:fs';
-import { driftwoodCreatureBodyBank } from '../../src/shards/driftwood-isle/generators/creatureBodyBank';
-import rows from '../../src/shards/driftwood-isle/data/creatureLookRows.json' with { type: 'json' };
-import { SAILOR_CLIPS as sailor, CAPTAIN_CLIPS as captain } from '../../src/shards/driftwood-isle/generators/humanoidClips';
-import { CRAB_CLIPS as crab } from '../../src/shards/driftwood-isle/generators/crabClips';
+import { driftwoodCreatureBodyBank } from '../../src/generators/creatureBodyBank';
+import rows from '../../src/data/creatureLookRows.json' with { type: 'json' };
+import { SAILOR_CLIPS as sailor, CAPTAIN_CLIPS as captain } from '../../src/generators/humanoidClips';
+import { CRAB_CLIPS as crab } from '../../src/generators/crabClips';
 
 /** Test-only authored intake; shipping consumers bind the verified product file and `look/hull-book` section. */
 const bank = await driftwoodCreatureBodyBank(url => new Uint8Array(readFileSync(`public${url}`)));

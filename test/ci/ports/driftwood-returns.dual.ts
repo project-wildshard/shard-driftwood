@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import {assertClose} from '../guest-pair.ts';
 /** The real return rules with identical sampled numeric authorities behind
  * both shadow adapters. No public generator or shipped script is replaced. */
-const returns=readFileSync('src/shards/driftwood-isle/behaviour/returns.as','utf8');
+const returns=readFileSync('src/behaviour/returns.as','utf8');
 import { ScriptModuleV2 } from '@wildshard/engine/script/moduleV2';
 import type { DualPortFixture } from '../port-types.ts';
 

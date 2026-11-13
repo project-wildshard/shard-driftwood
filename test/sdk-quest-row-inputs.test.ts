@@ -6,10 +6,10 @@ import { parseQuestStepRows, parseQuestHintRows, parseQuestServiceActions } from
 import { parseQuestPageInteractions } from '@wildshard/format/questInteractions';
 import { QuestPageCompositionSchema } from '@wildshard/format/questPageComposition';
 import { CoverCompositionSchema } from '@wildshard/format/streamedCover';
-import page from '../src/shards/driftwood-isle/data/questPageComposition.json' with { type: 'json' };
-import cover from '../src/shards/driftwood-isle/data/coverComposition.json' with { type: 'json' };
-import steps from '../src/shards/driftwood-isle/data/questSteps.json' with { type: 'json' };
-import hints from '../src/shards/driftwood-isle/data/questHints.json' with { type: 'json' };
+import page from '../src/data/questPageComposition.json' with { type: 'json' };
+import cover from '../src/data/coverComposition.json' with { type: 'json' };
+import steps from '../src/data/questSteps.json' with { type: 'json' };
+import hints from '../src/data/questHints.json' with { type: 'json' };
 
 const pairs: readonly { author: (input: unknown) => unknown; native: (input: unknown) => unknown; good: object }[] = [
   { author: achievementCounterRows, native: parseAchievementCounterData, good: { feats: [{ id: 'fruit', count: 3 }], flags: [{ id: 'fruit', method: 'count', value: { constant: 0 } }], prefix: 'orchard.', floorTotals: true, validateTotals: false, write: 'each' } },

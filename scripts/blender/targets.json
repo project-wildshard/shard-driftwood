@@ -30,21 +30,21 @@
   "driftwood-isle/island": {
    "about": "Driftwood's spawn cove: terrain tiles, ~60-72 prototypes, 16.7 k placements, Cycles AO + bounce lightmaps (DRIFTWOOD-REMASTER X2, E52)",
    "pre": ["node --experimental-transform-types --no-warnings --import ./scripts/bake-loader.mjs scripts/blender/lib/export-scene.mjs --chunk driftwood-isle $CACHE"],
-   "script": "src/shards/driftwood-isle/blender/build_island.py",
+   "script": "src/blender/build_island.py",
    "args": ["$CACHE", "$BUILD"],
-   "sources": ["src/shards/driftwood-isle/blender/assets.py", "src/shards/driftwood-isle/blender/export.mjs", "src/shards/driftwood-isle/blender/post.sh", "scripts/blender/lib/export-scene.mjs"],
+   "sources": ["src/blender/assets.py", "src/blender/export.mjs", "src/blender/post.sh", "scripts/blender/lib/export-scene.mjs"],
    "inputs": ["public/assets/baked/driftwood-isle/terrain.bin", "public/assets/models/driftwood-hero/", "public/assets/models/driftwood-cc0/"],
    "lock": true,
    "build": ["island.glb", "placements.bin", "island.json", "lm-ao.png", "lm-bounce.png"],
    "meshopt": [["island.glb", "public/assets/models/driftwood-blender/island.glb"]],
    "copy": [["placements.bin", "public/assets/models/driftwood-blender/placements.bin"], ["island.json", "public/assets/models/driftwood-blender/island.json"]],
-   "post": "src/shards/driftwood-isle/blender/post.sh",
+   "post": "src/blender/post.sh",
    "outputs": [
     "public/assets/models/driftwood-blender/island.glb", "public/assets/models/driftwood-blender/placements.bin", "public/assets/models/driftwood-blender/island.json",
     "public/assets/models/driftwood-blender/lm-ao.webp", "public/assets/models/driftwood-blender/lm-ao.phone.webp",
     "public/assets/models/driftwood-blender/lm-bounce.webp", "public/assets/models/driftwood-blender/lm-bounce.phone.webp"
    ],
-   "feeds": ["src/shards/driftwood-isle/generators/bakedCove.ts", "src/game/client/shardfile/bakedTiles.ts"]
+   "feeds": ["src/generators/bakedCove.ts", "src/game/client/shardfile/bakedTiles.ts"]
   },
   "pine-hollow/area-export": {
    "about": "Pine Hollow's half of the island export (PH-0.3): area.bin, splat.bin, scene.json in the cache. Its Blender build is PINE-HOLLOW-REMASTER wave 2 (PH-U17), so it writes nothing to the repo",
@@ -166,16 +166,16 @@
   },
   "driftwood-isle/fp-arms": {
    "about": "Driftwood's first-person castaway arms (E334, board 2 A / 3 A): the arms and both swords modelled round Nine Dragon's round-13 skeleton, which keeps its 16 clips; + 15 finger bones a hand, the swim clips and the skin (bake.mjs), then the rig gate (gate.mjs → gate.json). --preview also writes posed PLYs for preview.py",
-   "pre": ["mkdir -p $BUILD && node src/shards/driftwood-isle/blender/fp-arms/skeleton.mjs $BUILD/bind.json"],
-   "script": "src/shards/driftwood-isle/blender/fp-arms/arms.py",
+   "pre": ["mkdir -p $BUILD && node src/blender/fp-arms/skeleton.mjs $BUILD/bind.json"],
+   "script": "src/blender/fp-arms/arms.py",
    "args": ["$BUILD/bind.json", "$BUILD"],
-   "sources": ["src/shards/driftwood-isle/blender/fp-arms/skeleton.mjs", "src/shards/driftwood-isle/blender/fp-arms/bake.mjs", "src/shards/driftwood-isle/blender/fp-arms/gate.mjs", "src/shards/driftwood-isle/blender/fp-arms/preview.py"],
+   "sources": ["src/blender/fp-arms/skeleton.mjs", "src/blender/fp-arms/bake.mjs", "src/blender/fp-arms/gate.mjs", "src/blender/fp-arms/preview.py"],
    "inputs": ["public/assets/nine-dragon/viewmodel/fp-rig.glb", "src/game/client/systems/viewmodel/armRig.ts"],
    "lock": false,
    "build": ["fp-arms.raw.glb", "gate.json"],
    "meshopt": [["fp-arms.raw.glb", "public/assets/models/driftwood-fp/fp-arms.glb"]],
    "outputs": ["public/assets/models/driftwood-fp/fp-arms.glb"],
-   "feeds": ["src/shards/driftwood-isle/data/heldArms.json", "src/game/client/systems/viewmodel/rigArms.ts"]
+   "feeds": ["src/data/heldArms.json", "src/game/client/systems/viewmodel/rigArms.ts"]
   },
   "far-reach/roc": {
    "about": "Sky Reach's Storm Roc repair (E392/E399 council round 13): Hunyuan3D-2's eagle (art/far-reach/round-27-roc) with its loose second-head lump deleted, its open edges filled, the claw shapes painted on its tail fan painted out and its beak and toes pushed to gold; then meshopt + a 1024 WebP map (art/far-reach/round-31-roc-fix)",

@@ -1,7 +1,7 @@
 // oxlint-disable-next-line import/no-nodejs-modules -- The fixture reads the fixed program's committed public inputs.
 import { readFileSync } from 'node:fs';
-import { driftwoodSceneBanksFrom, type DriftwoodSceneBanks } from '../../src/shards/driftwood-isle/generators/sceneBanks';
-import { DRIFTWOOD_FIXED_INPUTS, driftwoodFixedBytes } from '../../src/shards/driftwood-isle/generators/fixedProgram';
+import { driftwoodSceneBanksFrom, type DriftwoodSceneBanks } from '../../src/generators/sceneBanks';
+import { DRIFTWOOD_FIXED_INPUTS, driftwoodFixedBytes } from '../../src/generators/fixedProgram';
 
 const read = (url: string): Uint8Array => new Uint8Array(readFileSync(`public${url}`));
 let fixed: Promise<Map<string, Uint8Array>> | undefined, banks: Promise<DriftwoodSceneBanks> | undefined;
