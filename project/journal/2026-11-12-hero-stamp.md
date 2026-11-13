@@ -15,4 +15,9 @@ as current with `wildshard hero src/shards/driftwood-isle
 `wildshard hero src/shards/driftwood-isle --base <served-build-url>`.
 
 sharddev main needs shardfile `0786a04` (`featureSides`), so the format
-pin and its override move with it, to sharddev's own pair. Engine stays.
+pin and its override move with it, to sharddev's own pair.
+
+The first push kept engine `80d5cc0`, and Ring 2's owned journey failed
+("Native body scripts require admitted ground"): the old engine cannot
+play a product the new sharddev builds. Engine moves to `867f3b9`, the
+engine sharddev pins, and every Ring 2 step passes locally.
