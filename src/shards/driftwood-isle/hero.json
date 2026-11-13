@@ -1,10 +1,10 @@
 {
-  "content": "1f2781e3cd3b70a3fa8843ed59bccfbca4415268f30e87bc6899b7af9830c4fd",
-  "captured": "2026-11-13T00:37:58.667Z",
-  "base": "stamp-existing: the hero files already in the shard, adopted without a capture",
+  "content": "ff34fe805bb35fbbdb42552c2c9326fc4792b41824c5a7b4454b8292741c927d",
+  "captured": "2026-11-13T08:58:22.654Z",
+  "base": "http://127.0.0.1:4853/",
   "card": {
-    "thumbs/driftwood-isle.jpg": "38524675b82efe887cf278b25ea727490c54afed6e7a3ad3bc721de01f615127",
-    "thumbs/driftwood-isle-portrait.jpg": "df42a46c609b654b151b4ef48aeebb2f961e83aff10488a6b1342f5d2ec5b8b0",
-    "thumbs/driftwood-isle-landscape.jpg": "cca4f44d16ba27181325f4f49183332ba911a3689082ee30e04d3317dc848880"
+    "thumbs/driftwood-isle.jpg": "4e0333c17a3eb04c6f3f3c3f5b83e449f8c7eeae53230c2c6908a53bf7bf606d",
+    "thumbs/driftwood-isle-portrait.jpg": "9fe0dfe78912ca441820143c6d870a5de48cc054c6d48b39eaf9f57e83ccfc48",
+    "thumbs/driftwood-isle-landscape.jpg": "bc595f7d281c1ddc7f323254c33ebf9438dc44b31bddfad9081730f89ea1bf79"
   }
 }
