@@ -88,14 +88,19 @@ export function findSailor(host) {
  *  second) while it is in reach, until it falls and raises its kill flag. Returns the ticks and clicks it took. */
 export function beat({ host, player, head, strike, has }, foeId, foe, deadFlag, limit = 2400) {
   const fightStart = host.state.tick;
-  let clicks = 0, lastClick = -Infinity;
+  // A room stands a fallen player up again at the shard spawn, alive: count the deaths, so a fight lost and won again fails.
+  let clicks = 0, lastClick = -Infinity, deaths = 0;
+  host.events.on('player.died', () => { deaths++; }, host.scope);
   for (let tick = 0; tick < limit && foe.alive; tick++) {
     const dx = foe.position.x - player.position.x, dz = foe.position.z - player.position.z, distance = Math.hypot(dx, dz);
-    if (distance > 1.5) head(dx, dz, false);
+    // Step back out of a wind-up the player sees coming, then close in: a room (HS1's world) sends a player who dies here back
+    // to the shard spawn, where the bare resident used to stand them up in place.
+    if (foe.state === 'attack' && distance < 2.6) head(-dx, -dz, false);
+    else if (distance > 1.5) head(dx, dz, false);
     else if (tick - lastClick >= 30) { strike(foeId, dx, dz); clicks++; lastClick = tick; }
     else head(0, 0);
   }
   assert.ok(!foe.alive && has(deadFlag), `The player beats the ${foe.kind}: ${foe.hp} hp left after ${clicks} clicks`);
-  assert.ok(player.actor().alive, `The player survives the ${foe.kind}`);
+  assert.ok(player.actor().alive && deaths === 0, `The player survives the ${foe.kind}: ${deaths} deaths`);
   return { fightTicks: host.state.tick - fightStart, clicks };
 }
