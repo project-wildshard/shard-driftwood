@@ -3,7 +3,7 @@ import { PALM_FILES } from './palmFiles';
 import { HIBISCUS_FILES } from './hibiscusFiles';
 import { REEF_FILES } from './reefFiles';
 import { FIXED_MODEL_FILES, FIXED_MODEL_NAMES } from './modelFiles';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { driftwoodReefBank } from './reefBank';
 import { driftwoodZiplineBank } from './ziplineBank';
 import { driftwoodFacetedGroundBank } from './facetedGroundBank';

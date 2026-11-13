@@ -19,7 +19,7 @@ import { GULL_CORRIDORS } from './gullsLook';
 import { retainedIslandRuns } from './clipDressing';
 import { MeshStandardMaterial } from 'three';
 import { staticGlb } from '@wildshard/sharddev/bake/glb';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { hibiscusTransport, foliageTransport } from './hibiscusTransport';
 import publicInputs from '../data/publicInputs.json' with { type: 'json' };
 

@@ -1,4 +1,4 @@
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { BufferAttribute, type BufferGeometry } from 'three';
 import { driftwoodIslandFactsFrom } from '../../src/shards/driftwood-isle/generators/islandFacts';
 import { driftwoodIslandPlan } from '../../src/shards/driftwood-isle/generators/productPageFiles';

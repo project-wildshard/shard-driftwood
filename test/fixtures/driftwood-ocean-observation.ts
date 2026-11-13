@@ -1,7 +1,7 @@
 import { driftwoodOceanWaterRow } from '../../src/shards/driftwood-isle/generators/clientSections';
 import { driftwoodOceanBank } from '../../src/shards/driftwood-isle/generators/oceanBank';
 import { DRIFTWOOD_LAYOUTS } from './driftwood-layout-source';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 
 /** Observe the complete sea row and all original pre-page-codec grid/floor bytes. */
 export function driftwoodOceanObservation() {

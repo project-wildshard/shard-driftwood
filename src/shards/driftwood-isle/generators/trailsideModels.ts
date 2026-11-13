@@ -3,7 +3,7 @@ import { trailFontFacts } from './trailFont';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { Rng } from '@wildshard/sharddev/random';
 import { staticGlb } from '@wildshard/sharddev/bake/glb';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import publicInputs from '../data/publicInputs.json' with { type: 'json' };
 import trailRows from '../data/trailCatalogue.json' with { type: 'json' };
 

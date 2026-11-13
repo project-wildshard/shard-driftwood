@@ -1,4 +1,4 @@
-import { parseShardfileField, type Shardfile } from '@wildshard/engine/host/shardfile';
+import { parseShardfileField, type Shardfile } from '@wildshard/format/shardSchema';
 import type { ProjectGenerationContext } from '@wildshard/sharddev/projectGeneration';
 import { driftwoodFixedFiles } from './fixedProgram';
 

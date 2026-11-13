@@ -2,7 +2,7 @@
 // oxlint-disable-next-line import/no-nodejs-modules -- Hash the same declared owner source as the native product compiler.
 import { readFileSync } from 'node:fs';
 import { createProjectGeneration } from '@wildshard/sharddev/projectGeneration';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { driftwoodGuestFiles } from '../../src/shards/driftwood-isle/generators/guestPrograms.ts';
 
 const source = 'src/shards/driftwood-isle/generators/guestPrograms.ts';

@@ -3,7 +3,7 @@ import { bakeProps, type BakedProps } from '@wildshard/sharddev/bake/props';
 import { coarseCopy } from '@wildshard/sharddev/bake/coarseCopy';
 import { compressGlb } from '@wildshard/sharddev/bake/glbCompression';
 import { assetCost } from '@wildshard/sharddev/assets';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { driftwoodFixedSource } from './fixedSource';
 import { pierCoarse } from './pierCoarse';
 import { islandCoarse } from './islandCoarse';

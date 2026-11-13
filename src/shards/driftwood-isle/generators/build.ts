@@ -1,7 +1,7 @@
 import { driftwoodNavigation } from './navigation';
 import { driftwoodGuestFiles, driftwoodGuestRows } from './guestPrograms';
 import type { ProjectGenerationContext } from '@wildshard/sharddev/projectGeneration';
-import type { Shardfile } from '@wildshard/engine/host/shardfile';
+import type { Shardfile } from '@wildshard/format/shardSchema';
 import { driftwoodProductRows } from './product';
 import { driftwoodFixedProduct } from './fixedProduct';
 import { driftwoodFixedFiles } from './fixedProgram';

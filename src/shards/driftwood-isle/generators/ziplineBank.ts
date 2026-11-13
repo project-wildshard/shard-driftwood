@@ -1,6 +1,6 @@
 import { Matrix4, MeshStandardMaterial, Quaternion, Vector3 } from 'three';
 import { staticGlb } from '@wildshard/sharddev/bake/glb';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import spots from '../data/spotsRows.json' with { type: 'json' };
 import { buildZiplineGeometry } from './lookout';
 import { ZiplineCable } from './ziplineCable';

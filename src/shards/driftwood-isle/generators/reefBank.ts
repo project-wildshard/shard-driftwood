@@ -2,7 +2,7 @@ import { MeshStandardMaterial } from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { staticGlb } from '@wildshard/sharddev/bake/glb';
 import { readNativeTerrain } from '@wildshard/sharddev/bake/terrain';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { Rng } from '@wildshard/sharddev/random';
 import { WRECK, OCEAN } from './worldSites';
 import foliagePolicy from '../data/foliagePolicy.json' with { type: 'json' };

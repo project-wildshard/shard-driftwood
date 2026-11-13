@@ -1,7 +1,7 @@
 import { bakeFullIslandCover } from './islandCover';
 import type { DriftwoodIslandFacts } from './islandFacts';
 import { islandFoliageGround, islandFoliagePlacements } from './islandDressing';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import manifest from '../manifest.json' with { type: 'json' };
 import ISLAND_COVER_FILES from '../data/islandCoverFiles.json' with { type: 'json' };
 

@@ -1,5 +1,5 @@
 import { readNativeTerrain } from '@wildshard/sharddev/bake/terrain';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import publicInputs from '../data/publicInputs.json' with { type: 'json' };
 import { OCEAN } from './worldSites';
 import { WORLD_DROP } from './landscapeRows';

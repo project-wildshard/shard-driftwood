@@ -1,7 +1,7 @@
 import { BufferAttribute, Float16BufferAttribute, Mesh, type BufferGeometry } from 'three';
 import { readSourceModel } from '@wildshard/sharddev/bake/skinned';
 import { encodeBuildBytes } from '@wildshard/sharddev/bake/byteCodec';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { bakeCreatureBodies, bakeCaptainBody, faceHeadOf } from './creatureBodies';
 import publicInputs from '../data/publicInputs.json' with { type: 'json' };
 

@@ -2,7 +2,7 @@ import { FIGURE_CATALOGUE } from '../../src/shards/driftwood-isle/generators/fig
 import { TOON_LOOK } from '../../src/shards/driftwood-isle/generators/toonPresentation';
 import { HELD_ARMS } from './driftwood-layout-source';
 import inventory from '../../src/shards/driftwood-isle/data/fixedGeometry.json' with { type: 'json' };
-import { encodeCanonicalJson, hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { encodeCanonicalJson, hashImmutableBytes } from '@wildshard/format/immutable';
 import { createShardProduct } from '@wildshard/engine/game/shardfile/shardProduct';
 import { emptyShardfile } from '@wildshard/sharddev/author';
 import { DRIFTWOOD_CLIENT_SECTIONS } from './driftwoodLegacyLayouts';

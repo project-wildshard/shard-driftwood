@@ -4,7 +4,7 @@
 // node --experimental-transform-types --import ./scripts/bake-loader.mjs src/shards/driftwood-isle/bake/bake-captain-coat.mjs [--encode]
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { parseKtx2 } from '@wildshard/sharddev/assets';
 import { bakeColourTexture } from '@wildshard/sharddev/bake/texture';
 import { readImagePixels, writeImagePixels } from '@wildshard/sharddev/bake/image';

@@ -3,7 +3,7 @@ import { driftwoodQuestFigures } from '../../src/shards/driftwood-isle/generator
 import { driftwoodKitFigureCards } from '../../src/shards/driftwood-isle/generators/kitFigureCards';
 import { driftwoodCatalogueEconomy } from '../../src/shards/driftwood-isle/generators/catalogueEconomy';
 import { TRADER_STALL } from '../../src/shards/driftwood-isle/generators/questShop';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 
 /** Complete original figure/card and trade-policy wires before contextual product assembly. */
 export function driftwoodFigureCommerceObservation() {

@@ -1,7 +1,7 @@
 import { Mesh, MeshStandardMaterial, Vector3, type BufferGeometry } from 'three';
 import { readSourceModel } from '@wildshard/sharddev/bake/skinned';
 import { staticGlb } from '@wildshard/sharddev/bake/glb';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { cargoModels } from './cargoCatalogue';
 import type { FixedWreckLayout } from './fixedLayouts';
 

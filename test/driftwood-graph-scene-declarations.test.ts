@@ -1,4 +1,4 @@
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { expect, test } from 'vitest';
 import { cargoModels } from '../src/shards/driftwood-isle/generators/cargoCatalogue';
 import { DRIFTWOOD_EXCHANGE } from '../src/shards/driftwood-isle/generators/economy';

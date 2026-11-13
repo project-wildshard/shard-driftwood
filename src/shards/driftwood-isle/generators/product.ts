@@ -2,7 +2,7 @@ import { DRIFTWOOD_FEATS } from './questInventory';
 import { CAPTAIN_FIELDS } from './captainFields';
 import { DRIFTWOOD_LOOT as LOOT } from './loot';
 import { emptyShardfile } from '@wildshard/sharddev/author';
-import { parseShardfile } from '@wildshard/engine/host/shardfile';
+import { parseShardfile } from '@wildshard/format/shardSchema';
 import { driftwoodQuestRows } from './questRows';
 import { DRIFTWOOD_LEDGER } from './ledger';
 import { driftwoodItems } from './items';

@@ -1,5 +1,5 @@
 import { navigationSourceRows } from '@wildshard/sharddev/bake/navigationAsset';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import type { ProjectGenerationContext } from '@wildshard/sharddev/projectGeneration';
 
 export const DRIFTWOOD_NAVIGATION_HASH = 'c5185248a44d1f5c20c129e6bc25785ff6c1a81206f19f162d32cfe77131b464';

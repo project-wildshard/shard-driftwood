@@ -81,7 +81,7 @@ import { DRIFTWOOD_SPECIES_PROGRAMS } from './speciesPrograms';
 import {FixedGeometryGroupsSchema} from './sections';
 import { emitNamedBlobs, nameBlob as nameGuestBlob, type ServerBlob } from '@wildshard/sharddev/blobs';
 import { driftwoodServerFiles } from './nativeServer';
-import { encodeCanonicalJson } from '@wildshard/engine/host/immutable';
+import { encodeCanonicalJson } from '@wildshard/format/immutable';
 import { DRIFTWOOD_FEAT_COUNTERS } from './questInventory';
 import { enemyPlacements } from './enemyPlacement';
 import { parseSectionValue } from '@wildshard/sharddev/sections';

@@ -1,6 +1,6 @@
 import { generateDirectorAbi } from '@wildshard/sharddev/directorAbi';
 import { generateDecisionBindings } from '@wildshard/sharddev/decisionScriptBindings';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import type { ProjectGenerationContext } from '@wildshard/sharddev/projectGeneration';
 
 const text = new TextEncoder(), decode = new TextDecoder('utf-8', { fatal: true });

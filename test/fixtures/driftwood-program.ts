@@ -4,8 +4,8 @@ import {homedir} from 'node:os';
 // oxlint-disable-next-line import/no-nodejs-modules -- Keep the fixture's explicit production input roots.
 import {resolve} from 'node:path';
 import {createProjectGeneration} from '@wildshard/sharddev/projectGeneration';
-import {hashImmutableBytes} from '@wildshard/engine/host/immutable';
-import type {Shardfile} from '@wildshard/engine/host/shardfile';
+import {hashImmutableBytes} from '@wildshard/format/immutable';
+import type {Shardfile} from '@wildshard/format/shardSchema';
 import build from '../../src/shards/driftwood-isle/shard.config';
 import {runSnapshot} from './runSnapshot';
 

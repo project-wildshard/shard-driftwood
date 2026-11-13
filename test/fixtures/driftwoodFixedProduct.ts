@@ -1,5 +1,5 @@
 import inventory from '../../src/shards/driftwood-isle/data/fixedGeometry.json' with { type: 'json' };
-import { encodeCanonicalJson, hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { encodeCanonicalJson, hashImmutableBytes } from '@wildshard/format/immutable';
 // oxlint-disable-next-line import/no-nodejs-modules -- Admit the fixture's real source bytes with their original content identity.
 import { createHash } from 'node:crypto';
 // oxlint-disable-next-line import/no-nodejs-modules -- Read the retained authored asset sources for this product fixture.

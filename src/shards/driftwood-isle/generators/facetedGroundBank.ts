@@ -1,5 +1,5 @@
 import { readNativeTerrain } from '@wildshard/sharddev/bake/terrain';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { OCEAN } from './worldSites';
 import { TRAILS, WORLD_DROP } from './landscapeRows';
 import { GROUND_LOOK } from './groundLook';
