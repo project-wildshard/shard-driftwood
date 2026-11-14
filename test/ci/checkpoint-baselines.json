@@ -1,5 +1,8 @@
 {
   "0.1.18 darwin-arm64": {
     "driftwood-isle": "9ed02b12d56d0dbdcc2287b215f4640a078df9b38f29525d01218de15abf90fa"
+  },
+  "0.1.18 linux-x64": {
+    "driftwood-isle": "7a130390399ea2dd7c40ce5370c2a8a670fce08dcdef0512fb3ea1e75d22acfd"
   }
 }
