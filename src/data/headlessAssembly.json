@@ -21,7 +21,7 @@
     "$fn": {
       "$call": [
         {
-          "$ref": ["@wildshard/engine/game/plugin/mover", "proveTerrainEntries"]
+          "$ref": ["host", "proveTerrainEntries"]
         },
         {
           "$ref": ["args", 0, "physics"]
