@@ -1,4 +1,4 @@
-/** Fixed world facts compiled beside the existing geometry and foliage products. */
+/** Fixed world facts compiled beside the existing geometry and foliage data. */
 import geometryPolicy from '../data/groundGeometryPolicy.json' with { type: 'json' };
 import type { ColliderDesc } from '@wildshard/sharddev/bake/placement';
 import authoredLayout from '../data/layout.json' with { type: 'json' };

@@ -46,5 +46,5 @@ const outputs: NumericChannelOutput[] = [
   } })),
 ];
 
-/** the group's programs (generators/product.ts parses them into the product's `clientChannels`) */
+/** the group's programs (generators/shardfile.ts parses them into the shard file's `clientChannels`) */
 export const driftwoodSkyChannels = (): ReturnType<typeof numericChannelPrograms> => numericChannelPrograms(DRIFTWOOD_SKY_CHANNELS, DRIFTWOOD_SKY_CHANNELS, outputs);

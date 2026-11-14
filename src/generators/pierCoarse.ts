@@ -3,7 +3,7 @@ import type { PierParams } from './pierContract';
 import { pierDeckAt, pierHalfWidthAt } from './pierLayout';
 import { PIER_PALETTE as C } from './pier';
 
-/** the stand-in starts here, own z: the sea end's road footprint stays clear (the product's entryway rule) */
+/** the stand-in starts here, own z: the sea end's road footprint stays clear (the shard file's entryway rule) */
 export const PIER_COARSE_FROM = 0.01;
 /** the near pier's plank overhang past each deck edge, and its planks + bearers' depth under the deck top */
 const OVERHANG = 0.15, DEPTH = 0.45;

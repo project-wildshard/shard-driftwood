@@ -9,8 +9,8 @@ import { bakeIslandPlan, islandPlacements } from './islandCover';
 import { driftwoodIslandFacts, type DriftwoodIslandFacts } from './islandFacts';
 
 type Kind = 'glb' | 'bin' | 'image';
-/** iPhone downloads I8: the sea (clientSections.ts) and the spawn cove (bakedCove.ts) read these as product files, so they
- *  are cached, tier-selected and prefetched with the product instead of fetched as page assets. Each logical name maps
+/** iPhone downloads I8: the sea (clientSections.ts) and the spawn cove (bakedCove.ts) read these as files in the shard file, so they
+ *  are cached, tier-selected and prefetched with the shard file instead of fetched as page assets. Each logical name maps
  *  its exact public build output; the bytes are copied unchanged. */
 export const DRIFTWOOD_PAGE_FILES: Readonly<Record<string, { readonly url: string; readonly kind: Kind }>> = {
   'world/island/island.glb': { url: `${BLENDER_MODELS}island.glb`, kind: 'glb' },
@@ -49,7 +49,7 @@ const OCEAN_PAGE: Readonly<Record<string, keyof DriftwoodOceanBank['files']>> = 
 const NAMES = Object.keys(DRIFTWOOD_PAGE_FILES), PUBLIC = NAMES.filter(name => OCEAN_PAGE[name] === undefined);
 const INPUTS = [...PUBLIC.map(name => DRIFTWOOD_PAGE_FILES[name]?.url ?? ''), ISLAND_META];
 
-/** A declared page file's product name; refuses a name this table does not own. */
+/** A declared page file's shard file name; refuses a name this table does not own. */
 export function pageFile(name: string): { readonly file: string } {
   if (DRIFTWOOD_PAGE_FILES[name] === undefined && !Object.values<string>(DRIFTWOOD_PLAN_FILES).includes(name)) throw new Error(`Undeclared Driftwood page file: ${name}`);
   return { file: name };
@@ -65,7 +65,7 @@ export function driftwoodIslandPlan(table: Uint8Array, metadata: Uint8Array, tie
   return bakeIslandPlan(islandPlacements(Uint8Array.from(table).buffer), meta, tier === 'phone', facts);
 }
 
-/** The exact public bytes under their product names, through the build's owned-byte cache (no file under src). */
+/** The exact public bytes under their shard file names, through the build's owned-byte cache (no file under src). */
 export async function driftwoodPageFileOutput(ctx: Pick<ProjectGenerationContext, 'cached'>): Promise<EmittedBlobs> {
   const facts = await driftwoodIslandFacts(ctx);
   const files = await ctx.cached({ id: 'driftwood-page-files', inputs: INPUTS }, inputs => {

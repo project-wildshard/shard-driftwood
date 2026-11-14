@@ -29,7 +29,7 @@ async function paintDriftwoodMap(inputs: ReadonlyMap<string, Uint8Array>, fixed?
   return (await rasterSceneMap(settings, { input: read, bytes: read, json })).pixels;
 }
 
-/** GR7: the map lattice through the build cache (the source-owned map, published by the SDK as the product map). */
+/** GR7: the map lattice through the build cache (the source-owned map, published by the SDK as the shard file map). */
 export async function driftwoodMap(ctx: Pick<ProjectGenerationContext, 'cached'>): Promise<Uint8Array> {
   const files = await ctx.cached({ id: 'world-map', inputs: DRIFTWOOD_MAP_INPUTS }, async inputs =>
     new Map([['map.rgba', await paintDriftwoodMap(inputs, await driftwoodMapFixedFiles(ctx, inputs))]]));

@@ -28,7 +28,7 @@ const ROCK_SCENE = { scene: { version: 1, root: 'root', nodes: [{ kind: 'group',
 materials: [{ kind: 'port', id: 'rock', source: 'rock' }], textures: [] }, imports: [] } as const;
 
 /** The finished world draws and Explorer cards of the shore boulders and the cove's small rocks: the world-scene library and
- *  step, the scene, the catalogue rows, the placed copies and the desktop GLBs by product name (GR7: the
+ *  step, the scene, the catalogue rows, the placed copies and the desktop GLBs by shard file name (GR7: the
  *  `driftwood-rock-scenes` job's rows and `assets/rock-scenes/` GLBs). The phone's simplified rocks are built from these
  *  GLBs (rockPhoneProgram.ts). */
 export interface DriftwoodRockBank {
@@ -46,7 +46,7 @@ export function driftwoodRockBank(smallRocks: readonly SmallPlacement[]): Driftw
       const file = `models/rocks/${id}.glb`;
       // L18.3b: exact positions, compact normals and colours (compactChannels.ts); the intake restores the typed channels
       glbs.set(file, staticGlb([{ geometry: compactChannels(geometry.clone()), material, compactIndex: true, quantizedChannels: true }]));
-      // L18.3e (G769): the phone draws its own simplified rock, emitted at product build (rockPhoneProgram.ts)
+      // L18.3e (G769): the phone draws its own simplified rock, emitted at shard build (rockPhoneProgram.ts)
       models.push({ id, file: { phone: `models/rocks/${id}-phone.glb`, desktop: file }, attributes: {} });
     }
     const sphere = (id: string): Sphere => {

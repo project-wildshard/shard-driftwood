@@ -1,5 +1,5 @@
 // Ported from engine test/driftwood-rock-author.test.ts (CI21, J232): Driftwood's own rock author output, in its shard.
-// oxlint-disable-next-line import/no-nodejs-modules -- Observe only the product's committed Blender author inputs.
+// oxlint-disable-next-line import/no-nodejs-modules -- Observe only the shard's committed Blender author inputs.
 import { readFileSync } from 'node:fs';
 import { expect, test } from 'vitest';
 import { originalRockObservation } from './fixtures/driftwood-rock-author';

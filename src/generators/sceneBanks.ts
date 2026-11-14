@@ -7,7 +7,7 @@ import { driftwoodFixedLayouts, type DriftwoodFixedLayouts } from './fixedLayout
 import { driftwoodRockBank, type DriftwoodRockBank } from './rockBank';
 import { driftwoodNativeSpecimenBank, type DriftwoodNativeSpecimenBank } from './nativeSpecimenBank';
 import { CREATURE_BODY_FILE, CREATURE_BODY_INPUTS, driftwoodCreatureBodyBank, type DriftwoodCreatureBodyBank } from './creatureBodyBank';
-import { driftwoodIslandPlan } from './productPageFiles';
+import { driftwoodIslandPlan } from './pageFiles';
 import { BLENDER_MODELS } from './blenderArea';
 import { DRIFTWOOD_BANK_BLOBS } from './assets';
 import { trailSpecimenBank } from './trailsideModels';
@@ -17,7 +17,7 @@ import { driftwoodIslandFacts, driftwoodIslandFactsFrom, type DriftwoodIslandFac
 
 /**
  * GR7: the scene producers' rows and bytes, built once per build from owned inputs instead of read back from
- * `*.generated.json` job outputs. The product (prepareOutput), the map bake and the specimen catalogue each build one
+ * `*.generated.json` job outputs. The output (prepareOutput), the map bake and the specimen catalogue each build one
  * bank and hand it to the readers (`siteCatalogue(banks)`, `worldScenes(banks)`, `worldPlacements(banks)`). Each producer
  * joins as its job retires.
  */
@@ -28,7 +28,7 @@ export interface DriftwoodSceneBanks {
   readonly rocks: DriftwoodRockBank;
   readonly native: DriftwoodNativeSpecimenBank;
   readonly creatures: DriftwoodCreatureBodyBank;
-  /** the streamed cover's transports and per-cell plants by product name (islandCoverBank) */
+  /** the streamed cover's transports and per-cell plants by shard file name (islandCoverBank) */
   readonly cover: ReadonlyMap<string, Uint8Array>;
 }
 /** The committed public files the banks read beside the fixed program's: the Blender island's placement table and
@@ -58,7 +58,7 @@ export async function driftwoodSceneBanks(inputs: DriftwoodSceneBankInputs): Pro
   const layouts = inputs.layouts ?? driftwoodFixedLayouts(inputs.fixed);
   return { layouts, facts, cargo: await driftwoodCargoBank(inputs.fixed, layouts.wreck), rocks: driftwoodRockBank(smallRocks), native: await driftwoodNativeSpecimenBank(inputs.fixed), creatures: await driftwoodCreatureBodyBank(file), cover: await islandCoverBank(file, facts) };
 }
-/** The product build's banks: the fixed files and the public inputs come through the owned-byte cache. */
+/** The shard build's banks: the fixed files and the public inputs come through the owned-byte cache. */
 export async function driftwoodSceneBanksCached(ctx: Pick<ProjectGenerationContext, 'cached'>): Promise<DriftwoodSceneBanks> {
   // a cached file name is project-relative, so each public input is kept under its URL without the leading slash
   const cached = await ctx.cached({ id: 'driftwood-scene-bank-inputs', inputs: DRIFTWOOD_SCENE_BANK_INPUTS }, inputs =>
@@ -76,12 +76,12 @@ export async function driftwoodSceneBanksFrom(read: (url: string) => Uint8Array,
   return driftwoodSceneBanks({ fixed: fixed ?? await driftwoodFixedBytes(new Map(DRIFTWOOD_FIXED_INPUTS.map(url => [url, read(url)]))),
     files: new Map(DRIFTWOOD_SCENE_BANK_INPUTS.map(url => [url, read(url)])) });
 }
-/** The banks' product files, named as their sources were: cargo's and the reef's GLBs as `meshopt: true` sources
+/** The banks' files in the shard file, named as their sources were: cargo's and the reef's GLBs as `meshopt: true` sources
  *  (assets.ts), the desktop rocks plain (they were SCENE_MODEL_BLOBS sources). */
 export async function driftwoodSceneBankOutput(banks: DriftwoodSceneBanks): Promise<EmittedBlobs> {
   return emitNamedBlobs([...banks.native.pages, ...await Promise.all([...banks.cargo.glbs].map(([name, bytes]) => nameMeshoptBlob(name, bytes))),
     ...[...banks.rocks.glbs].map(([name, bytes]) => nameBlob(name, 'glb', bytes)),
-    // the trail specimens' Explorer GLBs, as the product files their catalogue rows name (worldScenes)
+    // the trail specimens' Explorer GLBs, as the files in the shard file their catalogue rows name (worldScenes)
     ...[...trailSpecimenBank().glbs].map(([name, bytes]) => nameBlob(name, 'glb', bytes)),
     // the cover's transports and cells, plain as their sources were
     ...[...banks.cover].map(([name, bytes]) => nameBlob(name, 'bin', bytes)),

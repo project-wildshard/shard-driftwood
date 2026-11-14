@@ -7,12 +7,12 @@ import type { DriftwoodIslandFacts } from './islandFacts';
 import { COVE_MODELS, coveDrawnProto } from './coveModels';
 import { ISLAND_LOOKS } from './islandLook';
 import { ISLAND_LOOK, ISLAND_TIERS } from './islandRows';
-import { DRIFTWOOD_PLAN_FILES, pageFile } from './productPageFiles';
+import { DRIFTWOOD_PLAN_FILES, pageFile } from './pageFiles';
 import { WORLD_DROP } from './sea';
 import { DRIFTWOOD_ASSET_NAMES } from './assets';
 import coverFiles from '../data/islandCoverFiles.json' with { type: 'json' };
 
-// iPhone downloads I8: the cove's tiles, lightmaps, placement table and plans are product files (productPageFiles.ts)
+// iPhone downloads I8: the cove's tiles, lightmaps, placement table and plans are files in the shard file (pageFiles.ts)
 const at = (name: string) => pageFile(`world/island/${name}`);
 const lightmap = (param: string, name: string) => ({ param, source: { phone: at(`${name}.phone.webp`), desktop: at(`${name}.webp`) }, channel: 0, anisotropy: 4 });
 const cells = { size: 16, pad: 4 };

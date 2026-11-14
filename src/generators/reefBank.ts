@@ -14,10 +14,10 @@ import { driftwoodGroundBytes } from './groundRows';
 import { foliageTransport } from './hibiscusTransport';
 import publicInputs from '../data/publicInputs.json' with { type: 'json' };
 
-/** One reef blob: its product name's kind and bytes. */
+/** One reef blob: its shard file name's kind and bytes. */
 export interface ReefBlob { readonly kind: 'glb' | 'bin'; readonly bytes: Uint8Array }
 /** The lagoon's reef (GR7: the `driftwood-reef` job's layout, blobs and hash-named public copies): the scatter layout
- *  (world/Seabed and the fish school read it), the welded world batch and each kind's Explorer cards by product name,
+ *  (world/Seabed and the fish school read it), the welded world batch and each kind's Explorer cards by shard file name,
  *  and the job's public URLs (reefFiles.ts's `REEF_FILES`) as aliases of those names. */
 export interface DriftwoodReefBank {
   readonly layout: ReefLayout;

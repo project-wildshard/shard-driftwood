@@ -1,4 +1,4 @@
-/** Rock finishing is author work; products carry final vertex channels. */
+/** Rock finishing is author work; shard files carry final vertex channels. */
 import * as THREE from 'three';
 
 export interface RockOpts {

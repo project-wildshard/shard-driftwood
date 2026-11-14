@@ -6,7 +6,7 @@ import manifest from '../manifest.json' with { type: 'json' };
 import ISLAND_COVER_FILES from '../data/islandCoverFiles.json' with { type: 'json' };
 
 let coverBank: Promise<ReadonlyMap<string, Uint8Array>> | undefined;
-/** The streamed cover (GR7: the dressing job's cover outputs): each tier's cover transport and per-cell plants by product
+/** The streamed cover (GR7: the dressing job's cover outputs): each tier's cover transport and per-cell plants by shard file
  *  name, baked over the Blender island (`readAsset` its committed public files) on the bound native ground as the dressing
  *  bakes it. Each cover must hash to its committed islandCoverFiles.json row, whose URL and metadata the build names it by.
  *  Built once per build process. */

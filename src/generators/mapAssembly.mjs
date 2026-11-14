@@ -18,7 +18,7 @@ import { driftwoodSceneModelBytes } from './sceneModelProgram.ts';
 import { driftwoodSceneBanksFrom, driftwoodSceneBankOutput } from './sceneBanks.ts';
 import { ENTRY_DECKS } from './entryDecks.ts';
 import { driftwoodFacetedGroundBank } from './facetedGroundBank.ts';
-import { driftwoodIslandPlan } from './productPageFiles.ts';
+import { driftwoodIslandPlan } from './pageFiles.ts';
 
 const SHARD = 'src/shards/driftwood-isle/', ISLAND = 'public/assets/models/driftwood-blender/';
 const named = (name, value) => ({ file: { name }, bytes: new TextEncoder().encode(JSON.stringify(value)) });
@@ -50,7 +50,7 @@ async function bridgeRest(assembly, fixed) {
   return facts;
 }
 
-// GR7: the cells are the cover bank's product bytes (islandCoverBank), no longer a source path
+// GR7: the cells are the cover bank's shard file bytes (islandCoverBank), no longer a source path
 async function coverRest(assembly, bytes, fixed, read) {
   const row = read('data/groundCover.json').GROUND_COVER, groups = read('data/fixedGeometry.json').groups.cover;
   const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength), word = i => view.getUint32(i * 4, true);
@@ -94,7 +94,7 @@ export async function driftwoodMapAssembly(source, preparedFixed) {
     if (bytes === undefined) throw new Error(`Missing owned map scene-bank model: ${file.name}`);
     return { file, bytes };
   });
-  // GR7: the foliage batches and placements from their bank, as the product ships them; the map paints the desktop
+  // GR7: the foliage batches and placements from their bank, as the shard file ships them; the map paints the desktop
   // placements, so only their tier's batch files (the reef's is the phone's, which desktop shares)
   const foliage = { ...driftwoodFoliageScenes(), ...foliageLogPlacements(banks.layouts) }, desktop = new Set(foliage.libraries.flatMap(row => row.models.map(model => model.file.desktop)));
   const foliageBlobs = [...await foliageSceneFiles(desktop)].map(([name, bytes]) => ({ file: { name, kind: 'glb' }, bytes }));

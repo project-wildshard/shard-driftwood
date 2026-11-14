@@ -35,7 +35,7 @@ function nativeInputs() {
 /** The typed facts Driftwood's native server hosts read: its bake, roster, quest policy and entry walk. */
 export const driftwoodNativeInputs: typeof nativeInputs = nativeInputs;
 
-/** Driftwood's native assembly (P1-E3.1b, J90): its hosts in install order, as data over its product files. */
+/** Driftwood's native assembly (P1-E3.1b, J90): its hosts in install order, as data over the files in its shard file. */
 function driftwoodNativeAssembly(inputs: ReturnType<typeof nativeInputs>): NativeAssemblyPlan {
   const quest = inputs.nativeQuest;
   return { kind: 'native-assembly', level: { speed: 5, ground: { size: 500, height: 0 } }, terrain: { kind: 'bake-ground' }, navigation: 'shard',

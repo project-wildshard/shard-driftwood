@@ -8,7 +8,7 @@ import { inIslandChunk, oceanGridGlb, seaFloor, type OceanGround } from './ocean
 import { driftwoodGroundBytes } from './groundRows';
 
 /** The sea (GR7: the `driftwood-ocean` job's hash-named grids and floor): each tier's grid and the floor's heights by
- *  their page-file names (productPageFiles.ts), and the public URLs they had (oceanFiles.ts's `OCEAN_FILES`). */
+ *  their page-file names (pageFiles.ts), and the public URLs they had (oceanFiles.ts's `OCEAN_FILES`). */
 export interface DriftwoodOceanBank {
   readonly files: { readonly phone: Uint8Array; readonly desktop: Uint8Array; readonly floor: Uint8Array };
   readonly urls: { readonly phone: string; readonly desktop: string; readonly floor: string };

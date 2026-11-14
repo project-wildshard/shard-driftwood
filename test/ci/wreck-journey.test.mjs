@@ -1,4 +1,4 @@
-// J186 Ring 2, CI only, never a hook. The Wreck glyph shard (SH-drift-3, second leg) on the built product: from the pier
+// J186 Ring 2, CI only, never a hook. The Wreck glyph shard (SH-drift-3, second leg) on the built output: from the pier
 // over the plateau and east along the shore to Wreck Cove, down the hatch ramp into the hold, the drowned sailor risen
 // and beaten by the player's own clicks, his hold key, the bilge pump, the cargo winch and the captain's strongbox.
 // Only what the page sends drives it: movement frames, the attack a click on the locked sailor sends, and the [E] press

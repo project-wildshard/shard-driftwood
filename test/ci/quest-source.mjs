@@ -1,4 +1,4 @@
-// Independent original author leaves, never a copied product snapshot.
+// Independent original author leaves, never a copied output snapshot.
 import {parseShardfileField} from '@wildshard/format/shardSchema';
 import {DRIFTWOOD_QUESTS} from '../../src/generators/quests.ts';
 import {DRIFTWOOD_FEATS} from '../../src/generators/questInventory.ts';

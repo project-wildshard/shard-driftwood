@@ -5,7 +5,7 @@ import { driftwoodCatalogueEconomy } from '../../src/generators/catalogueEconomy
 import { TRADER_STALL } from '../../src/generators/questShop';
 import { hashImmutableBytes } from '@wildshard/format/immutable';
 
-/** Complete original figure/card and trade-policy wires before contextual product assembly. */
+/** Complete original figure/card and trade-policy wires before contextual shard file assembly. */
 export function driftwoodFigureCommerceObservation() {
   const rows = { figures: FIGURE_CATALOGUE, quest: driftwoodQuestFigures(), cards: driftwoodKitFigureCards(),
     economy: driftwoodCatalogueEconomy(), trader: TRADER_STALL };

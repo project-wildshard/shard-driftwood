@@ -54,7 +54,7 @@ const one = (material: THREE.MeshStandardMaterial, parts: THREE.BufferGeometry[]
   [{ geometry: parts.length === 1 && parts[0] ? parts[0] : mergeGeometries(parts, false), material, castShadow: true, receiveShadow: true }];
 
 /** The fence post's build (the trail's runtime model is the specimen catalogue's row with it, trailside.ts). D76: the
- *  builds live apart from the catalogue, so the product's author bundle reaches no game runtime through the bank. */
+ *  builds live apart from the catalogue, so the shard file's author bundle reaches no game runtime through the bank. */
 export const buildFencePost: TrailBuild<Record<string, never>> = (material, _p, rng) => {
   const parts: THREE.BufferGeometry[] = [], add = trailPart(parts, rng);
   const tilt = rng.range(-0.06, 0.06);
@@ -128,7 +128,7 @@ export const buildPlankStep: TrailBuild<PlankStepParams> = (material, p, rng) =>
 };
 
 /** The trail specimens' Explorer GLBs (GR7: the `driftwood-trail-specimens` job's hash-named public copies): each fence post,
- *  signpost and plank-step variant's one native draw by product name, and the public URL each had (trailCatalogue.json's
+ *  signpost and plank-step variant's one native draw by shard file name, and the public URL each had (trailCatalogue.json's
  *  variant URLs, trailSpecimens.ts) mapped to that name. */
 export interface TrailSpecimenBank { readonly glbs: ReadonlyMap<string, Uint8Array>; readonly byUrl: Readonly<Record<string, string>> }
 const isParts = (built: unknown): built is readonly TrailMeshPart[] => Array.isArray(built);

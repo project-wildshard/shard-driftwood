@@ -1,4 +1,4 @@
-// SHARD-PLATFORM W2c / G466 C2: Driftwood's SF59 material graphs, read by generators/product.ts at build time
+// SHARD-PLATFORM W2c / G466 C2: Driftwood's SF59 material graphs, read by generators/shardfile.ts at build time
 // (the shardfile's `look.materials`).
 // Every graph but the water's is authored graph JSON (data/lookGraphs.json); the water's builders stay here for O4's H7.
 import authored from '../data/lookGraphs.json' with { type: 'json' };

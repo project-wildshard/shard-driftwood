@@ -7,6 +7,6 @@ import { driftwoodGroundDeclaration } from '../../src/generators/groundDeclarati
 
 const context = createProjectGeneration(resolve('src'), 'f'.repeat(64), new Map(),
   resolve('tmp/driftwood-boot-inventory'), [{ prefix: '/assets/', directory: resolve('public/assets') }]);
-/** The real bounded discovery operations, without a complete product rebuild. */
+/** The real bounded discovery operations, without a complete shard rebuild. */
 export const discovery = { 'ground.rows': driftwoodGroundDeclaration(), navigation: await driftwoodNavigation(context),
   ...driftwoodBootProgram(context) };

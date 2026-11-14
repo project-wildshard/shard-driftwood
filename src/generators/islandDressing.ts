@@ -158,10 +158,10 @@ export function bakeIslandFoliagePlacements(ground: IslandFoliageGround): Island
  const phone = tier('phone'), desktop = tier('desktop');
  return { seed: manifest.seed, gullPerches: beachGullPerches(ground.heightAt, manifest.seed, ground), tiers: { phone, desktop } };
 }
-/** One dressing blob: its product name's kind and bytes. */
+/** One dressing blob: its shard file name's kind and bytes. */
 export interface IslandFoliageBlob { readonly kind: 'glb' | 'bin'; readonly bytes: Uint8Array }
 /** The palms' and bushes' bytes (GR7: the dressing job's palm and hibiscus outputs): each tier's world transport and Explorer
- *  variant GLBs by product name (equal payloads keep the first name, as the job's writer did), and the hash-named public URLs
+ *  variant GLBs by shard file name (equal payloads keep the first name, as the job's writer did), and the hash-named public URLs
  *  (palmFiles.ts / hibiscusFiles.ts) as aliases of those names. */
 export interface IslandFoliageBatches { readonly blobs: ReadonlyMap<string, IslandFoliageBlob>; readonly byUrl: Readonly<Record<string, string>> }
 let foliageBatches: IslandFoliageBatches | undefined;

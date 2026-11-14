@@ -1,4 +1,4 @@
-// J186 Ring 2, CI only, never a hook. The Lookout glyph shard (SH-drift-2) on the built product: from the pier to
+// J186 Ring 2, CI only, never a hook. The Lookout glyph shard (SH-drift-2) on the built output: from the pier to
 // Wendell on the plateau, his sea chest for the flint, round the gully's south end and up the headland's plank trail,
 // the lookout stair to the platform, the beacon lit and the shard taken. Only what the page sends drives it: movement
 // and the [E] press each prompt's net route names. No flag, quest or pose is written. About 3,700 ticks.

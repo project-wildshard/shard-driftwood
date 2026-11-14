@@ -66,7 +66,7 @@ export async function driftwoodFixedBytes(inputs: ReadonlyMap<string, Uint8Array
     for (const [hash, bytes] of queries.assets) baked.assets.set(hash, bytes);
     const coarse = driftwoodCoarseTiles(aoBytes), coarseTiles = coarse.tiles.filter(tile => !baked.shardfile.tiles.some(row => row.lod === 1 && row.files.length > 0 && row.x === tile.x && row.z === tile.z));
     const coarseParents = new Set(coarseTiles.map(tile => `${tile.x}/${tile.z}`));
-    const product = { terrain: queries.terrain, props: { ...baked.props.props,
+    const fixedTiles = { terrain: queries.terrain, props: { ...baked.props.props,
       tiles: [...baked.props.props.tiles, ...coarse.models.filter(model => coarseTiles.some(tile => tile.files.includes(model.file)))], wholeLibrary: templateFiles },
       tiles: [...baked.shardfile.tiles.filter(tile => tile.lod !== 1 || !coarseParents.has(`${tile.x}/${tile.z}`)), ...coarseTiles],
       files: [...baked.shardfile.files, ...libraryFiles, ...queries.files, ...coarse.files].sort((a, b) => a.hash.localeCompare(b.hash)),
@@ -75,7 +75,7 @@ export async function driftwoodFixedBytes(inputs: ReadonlyMap<string, Uint8Array
         compressed: libraryFiles.reduce((sum, file) => sum + file.compressed, 0) } };
     for (const [hash, bytes] of baked.assets) files.set(`assets/${hash}`, bytes);
     for (const [hash, bytes] of coarse.assets) files.set(`owned/coarse/${hash}.glb`, bytes);
-    files.set('data/fixedTiles.generated.json', text.encode(`${JSON.stringify(product)}\n`));
+    files.set('data/fixedTiles.generated.json', text.encode(`${JSON.stringify(fixedTiles)}\n`));
     const blobs = [...blobRows.values()].sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
     const byUrl = Object.fromEntries([...aliases].sort(([a], [b]) => a < b ? -1 : a > b ? 1 : 0));
     files.set('data/fixedBlobs.generated.json', text.encode(`${JSON.stringify({ blobs, byUrl }, null, 2)}\n`));
@@ -92,7 +92,7 @@ export async function driftwoodFixedBytes(inputs: ReadonlyMap<string, Uint8Array
   }
 }
 
-// Cache-only source binding; never exposed as a product or scene source.
+// Cache-only source binding; never exposed as a shard file or scene source.
 const FIXED_NATIVE_RECEIPT = 'cache/fixed-native-inputs.json';
 
 function nativeReceipt(inputs: ReadonlyMap<string, Uint8Array>): Uint8Array {
@@ -115,14 +115,14 @@ async function fixedStep(ctx: Pick<ProjectGenerationContext, 'cached'>): Promise
   return files;
 }
 
-function productFiles(files: ReadonlyMap<string, Uint8Array>): ReadonlyMap<string, Uint8Array> {
+function withoutReceipt(files: ReadonlyMap<string, Uint8Array>): ReadonlyMap<string, Uint8Array> {
   return new Map([...files].filter(([name]) => name !== FIXED_NATIVE_RECEIPT));
 }
 
 /** The native fixed-model step stores owned files and its native-input binding
  * outside src. Callers receive the same original file bank without its receipt. */
 export async function driftwoodFixedFiles(ctx: Pick<ProjectGenerationContext, 'cached'>): Promise<ReadonlyMap<string, Uint8Array>> {
-  return productFiles(await fixedStep(ctx));
+  return withoutReceipt(await fixedStep(ctx));
 }
 
 /** Reuse an admitted fixed bank only for the map's identical input snapshot.
@@ -135,5 +135,5 @@ export async function driftwoodMapFixedFiles(ctx: Pick<ProjectGenerationContext,
   if (receipt === undefined || !matches(receipt) || !matches(nativeReceipt(inputs))) {
     throw new Error('Driftwood map fixed inputs changed');
   }
-  return productFiles(files);
+  return withoutReceipt(files);
 }

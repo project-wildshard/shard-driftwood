@@ -4,7 +4,7 @@ import { DRIFTWOOD_LOOT as loot } from './loot';
 
 type CatalogueEconomy = ReturnType<typeof authorFormatRows<'catalogueEconomy.CatalogueEconomySchema'>>;
 
-/** Exact catalogue metadata projected before the product is published. */
+/** Exact catalogue metadata projected before the shard file is published. */
 export function driftwoodCatalogueEconomy(): CatalogueEconomy {
   return authorFormatRows('catalogueEconomy.CatalogueEconomySchema', { effects: loot.economy.effects, goods: loot.economy.goods });
 }

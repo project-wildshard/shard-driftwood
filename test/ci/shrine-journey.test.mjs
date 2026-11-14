@@ -1,4 +1,4 @@
-// J186 Ring 2, CI only, never a hook. The Ring Shrine (SH-drift-3, third and fourth legs) on the built product: all
+// J186 Ring 2, CI only, never a hook. The Ring Shrine (SH-drift-3, third and fourth legs) on the built output: all
 // three glyph shards earned in one run, as the Sea Cave, Wreck and Lookout journeys earn them, set in the shrine's
 // altar, and the Drowned Captain who rises from its pool beaten by the player's clicks. The altar is first tried with
 // two shards (Sea Cave and Wreck) from the spot it later takes all three from, so it is the three-shard rule refusing,

@@ -24,9 +24,9 @@ const trail = driftwoodTrailRows();
 
 const { POOL_LOOK, SHRINE_POOL_LOOK } = authoredPoolLook;
 
-/** The trail's code-built specimens with each owned variant naming its product file (the trail-specimen bank, GR7)
+/** The trail's code-built specimens with each owned variant naming its file in the shard file (the trail-specimen bank, GR7)
  *  instead of the retired job's public URL. */
-function trailProductSpecimens(): SpecimenCatalogueRows {
+function trailOwnedSpecimens(): SpecimenCatalogueRows {
   const bank = trailSpecimenBank(), rows: SpecimenCatalogueRows = [];
   const located = (url: SpecimenLocationRows): SpecimenLocationRows => {
     if (typeof url !== 'string') return url;
@@ -51,7 +51,7 @@ export function worldScenes(banks: DriftwoodSceneBanks): WorldScenesSection {
   return {
     version: 1, catalogue: 'models/world-scenes.json',
     // the trail's fence post, signpost and plank step and the entry road deck: code-built specimens its placements name (G3)
-    specimens: [...trailProductSpecimens(), entryDeckSpecimen()],
+    specimens: [...trailOwnedSpecimens(), entryDeckSpecimen()],
     libraries: [...cargoRows.libraries, ...nativeRows.libraries, REEF_SCENE_LIBRARY, ...rockRows.libraries, ...parseWorldScenes({ version: 1, libraries: driftwoodFoliageScenes().libraries, materials: [], steps: [] }).libraries, { id: 'cascade', kind: 'owned', models: ['waterfallSheet', 'waterfallRings', 'waterfallPuffs', 'coveStructure', 'coveRocks', 'coveGlow', 'covePools', 'wreckKit', 'wreckGlow', 'wreckRocks', 'trailside', 'hutKit', 'hutFlames', 'lookout', 'shipwreckKit', 'shipwreckGlow', 'shrineKit', 'shrineWater', 'shrineGlyphs', 'shrineSpecimenKit', 'shrineSpecimenWater', 'shrineSpecimenGlyphs', ...piers.slots, 'boatHull', 'boatSail', 'boatGear', 'mooringLines', 'duneLogs', ...Object.values(inventory.groups.driftLogs)].map(id => {
       const row = inventory.draws.find(entry => entry.slot === id), file = id === 'covePools' ? 'models/scene-pools.glb' : id === 'waterfallRings' ? 'models/scene-rings.glb' : DRIFTWOOD_FIXED_SOURCES[id];
       if (row === undefined || file === undefined) throw new Error(`Missing cascade bake: ${id}`);

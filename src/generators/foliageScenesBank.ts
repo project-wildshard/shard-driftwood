@@ -148,12 +148,12 @@ export function foliageLogPlacements(layouts: Pick<DriftwoodFixedLayouts, 'logs'
   });
 }
 
-/** The shipped batches' product files, in the order the job wrote them. */
+/** The shipped batches' files in the shard file, in the order the job wrote them. */
 export const FOLIAGE_SCENE_FILES: readonly string[] = ['models/foliage/palms-phone.glb', 'models/foliage/hibiscus-phone.glb', 'models/foliage/reef-phone.glb',
   'models/foliage/palms-desktop.glb', 'models/foliage/hibiscus-desktop.glb'];
 const isPhoneFile = (name: string): boolean => name.endsWith('-phone.glb');
 
-/** The batch GLBs by product name, before the phone's grid positions: exact positions, compact normals and colours
+/** The batch GLBs by shard file name, before the phone's grid positions: exact positions, compact normals and colours
  *  (compactChannels.ts, L18.3c); the phone's batch with fewer triangles (phoneDecimate.ts, within PHONE_ERROR metres,
  *  L18.3e); desktop exact. */
 export function foliageSceneGlbs(only?: ReadonlySet<string>): Map<string, Uint8Array> {
@@ -180,7 +180,7 @@ export async function foliageSceneFiles(only?: ReadonlySet<string>): Promise<Map
   if (JSON.stringify([...files.keys()]) !== JSON.stringify(expected)) throw new Error('Foliage scene file inventory differs');
   return files;
 }
-/** The product's batch files, `meshopt: true` as the job's sources were; the phone compaction measures with brotli, so the
+/** The shard file's batch files, `meshopt: true` as the job's sources were; the phone compaction measures with brotli, so the
  *  files come through the owned-byte cache. */
 export async function driftwoodFoliageSceneOutput(ctx: Pick<ProjectGenerationContext, 'cached' | 'meshoptNoLarger'>): Promise<EmittedBlobs> {
   const files = await ctx.cached({ id: 'driftwood-foliage-scenes', native: true }, inputs => {

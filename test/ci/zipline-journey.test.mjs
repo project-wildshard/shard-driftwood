@@ -1,4 +1,4 @@
-// J186 Ring 2, CI only, never a hook. The zipline (SH-drift-1's cable leg) on the built product: from the pier past
+// J186 Ring 2, CI only, never a hook. The zipline (SH-drift-1's cable leg) on the built output: from the pier past
 // Wendell's hut and over the headland to the launch deck, [E] there, then the ride down the cable to its foot on the
 // beach north of Wreck Cove, and a walk on from where it lets go into the cove. Only what the page sends drives it:
 // movement and the [E] press the prompt's net route names. No flag, ride state or pose is written. About 4,500 ticks.

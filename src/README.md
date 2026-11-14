@@ -43,10 +43,10 @@ Layout debt (grandfathered in `lint/shard-layout.json`): `tiers.ts` (the island'
 ## Budgets
 
 The captain's hat, sea-glass chime, sailcloth cape and boat's three meshes are lossless offline GLBs. Their original builders live in `generators/`;
-The `data/fixedGeometry.json` inventory supplies the product’s named groups and owned geometry declarations.
+The `data/fixedGeometry.json` inventory supplies the shard file’s named groups and owned geometry declarations.
 `world.assembly` loads the admitted island book before placement; the model controllers keep the original toon
 materials, wind and collectible slots. `generators/fixedProgram.ts` constructs the original geometry and metadata
-from committed native inputs during the shard build; `generators/fixedProduct.ts` admits its owned world assets.
+from committed native inputs during the shard build; `generators/fixedShardfile.ts` admits its owned world assets.
 The fixed-model scheduler and its file-publishing check are retired.
 
 Phone 30 fps (9.6 ms CPU), desktop 60 fps (4.8 ms). Cold play on 4G within 30 s. F2 ceilings for the poses `pier`,
@@ -56,7 +56,7 @@ Phone 30 fps (9.6 ms CPU), desktop 60 fps (4.8 ms). Cold play on 4G within 30 s.
 
 Faceted low-poly toon, no textures: flat-shaded vertex colours, a two-band toon ramp with coloured shadows and a rim,
 a stylized gradient sky with faceted clouds, a colour-ramp fog, the learned LUT, a painted horizon. The manifest's
-`render.platform: "toon"` binds the existing platform `toonLook` to the product on the clean chain. Driftwood stays low-poly: never photoreal.
+`render.platform: "toon"` binds the existing platform `toonLook` to the shard file on the clean chain. Driftwood stays low-poly: never photoreal.
 
 ## Open asks
 

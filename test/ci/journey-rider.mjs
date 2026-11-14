@@ -1,4 +1,4 @@
-// The headless rider the CI journeys share (J186 Ring 2): the built driftwood-isle product booted on the pinned engine,
+// The headless rider the CI journeys share (J186 Ring 2): the built driftwood-isle output booted on the pinned engine,
 // and a player driven only by what the page sends: movement frames toward points, and the [E] press each prompt's net
 // route names, and the attack a click on the locked target sends. No flag, quest or pose is written.
 import '@wildshard/engine/scripts/sim-node-loader.mjs';
@@ -47,7 +47,7 @@ export function rider(resident) {
   };
   // [E] where the player stands: the act the prompt's net route names, beside a standing player frame.
   const press = name => {
-    const route = routes.get(name); assert.ok(route, `The product must route the ${name} prompt`);
+    const route = routes.get(name); assert.ok(route, `The shard file must route the ${name} prompt`);
     resident.step([{ kind: 'player', moveX: 0, moveZ: 0, yaw: 0, commandVersion: 1, steer: { keyX: 0, keyY: 0, stickX: 0, stickY: 0 } },
       { kind: 'script', actorId: route.actorId, value: route.value }]);
   };

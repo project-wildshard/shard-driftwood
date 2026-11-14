@@ -38,7 +38,7 @@ const {audioBounds: _audioBounds, audioFall: _audioFall, audioCave: _audioCave, 
 /** O7: the lowered sea as the client plan's `world.water` row: its baked grid per tier, floor and foam, clipped out
  *  under each whole road deck (G170: the socket and its landing, in the landings' edge order), its night param lent from
  *  the toon lighting, whose sea level is the sea's. */
-/** a product file name for an authored asset label (the build's asset index; the runtime reads names only) */
+/** a shard file name for an authored asset label (the build's asset index; the runtime reads names only) */
 const named = (label: string): string => { const name = DRIFTWOOD_ASSET_NAMES[label]; if (name === undefined) throw new Error(`Missing named asset: ${label}`); return name; };
 export const OCEAN_WATER_ROW = { id: 'sea',
   surface: { ...OCEAN_SURFACE, params: { level: OCEAN.level, deepDepth: OCEAN.deepDepth, shallow: [...OCEAN.shallowColor], deep: [...OCEAN.deepColor], edgeInset: SHORE_REVETMENT_INNER_FACE, seaEnd: HORIZON_RADIUS } },

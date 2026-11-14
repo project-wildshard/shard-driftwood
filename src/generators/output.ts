@@ -5,7 +5,7 @@ import { driftwoodSceneModelOutput } from './sceneModelProgram';
 import type { ProjectGenerationContext } from '@wildshard/sharddev/projectGeneration';
 import { driftwoodIslandProtoOutput } from './islandProtoProgram';
 import { driftwoodPhoneRockOutput } from './rockPhoneProgram';
-import { driftwoodPageFileOutput } from './productPageFiles';
+import { driftwoodPageFileOutput } from './pageFiles';
 import { driftwoodCatalogueFeatures } from './catalogueEconomy';
 import { driftwoodWorldStages } from './worldAssembly';
 import { driftwoodWorldUpdates } from './worldUpdates';

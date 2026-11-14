@@ -17,5 +17,5 @@ export function groundFilesFrom(byUrl: Readonly<Record<string, string>>): Ground
   return { ground: file('world/ground/ground.glb'), slab: file('world/ground/slab.glb') };
 }
 
-/** Content URLs come from the same bank that supplies the admitted product bytes. */
+/** Content URLs come from the same bank that supplies the admitted shard file bytes. */
 export const GROUND_FILES = groundFilesFrom(driftwoodFacetedGroundBank().byUrl);

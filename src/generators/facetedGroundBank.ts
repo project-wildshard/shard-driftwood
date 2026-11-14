@@ -8,7 +8,7 @@ import { driftwoodGroundBytes } from './groundRows';
 import publicInputs from '../data/publicInputs.json' with { type: 'json' };
 
 /** The faceted ground (GR7: the `driftwood-faceted-ground` job's two GLBs and their hash-named public copies): the grid and
- *  the slab by product name, and their public URLs as aliases of those names. */
+ *  the slab by shard file name, and their public URLs as aliases of those names. */
 export interface DriftwoodFacetedGroundBank {
   readonly blobs: ReadonlyMap<string, Uint8Array>;
   readonly byUrl: Readonly<Record<string, string>>;

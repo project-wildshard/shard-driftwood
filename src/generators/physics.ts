@@ -30,7 +30,7 @@ export function driftwoodPhysics(): DriftwoodPhysics {
     pieces: rows.pieces, captain: rows.captain };
 }
 
-/** The original carved floor enters the product as owned bytes, without a source-file handoff. */
+/** The original carved floor enters the shard file as owned bytes, without a source-file handoff. */
 export function driftwoodPhysicsFloor(): ReturnType<typeof nameBlob> {
   return nameBlob(floorFile, 'bin', driftwoodPhysicsGroundBytes(), { decoded: (rows.ground.rows + 1) * (rows.ground.cols + 1) * 4 });
 }

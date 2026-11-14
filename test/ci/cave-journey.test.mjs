@@ -1,4 +1,4 @@
-// J186 Ring 2, CI only, never a hook. The Sea Cave glyph shard (SH-drift-3, first leg) on the built product: from the
+// J186 Ring 2, CI only, never a hook. The Sea Cave glyph shard (SH-drift-3, first leg) on the built output: from the
 // pier over the plateau and east along the shore to Wreck Cove, the shut tide gate, one plate alone, the tide barrel
 // shoved onto the second plate, the gate latched open and the shard taken from the alcove. Only what the page sends
 // drives it: movement frames and the [E] press each prompt's net route names. The barrel moves only because the

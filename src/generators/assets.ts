@@ -51,7 +51,7 @@ for (const manifest of manifests) for (const [url, declared] of Object.entries<s
   if (name === undefined || (previous !== undefined && previous !== name)) throw new Error('Asset URL has conflicting or missing content');
   byUrl[url] = name;
 }
-/** Stable draw slots are authored asset-index aliases, resolved only after product admission. */
+/** Stable draw slots are authored asset-index aliases, resolved only after shard file admission. */
 export const DRIFTWOOD_FIXED_SOURCES: Record<string, string> = Object.fromEntries(Object.entries(FIXED_MODEL_FILES).map(([slot, url]) => {
   const name = byUrl[url];
   if (name === undefined) throw new Error(`Missing fixed source: ${slot}`);

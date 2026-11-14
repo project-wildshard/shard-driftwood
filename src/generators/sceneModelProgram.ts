@@ -10,7 +10,7 @@ const SCENE_MODELS = [['cove-pools', 'pools'], ['waterfall-rings', 'rings']] as 
 const isMesh = (value: unknown): value is Mesh => value instanceof Mesh;
 
 /** The cove's pools and the waterfall's rings as standalone scene sources, keeping the original world bake's 16-bit index
- *  streams: built from the owned fixed models at product build (GR7: they were the `driftwood-world-scene-models` job's
+ *  streams: built from the owned fixed models at shard build (GR7: they were the `driftwood-world-scene-models` job's
  *  GLBs under src). */
 export async function driftwoodSceneModelOutput(ctx: Pick<ProjectGenerationContext, 'cached'>): Promise<EmittedBlobs> {
   return driftwoodSceneModelBytes(await driftwoodFixedFiles(ctx));

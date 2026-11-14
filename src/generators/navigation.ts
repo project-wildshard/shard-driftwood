@@ -11,7 +11,7 @@ export function driftwoodNavigationRows(bytes: Uint8Array): ReturnType<typeof na
   return navigationSourceRows(bytes, 'driftwood-isle');
 }
 
-/** Native cached bytes enter the declaration, discovery and product from this one authored input. */
+/** Native cached bytes enter the declaration, discovery and shard file from this one authored input. */
 export async function driftwoodNavigation(ctx: Pick<ProjectGenerationContext, 'cached' | 'asset'>): Promise<ReturnType<typeof driftwoodNavigationRows>> {
   const files = await ctx.cached({ id: 'navigation', native: true, inputs: [DRIFTWOOD_NAVIGATION_INPUT] }, inputs => {
     const bytes = inputs.get(DRIFTWOOD_NAVIGATION_INPUT);

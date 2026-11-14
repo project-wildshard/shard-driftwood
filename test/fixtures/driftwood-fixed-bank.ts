@@ -8,7 +8,7 @@ export function driftwoodFixedBank(): Promise<ReadonlyMap<string, Uint8Array>> {
   return files;
 }
 
-/** A template's original bytes, before product packing, without a copied public output. */
+/** A template's original bytes, before shard file packing, without a copied public output. */
 export async function driftwoodFixedModel(name: string): Promise<Uint8Array> {
   const bytes = (await driftwoodFixedBank()).get(`baked/fixed-models/${name}.glb`);
   if (bytes === undefined) throw new Error(`Missing owned fixed model: ${name}`);

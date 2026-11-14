@@ -47,7 +47,7 @@ function readRock(glb: Uint8Array): BufferGeometry {
 }
 
 /** The phone's rocks within PHONE_ROCK_ERROR (smooth normals and colours kept), simplified from the desktop rocks at
- *  product build from the rock bank's desktop GLBs (by product name): owned bytes, never generated assets under src (GR0).
+ *  shard build from the rock bank's desktop GLBs (by shard file name): owned bytes, never generated assets under src (GR0).
  *  iPhone downloads I3: each ships with 16-bit grid positions and meshopt when that is smaller (`compactPhoneGlb`). */
 export async function driftwoodPhoneRockOutput(desktop: ReadonlyMap<string, Uint8Array>): Promise<EmittedBlobs> {
   const material = new MeshStandardMaterial({ vertexColors: true, flatShading: false, roughness: 0.82 });

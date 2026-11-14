@@ -14,7 +14,7 @@ interface Layout {
   readonly site?: unknown;
 }
 
-/** Shared author facts for product admission and pre-admission Explorer metadata. */
+/** Shared author facts for shard file admission and pre-admission Explorer metadata. */
 export function siteCatalogue(banks: DriftwoodSceneBanks): unknown {
   const { hut, lookout, shrine } = banks.layouts;
   const layouts: Readonly<Record<string, Readonly<Record<string, Layout>>>> = { hut: { world: hut }, lookout: { world: lookout }, shrine };

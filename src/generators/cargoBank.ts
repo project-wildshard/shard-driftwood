@@ -10,7 +10,7 @@ import type { FixedWreckLayout } from './fixedLayouts';
 export interface DriftwoodCargoBank {
   readonly models: ReturnType<typeof cargoModels>;
   readonly library: { readonly id: 'cargo'; readonly kind: 'owned'; readonly models: { id: string; file: string; attributes: Record<string, never> }[] };
-  /** the scaled copies' raw GLBs by logical name (the product names them as meshopt sources, as `assets.ts` does) */
+  /** the scaled copies' raw GLBs by logical name (the shard file names them as meshopt sources, as `assets.ts` does) */
   readonly glbs: ReadonlyMap<string, Uint8Array>;
 }
 

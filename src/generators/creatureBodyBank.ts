@@ -7,7 +7,7 @@ import publicInputs from '../data/publicInputs.json' with { type: 'json' };
 
 /** The committed Hunyuan sailor head and the captain the bodies are lofted around. */
 export const CREATURE_BODY_INPUTS: { readonly head: string; readonly captain: string } = publicInputs.creatureBodies;
-/** The packed bodies' product file (GR7: the job wrote a hash-named public copy the hull book named by URL). */
+/** The packed bodies' file in the shard file (GR7: the job wrote a hash-named public copy the hull book named by URL). */
 export const CREATURE_BODY_FILE = 'models/creatures/bodies.bin';
 
 type Kind = 'f32' | 'f16' | 'u16' | 'i8' | 'u8';

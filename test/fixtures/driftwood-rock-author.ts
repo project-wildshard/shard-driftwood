@@ -1,7 +1,7 @@
 import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { BufferAttribute, type BufferGeometry } from 'three';
 import { driftwoodIslandFactsFrom } from '../../src/generators/islandFacts';
-import { driftwoodIslandPlan } from '../../src/generators/productPageFiles';
+import { driftwoodIslandPlan } from '../../src/generators/pageFiles';
 import { shoreBoulderFacts } from '../../src/generators/shoreBoulders';
 import { bakeRockScenes } from '../../src/generators/rockScenes';
 

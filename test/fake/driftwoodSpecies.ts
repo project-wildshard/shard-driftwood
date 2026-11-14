@@ -10,7 +10,7 @@ import type { ShardContext } from '../../src/client/game/plugin/context';
 import { legacyDouble } from '@wildshard/engine/test/FakeGame';
 import { DRIFTWOOD_ENEMY_PROGRAM } from '../../src/generators/speciesPrograms';
 
-/** Test-only authored intake; shipping consumers bind the verified product section. */
+/** Test-only authored intake; shipping consumers bind the verified shard file section. */
 export const DRIFTWOOD_SPECIES = new PerchBodyBinding({ clips: MONKEY_CLIPS, program: RETURN_PROGRAM, perch: perchRows.perch }, lendDriftwoodReturns(new Scope('fixture.monkey'))).species(legacyDouble<ShardContext>({ app }), DRIFTWOOD_ENEMY_PROGRAM, {bind:()=>{throw new Error('Fixture Captain requires an admitted product guest');}});
 function row(kind: string): SpeciesRow {
   const found = DRIFTWOOD_SPECIES.find(value => value.kind === kind);

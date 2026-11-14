@@ -13,7 +13,7 @@ export interface ZiplineRows {
   readonly layout: typeof spots.zipline; readonly specimenLayout: { readonly top: End; readonly bottom: End };
 }
 /** The zipline (GR7: the `driftwood-zipline` job's rows, blobs and hash-named public copies): its rows, its four GLBs by
- *  product name and their public URLs as aliases of those names. */
+ *  shard file name and their public URLs as aliases of those names. */
 export interface DriftwoodZiplineBank {
   readonly rows: ZiplineRows;
   readonly blobs: ReadonlyMap<string, Uint8Array>;

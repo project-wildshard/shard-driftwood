@@ -5,7 +5,7 @@ import { DRIFTWOOD_ASSET_NAMES } from './assets';
 import { ENTRY_DECKS } from './entryDecks';
 import { OCEAN_SURFACE, OCEAN_LIMITS } from './oceanLook';
 import { OCEAN_FILES } from './oceanFiles';
-import { pageFile } from './productPageFiles';
+import { pageFile } from './pageFiles';
 import { driftwoodOceanFoam, type Box } from './oceanFoam';
 import type { DriftwoodFixedLayouts } from './fixedLayouts';
 
@@ -14,7 +14,7 @@ import type { DriftwoodFixedLayouts } from './fixedLayouts';
 /** O7: the lowered sea as the client plan's `world.water` row: its baked grid per tier, floor and foam, clipped out
  *  under each whole road deck (G170: the socket and its landing, in the landings' edge order), its night param lent from
  *  the toon lighting, whose sea level is the sea's. */
-/** a product file name for an authored asset label (the build's asset index; the runtime reads names only) */
+/** a shard file name for an authored asset label (the build's asset index; the runtime reads names only) */
 const named = (label: string): string => { const name = DRIFTWOOD_ASSET_NAMES[label]; if (name === undefined) throw new Error(`Missing named asset: ${label}`); return name; };
 export function driftwoodOceanWaterRow(layouts: DriftwoodFixedLayouts): { readonly id: "sea"; readonly surface: { readonly params: { readonly level: number; readonly deepDepth: number; readonly shallow: readonly [number, number, number]; readonly deep: readonly [number, number, number]; readonly edgeInset: 0.8; readonly seaEnd: 2300; }; readonly look: "driftwood-ocean"; readonly name: "driftwood-ocean"; readonly renderOrder: 4; readonly culled: false; readonly waves: true; readonly bind: { readonly clock: "clock"; readonly waterHalf: "waterHalf"; readonly chunkHalf: "chunkHalf"; }; readonly floor: { readonly texture: "tSea"; readonly res: 512; readonly foamReach: 3; readonly foamBand: 0.3; }; readonly dry: { readonly prefix: "dry"; readonly slots: 4; readonly none: readonly [number, number, number, number]; }; }; readonly draw: { readonly grid: { readonly phone: { readonly file: string; }; readonly desktop: { readonly file: string; }; }; readonly attributes: { readonly _depth: "aDepth"; readonly _seed: "aSeed"; }; readonly level: 0; readonly floor: { readonly file: string; }; readonly dry: { minX: number; minZ: number; maxX: number; maxZ: number; }[]; readonly foam: Box[]; readonly lent: { readonly night: "uToonNight"; }; readonly toonSeaLevel: true; }; } {
   return { id: 'sea',
