@@ -28,3 +28,10 @@ midday / clear). Re-encoded at 540 x 915 with a 22 px label strip, JPEG quality 
   `../golden-runs/<slug>/2026-11-04-f437ca63d6-p1-dw23{,-webkit}-board.jpg`.
 
 Add one line per promotion: date, cameras, ruling, board path.
+
+## Runs
+
+Rerun boards kept in `runs/`, newest last. Captured on the Mac mini (headless Chromium, ANGLE Metal on the M5 Pro's GPU).
+
+- 2026-11-15, engine `5e5b0b0912` with the pinned products (mini-shardgfx, meta SHARD-REPOS SH-ALL-11):
+  `runs/2026-11-15-5e5b0b0912-board.jpg`. 24/24 green. Only creatures move (the crabs on 09). Sunk poses 4 and 23 match their goldens.
