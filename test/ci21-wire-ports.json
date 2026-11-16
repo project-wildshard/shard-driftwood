@@ -1,0 +1,20 @@
+{
+  "sourceRepository": "project-wildshard/engine",
+  "sourceRevision": "de22e1a170f7b1cff4069ef6623145d6180a6990",
+  "files": [
+    {
+      "sourcePath": "test/species-barrel-author-ports.test.ts",
+      "sourceBlob": "cfb067d11d760ba117fcefe317803c43253504c8",
+      "targetPath": "test/driftwood-barrel-wire.test.ts",
+      "originalTests": [
+        "complete ecology, barrel bodies/floors and watch decision retain original wires"
+      ],
+      "wireKeys": [
+        "bodies",
+        "decision"
+      ],
+      "fixturePath": "test/fixtures/species-barrel-author-original.json",
+      "fixtureBlob": "62009c0307777eddf73066575f68f7730e03d67a"
+    }
+  ]
+}
