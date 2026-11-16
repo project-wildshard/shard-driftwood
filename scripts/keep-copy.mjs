@@ -96,7 +96,7 @@ export function worktreeState(root) {
   return JSON.stringify([
     text(root, ['rev-parse', 'HEAD']), text(root, ['symbolic-ref', '--quiet', 'HEAD']),
     text(root, ['status', '--porcelain', '--untracked-files=all']),
-    rawPatch(root).toString('base64'), rawPatch(root, true).toString('base64'),
+    createHash('sha256').update(rawPatch(root)).digest('hex'), createHash('sha256').update(rawPatch(root, true)).digest('hex'),
     hash.digest('hex'),
   ]);
 }
@@ -131,7 +131,7 @@ export function keepCopy(path, { keepRoot = DEFAULT_KEEP_ROOT, now = new Date() 
   if (files.length > 0) {
     const total = bytes(root, files);
     if (total <= MAX_UNTRACKED_BYTES) {
-      const archive = spawnSync('tar', ['-czf', join(dir, 'untracked.tgz'), '--null', '-T', '-'], { cwd: root, input: files.join('\0') + '\0', encoding: 'utf8' });
+      const archive = spawnSync('tar', ['-czf', join(dir, 'untracked.tgz'), '--null', '-T', '-'], { cwd: root, input: `${files.join('\0')}\0`, encoding: 'utf8' });
       if (archive.status !== 0) throw new Error(`keep-copy: tar failed: ${archive.stderr.trim()}`);
       manifest.untracked = { files: files.length, bytes: total };
     } else throw new Error('keep-copy: untracked files exceed 50 MiB; source must be kept');
