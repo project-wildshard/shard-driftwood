@@ -49,6 +49,9 @@ test('refuses the CLI far bake when its actual image envelope exceeds the cap', 
   const projectedAssets = new Map(loaded.assets);
   const projected = await projectPlaceholders(loaded.shard, projectedAssets);
   expect(projected.far).not.toBeNull();
+  expect(projected.far?.files.length).toBeGreaterThan(0);
+  expect(validateShardfileAssets(projected, projectedAssets, hashImmutableBytes,
+    undefined, undefined, loaded.scripts)).toEqual(projected);
   expect(projected.far?.impostor).toBeUndefined();
   expect((projected.far?.decoded ?? Infinity) + (projected.far?.gpu ?? Infinity)).toBeLessThanOrEqual(1_600_000);
   expect(projected.far?.compressed).toBeLessThanOrEqual(1_000_000);

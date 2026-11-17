@@ -25,7 +25,8 @@
     "ci21-candidate/approved-enemy-placement.test.ts",
     "ci21-candidate/driftwood-program-files.test.ts",
     "ci21-candidate/driftwood-output.test.ts",
-    "ci21-candidate/driftwood-scene.test.ts"
+    "ci21-candidate/driftwood-scene.test.ts",
+    "fixtures/headless/driftwood-guest-compile.ts"
   ],
   "include": [],
   "compileOnSave": false

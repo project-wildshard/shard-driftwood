@@ -5,7 +5,7 @@ import { execFileSync } from 'node:child_process';
 export function driftwoodNativeGuestProgram(): Promise<string> {
   const stdout = execFileSync(process.execPath, ['--experimental-transform-types', '--import',
       import.meta.resolve('@wildshard/engine/scripts/bake-loader.mjs'),
-      'test/fixtures/driftwood-guest-compile.mjs'],
+      'test/fixtures/headless/driftwood-guest-compile.ts'],
     { encoding: 'utf8', timeout: 14_000, maxBuffer: 1 << 26 });
   return Promise.resolve(stdout);
 }

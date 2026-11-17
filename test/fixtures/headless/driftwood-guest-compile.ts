@@ -3,7 +3,7 @@
 import { readFileSync } from 'node:fs';
 import { createProjectGeneration } from '@wildshard/sharddev/projectGeneration';
 import { hashImmutableBytes } from '@wildshard/format/immutable';
-import { driftwoodGuestFiles } from '../../src/generators/guestPrograms.ts';
+import { driftwoodGuestFiles } from '../../../src/generators/guestPrograms.ts';
 
 const source = 'src/generators/guestPrograms.ts';
 const context = createProjectGeneration('src', hashImmutableBytes(new Uint8Array(readFileSync(source))), new Map(), process.argv[2]);

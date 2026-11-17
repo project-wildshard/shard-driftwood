@@ -27,7 +27,10 @@
       ],
       "fixturePath": "test/fixtures/driftwood-guest-programs.ts",
       "fixtureBlob": "803ab17850d02ca07d65f38471eb28c10df51678",
-      "changes": "Every original case/assertion and timeout retained; public imports and owner-local paths only. Scene it spelling becomes direct test for static case inventory. Source proof borrows sealed normal-produced bytes; no default admission or engine removal."
+      "changes": "Every original case/assertion and timeout retained; public imports and owner-local paths only. Scene it spelling becomes direct test for static case inventory. Source proof borrows sealed normal-produced bytes; no default admission or engine removal.",
+      "compilerSupport": [
+        "test/fixtures/headless/driftwood-guest-compile.ts"
+      ]
     },
     {
       "sourcePath": "test/driftwood-output.test.ts",
@@ -45,7 +48,7 @@
       "sourcePath": "test/driftwood-scene.test.ts",
       "sourceBlob": "a5fc017fc06f852b247bbe34276ee700c8b7994d",
       "targetPath": "test/ci21-candidate/driftwood-scene.test.ts",
-      "targetBlob": "79a4ca941f654102e2d017fe21b161f8f08d3387",
+      "targetBlob": "8921242064605bfa91f452a295fb3a01cd88cd8b",
       "originalTests": [
         "admits the real generated ground, tile and library assets for the trusted world",
         "refuses the CLI far bake when its actual image envelope exceeds the cap",
@@ -72,6 +75,7 @@
     "test/fixtures/driftwood-island-facts.ts",
     "test/fixtures/driftwood-native-program.ts",
     "test/fixtures/driftwood-return-modules.ts",
-    "test/fixtures/driftwoodLegacySections.ts"
+    "test/fixtures/driftwoodLegacySections.ts",
+    "test/fixtures/headless/driftwood-guest-compile.ts"
   ]
 }
