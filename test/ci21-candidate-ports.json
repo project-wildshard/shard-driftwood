@@ -1,0 +1,25 @@
+{
+  "sourceRepository": "project-wildshard/engine",
+  "sourceRevision": "0fbc8efaa163178041445cfa5ce2becd3d1d6fca",
+  "state": "C5 source candidate; no engine removal or default admission",
+  "files": [
+    {
+      "sourcePath": "test/approved-enemy-placement.test.ts",
+      "sourceBlob": "3bf6db5ac70f5cee882f4e2486223d1bc8525520",
+      "targetPath": "test/ci21-candidate/approved-enemy-placement.test.ts",
+      "targetBlob": "42f0669f1746f9dec78cc3bebd1e3b4035ac8077",
+      "originalTests": [
+        "approved enemy placement retains the entire original page/native file and exact wire bytes",
+        "complete enemy placement retains native RNG, population, kind and root refusals"
+      ],
+      "fixturePath": "test/fixtures/approved-enemy-placement.json",
+      "fixtureBlob": "e6a6837b7e216f46a8940fed949c004f98152109",
+      "changes": "Whole original cases, exact 8572-byte frozen wire and every refusal retained. Only public engine/SDK imports and shard-local fixture paths change. C10/C11 retain default admission and paired engine removal."
+    }
+  ],
+  "supportFixtures": [],
+  "typedLintFiles": [
+    "test/ci21-candidate/approved-enemy-placement.test.ts",
+    "test/fixtures/driftwoodLegacySections.ts"
+  ]
+}

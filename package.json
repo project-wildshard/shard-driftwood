@@ -35,7 +35,8 @@
     "test:shards": "vitest run",
     "lint:shards": "WILDSHARD_RATCHET_FILE=lint/ratchet.json node kit/scripts/bin-tools.mjs -c .oxlintrc.author.json --deny-warnings src",
     "lint:ci21": "node scripts/ci21-wire-retention.mjs && node kit/scripts/bin-tools.mjs --type-aware --tsconfig test/tsconfig.json -c .oxlintrc.author.json --deny-warnings test/driftwood-barrel-wire.test.ts",
-    "check:bin-pins": "node kit/scripts/bin-pins.mjs"
+    "check:bin-pins": "node kit/scripts/bin-pins.mjs",
+    "check:ci21-candidate": "node scripts/check-test-boundary.mjs --candidate && pnpm exec npr tsc -p test/tsconfig.ci21-candidate.json && node scripts/ci21-candidate-retention.mjs test/ci21-candidate-ports.json test/tsconfig.ci21-candidate.json && node scripts/ci21-candidate-lint.mjs && vitest run --config vitest.ci21-candidate.config.ts"
   },
   "dependencies": {
     "@gltf-transform/core": "4.5.0",
