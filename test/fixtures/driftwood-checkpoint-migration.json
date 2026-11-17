@@ -1,5 +1,5 @@
 {
-  "state": "captured current source baseline; independent J206 review pending",
+  "state": "source-qualified; J206 MUST none, diagnostics SHOULD addressed",
   "date": "2026-11-16",
   "sourceRepository": "project-wildshard/shard-driftwood",
   "sourceCommit": "cddd8f87ccd9818144c9ee7711de08f240dffc37",
@@ -38,5 +38,6 @@
     "Authored hold stair/pump/winch approach before fallen key",
     "Actually walk to and defeat nearest two live plate-approach crabs, preserving original2kills even if one has wandered beyond the old12m selection radius"
   ],
-  "bounds": "All original child/case/input/part/tape/codec/replay bounds remain"
+  "bounds": "All original child/case/input/part/tape/codec/replay bounds remain",
+  "review": "~/.cache/wildshard/session-keep/reviews/driftwood-ci21-parity-20261116-215658.md"
 }

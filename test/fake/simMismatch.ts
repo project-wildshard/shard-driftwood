@@ -71,6 +71,7 @@ export function simMismatchError(message: string, expected: SimSnapshot | string
       differences.push({ path: `physics.float64Bits[${String(i)}]`, record,
         expected: { value: a.physics.values[i], bits: a.physics.float64Bits[i] }, actual: { value: b.physics.values[i], bits: b.physics.float64Bits[i] } });
     }
+    mkdirSync('tmp/ci21-native-mismatch', { recursive: true });
     const directory = mkdtempSync(join('tmp/ci21-native-mismatch', 'wildshard-replay-mismatch-'));
     writeFileSync(join(directory, 'expected.canonical.json'), `${JSON.stringify(a, null, 2)}\n`);
     writeFileSync(join(directory, 'actual.canonical.json'), `${JSON.stringify(b, null, 2)}\n`);
