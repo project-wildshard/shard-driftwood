@@ -14,6 +14,9 @@ if (typeof format !== 'string' || !/^npm:@wildshard\/shard-format@\^?\d+\.\d+\.\
 const exact = format.replace('@^', '@');
 const file = new URL('package.json', root), pkg = JSON.parse(readFileSync(file, 'utf8'));
 pkg.pnpm ??= {}; pkg.pnpm.overrides ??= {};
+// A global root override would also rewrite the candidate engine's defining format.
+// Only candidate qualification runs this script; the frozen producer stays pinned.
+delete pkg.pnpm.overrides['@wildshard/format'];
 pkg.pnpm.overrides['@wildshard/engine>@wildshard/format'] = exact;
 if (process.argv.includes('--ci21')) {
   // The source reader needs the released full asset contract and the SDK
