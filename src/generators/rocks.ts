@@ -262,7 +262,7 @@ function smoothPainted(r: number, sq: number, moss: number, palette: RockPalette
     g.deleteAttribute('normal');   // finishRock computes them again from the same positions and index (the same bits)
     out.push(g);
   }
-  if (out.length === 1) { const only = out[0]; if (only) return only; }
+  if (out.length === 1) { const only = out[0]; if ((only !== undefined && only !== null)) return only; }
   const merged = mergeGeometries(out, false);
   for (const g of out) g.dispose();
   return merged;

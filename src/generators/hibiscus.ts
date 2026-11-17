@@ -76,7 +76,7 @@ function bud(t: TriList, m: THREE.Matrix4, r: number, petal: [THREE.Color, THREE
   const foot = new THREE.Vector3(0, 0, 0).applyMatrix4(m), top = new THREE.Vector3(0, r * 1.5, 0).applyMatrix4(m);
   for (let k = 0; k < 3; k++) {
     const a = ring[k], b = ring[(k + 1) % 3], s = sep[k];
-    if (!a || !b || !s) continue;
+    if (!(a !== undefined && a !== null) || !(b !== undefined && b !== null) || !(s !== undefined && s !== null)) continue;
     t.tri(a, b, top, petal[0], petal[0], petal[1]);
     t.tri(foot, s, a, SEPAL);
   }
@@ -98,7 +98,7 @@ function bloomSpots(n: number, rng: Rng, shell: (d: THREE.Vector3) => number, cy
 function blooms(t: TriList, b: HibiscusBushParams, rng: Rng, shell: (d: THREE.Vector3) => number, cy: number, out: number): void {
   if (!b.flowers) return;
   const petal = PETALS[rng.next() < 0.62 ? 0 : rng.int(1, PETALS.length - 1)] ?? PETALS[0];
-  if (!petal) return;
+  if (!(petal !== undefined && petal !== null)) return;
   const nf = rng.int(4, 7), nb = rng.int(2, 3);
   const spots = bloomSpots(nf + nb, rng, (d) => shell(d) * out, cy);
   spots.forEach((s, k) => {

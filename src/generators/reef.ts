@@ -33,7 +33,7 @@ export function reefGeometry(kind: ReefKind, p: ReefParams, rng: ReefRng): THREE
     for (let k = 0; k < n; k++) {
       c.copy(color).multiplyScalar(1 + (rng.next() * 2 - 1) * jitter);
       const a = r0[k], b = r0[(k + 1) % n], d = r1[(k + 1) % n], e = r1[k];
-      if (!a || !b || !d || !e) continue;
+      if (!(a !== undefined && a !== null) || !(b !== undefined && b !== null) || !(d !== undefined && d !== null) || !(e !== undefined && e !== null)) continue;
       tri(a, b, d, c, w0, w0, w1); tri(a, d, e, c, w0, w1, w1);
     }
   };
@@ -102,7 +102,7 @@ export function reefGeometry(kind: ReefKind, p: ReefParams, rng: ReefRng): THREE
         const r0 = ring(bx, 0, bz, r * 1.15, 6), r1 = ring(bx, h, bz, r, 6, 0.3);
         strip(r0, r1, tint, 0, 0.02);
         const top = [bx, h - 0.06, bz]; c.copy(tint).multiplyScalar(0.55);
-        for (let k = 0; k < 6; k++) { const a1 = r1[(k + 1) % 6], a0 = r1[k]; if (!a1 || !a0) continue; tri(a1, a0, top, c, 0.02, 0.02, 0.02); }
+        for (let k = 0; k < 6; k++) { const a1 = r1[(k + 1) % 6], a0 = r1[k]; if (!(a1 !== undefined && a1 !== null) || !(a0 !== undefined && a0 !== null)) continue; tri(a1, a0, top, c, 0.02, 0.02, 0.02); }
       }
     }
   } else if (kind === 'weed') {

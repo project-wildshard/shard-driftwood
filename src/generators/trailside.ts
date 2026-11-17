@@ -67,7 +67,7 @@ export function trailsideGeometry(spec: TrailsideSpec, heightAt: (x: number, z: 
       const line: THREE.Vector3[] = [];
       for (let i = 0; i < f.path.length - 1; i++) {
         const pa = f.path[i], pb = f.path[i + 1];
-        if (!pa || !pb) continue;
+        if (!(pa !== undefined && pa !== null) || !(pb !== undefined && pb !== null)) continue;
         const [ax, az] = pa, [bx, bz] = pb;
         const len = Math.hypot(bx - ax, bz - az), n = Math.max(1, Math.round(len / spacing));
         for (let k = i === 0 ? 0 : 1; k <= n; k++) { const t = k / n; const x = ax + (bx - ax) * t, z = az + (bz - az) * t; line.push(new THREE.Vector3(x, heightAt(x, z), z)); }
@@ -79,7 +79,7 @@ export function trailsideGeometry(spec: TrailsideSpec, heightAt: (x: number, z: 
       }
       for (let i = 0; i < line.length - 1; i++) {
         const pa = line[i], pb = line[i + 1];
-        if (!pa || !pb) continue;
+        if (!(pa !== undefined && pa !== null) || !(pb !== undefined && pb !== null)) continue;
         const a = pa.clone().setY(pa.y + 1.0), b = pb.clone().setY(pb.y + 1.0);
         const seg = 6, sag = 0.1 + a.distanceTo(b) * 0.06;
         let prev = a;

@@ -12,13 +12,29 @@ for(const fixture of record.supportFixtures??[]){
  if(createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex')!==fixture.targetBlob)throw new Error(`CI21 retained support fixture changed: ${fixture.targetPath}`);
 }
 const compiler=JSON.parse(readFileSync(new URL(process.argv[3] ?? 'test/tsconfig.json',root),'utf8'));
+for(const declaration of record.nativeDeclarations??[]){
+ const bytes=readFileSync(new URL(declaration.targetPath,root));
+ if(createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex')!==declaration.targetBlob)throw new Error('Defining native compiler declaration changed');
+}
+if(record.compilerContextPaths!==undefined){
+ const rootFiles=compiler.files.map(file=>'test/'+file);
+ const contexts=new Map([['tsconfig.json',rootFiles],...['src','test/fixtures','test/proof','test/fake'].map(directory=>[
+  directory+'/tsconfig.json',record.typedLintFiles.filter(file=>file.startsWith(directory+'/')).map(file=>file.slice(directory.length+1))
+   .concat(directory==='src'?(record.nativeDeclarations??[]).map(row=>'../'+row.targetPath):[])
+ ])]);
+ if(JSON.stringify(record.compilerContextPaths)!==JSON.stringify([...contexts.keys()]))throw new Error('Missing complete compiler contexts');
+ for(const [file,files] of contexts){
+  const expected={...compiler,files},actual=JSON.parse(readFileSync(new URL(file,root),'utf8'));
+  if(JSON.stringify(actual)!==JSON.stringify(expected))throw new Error(`Native compiler context differs: ${file}`);
+ }
+}
 const expected=[...record.files.map(row=>row.targetPath),...record.files.flatMap(row=>row.compilerSupport??[])].map(path=>path.replace(/^test\//u,''));
 if(JSON.stringify(compiler.files)!==JSON.stringify(expected))throw new Error('CI21 golden compiler files differ from retained cases');
 if(record.typedLintFiles!==undefined){
  const configFile=fileURLToPath(new URL(process.argv[3]??'test/tsconfig.json',root));
  const parsed=ts.parseJsonConfigFileContent(compiler,ts.sys,dirname(configFile));
  const program=ts.createProgram(parsed.fileNames,parsed.options);
- const files=program.getSourceFiles().map(file=>relative(fileURLToPath(root),file.fileName)).filter(file=>file.startsWith('test/')&&file.endsWith('.ts')&&!file.endsWith('.d.ts')&&!file.endsWith('.d.json.ts')).sort();
+ const files=program.getSourceFiles().map(file=>relative(fileURLToPath(root),file.fileName)).filter(file=>/^(?:test|src)\//u.test(file)&&file.endsWith('.ts')&&!file.endsWith('.d.ts')&&!file.endsWith('.d.json.ts')).sort();
  if(JSON.stringify(files)!==JSON.stringify(record.typedLintFiles))throw new Error('CI21 typed lint must cover the complete actual compiler helper closure');
  const pkg=JSON.parse(readFileSync(new URL('package.json',root),'utf8'));
  if(!pkg.scripts['check:ci21-candidate'].includes(' && node scripts/ci21-candidate-lint.mjs && vitest'))throw new Error('CI21 candidate command must run native lint over the complete admitted compiler closure');

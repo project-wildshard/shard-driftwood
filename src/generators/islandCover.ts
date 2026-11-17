@@ -223,7 +223,7 @@ export function bakeIslandPlan(f:Float32Array,meta:IslandPlanMeta,phone:boolean,
   const m=new THREE.Matrix4(),q=new THREE.Quaternion(),scale=new THREE.Vector3(),t=new THREE.Vector3();
   for(let i=0;i<used;i++){
     const o=i*10,pi=f[o]??0,name=meta.protos[pi]?.name??'',key=coveFamilyOf(name);
-    if(key===undefined||facts.protos[pi]?.present!==true)continue;
+    if(key===undefined||!facts.protos[pi]?.present)continue;
     t.set(f[o+1]??0,f[o+2]??0,f[o+3]??0);
     let entry=families.get(key);if(entry===undefined){entry={key,indices:[],colliders:[]};families.set(key,entry);}
     entry.indices.push(i);

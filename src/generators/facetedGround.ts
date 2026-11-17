@@ -130,9 +130,9 @@ export function facetedSlab(f: FacetedGroundField, row: FacetedGroundRow): { pos
     }
     for (let i = 0; i < segs; i++) for (let k = 0; k < 2; k++) {
       const ri = ring[i], rn = ring[i + 1];
-      if (!ri || !rn) continue;
+      if (!(ri !== undefined && ri !== null) || !(rn !== undefined && rn !== null)) continue;
       const a0 = ri[k], a1 = ri[k + 1], b0 = rn[k], b1 = rn[k + 1];
-      if (!a0 || !a1 || !b0 || !b1) continue;
+      if (!(a0 !== undefined && a0 !== null) || !(a1 !== undefined && a1 !== null) || !(b0 !== undefined && b0 !== null) || !(b1 !== undefined && b1 !== null)) continue;
       const j = Math.abs((Math.sin(i * 7.31 + k * 3.7) * 1234.5) % 1);
       push(...a0, j); push(...b0, j); push(...a1, j);
       push(...b0, j); push(...b1, j); push(...a1, j);

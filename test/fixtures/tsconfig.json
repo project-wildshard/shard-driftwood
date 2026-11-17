@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "lib": [
+      "ES2024",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": [
+      "node",
+      "vite/client",
+      "@wildshard/engine/game/types"
+    ],
+    "allowArbitraryExtensions": true,
+    "exactOptionalPropertyTypes": true
+  },
+  "files": [
+    "builtProduct.ts",
+    "driftwood-baked-cove.ts",
+    "driftwood-emitted-product.ts",
+    "driftwood-guest-programs.ts",
+    "driftwood-island-facts.ts",
+    "driftwood-native-program.ts",
+    "driftwood-return-modules.ts",
+    "driftwood-trade-native.ts",
+    "driftwood-witness-cache.ts",
+    "driftwoodLegacySections.ts",
+    "headless-worker.ts",
+    "headless/driftwood-guest-compile.ts",
+    "headless/driftwood-optional-run.ts",
+    "headless/driftwood-story-run.ts",
+    "headless/driftwood-trade-run.ts",
+    "headless/driftwood-witness-run.ts",
+    "headless/productSession.ts",
+    "headless/recordedCheckpoints.ts",
+    "headless/tradeHandoff.ts",
+    "native-checkpoint-provenance.ts",
+    "native-coin-recipe.ts",
+    "native-hosts/loot/nativeEconomy.ts",
+    "native-number-path.ts",
+    "native-rapier-file.ts",
+    "runSnapshot.ts",
+    "witness-checkpoints.ts",
+    "witness-generation.ts"
+  ],
+  "include": [],
+  "compileOnSave": false
+}

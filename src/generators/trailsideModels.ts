@@ -51,7 +51,7 @@ export function trailPart(parts: THREE.BufferGeometry[], rng: Rng): (g: THREE.Bu
 export type TrailBuild<P extends object> = (material: THREE.MeshStandardMaterial, params: P, rng: Rng) => readonly TrailMeshPart[];
 
 const one = (material: THREE.MeshStandardMaterial, parts: THREE.BufferGeometry[]): TrailMeshPart[] =>
-  [{ geometry: parts.length === 1 && parts[0] ? parts[0] : mergeGeometries(parts, false), material, castShadow: true, receiveShadow: true }];
+  [{ geometry: parts.length === 1 && (parts[0] !== undefined && parts[0] !== null) ? parts[0] : mergeGeometries(parts, false), material, castShadow: true, receiveShadow: true }];
 
 /** The fence post's build (the trail's runtime model is the specimen catalogue's row with it, trailside.ts). D76: the
  *  builds live apart from the catalogue, so the shard file's author bundle reaches no game runtime through the bank. */
@@ -137,7 +137,7 @@ const numbers = (value: unknown): value is readonly number[] => Array.isArray(va
 const strings = (value: unknown): value is readonly string[] => Array.isArray(value) && (value as readonly unknown[]).every(item => typeof item === 'string');
 /** A signpost row's params, checked (the catalogue JSON types its rows loosely). */
 function signpostParams(value: unknown): SignpostParams {
-  const arrows = isRecord(value) ? value['arrows'] : undefined, labels = isRecord(value) ? value['labels'] : undefined;
+  const arrows = isRecord(value) ? value.arrows : undefined, labels = isRecord(value) ? value.labels : undefined;
   if (!numbers(arrows) || (labels !== undefined && !strings(labels))) throw new Error('Invalid signpost catalogue params');
   return labels === undefined ? { arrows } : { arrows, labels };
 }

@@ -53,7 +53,7 @@ const GRADE_LEAD = 5;
  */
 function gradeProfile(poly: Vec2[], maxGrade: number, ground: (x: number, z: number) => number, bench = false) {
   const cum: number[] = [0];
-  for (let k = 1; k < poly.length; k++) { const a = poly[k - 1], b = poly[k]; cum.push((cum[k - 1] ?? 0) + (a && b ? Math.hypot(b[0] - a[0], b[1] - a[1]) : 0)); }
+  for (let k = 1; k < poly.length; k++) { const a = poly[k - 1], b = poly[k]; cum.push((cum[k - 1] ?? 0) + ((a !== undefined && a !== null) && (b !== undefined && b !== null) ? Math.hypot(b[0] - a[0], b[1] - a[1]) : 0)); }
   const total = cum[cum.length - 1] ?? 0, n = Math.max(2, Math.ceil(total / GRADE_STEP) + 1);
   const g: number[] = [];
   let k = 0;
@@ -61,7 +61,7 @@ function gradeProfile(poly: Vec2[], maxGrade: number, ground: (x: number, z: num
     const s = Math.min(total, i * GRADE_STEP);
     while (k < poly.length - 2 && s > (cum[k + 1] ?? 0)) k++;
     const a = poly[k], b = poly[k + 1], l = (cum[k + 1] ?? 0) - (cum[k] ?? 0), t = l > 0 ? (s - (cum[k] ?? 0)) / l : 0;
-    g.push(a && b ? ground(a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t) : 0);
+    g.push((a !== undefined && a !== null) && (b !== undefined && b !== null) ? ground(a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t) : 0);
   }
   const up = [...g], dn = [...g], rise = maxGrade * GRADE_STEP;
   for (let i = 1; i < n; i++) { up[i] = Math.max(up[i] ?? 0, (up[i - 1] ?? 0) - rise); dn[i] = Math.min(dn[i] ?? 0, (dn[i - 1] ?? 0) + rise); }
@@ -127,7 +127,7 @@ export function buildDriftwoodField(seed: number, spec: TerrainSpec): TerrainFie
       if (x < g.x0 || x > g.x1 || z < g.z0 || z > g.z1) continue;
       for (let k = 0; k + 1 < g.poly.length; k++) {
         const a = g.poly[k], b = g.poly[k + 1];
-        if (!a || !b) continue;
+        if (!(a !== undefined && a !== null) || !(b !== undefined && b !== null)) continue;
         const vx = b[0] - a[0], vz = b[1] - a[1], l2 = vx * vx + vz * vz;
         const raw = l2 > 0 ? ((x - a[0]) * vx + (z - a[1]) * vz) / l2 : 0, t = clamp(raw, 0, 1);
         // past the path's first or last point the shelf stops (square ends): the bridge the path meets there keeps
@@ -147,7 +147,7 @@ export function buildDriftwoodField(seed: number, spec: TerrainSpec): TerrainFie
 
   function trailDistance(x: number, z: number): number {
     let d = Infinity;
-    for (const poly of trails) for (let i = 0; i < poly.length - 1; i++) { const a = poly[i], b = poly[i + 1]; if (a && b) d = Math.min(d, distToSegmentSquared(x, z, a[0], a[1], b[0], b[1])); }
+    for (const poly of trails) for (let i = 0; i < poly.length - 1; i++) { const a = poly[i], b = poly[i + 1]; if ((a !== undefined && a !== null) && (b !== undefined && b !== null)) d = Math.min(d, distToSegmentSquared(x, z, a[0], a[1], b[0], b[1])); }
     // sqrt is monotone: keep the same winning squared value and the exact final root, once per field query.
     return Math.sqrt(d);
   }

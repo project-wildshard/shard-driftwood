@@ -66,7 +66,7 @@ function pennantGeometry(x: number, z: number, yTop: number, dir: readonly [numb
   for (const side of [-1, 1]) {
     for (const [du, dv, off, color] of [[0.085, 0.36, 0.028, PENNANT.white], [0.045, 0.19, 0.05, PENNANT.dark]] as const) {
       const o = side * off, m = P(uc, vc, o), tip = [P(uc, vc - dv, o), P(uc + du, vc, o), P(uc, vc + dv, o), P(uc - du, vc, o)];
-      for (let i = 0; i < 4; i++) { const a = tip[i], b = tip[(i + 1) % 4]; if (a && b) tri(m, a, b, color, 0.02); }
+      for (let i = 0; i < 4; i++) { const a = tip[i], b = tip[(i + 1) % 4]; if ((a !== undefined && a !== null) && (b !== undefined && b !== null)) tri(m, a, b, color, 0.02); }
     }
   }
   const g = new THREE.BufferGeometry();

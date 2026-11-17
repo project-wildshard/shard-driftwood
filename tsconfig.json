@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "lib": [
+      "ES2024",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": [
+      "node",
+      "vite/client",
+      "@wildshard/engine/game/types"
+    ],
+    "allowArbitraryExtensions": true,
+    "exactOptionalPropertyTypes": true
+  },
+  "files": [
+    "test/ci21-candidate/approved-enemy-placement.test.ts",
+    "test/ci21-candidate/driftwood-program-files.test.ts",
+    "test/ci21-candidate/driftwood-output.test.ts",
+    "test/ci21-candidate/driftwood-scene.test.ts",
+    "test/ci21-candidate/driftwood-story-verbs.test.ts",
+    "test/ci21-candidate/driftwood-zipline-verbs.test.ts",
+    "test/ci21-candidate/driftwood-optional-verbs.test.ts",
+    "test/ci21-candidate/driftwood-trade-verbs.test.ts",
+    "test/ci21-candidate/captain-encounter-script.test.ts",
+    "test/ci21-candidate/quest-step-native-parity.test.ts",
+    "test/ci21-candidate/driftwood-director-product.test.ts",
+    "test/fixtures/headless/driftwood-guest-compile.ts",
+    "test/fixtures/headless/driftwood-story-run.ts",
+    "test/fixtures/headless/driftwood-optional-run.ts",
+    "test/fixtures/headless/driftwood-trade-run.ts",
+    "test/fixtures/headless/driftwood-witness-run.ts"
+  ],
+  "include": [],
+  "compileOnSave": false
+}

@@ -38,10 +38,10 @@ function islandPlanMeta(input: unknown): IslandPlanMeta {
   if (typeof input !== 'object' || input === null) throw new Error('Invalid island metadata');
   const meta = Object.fromEntries(Object.entries(input));
   return {
-    protos: rows(meta['protos']).map(row => { const { name, kind } = row; if (typeof name !== 'string' || typeof kind !== 'string') throw new Error('Invalid island prototype'); return { name, kind }; }),
-    mustDraw: finite(meta['mustDraw']),
-    colliders: rows(meta['colliders']).map(row => ({ x: finite(row['x']), z: finite(row['z']), hw: finite(row['hw']), hd: finite(row['hd']), rot: finite(row['rot']),
-      yTop: finite(row['yTop']), yBottom: finite(row['yBottom']) })),
+    protos: rows(meta.protos).map(row => { const { name, kind } = row; if (typeof name !== 'string' || typeof kind !== 'string') throw new Error('Invalid island prototype'); return { name, kind }; }),
+    mustDraw: finite(meta.mustDraw),
+    colliders: rows(meta.colliders).map(row => ({ x: finite(row.x), z: finite(row.z), hw: finite(row.hw), hd: finite(row.hd), rot: finite(row.rot),
+      yTop: finite(row.yTop), yBottom: finite(row.yBottom) })),
   };
 }
 /** GR7: the sea's page files come from the ocean bank (built in memory), not from the retired job's public copies */

@@ -32,6 +32,7 @@
     "ci21-candidate/driftwood-trade-verbs.test.ts",
     "ci21-candidate/captain-encounter-script.test.ts",
     "ci21-candidate/quest-step-native-parity.test.ts",
+    "ci21-candidate/driftwood-director-product.test.ts",
     "fixtures/headless/driftwood-guest-compile.ts",
     "fixtures/headless/driftwood-story-run.ts",
     "fixtures/headless/driftwood-optional-run.ts",

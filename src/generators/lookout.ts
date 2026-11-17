@@ -149,7 +149,7 @@ class LookoutBuilder {
         kit.add(log(p.clone().add(new THREE.Vector3(0, -0.1, 0)), p.clone().add(new THREE.Vector3(0, 1.0, 0)), 0.06, 0.055, 5), C.log);
         pts.push(p.clone().add(new THREE.Vector3(0, 0.95, 0)));
       }
-      for (let i = 0; i + 1 < pts.length; i++) { const a = pts[i], b = pts[i + 1]; if (a && b) kit.add(rope(sagLine(a, b, 0.12, 4), 0.03), C.rope); }
+      for (let i = 0; i + 1 < pts.length; i++) { const a = pts[i], b = pts[i + 1]; if ((a !== undefined && a !== null) && (b !== undefined && b !== null)) kit.add(rope(sagLine(a, b, 0.12, 4), 0.03), C.rope); }
       const fp = this.V(s * (stairW / 2 + 0.35), 0, z0 - run - 0.5); fp.y = this.ground(fp.x, fp.z);
       kit.add(log(fp.clone().add(new THREE.Vector3(0, -0.3, 0)), fp.clone().add(new THREE.Vector3(0, 1.3, 0)), 0.16, 0.14, 7), C.log);
       lash(fp.clone().add(new THREE.Vector3(0, 0.9, 0)), new THREE.Vector3(0, 1, 0), 0.15);
@@ -191,7 +191,7 @@ class LookoutBuilder {
       const cloth: Tri[] = [], fill: Record<'trim' | 'a' | 'b', number[]> = { trim: [], a: [], b: [] };
       for (let r = 0; r + 1 < grid.length; r++) for (let c = 0; c + 1 < xs.length; c++) {
         const a = grid[r]?.[c], b = grid[r]?.[c + 1], d = grid[r + 1]?.[c + 1], g = grid[r + 1]?.[c];
-        if (!a || !b || !d || !g) continue;
+        if (!(a !== undefined && a !== null) || !(b !== undefined && b !== null) || !(d !== undefined && d !== null) || !(g !== undefined && g !== null)) continue;
         const key = r === 0 || r === grid.length - 2 || c === 0 || c === xs.length - 2 ? 'trim' : c % 2 ? 'a' : 'b';
         for (const t of [[a, b, d], [a, d, g]] as Tri[]) { cloth.push(t); for (const q of t) fill[key].push(q.w.x, q.w.y, q.w.z); }
       }
@@ -206,7 +206,7 @@ class LookoutBuilder {
         if (s === 0) return res;
         let prev = poly[poly.length - 1];
         for (const q of poly) {
-          if (prev) {
+          if ((prev !== undefined && prev !== null)) {
             const dp = side(a, b, prev) * s, dq = side(a, b, q) * s;
             if ((dp >= 0) !== (dq >= 0)) { const t = dp / (dp - dq); res.push([prev[0] + (q[0] - prev[0]) * t, prev[1] + (q[1] - prev[1]) * t]); }
             if (dq >= 0) res.push(q);
@@ -222,15 +222,15 @@ class LookoutBuilder {
           if (p.length < 3) continue;
           const area = side(a, b, [d.x, d.y]);
           let pa = 0;
-          for (let i = 0; i < p.length; i++) { const q = p[i], n = p[(i + 1) % p.length]; if (q && n) pa += q[0] * n[1] - n[0] * q[1]; }
+          for (let i = 0; i < p.length; i++) { const q = p[i], n = p[(i + 1) % p.length]; if ((q !== undefined && q !== null) && (n !== undefined && n !== null)) pa += q[0] * n[1] - n[0] * q[1]; }
           if (pa * area < 0) p = p.reverse();                         // keep the cloth triangle's winding
           const pts = p.map(([x, y]) => {
             const l0 = side(b, d, [x, y]) / area, l1 = side(d, a, [x, y]) / area, l2 = 1 - l0 - l1;
             return a.w.clone().multiplyScalar(l0).addScaledVector(b.w, l1).addScaledVector(d.w, l2).addScaledVector(out, lift);
           });
           const p0 = pts[0];
-          if (!p0) continue;
-          for (let i = 1; i + 1 < pts.length; i++) { const p1 = pts[i], p2 = pts[i + 1]; if (p1 && p2) v.push(p0.x, p0.y, p0.z, p1.x, p1.y, p1.z, p2.x, p2.y, p2.z); }
+          if (!(p0 !== undefined && p0 !== null)) continue;
+          for (let i = 1; i + 1 < pts.length; i++) { const p1 = pts[i], p2 = pts[i + 1]; if ((p1 !== undefined && p1 !== null) && (p2 !== undefined && p2 !== null)) v.push(p0.x, p0.y, p0.z, p1.x, p1.y, p1.z, p2.x, p2.y, p2.z); }
         }
         kit.add(tris(v), col, { jitter: 0.02, sway });
       };
@@ -253,7 +253,7 @@ class LookoutBuilder {
       kit.add(new THREE.TorusGeometry(0.14, 0.04, 4, 10), C.iron, { matrix: new THREE.Matrix4().compose(arm.clone().add(new THREE.Vector3(0, -0.12, 0)), new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), new THREE.Vector3(-dir.z, 0, dir.x)), new THREE.Vector3(1, 1, 1)) });
       kit.add(rope([arm.clone().add(new THREE.Vector3(0, -0.2, 0)), arm.clone().add(new THREE.Vector3(0, -0.2, 0)).addScaledVector(dir, 6).add(new THREE.Vector3(0, -1.1, 0))], 0.025), C.iron);
       lash(p.clone().add(new THREE.Vector3(0, 2.6, 0)), new THREE.Vector3(0, 1, 0), 0.13);
-      this.anchors['zipTop'] = { x: p.x, y: platY, z: p.z, yaw: zipYaw };
+      this.anchors.zipTop = { x: p.x, y: platY, z: p.z, yaw: zipYaw };
       collider(e - 0.35, -e + 0.35, 0.2, 0.2, platY, platY + 3);
     }
     // ── on the platform: a crate with a spyglass on it; at the foot: a signpost with a gull on it ──
@@ -276,10 +276,10 @@ class LookoutBuilder {
     const geo = kit.finish({ ao: { ground: this.ground, cell: 0.2, strength: 0.6 }, hidden: { ground: this.ground } });
 
     const A = (lx: number, lz: number, y: number, yaw: number): LookoutAnchor => { const [x, z] = this.toWorld(lx, lz); return { x, y, z, yaw: this.spec.rot + yaw }; };
-    this.anchors['beacon'] = A(e - 0.8, e - 0.8, platY, Math.PI);
-    this.anchors['shard'] = A(-e + 0.8, e - 0.8, platY, Math.PI);
+    this.anchors.beacon = A(e - 0.8, e - 0.8, platY, Math.PI);
+    this.anchors.shard = A(-e + 0.8, e - 0.8, platY, Math.PI);
     const [fx, fz] = this.toWorld(0, z0 - run - 0.6);
-    this.anchors['stairFoot'] = A(0, z0 - run - 0.6, this.ground(fx, fz), Math.PI);
+    this.anchors.stairFoot = A(0, z0 - run - 0.6, this.ground(fx, fz), Math.PI);
 
     // ── into own space: the site's origin subtracted from everything built where it stands ──
     const o = this.o;

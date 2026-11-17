@@ -39,9 +39,9 @@ export function palmGeometry(p: PalmParams, rng: Rng, knobs: IslandKnobs): THREE
   }
   for (let s = 0; s < segs; s++) for (let k = 0; k < sides; k++) {
     const r0 = rings[s], r1 = rings[s + 1];
-    if (!r0 || !r1) continue;
+    if (!(r0 !== undefined && r0 !== null) || !(r1 !== undefined && r1 !== null)) continue;
     const a = r0[k], b = r0[(k + 1) % sides], cc = r1[(k + 1) % sides], d = r1[k];
-    if (!a || !b || !cc || !d) continue;
+    if (!(a !== undefined && a !== null) || !(b !== undefined && b !== null) || !(cc !== undefined && cc !== null) || !(d !== undefined && d !== null)) continue;
     c.copy(s % 2 ? C.ring : C.trunk).multiplyScalar(0.9 + rng.next() * 0.2);
     const w0 = (s / segs) ** 2 * 0.25, w1 = ((s + 1) / segs) ** 2 * 0.25;
     // sway weight rises with height (the top of the trunk moves a little, the fronds a lot)
