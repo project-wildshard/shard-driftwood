@@ -60,14 +60,95 @@
       "caseAdaptations": [
         "SDK 5aa81bdddd65e0737a5e614337f1f9d8540f1add (2026-11-13) deliberately retains the in-cap mesh and drops the over-cap impostor in projectPlaceholders. Preserve the original over-cap refusal through the unchanged standalone bake on this actual product collider/look; additionally assert current CLI keeps an in-cap far mesh with no impostor and admitted files."
       ]
+    },
+    {
+      "sourcePath": "test/driftwood-story-verbs.test.ts",
+      "sourceBlob": "f6ea2041a4dbd43e9e573d0f055c70c845969020",
+      "targetPath": "test/ci21-candidate/driftwood-story-verbs.test.ts",
+      "targetBlob": "2cbb03466d31e4f34d88cab7681541d5928957f2",
+      "originalTests": [
+        "Driftwood earns the Sealed Ring through real movement, combat, barrel contacts and replay"
+      ],
+      "fixturePath": "test/proof/driftwood-isle/tape.ts",
+      "fixtureBlob": "e88a653c7b60a88c472f94f462f1b284811a8e5c",
+      "compilerSupport": [
+        "test/fixtures/headless/driftwood-story-run.ts"
+      ],
+      "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission.",
+      "caseAdaptations": [
+        "Equivalent real-input approach follows the actual authored hold stair/pump/winch waypoints before approaching the sailor fallen key, avoiding the solid hull. Original key pickup, full story flags/pack, contact puzzles/combat, independent replay, 3600 walk/6000 fight/60000 tape and original child/case budgets remain; no state grants."
+      ]
+    },
+    {
+      "sourcePath": "test/driftwood-zipline-verbs.test.ts",
+      "sourceBlob": "486bd4373f353d7c9343c0eb6caf114b2cc26bcb",
+      "targetPath": "test/ci21-candidate/driftwood-zipline-verbs.test.ts",
+      "targetBlob": "b716b02b4201ba8c30308881f210b893036ddd82",
+      "originalTests": [
+        "the continuous lookout walk and actual cable landing earn the zipline feat"
+      ],
+      "fixturePath": "test/proof/driftwood-isle/tape.ts",
+      "fixtureBlob": "e88a653c7b60a88c472f94f462f1b284811a8e5c",
+      "compilerSupport": [],
+      "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission."
+    },
+    {
+      "sourcePath": "test/driftwood-optional-verbs.test.ts",
+      "sourceBlob": "d6d14e5fb1861be04c23aa3ceeb7541cd980747e",
+      "targetPath": "test/ci21-candidate/driftwood-optional-verbs.test.ts",
+      "targetBlob": "0ccbf0eeba34add53cca6f2945133f7e228ccfa6",
+      "originalTests": [
+        "Driftwood walk-in glass and bench USE earn their real counters exactly once",
+        "Driftwood reaches the reef through real HOVER, swim and DIVE before opening its treasure"
+      ],
+      "fixturePath": "test/proof/driftwood-isle/tape.ts",
+      "fixtureBlob": "e88a653c7b60a88c472f94f462f1b284811a8e5c",
+      "compilerSupport": [
+        "test/fixtures/headless/driftwood-optional-run.ts"
+      ],
+      "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission."
+    },
+    {
+      "sourcePath": "test/driftwood-trade-verbs.test.ts",
+      "sourceBlob": "36c10ea5a6721322d3900d0a47218a8ec401317d",
+      "targetPath": "test/ci21-candidate/driftwood-trade-verbs.test.ts",
+      "targetBlob": "54e8cad1307e5cffd457e2e608a5968d6e1c9a4a",
+      "originalTests": [
+        "walk to the real counter and refuse out-of-reach and empty-purse BUY",
+        "the earned counter continuation funds its real purse through the original kills",
+        "real kills fund Maren BUY and fresh restoration; omitted BUY cannot grant or spend"
+      ],
+      "fixturePath": "test/proof/driftwood-isle/tape.ts",
+      "fixtureBlob": "e88a653c7b60a88c472f94f462f1b284811a8e5c",
+      "compilerSupport": [
+        "test/fixtures/headless/driftwood-trade-run.ts"
+      ],
+      "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission."
     }
   ],
-  "supportFixtures": [],
+  "supportFixtures": [
+    {
+      "targetPath": "test/fixtures/native-coin-catalogue.json",
+      "targetBlob": "8e4a22f5fd2a2c49eeb8857eb7804bcca9a984ed"
+    },
+    {
+      "targetPath": "test/fixtures/native-coin-assets/assets/baked/common/pickups/f7d3d060691377efa8aec3b4050b437fcfafc14a227b869d79fcbc91b226a5c6.bin",
+      "targetBlob": "3b0a218085b3c5494f361ab8ea0c3d80c88f684e"
+    },
+    {
+      "targetPath": "test/fixtures/native-coin-assets/assets/baked/common/pickups/b2afea11f95d0f420621460dfdea648f1db2efc74722c1bdf993945185c91f46.bin",
+      "targetBlob": "41c10449dd13e4ec168d794e422cec7db91c1a31"
+    }
+  ],
   "typedLintFiles": [
     "test/ci21-candidate/approved-enemy-placement.test.ts",
+    "test/ci21-candidate/driftwood-optional-verbs.test.ts",
     "test/ci21-candidate/driftwood-output.test.ts",
     "test/ci21-candidate/driftwood-program-files.test.ts",
     "test/ci21-candidate/driftwood-scene.test.ts",
+    "test/ci21-candidate/driftwood-story-verbs.test.ts",
+    "test/ci21-candidate/driftwood-trade-verbs.test.ts",
+    "test/ci21-candidate/driftwood-zipline-verbs.test.ts",
     "test/fixtures/builtProduct.ts",
     "test/fixtures/driftwood-baked-cove.ts",
     "test/fixtures/driftwood-emitted-product.ts",
@@ -75,7 +156,20 @@
     "test/fixtures/driftwood-island-facts.ts",
     "test/fixtures/driftwood-native-program.ts",
     "test/fixtures/driftwood-return-modules.ts",
+    "test/fixtures/driftwood-trade-native.ts",
     "test/fixtures/driftwoodLegacySections.ts",
-    "test/fixtures/headless/driftwood-guest-compile.ts"
+    "test/fixtures/headless-worker.ts",
+    "test/fixtures/headless/driftwood-guest-compile.ts",
+    "test/fixtures/headless/driftwood-optional-run.ts",
+    "test/fixtures/headless/driftwood-story-run.ts",
+    "test/fixtures/headless/driftwood-trade-run.ts",
+    "test/fixtures/headless/productSession.ts",
+    "test/fixtures/headless/recordedCheckpoints.ts",
+    "test/fixtures/headless/tradeHandoff.ts",
+    "test/fixtures/native-coin-recipe.ts",
+    "test/fixtures/native-hosts/loot/nativeEconomy.ts",
+    "test/fixtures/native-rapier-file.ts",
+    "test/proof/driftwood-isle/tape.ts",
+    "test/proof/driftwood-isle/worker.ts"
   ]
 }

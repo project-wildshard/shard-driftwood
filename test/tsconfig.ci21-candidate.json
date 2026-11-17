@@ -26,7 +26,14 @@
     "ci21-candidate/driftwood-program-files.test.ts",
     "ci21-candidate/driftwood-output.test.ts",
     "ci21-candidate/driftwood-scene.test.ts",
-    "fixtures/headless/driftwood-guest-compile.ts"
+    "ci21-candidate/driftwood-story-verbs.test.ts",
+    "ci21-candidate/driftwood-zipline-verbs.test.ts",
+    "ci21-candidate/driftwood-optional-verbs.test.ts",
+    "ci21-candidate/driftwood-trade-verbs.test.ts",
+    "fixtures/headless/driftwood-guest-compile.ts",
+    "fixtures/headless/driftwood-story-run.ts",
+    "fixtures/headless/driftwood-optional-run.ts",
+    "fixtures/headless/driftwood-trade-run.ts"
   ],
   "include": [],
   "compileOnSave": false
