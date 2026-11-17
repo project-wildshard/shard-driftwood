@@ -70,7 +70,7 @@
         "Driftwood earns the Sealed Ring through real movement, combat, barrel contacts and replay"
       ],
       "fixturePath": "test/proof/driftwood-isle/tape.ts",
-      "fixtureBlob": "e88a653c7b60a88c472f94f462f1b284811a8e5c",
+      "fixtureBlob": "2070cf0315996024789a3e4fc90b4eb520f3e3e0",
       "compilerSupport": [
         "test/fixtures/headless/driftwood-story-run.ts"
       ],
@@ -88,7 +88,7 @@
         "the continuous lookout walk and actual cable landing earn the zipline feat"
       ],
       "fixturePath": "test/proof/driftwood-isle/tape.ts",
-      "fixtureBlob": "e88a653c7b60a88c472f94f462f1b284811a8e5c",
+      "fixtureBlob": "2070cf0315996024789a3e4fc90b4eb520f3e3e0",
       "compilerSupport": [],
       "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission."
     },
@@ -102,7 +102,7 @@
         "Driftwood reaches the reef through real HOVER, swim and DIVE before opening its treasure"
       ],
       "fixturePath": "test/proof/driftwood-isle/tape.ts",
-      "fixtureBlob": "e88a653c7b60a88c472f94f462f1b284811a8e5c",
+      "fixtureBlob": "2070cf0315996024789a3e4fc90b4eb520f3e3e0",
       "compilerSupport": [
         "test/fixtures/headless/driftwood-optional-run.ts"
       ],
@@ -119,11 +119,57 @@
         "real kills fund Maren BUY and fresh restoration; omitted BUY cannot grant or spend"
       ],
       "fixturePath": "test/proof/driftwood-isle/tape.ts",
-      "fixtureBlob": "e88a653c7b60a88c472f94f462f1b284811a8e5c",
+      "fixtureBlob": "2070cf0315996024789a3e4fc90b4eb520f3e3e0",
       "compilerSupport": [
         "test/fixtures/headless/driftwood-trade-run.ts"
       ],
       "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission."
+    },
+    {
+      "sourcePath": "test/scripts/ground-encounters.test.ts",
+      "sourceBlob": "1f8a65954fabe39190f3d5f68f64f362bced4bf6",
+      "targetPath": "test/ci21-candidate/captain-encounter-script.test.ts",
+      "targetBlob": "233453d16845be996694bd944e7b822b43e48fdc",
+      "originalTests": [
+        "Captain published guest rises, sinks, relocates inside the pool and resumes its second cut"
+      ],
+      "fixturePath": "test/fixtures/builtProduct.ts",
+      "fixtureBlob": "ca9f933897c71064e7ffca9441b8246c27e397a2",
+      "ownerPartition": {
+        "sourceCases": [
+          "Captain published guest rises, sinks, relocates inside the pool and resumes its second cut",
+          "King published guest chooses sweep, ring recovery, summons and last-phase lanes without replay on restore"
+        ],
+        "retainedCases": [
+          0
+        ],
+        "remainingOwner": "project-wildshard/shard-pine-hollow",
+        "remainingCases": [
+          1
+        ],
+        "admission": "C6 verifies the King half; C10 retains complete paired source removal."
+      },
+      "changes": "J200 owner split: retain complete original Captain case and shared encounter helper, actor values, fuel bounds, exact save equality and 10000ms cap. King half remains C6/Pine; no whole engine-file removal."
+    },
+    {
+      "sourcePath": "test/quest-step-native-parity.test.ts",
+      "sourceBlob": "c4c61ca31516f0a5262657cf378ad05f74dc27fd",
+      "targetPath": "test/ci21-candidate/quest-step-native-parity.test.ts",
+      "targetBlob": "c5338a670dcddd974825882635394f28261d98a9",
+      "originalTests": [
+        "driftwood-isle: recorded native checkpoints regenerate and verify before replay",
+        "driftwood-isle: recorded native quest saves restore and replay byte-identically",
+        "driftwood-isle: an existing native quest envelope retains its exact bytes"
+      ],
+      "fixturePath": "test/fixtures/quest-step-legacy-saves.json",
+      "fixtureBlob": "c5a1c5f5ca9c6ba65aaf30068c0416d1402dd246",
+      "compilerSupport": [
+        "test/fixtures/headless/driftwood-witness-run.ts"
+      ],
+      "changes": "Direct unchanged three-case Driftwood instantiation, defining public imports and typed native child/helpers. Deliberate provenance-guarded full-bit current-source checkpoint migration; whole historical manifest and legacy envelope preserved. No runtime filtering or automatic regoldening; C10/C11 admission/removals held.",
+      "caseAdaptations": [
+        "Explicit J232 current-source checkpoint migration: preserve the whole original historical manifest as a blob-bound fixture; keep all 14 ordered facts/actors, both plate-approach crab kills, original checkpoint topology and periodic ticks, and complete named-checkpoint durable ledger/reward content except declared save epoch and route clocks. Current complete raw native capture on exact5a3511aa/normal sealed producer becomes the reviewed full-bit golden; original strict regenerated hashes, payloads, replay/suffix/effects assertions and all original time/input bounds remain. No runtime filtering or automatic regoldening."
+      ]
     }
   ],
   "supportFixtures": [
@@ -138,10 +184,23 @@
     {
       "targetPath": "test/fixtures/native-coin-assets/assets/baked/common/pickups/b2afea11f95d0f420621460dfdea648f1db2efc74722c1bdf993945185c91f46.bin",
       "targetBlob": "41c10449dd13e4ec168d794e422cec7db91c1a31"
+    },
+    {
+      "targetPath": "test/fixtures/driftwood-checkpoints-original.json",
+      "targetBlob": "6d60adc7b3b9a5c8ac7d6b4a3eb8828f552583cf"
+    },
+    {
+      "targetPath": "test/proof/driftwood-isle/checkpoints/manifest.json",
+      "targetBlob": "706a133a06ef7f2e3f3c9cc5c82fe21fa5f21c22"
+    },
+    {
+      "targetPath": "test/fixtures/quest-step-legacy-saves.json",
+      "targetBlob": "c5a1c5f5ca9c6ba65aaf30068c0416d1402dd246"
     }
   ],
   "typedLintFiles": [
     "test/ci21-candidate/approved-enemy-placement.test.ts",
+    "test/ci21-candidate/captain-encounter-script.test.ts",
     "test/ci21-candidate/driftwood-optional-verbs.test.ts",
     "test/ci21-candidate/driftwood-output.test.ts",
     "test/ci21-candidate/driftwood-program-files.test.ts",
@@ -149,6 +208,8 @@
     "test/ci21-candidate/driftwood-story-verbs.test.ts",
     "test/ci21-candidate/driftwood-trade-verbs.test.ts",
     "test/ci21-candidate/driftwood-zipline-verbs.test.ts",
+    "test/ci21-candidate/quest-step-native-parity.test.ts",
+    "test/fake/simMismatch.ts",
     "test/fixtures/builtProduct.ts",
     "test/fixtures/driftwood-baked-cove.ts",
     "test/fixtures/driftwood-emitted-product.ts",
@@ -157,19 +218,28 @@
     "test/fixtures/driftwood-native-program.ts",
     "test/fixtures/driftwood-return-modules.ts",
     "test/fixtures/driftwood-trade-native.ts",
+    "test/fixtures/driftwood-witness-cache.ts",
     "test/fixtures/driftwoodLegacySections.ts",
     "test/fixtures/headless-worker.ts",
     "test/fixtures/headless/driftwood-guest-compile.ts",
     "test/fixtures/headless/driftwood-optional-run.ts",
     "test/fixtures/headless/driftwood-story-run.ts",
     "test/fixtures/headless/driftwood-trade-run.ts",
+    "test/fixtures/headless/driftwood-witness-run.ts",
     "test/fixtures/headless/productSession.ts",
     "test/fixtures/headless/recordedCheckpoints.ts",
     "test/fixtures/headless/tradeHandoff.ts",
+    "test/fixtures/native-checkpoint-provenance.ts",
     "test/fixtures/native-coin-recipe.ts",
     "test/fixtures/native-hosts/loot/nativeEconomy.ts",
+    "test/fixtures/native-number-path.ts",
     "test/fixtures/native-rapier-file.ts",
+    "test/fixtures/runSnapshot.ts",
+    "test/fixtures/witness-checkpoints.ts",
+    "test/fixtures/witness-generation.ts",
+    "test/proof/driftwood-isle/native.ts",
     "test/proof/driftwood-isle/tape.ts",
+    "test/proof/driftwood-isle/witness.ts",
     "test/proof/driftwood-isle/worker.ts"
   ]
 }

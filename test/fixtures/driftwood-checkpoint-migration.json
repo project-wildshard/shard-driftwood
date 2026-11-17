@@ -1,0 +1,42 @@
+{
+  "state": "captured current source baseline; independent J206 review pending",
+  "date": "2026-11-16",
+  "sourceRepository": "project-wildshard/shard-driftwood",
+  "sourceCommit": "cddd8f87ccd9818144c9ee7711de08f240dffc37",
+  "engine": "5a3511aa1490f36b2290e33b7ed574d072e33407",
+  "sdk": "0.3.6",
+  "format": "0.13.0",
+  "producer": "ab7edecc6358bcdb96ee25b20a720284d0e870ac",
+  "producerInputs": 581,
+  "productFiles": 522,
+  "originalManifest": {
+    "path": "test/fixtures/driftwood-checkpoints-original.json",
+    "sha256": "66d1872f211afa51ac049c0ad3fd511e8d2f05d2f23f961897a74a64af445705",
+    "ticks": 22412
+  },
+  "currentManifest": {
+    "path": "test/proof/driftwood-isle/checkpoints/manifest.json",
+    "sha256": "40cdabc6370ca43c0901470d4141f5311ab6485407700c55bc4b085a3169ea7a",
+    "ticks": 23194
+  },
+  "facts": "all14 exact ordered effect payloads and actors preserved",
+  "checkpointNames": [
+    "spawn",
+    "lookout",
+    "tick-10000",
+    "tick-20000",
+    "captain"
+  ],
+  "originalPeriodicTicks": [
+    10000,
+    20000
+  ],
+  "namedDurableProfiles": "runtime guard preserves every field and derived item/entitlement/achievement except route ticks and explicit v2 -> v2@1 namespace from engine37bd65702",
+  "normativeComparison": "Every fresh generation still compares the whole current manifest and actual payload SHA table on Darwin; no filtering or automatic regeneration of source golden",
+  "legacyEnvelope": "Original quest-step-legacy-saves.json retained whole and exact bytes still asserted",
+  "inputAdaptations": [
+    "Authored hold stair/pump/winch approach before fallen key",
+    "Actually walk to and defeat nearest two live plate-approach crabs, preserving original2kills even if one has wandered beyond the old12m selection radius"
+  ],
+  "bounds": "All original child/case/input/part/tape/codec/replay bounds remain"
+}

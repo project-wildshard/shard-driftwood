@@ -23,12 +23,12 @@ try {
     if (result.status !== 0) throw new Error(`Native witness construction failed: ${result.stderr}\n${result.stdout}`);
     const generated = v.parse(Generated, JSON.parse(result.stdout.split('\n').at(-1) ?? 'null'));
     const payloads = v.parse(Outputs, JSON.parse(generated.manifest)).cache.payloads;
-    const files = new Map<string, Uint8Array>();
+    const payloadFiles = new Map<string, Uint8Array>();
     for (const name of [...Object.keys(payloads), 'manifest.json', '.generation-receipt.json']) {
       const relative = `witness-driftwood-isle/${generated.key}/${name}`;
-      files.set(relative, Uint8Array.from(readFileSync(resolve(generated.directory, name))));
+      payloadFiles.set(relative, Uint8Array.from(readFileSync(resolve(generated.directory, name))));
     }
-    return Promise.resolve(files);
+    return Promise.resolve(payloadFiles);
   });
   if (!computed) for (const [name, bytes] of files) {
     const file = resolve(cache, name); mkdirSync(dirname(file), { recursive: true }); writeFileSync(file, bytes);

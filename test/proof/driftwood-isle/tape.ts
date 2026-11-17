@@ -94,7 +94,12 @@ export async function playDriftwood(host: SimHost, tick: (commands: HeadlessComm
   await go(152.7, 3); await tick([{ kind: 'script', actorId: 'driftwood.interact', value: 1 }]); await mark('wreck');
   await walk([[152, 2.5], [150.5, 1.8], [149, 1.2], [147, 0.8]]);
   // Clear the actual plate approach in nearest-first order. Chasing the first roster crab through the wreck's solid hull is not a player route.
-  const plateCrabs = [...host.entities].filter(([, a]) => a.kind === 'crab' && a.alive && Math.hypot(a.position.x - 144.9, a.position.z - 9.9) < 12);
+  // Preserve both historical plate-approach kills even when one live crab has
+  // wandered beyond the old 12m selection radius. Reach and defeat them on input.
+  const plateCrabs = [...host.entities].filter(([, a]) => a.kind === 'crab' && a.alive)
+    .sort(([, a], [, b]) => Math.hypot(a.position.x - 144.9, a.position.z - 9.9)
+      - Math.hypot(b.position.x - 144.9, b.position.z - 9.9)).slice(0, 2);
+  if (plateCrabs.length !== 2) throw new Error('Missing original two live plate-approach crabs');
   const threats = plateCrabs.length;
   for (let i = 0; i < threats; i++) {
     plateCrabs.sort(([, a], [, b]) => a.position.distanceToSquared(leadPlayer(host).position) - b.position.distanceToSquared(leadPlayer(host).position));
