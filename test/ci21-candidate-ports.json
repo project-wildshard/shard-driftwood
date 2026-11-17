@@ -15,11 +15,63 @@
       "fixturePath": "test/fixtures/approved-enemy-placement.json",
       "fixtureBlob": "e6a6837b7e216f46a8940fed949c004f98152109",
       "changes": "Whole original cases, exact 8572-byte frozen wire and every refusal retained. Only public engine/SDK imports and shard-local fixture paths change. C10/C11 retain default admission and paired engine removal."
+    },
+    {
+      "sourcePath": "test/driftwood-program-files.test.ts",
+      "sourceBlob": "ebad179a551e63f94925dd8fdde7c3f5fe63698a",
+      "targetPath": "test/ci21-candidate/driftwood-program-files.test.ts",
+      "targetBlob": "151f59da98e155a6b3fd73e71c5f4f02111c346b",
+      "originalTests": [
+        "both raw files preserve the complete original contracts and admitted executable bytes",
+        "the original scoped return owner reuses its raw executable and refuses missing or retired loans"
+      ],
+      "fixturePath": "test/fixtures/driftwood-guest-programs.ts",
+      "fixtureBlob": "803ab17850d02ca07d65f38471eb28c10df51678",
+      "changes": "Every original case/assertion and timeout retained; public imports and owner-local paths only. Scene it spelling becomes direct test for static case inventory. Source proof borrows sealed normal-produced bytes; no default admission or engine removal."
+    },
+    {
+      "sourcePath": "test/driftwood-output.test.ts",
+      "sourceBlob": "caf4488dbaa194dc6a7eacb19581ed5e6fcda310",
+      "targetPath": "test/ci21-candidate/driftwood-output.test.ts",
+      "targetBlob": "c9f7766b47f509585ef417169a68825ba9a27f39",
+      "originalTests": [
+        "Driftwood fixed draws and island cover files name admitted product blobs (no legacy URL table)"
+      ],
+      "fixturePath": "test/fixtures/driftwood-baked-cove.ts",
+      "fixtureBlob": "77a89c1623af52e199f68bd89d0c78c19df04108",
+      "changes": "Every original case/assertion and timeout retained; public imports and owner-local paths only. Scene it spelling becomes direct test for static case inventory. Source proof borrows sealed normal-produced bytes; no default admission or engine removal."
+    },
+    {
+      "sourcePath": "test/driftwood-scene.test.ts",
+      "sourceBlob": "a5fc017fc06f852b247bbe34276ee700c8b7994d",
+      "targetPath": "test/ci21-candidate/driftwood-scene.test.ts",
+      "targetBlob": "79a4ca941f654102e2d017fe21b161f8f08d3387",
+      "originalTests": [
+        "admits the real generated ground, tile and library assets for the trusted world",
+        "refuses the CLI far bake when its actual image envelope exceeds the cap",
+        "publishes real pier parents in place of vacant L1 metadata without duplicate addresses"
+      ],
+      "fixturePath": "test/fixtures/driftwood-emitted-product.ts",
+      "fixtureBlob": "9e63aee7591ba6ff88ce743a8a020f28df9e87c0",
+      "changes": "Every original case/assertion and timeout retained; public imports and owner-local paths only. Scene it spelling becomes direct test for static case inventory. Source proof borrows sealed normal-produced bytes; no default admission or engine removal.",
+      "caseAdaptations": [
+        "SDK 5aa81bdddd65e0737a5e614337f1f9d8540f1add (2026-11-13) deliberately retains the in-cap mesh and drops the over-cap impostor in projectPlaceholders. Preserve the original over-cap refusal through the unchanged standalone bake on this actual product collider/look; additionally assert current CLI keeps an in-cap far mesh with no impostor and admitted files."
+      ]
     }
   ],
   "supportFixtures": [],
   "typedLintFiles": [
     "test/ci21-candidate/approved-enemy-placement.test.ts",
+    "test/ci21-candidate/driftwood-output.test.ts",
+    "test/ci21-candidate/driftwood-program-files.test.ts",
+    "test/ci21-candidate/driftwood-scene.test.ts",
+    "test/fixtures/builtProduct.ts",
+    "test/fixtures/driftwood-baked-cove.ts",
+    "test/fixtures/driftwood-emitted-product.ts",
+    "test/fixtures/driftwood-guest-programs.ts",
+    "test/fixtures/driftwood-island-facts.ts",
+    "test/fixtures/driftwood-native-program.ts",
+    "test/fixtures/driftwood-return-modules.ts",
     "test/fixtures/driftwoodLegacySections.ts"
   ]
 }

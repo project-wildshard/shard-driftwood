@@ -1,9 +1,8 @@
-import {driftwoodGuestFile} from './driftwood-guest-programs';
-import {Scope} from '../../src/shared/engine/app/scope';
-import {ReturnProgram} from '../../src/shared/game/population/returnProgram';
+import {driftwoodGuestFile,RETURN_PROGRAM} from './driftwood-guest-programs';
+import type {Scope} from '@wildshard/engine/app/scope';
+import {ReturnProgram} from '@wildshard/engine/game/population/returnProgram';
 import {parseDecisionScripts} from '@wildshard/format/decisionScripts';
 import {hashImmutableBytes} from '@wildshard/format/immutable';
-import {RETURN_PROGRAM} from './driftwood-guest-programs';
 
 export const driftwoodReturnBytes=driftwoodGuestFile('behaviour/returns.generated.wasm');
 const hash=hashImmutableBytes(driftwoodReturnBytes),rows=parseDecisionScripts([RETURN_PROGRAM.script]);
