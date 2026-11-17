@@ -1,0 +1,11 @@
+{
+  "schema": "ci21-grid-owner/1",
+  "original": "engine:test/grid-reentry.test.ts",
+  "products": [
+    {
+      "slug": "driftwood-isle",
+      "directory": "out/driftwood-isle"
+    }
+  ],
+  "generic": false
+}
