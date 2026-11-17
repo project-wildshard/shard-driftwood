@@ -12,6 +12,10 @@ for(const fixture of record.supportFixtures??[]){
  if(createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex')!==fixture.targetBlob)throw new Error(`CI21 retained support fixture changed: ${fixture.targetPath}`);
 }
 const compiler=JSON.parse(readFileSync(new URL(process.argv[3] ?? 'test/tsconfig.json',root),'utf8'));
+if(record.files.every(row=>row.targetPath.startsWith('test/ci21-candidate/'))){
+ const context=JSON.parse(readFileSync(new URL('test/ci21-candidate/tsconfig.json',root),'utf8'));
+ if(JSON.stringify(context)!==JSON.stringify({extends:'../tsconfig.ci21-candidate.json'}))throw new Error('Candidate native lint context may only inherit the exact compiler project');
+}
 for(const declaration of record.nativeDeclarations??[]){
  const bytes=readFileSync(new URL(declaration.targetPath,root));
  if(createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex')!==declaration.targetBlob)throw new Error('Defining native compiler declaration changed');
