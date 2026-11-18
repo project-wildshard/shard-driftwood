@@ -5,7 +5,7 @@ import { weldPrimitive } from '@gltf-transform/functions';
 import { staticGlb } from '@wildshard/sharddev/bake/glb';
 import { compactPhoneGlb } from '@wildshard/sharddev/bake/compactGlb';
 import { withPortableMath } from '@wildshard/sharddev/commons/bake/portableMath';
-import { emitNamedBlobs, nameMeshoptBlob, type EmittedBlobs } from '@wildshard/sharddev/blobs';
+import { emitNamedBlobs, nameBlob, nameMeshoptBlob, type EmittedBlobs } from '@wildshard/sharddev/blobs';
 import type { ProjectGenerationContext } from '@wildshard/sharddev/projectGeneration';
 import inventory from '../data/fixedGeometry.json' with { type: 'json' };
 import { decodePalmWorld, decodeHibiscusWorld, decodeReefWorld } from './foliageGeometry';
@@ -194,15 +194,13 @@ export function foliageSceneGlbs(only?: ReadonlySet<string>): Map<string, Uint8A
 export async function foliageSceneFiles(only?: ReadonlySet<string>): Promise<Map<string, Uint8Array>> {
   const files = foliageSceneGlbs(only);
   for (const [name, glb] of files) if (isPhoneFile(name)) {
-    let source = glb;
     if (name === PHONE_PALMS) {
       // The palm material keeps flat colours and per-corner wind. Share only identical packed corners.
       const io = new WebIO().registerExtensions(ALL_EXTENSIONS);
       const document = await io.readBinary(glb);
       for (const mesh of document.getRoot().listMeshes()) for (const primitive of mesh.listPrimitives()) weldPrimitive(primitive);
-      source = await io.writeBinary(document);
-    }
-    files.set(name, await compactPhoneGlb(source));
+      files.set(name, await io.writeBinary(document));
+    } else files.set(name, await compactPhoneGlb(glb));
   }
   const expected = only === undefined ? FOLIAGE_SCENE_FILES : FOLIAGE_SCENE_FILES.filter(name => only.has(name));
   if (JSON.stringify([...files.keys()]) !== JSON.stringify(expected)) throw new Error('Foliage scene file inventory differs');
@@ -218,6 +216,7 @@ export async function driftwoodFoliageSceneOutput(ctx: Pick<ProjectGenerationCon
   return emitNamedBlobs(await Promise.all(FOLIAGE_SCENE_FILES.map(name => {
     const bytes = files.get(name);
     if (bytes === undefined || files.size !== FOLIAGE_SCENE_FILES.length) throw new Error('Driftwood foliage scene cache inventory differs');
-    return nameMeshoptBlob(name, bytes, {}, ctx.meshoptNoLarger);
+    // The palm batch's compact native attributes are directly readable from its GLB.
+    return name === PHONE_PALMS ? nameBlob(name, 'glb', bytes) : nameMeshoptBlob(name, bytes, {}, ctx.meshoptNoLarger);
   })));
 }

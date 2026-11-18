@@ -21,3 +21,18 @@ The nine-view Phone Low spawn board matches the accepted island look,
 with equal draw and triangle counts at each camera. Re-stamped the
 existing curated cove cards and verified their hashes. The author
 path `wildshard check` passed.
+
+Six paired cold WebKit runs showed that the compressed trial used
+0.97 MB less palm GPU memory, while playing highs rose in five
+pairs. The next variant keeps the compact vertex layout in the
+original uncompressed GLB path. Positions now match exactly and
+the phone palm file is 2.95 MB. All nine Phone Low frames, draw
+counts and triangle counts match again. The offline validator,
+shard lint and author check passed.
+
+Four alternating cold WebKit pairs with the shared measurement lock
+confirmed the 3.71 to 2.74 MB palm GPU buffer cut. The EM11 playing
+median and 90% upper moved from 907.00 / 1,015.89 MB to
+905.01 / 1,006.61 MB. Loading upper moved from 1,388.07 to 1,320.97 MB.
+Three of four playing highs fell. The playing upper still exceeds
+J410's 1,000 MB target.
