@@ -22,3 +22,8 @@ KTX2 arm records 743.08 MB of settled WebContent and 77.82 MB on the
 GL ledger. The image arm records 764.42 MB and 78.16 MB. The reviewed
 cost now uses those readings and keeps the 299 MB calibration and
 the existing 512 MiB tier limit.
+
+The author-path TS21 check reproduced a stale curated hero stamp.
+The existing three card images still show the cove after the phone
+cut. The standard SDK stamp command updates the content hash, and
+all three image digests are identical to the previous stamp.
