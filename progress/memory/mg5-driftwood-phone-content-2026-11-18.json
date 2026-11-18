@@ -1,0 +1,474 @@
+{
+  "version": "mg5-runtime-cost/1",
+  "shard": "driftwood-isle",
+  "memoryEpoch": 3,
+  "formatVersion": "0.34.0",
+  "rawEngineBaseMB": 299,
+  "contentCommit": "21b0984bde",
+  "contentSourceHash": "05b6ceb9898793ec73ed1e072c68b4f5eaef1072886af3d3538fa173bd589b76",
+  "method": "Cold Safari under the shared measurement lock. Median of three settled play samples of native WebContent and the same tab GPU ledger. Identical engine and Phone Low in both arms. The image arm uses the engine texture harness pin. The prior calibration keeps the 299 MB engine baseline.",
+  "measured": {
+    "before-auto": {
+      "cost": {
+        "webContentMB": 742.002504,
+        "glMB": 82.156304,
+        "engineBaseMB": 299,
+        "rev": "151dd6058995676c1aaf7e2c5b5bb7e50f966b67",
+        "device": "iOS 27.2 iPhone 18 Pro Simulator Safari, Phone Low ktx2, settled WebContent [Sim] and GL [L]",
+        "evidence": "progress/memory/mg5-driftwood-phone-content-2026-11-18.json",
+        "epoch": 3
+      },
+      "identity": {
+        "build": "151dd605-j410-content-before-v2",
+        "shard": "driftwood-isle"
+      },
+      "settings": {
+        "tier": "phone"
+      },
+      "deviceSaves": {
+        "titleArrival.once": null,
+        "devMode": true,
+        "graphics": "low",
+        "firstPlayDone": true,
+        "debug.passSplit": 400000,
+        "life.alive.once": {
+          "t": 1795000979353,
+          "build": "151dd605",
+          "slug": "driftwood-isle",
+          "resident": "driftwood-isle (playing) ~13 MB",
+          "mode": "grid",
+          "vis": "visible",
+          "page": "1c7aa7c3-3022-481b-95ab-d0cf6157b3d6"
+        },
+        "life.lastUnload": null,
+        "telemetry.install": "42472275-b693-4c1f-9f93-a571a14e0e93",
+        "telemetry.heartbeat": {
+          "session": "b6a967e4-abb8-491a-a727-abaee058059a",
+          "build": "151dd605-j410-content-before-v2",
+          "level": "platform.grid",
+          "stage": "play",
+          "at": 1795000979136,
+          "fps": 0,
+          "clean": false,
+          "error": false,
+          "contextLost": false
+        },
+        "storage.persisted": false,
+        "drop.step.once": {
+          "world": "driftwood-isle",
+          "name": "Driftwood Isle",
+          "step": "Playing",
+          "t": 1795000979351,
+          "build": "151dd605-j410-content-before-v2",
+          "error": "",
+          "errorStack": "",
+          "route": "",
+          "routeStack": "",
+          "trail": []
+        },
+        "download.outcomes": [],
+        "gridIntent.once": null,
+        "ktx2set": {
+          "driftwood-isle.phone.read": "1"
+        },
+        "drop.pending.once": null
+      },
+      "settled": {
+        "nativeGB": 0.742002504,
+        "inspectorGB": 0.830495392,
+        "minGB": 0.741691208,
+        "maxGB": 0.750489416,
+        "spreadGB": 0.008798207999999974,
+        "spreadPercent": 1.1857383165919846,
+        "samples": [
+          {
+            "seconds": 1.002,
+            "nativeGB": 0.750489416,
+            "inspectorGB": 0.843979424
+          },
+          {
+            "seconds": 2.006,
+            "nativeGB": 0.741691208,
+            "inspectorGB": 0.828054176
+          },
+          {
+            "seconds": 3.008,
+            "nativeGB": 0.742002504,
+            "inspectorGB": 0.830495392
+          }
+        ],
+        "seconds": 3.008
+      },
+      "ledger": {
+        "gpu": 82156304,
+        "ram": 91536529
+      },
+      "unattributed": {
+        "gpu": 7193038,
+        "ram": 0
+      },
+      "texture": {
+        "mode": "ktx2",
+        "why": "auto: images-first playing estimate 1654660109 exceeds 1000000000",
+        "probe": {
+          "ran": true,
+          "note": "8 formats ok",
+          "families": {
+            "astc": true,
+            "etc2": true
+          },
+          "formats": [
+            {
+              "family": "astc",
+              "format": "RGBA_ASTC_4x4",
+              "ok": true
+            },
+            {
+              "family": "astc",
+              "format": "SRGB8_ALPHA8_ASTC_4x4",
+              "ok": true
+            },
+            {
+              "family": "astc",
+              "format": "RGBA_ASTC_6x6",
+              "ok": true
+            },
+            {
+              "family": "astc",
+              "format": "SRGB8_ALPHA8_ASTC_6x6",
+              "ok": true
+            },
+            {
+              "family": "etc2",
+              "format": "RGB8_ETC2",
+              "ok": true
+            },
+            {
+              "family": "etc2",
+              "format": "SRGB8_ETC2",
+              "ok": true
+            },
+            {
+              "family": "etc2",
+              "format": "RGBA8_ETC2_EAC",
+              "ok": true
+            },
+            {
+              "family": "etc2",
+              "format": "SRGB8_ALPHA8_ETC2_EAC",
+              "ok": true
+            }
+          ],
+          "veto": null
+        }
+      }
+    },
+    "after-auto": {
+      "cost": {
+        "webContentMB": 743.0838239999999,
+        "glMB": 77.821792,
+        "engineBaseMB": 299,
+        "rev": "151dd6058995676c1aaf7e2c5b5bb7e50f966b67",
+        "device": "iOS 27.2 iPhone 18 Pro Simulator Safari, Phone Low ktx2, settled WebContent [Sim] and GL [L]",
+        "evidence": "progress/memory/mg5-driftwood-phone-content-2026-11-18.json",
+        "epoch": 3
+      },
+      "identity": {
+        "build": "151dd605-j410-content-after-v2",
+        "shard": "driftwood-isle"
+      },
+      "settings": {
+        "tier": "phone"
+      },
+      "deviceSaves": {
+        "titleArrival.once": null,
+        "devMode": true,
+        "graphics": "low",
+        "firstPlayDone": true,
+        "debug.passSplit": 400000,
+        "life.alive.once": {
+          "t": 1795001334390,
+          "build": "151dd605",
+          "slug": "driftwood-isle",
+          "resident": "driftwood-isle (playing) ~13 MB",
+          "mode": "grid",
+          "vis": "visible",
+          "page": "ae4e8fa2-0377-458f-a93e-2477975f68fa"
+        },
+        "life.lastUnload": null,
+        "telemetry.install": "8797b765-e117-4453-a0bf-9c8bcf989277",
+        "telemetry.heartbeat": {
+          "session": "eec5c15a-54ba-45c1-a22a-6ceb58f63ad8",
+          "build": "151dd605-j410-content-after-v2",
+          "level": "platform.grid",
+          "stage": "play",
+          "at": 1795001333755,
+          "fps": 0,
+          "clean": false,
+          "error": false,
+          "contextLost": false
+        },
+        "storage.persisted": false,
+        "drop.step.once": {
+          "world": "driftwood-isle",
+          "name": "Driftwood Isle",
+          "step": "Playing",
+          "t": 1795001334388,
+          "build": "151dd605-j410-content-after-v2",
+          "error": "",
+          "errorStack": "",
+          "route": "",
+          "routeStack": "",
+          "trail": []
+        },
+        "download.outcomes": [],
+        "gridIntent.once": null,
+        "ktx2set": {
+          "driftwood-isle.phone.read": "1"
+        },
+        "drop.pending.once": null
+      },
+      "settled": {
+        "nativeGB": 0.743083824,
+        "inspectorGB": 0.838130336,
+        "minGB": 0.743083824,
+        "maxGB": 0.743247664,
+        "spreadGB": 0.0001638400000000262,
+        "spreadPercent": 0.022048656518732966,
+        "samples": [
+          {
+            "seconds": 1.003,
+            "nativeGB": 0.743247664,
+            "inspectorGB": 0.838130336
+          },
+          {
+            "seconds": 2.006,
+            "nativeGB": 0.743083824,
+            "inspectorGB": 0.836852384
+          },
+          {
+            "seconds": 3.008,
+            "nativeGB": 0.743083824,
+            "inspectorGB": 0.83831056
+          }
+        ],
+        "seconds": 3.008
+      },
+      "ledger": {
+        "gpu": 77821792,
+        "ram": 97442317
+      },
+      "unattributed": {
+        "gpu": 7193038,
+        "ram": 0
+      },
+      "texture": {
+        "mode": "ktx2",
+        "why": "auto: images-first playing estimate 1654660109 exceeds 1000000000",
+        "probe": {
+          "ran": true,
+          "note": "8 formats ok",
+          "families": {
+            "astc": true,
+            "etc2": true
+          },
+          "formats": [
+            {
+              "family": "astc",
+              "format": "RGBA_ASTC_4x4",
+              "ok": true
+            },
+            {
+              "family": "astc",
+              "format": "SRGB8_ALPHA8_ASTC_4x4",
+              "ok": true
+            },
+            {
+              "family": "astc",
+              "format": "RGBA_ASTC_6x6",
+              "ok": true
+            },
+            {
+              "family": "astc",
+              "format": "SRGB8_ALPHA8_ASTC_6x6",
+              "ok": true
+            },
+            {
+              "family": "etc2",
+              "format": "RGB8_ETC2",
+              "ok": true
+            },
+            {
+              "family": "etc2",
+              "format": "SRGB8_ETC2",
+              "ok": true
+            },
+            {
+              "family": "etc2",
+              "format": "RGBA8_ETC2_EAC",
+              "ok": true
+            },
+            {
+              "family": "etc2",
+              "format": "SRGB8_ALPHA8_ETC2_EAC",
+              "ok": true
+            }
+          ],
+          "veto": null
+        }
+      }
+    },
+    "after-img": {
+      "cost": {
+        "webContentMB": 764.415768,
+        "glMB": 78.157228,
+        "engineBaseMB": 299,
+        "rev": "151dd6058995676c1aaf7e2c5b5bb7e50f966b67",
+        "device": "iOS 27.2 iPhone 18 Pro Simulator Safari, Phone Low img, settled WebContent [Sim] and GL [L]",
+        "evidence": "progress/memory/mg5-driftwood-phone-content-2026-11-18.json",
+        "epoch": 3
+      },
+      "identity": {
+        "build": "151dd605-j410-content-after-v2",
+        "shard": "driftwood-isle"
+      },
+      "settings": {
+        "tier": "phone"
+      },
+      "deviceSaves": {
+        "titleArrival.once": null,
+        "devMode": true,
+        "graphics": "low",
+        "firstPlayDone": true,
+        "debug.passSplit": 400000,
+        "life.alive.once": {
+          "t": 1795001367507,
+          "build": "151dd605",
+          "slug": "driftwood-isle",
+          "resident": "driftwood-isle (playing) ~14 MB",
+          "mode": "grid",
+          "vis": "visible",
+          "page": "750eb21b-1b89-4646-8f4b-9b527ab588c5"
+        },
+        "life.lastUnload": null,
+        "telemetry.install": "7d475180-8bb9-42a4-94f1-34307381e61c",
+        "telemetry.heartbeat": {
+          "session": "0d7c68f7-bf8b-4bbd-bcf0-a8cde46b3907",
+          "build": "151dd605-j410-content-after-v2",
+          "level": "platform.grid",
+          "stage": "play",
+          "at": 1795001367328,
+          "fps": 0,
+          "clean": false,
+          "error": false,
+          "contextLost": false
+        },
+        "storage.persisted": false,
+        "drop.step.once": {
+          "world": "driftwood-isle",
+          "name": "Driftwood Isle",
+          "step": "Playing",
+          "t": 1795001367505,
+          "build": "151dd605-j410-content-after-v2",
+          "error": "",
+          "errorStack": "",
+          "route": "",
+          "routeStack": "",
+          "trail": []
+        },
+        "download.outcomes": [],
+        "gridIntent.once": null,
+        "drop.pending.once": null
+      },
+      "settled": {
+        "nativeGB": 0.764415768,
+        "inspectorGB": 0.82446608,
+        "minGB": 0.763924248,
+        "maxGB": 0.779915032,
+        "spreadGB": 0.01599078399999998,
+        "spreadPercent": 2.0918961472809365,
+        "samples": [
+          {
+            "seconds": 1.002,
+            "nativeGB": 0.779915032,
+            "inspectorGB": 0.866359968
+          },
+          {
+            "seconds": 2.005,
+            "nativeGB": 0.763924248,
+            "inspectorGB": 0.822729376
+          },
+          {
+            "seconds": 3.007,
+            "nativeGB": 0.764415768,
+            "inspectorGB": 0.82446608
+          }
+        ],
+        "seconds": 3.007
+      },
+      "ledger": {
+        "gpu": 78157228,
+        "ram": 98170429
+      },
+      "unattributed": {
+        "gpu": 7193038,
+        "ram": 0
+      },
+      "texture": {
+        "mode": "img",
+        "why": "pinned (harness textures: img)",
+        "probe": {
+          "ran": true,
+          "note": "8 formats ok",
+          "families": {
+            "astc": true,
+            "etc2": true
+          },
+          "formats": [
+            {
+              "family": "astc",
+              "format": "RGBA_ASTC_4x4",
+              "ok": true
+            },
+            {
+              "family": "astc",
+              "format": "SRGB8_ALPHA8_ASTC_4x4",
+              "ok": true
+            },
+            {
+              "family": "astc",
+              "format": "RGBA_ASTC_6x6",
+              "ok": true
+            },
+            {
+              "family": "astc",
+              "format": "SRGB8_ALPHA8_ASTC_6x6",
+              "ok": true
+            },
+            {
+              "family": "etc2",
+              "format": "RGB8_ETC2",
+              "ok": true
+            },
+            {
+              "family": "etc2",
+              "format": "SRGB8_ETC2",
+              "ok": true
+            },
+            {
+              "family": "etc2",
+              "format": "RGBA8_ETC2_EAC",
+              "ok": true
+            },
+            {
+              "family": "etc2",
+              "format": "SRGB8_ALPHA8_ETC2_EAC",
+              "ok": true
+            }
+          ],
+          "veto": null
+        }
+      }
+    }
+  }
+}

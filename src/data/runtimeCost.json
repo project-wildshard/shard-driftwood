@@ -1,18 +1,18 @@
 {
-  "webContentMB": 754.306816,
-  "glMB": 142.831296,
+  "webContentMB": 743.0838239999999,
+  "glMB": 77.821792,
   "engineBaseMB": 299,
-  "rev": "4a7ba050e2f71276d90d61aa15109a32f80813ec",
-  "device": "iOS 27.2 iPhone 17 Pro Simulator Safari, phone Low auto (ktx2), settled WebContent [Sim] and GL [L]",
-  "evidence": "progress/memory/mg5-epoch3-2026-11-17.json",
+  "rev": "151dd6058995676c1aaf7e2c5b5bb7e50f966b67",
+  "device": "iOS 27.2 iPhone 18 Pro Simulator Safari, Phone Low ktx2, settled WebContent [Sim] and GL [L]",
+  "evidence": "progress/memory/mg5-driftwood-phone-content-2026-11-18.json",
   "epoch": 3,
   "imagesFirst": {
-    "webContentMB": 739.7250319999999,
-    "glMB": 143.355548,
+    "webContentMB": 764.415768,
+    "glMB": 78.157228,
     "engineBaseMB": 299,
-    "rev": "4a7ba050e2f71276d90d61aa15109a32f80813ec",
-    "device": "iOS 27.2 iPhone 17 Pro Simulator Safari, phone Low img (img), settled WebContent [Sim] and GL [L]",
-    "evidence": "progress/memory/mg5-epoch3-2026-11-17.json",
+    "rev": "151dd6058995676c1aaf7e2c5b5bb7e50f966b67",
+    "device": "iOS 27.2 iPhone 18 Pro Simulator Safari, Phone Low img, settled WebContent [Sim] and GL [L]",
+    "evidence": "progress/memory/mg5-driftwood-phone-content-2026-11-18.json",
     "epoch": 3
   }
 }
