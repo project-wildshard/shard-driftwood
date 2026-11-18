@@ -13,6 +13,10 @@ const EXACT_SHAPES = /^(cover-|gull$|iron-sword-|castaway-smoke$|shrine-fireflie
 /** Whether shape `id` keeps exact float positions (`EXACT_SHAPES`; the tile-bake oracle reads it). */
 export function exactShape(id: string): boolean { return EXACT_SHAPES.test(id); }
 
+function denseOrdinals(count: number): { runs: number[] } {
+  return { runs: count === 0 ? [] : [0, count] };
+}
+
 /** Original static world draws and own-space equipment/cover templates; each source draw is assembled exactly once. */
 export function driftwoodScene(project: string, head: BufferGeometry, aoBytes: Uint8Array): { baked: BakedScene; fixed: ReturnType<typeof driftwoodFixedSource> } {
   const result = driftwoodOwnedScene(head, aoBytes);
@@ -46,8 +50,10 @@ export function driftwoodOwnedScene(head: BufferGeometry, aoBytes: Uint8Array): 
       if (grid === undefined) copy?.dispose(); else { gridPositions(shipped, grid); copies.push(shipped); }
       const key = `template-${library++}`, mesh = new InstancedMesh(shipped, material, 1);
       const vertexCount = geometry.getAttribute('position').count, indexCount = geometry.getIndex()?.count ?? 0;
-      const metadata = { id, vertices: Array.from({ length: vertexCount }, (_, i) => i),
-        triangles: Array.from({ length: (indexCount || vertexCount) / 3 }, (_, i) => i), vertexCount, indexCount,
+      // A whole template owns consecutive source ordinals. The same run
+      // encoding as the tiled shapes avoids materializing those lists.
+      const metadata = { id, vertices: denseOrdinals(vertexCount),
+        triangles: denseOrdinals((indexCount || vertexCount) / 3), vertexCount, indexCount,
         index: geometry.getIndex() === null ? 'none' : geometry.getIndex()?.array instanceof Uint16Array ? 'u16' : 'u32',
         ...(grid === undefined ? {} : { grid: { origin: [...grid.origin], step: grid.step } }) };
       scene.add(new BakedPiece(key, [[key, mesh]], [], { nativeAttributes: true, compactIndex: true, nodeExtras: () => ({ wholePartition: metadata }),
