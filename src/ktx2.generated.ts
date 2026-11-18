@@ -4,7 +4,7 @@ export const GPU_FILES: { readonly phone: Readonly<Record<string, string>>; read
     "/assets/baked/driftwood-isle/tex/giant.phone.webp": "/assets/gpu/baked/driftwood-isle/tex/giant-db470988.ktx2",
     "/assets/horizon/driftwood-isle-day.webp": "/assets/gpu/horizon/driftwood-isle-day-2ca8c3a2.ktx2",
     "/assets/horizon/driftwood-isle-night.webp": "/assets/gpu/horizon/driftwood-isle-night-f949f086.ktx2",
-    "/assets/models/driftwood-blender/lm-ao.phone.webp": "/assets/gpu/models/driftwood-blender/lm-ao.phone-9f6766dc.ktx2",
+    "/assets/models/driftwood-blender/lm-ao.phone.webp": "/assets/gpu/models/driftwood-blender/lm-ao.phone-f988e321.ktx2",
     "/assets/models/driftwood-blender/lm-bounce.phone.webp": "/assets/gpu/models/driftwood-blender/lm-bounce.phone-582c92be.ktx2",
     "/assets/models/driftwood-hero/captain/captain.glb": "/assets/gpu/models/driftwood-hero/captain/captain-51fb1b40.glb"
   },

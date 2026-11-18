@@ -41,7 +41,8 @@ export function oceanGrid(g: OceanGround, cell: number, level: number, deepDepth
     depth[i] = g.inChunk(x, z) ? level - g.heightAt(x, z) : deepDepth * 2;
     seed[i] = hash2(ix, iz);
   }
-  const idx = new Uint32Array((N - 1) * (N - 1) * 6);
+  const Index = N * N <= 0x1_0000 ? Uint16Array : Uint32Array;
+  const idx = new Index((N - 1) * (N - 1) * 6);
   let k = 0;
   for (let iz = 0; iz < N - 1; iz++) for (let ix = 0; ix < N - 1; ix++) {
     const a = iz * N + ix, b = a + 1, c = a + N, d = c + 1;
@@ -61,7 +62,7 @@ export function oceanGrid(g: OceanGround, cell: number, level: number, deepDepth
 /** The grid as a static GLB (the custom channels `_DEPTH` → aDepth, `_SEED` → aSeed). */
 export function oceanGridGlb(g: OceanGround, cell: number, level: number, deepDepth: number): Uint8Array {
   const geometry = oceanGrid(g, cell, level, deepDepth);
-  try { return staticGlb([{ geometry, material: new THREE.MeshBasicMaterial(), castShadow: false, customAttributes: { _DEPTH: 'aDepth', _SEED: 'aSeed' } }], 'ocean'); }
+  try { return staticGlb([{ geometry, material: new THREE.MeshBasicMaterial(), castShadow: false, compactIndex: true, customAttributes: { _DEPTH: 'aDepth', _SEED: 'aSeed' } }], 'ocean'); }
   finally { geometry.dispose(); }
 }
 
