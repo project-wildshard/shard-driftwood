@@ -1,4 +1,7 @@
-import { MeshStandardMaterial } from 'three';
+import { DataUtils, Float16BufferAttribute, MeshStandardMaterial, type BufferGeometry } from 'three';
+import { WebIO } from '@gltf-transform/core';
+import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
+import { weldPrimitive } from '@gltf-transform/functions';
 import { staticGlb } from '@wildshard/sharddev/bake/glb';
 import { compactPhoneGlb } from '@wildshard/sharddev/bake/compactGlb';
 import { withPortableMath } from '@wildshard/sharddev/commons/bake/portableMath';
@@ -151,7 +154,14 @@ export function foliageLogPlacements(layouts: Pick<DriftwoodFixedLayouts, 'logs'
 /** The shipped batches' files in the shard file, in the order the job wrote them. */
 export const FOLIAGE_SCENE_FILES: readonly string[] = ['models/foliage/palms-phone.glb', 'models/foliage/hibiscus-phone.glb', 'models/foliage/reef-phone.glb',
   'models/foliage/palms-desktop.glb', 'models/foliage/hibiscus-desktop.glb'];
+const PHONE_PALMS = 'models/foliage/palms-phone.glb';
 const isPhoneFile = (name: string): boolean => name.endsWith('-phone.glb');
+
+function halfPalmWind(geometry: BufferGeometry): BufferGeometry {
+  const sway = geometry.getAttribute('aSway');
+  const bits = Uint16Array.from(sway.array, DataUtils.toHalfFloat);
+  return geometry.setAttribute('aSway', new Float16BufferAttribute(bits, sway.itemSize));
+}
 
 /** The batch GLBs by shard file name, before the phone's grid positions: exact positions, compact normals and colours
  *  (compactChannels.ts, L18.3c); the phone's batch with fewer triangles (phoneDecimate.ts, within PHONE_ERROR metres,
@@ -160,13 +170,21 @@ export function foliageSceneGlbs(only?: ReadonlySet<string>): Map<string, Uint8A
   islandFoliagePlacements(); islandFoliageBatches();
   const material = new MeshStandardMaterial();
   try {
-    return withPortableMath(() => new Map(foliageBatches().filter(batch => only === undefined || only.has(batch.file)).map(batch => {
-      const decoded = decodeBatch(batch);
-      const drawn = batch.tier === 'phone' ? decimateFlatBatch(decoded.geometry, PHONE_ERROR[batch.kind]) : decoded.geometry.clone();
-      try {
-        return [batch.file, staticGlb([{ geometry: compactChannels(drawn), material, customAttributes: { _SWAY: 'aSway' }, compactIndex: true, nativeAttributes: true, quantizedChannels: true }])] as const;
-      } finally { decoded.geometry.dispose(); drawn.dispose(); }
-    })));
+    return withPortableMath(() => {
+      const files = new Map<string, Uint8Array>();
+      for (const batch of foliageBatches()) {
+        if (only !== undefined && !only.has(batch.file)) continue;
+        const decoded = decodeBatch(batch);
+        const drawn = batch.tier === 'phone' ? decimateFlatBatch(decoded.geometry, PHONE_ERROR[batch.kind]) : decoded.geometry.clone();
+        try {
+          const phonePalms = batch.file === PHONE_PALMS;
+          const geometry = compactChannels(phonePalms ? halfPalmWind(drawn) : drawn);
+          files.set(batch.file, staticGlb([{ geometry, material, customAttributes: { _SWAY: 'aSway' },
+            compactIndex: true, nativeAttributes: true, ...(phonePalms ? { nativeOnce: true as const } : {}), quantizedChannels: true }]));
+        } finally { decoded.geometry.dispose(); drawn.dispose(); }
+      }
+      return files;
+    });
   } finally { material.dispose(); }
 }
 /** The finished batch GLBs: the phone's with 16-bit grid positions when smaller (compactPhoneGlb, iPhone downloads I3).
@@ -175,7 +193,17 @@ export function foliageSceneGlbs(only?: ReadonlySet<string>): Map<string, Uint8A
  *  two phone batches it never reads. */
 export async function foliageSceneFiles(only?: ReadonlySet<string>): Promise<Map<string, Uint8Array>> {
   const files = foliageSceneGlbs(only);
-  for (const [name, glb] of files) if (isPhoneFile(name)) files.set(name, await compactPhoneGlb(glb));
+  for (const [name, glb] of files) if (isPhoneFile(name)) {
+    let source = glb;
+    if (name === PHONE_PALMS) {
+      // The palm material keeps flat colours and per-corner wind. Share only identical packed corners.
+      const io = new WebIO().registerExtensions(ALL_EXTENSIONS);
+      const document = await io.readBinary(glb);
+      for (const mesh of document.getRoot().listMeshes()) for (const primitive of mesh.listPrimitives()) weldPrimitive(primitive);
+      source = await io.writeBinary(document);
+    }
+    files.set(name, await compactPhoneGlb(source));
+  }
   const expected = only === undefined ? FOLIAGE_SCENE_FILES : FOLIAGE_SCENE_FILES.filter(name => only.has(name));
   if (JSON.stringify([...files.keys()]) !== JSON.stringify(expected)) throw new Error('Foliage scene file inventory differs');
   return files;
