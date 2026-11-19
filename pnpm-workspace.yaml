@@ -13,6 +13,9 @@ allowBuilds: {}
 # TypeScript source consumers need the declared Three base classes when
 # these packages resolve from pnpm's isolated global dependency graph.
 packageExtensions:
+  '@wildshard/kit@0.4.17':
+    dependencies:
+      '@types/three': 0.186.0
   postprocessing@6.39.5:
     dependencies:
       '@types/three': 0.186.0

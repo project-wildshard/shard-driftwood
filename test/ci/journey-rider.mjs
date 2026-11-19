@@ -27,20 +27,24 @@ export function rider(resident) {
   const { host } = resident, player = [...host.players.values()][0]; assert.ok(player);
   const routes = actRoutes(host).interactions;
   // One movement frame toward (dx, dz), run (the page's sprint) or walked; a still frame when there is no heading.
-  const head = (dx, dz, sprint = true) => {
+  const head = (dx, dz, sprint = true, jump = false) => {
     const distance = Math.hypot(dx, dz), still = distance === 0;
     resident.step([{ kind: 'player', moveX: still ? 0 : dx / distance, moveZ: still ? 0 : dz / distance, yaw: still ? 0 : Math.atan2(-dx, -dz), commandVersion: 1,
-      ...(still ? {} : { sprint }), steer: { keyX: 0, keyY: still ? 0 : 1, stickX: 0, stickY: 0 } }]);
+      ...(still ? {} : { sprint }), ...(jump ? { jump } : {}), steer: { keyX: 0, keyY: still ? 0 : 1, stickX: 0, stickY: 0 } }]);
   };
   // Run (the page's sprint) to each point in turn; a point not reached in its allowance fails the route there.
-  const walk = points => {
+  const walk = (points, { jumpNear } = {}) => {
+    let jumped = false;
     for (const [x, z] of points) {
       const allowance = Math.max(300, Math.ceil(Math.hypot(x - player.position.x, z - player.position.z) * 60));
       let reached = false;
       for (let tick = 0; tick < allowance && !reached; tick++) {
         const dx = x - player.position.x, dz = z - player.position.z, distance = Math.hypot(dx, dz);
         if (distance < 0.25) { reached = true; break; }
-        head(dx, dz);
+        const jump = !jumped && jumpNear !== undefined
+          && Math.hypot(jumpNear[0] - player.position.x, jumpNear[1] - player.position.z) < 0.15;
+        head(dx, dz, true, jump);
+        jumped ||= jump;
       }
       assert.ok(reached, `The walk is blocked at ${x}, ${z}: ${player.position.x}, ${player.position.y}, ${player.position.z}`);
     }

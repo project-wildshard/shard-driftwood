@@ -69,7 +69,8 @@ test('driftwood-isle: the glyph shards set in the altar and the Captain beaten o
     const lookoutTick = host.state.tick;
 
     // All three to the shrine: the same spot, the same press.
-    walk(back(STAIR)); walk(HEADLAND_TO_CREEK); walk(UP_TO_HUT); toAltar();
+    // The uphill return crosses a small lip near the creek. Use the player's jump there.
+    walk(back(STAIR)); walk(HEADLAND_TO_CREEK, { jumpNear: [14.16, -11.6] }); walk(UP_TO_HUT); toAltar();
     assert.ok(Math.hypot(player.position.x - refusedAt.x, player.position.z - refusedAt.z) < 0.5, 'The altar is pressed from where it refused');
     for (const flag of SHARDS) assert.ok(has(flag), `The altar is pressed holding ${flag}`);
     press('altar');
