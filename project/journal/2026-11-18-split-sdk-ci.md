@@ -6,3 +6,6 @@ resume comparison. The Linux value came from run 44445951841.
 
 The source-candidate graph uses the engine's declared wire version,
 matching the original lock rather than the latest compatible release.
+
+The global store isolates each consumer's declaration imports. Add
+Three type declarations beside navcat and postprocessing as well as kit.
