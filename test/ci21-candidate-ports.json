@@ -48,7 +48,7 @@
       "sourcePath": "test/driftwood-scene.test.ts",
       "sourceBlob": "a5fc017fc06f852b247bbe34276ee700c8b7994d",
       "targetPath": "test/ci21-candidate/driftwood-scene.test.ts",
-      "targetBlob": "5be10a1daaa4ce3f626de5a465272a278965bdb7",
+      "targetBlob": "d42d9554e092e55853d23448523c3949cf0afd38",
       "originalTests": [
         "admits the real generated ground, tile and library assets for the trusted world",
         "refuses the CLI far bake when its actual image envelope exceeds the cap",
@@ -56,7 +56,7 @@
       ],
       "fixturePath": "test/fixtures/driftwood-emitted-product.ts",
       "fixtureBlob": "b20b258a3a86a51f57f8becadfa5af1502d0ea68",
-      "changes": "Every original case/assertion and timeout retained; public imports and owner-local paths only. Scene it spelling becomes direct test for static case inventory. Source proof borrows sealed normal-produced bytes; no default admission or engine removal.",
+      "changes": "Every original case/assertion and timeout retained; public imports and owner-local paths only. Scene it spelling becomes direct test for static case inventory. Source proof borrows sealed normal-produced bytes; no default admission or engine removal. SP13 uses the same verified closure reader under its current folderClosureFile export.",
       "caseAdaptations": [
         "SDK 5aa81bdddd65e0737a5e614337f1f9d8540f1add (2026-11-13) deliberately retains the in-cap mesh and drops the over-cap impostor in projectPlaceholders. Preserve the original over-cap refusal through the unchanged standalone bake on this actual product collider/look; additionally assert current CLI keeps an in-cap far mesh with no impostor and admitted files."
       ]
