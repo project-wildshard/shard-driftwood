@@ -4,5 +4,11 @@
   },
   "0.1.18 linux-x64": {
     "driftwood-isle": "7a130390399ea2dd7c40ce5370c2a8a670fce08dcdef0512fb3ea1e75d22acfd"
+  },
+  "0.1.44 darwin-arm64": {
+    "driftwood-isle": "a539e93e0bc24c3a8a068d70b4adfdc2996b3daf98881669b1b2e944efae5313"
+  },
+  "0.1.44 linux-x64": {
+    "driftwood-isle": "f4ce0e8fc2aa12acea2339b0e0f7ea0ce17b8f688dffa5ae70514389ecb7a4f2"
   }
 }

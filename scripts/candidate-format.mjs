@@ -18,7 +18,16 @@ pkg.pnpm ??= {}; pkg.pnpm.overrides ??= {};
 // Only candidate qualification runs this script; the frozen producer stays pinned.
 delete pkg.pnpm.overrides['@wildshard/format'];
 pkg.pnpm.overrides['@wildshard/engine>@wildshard/format'] = exact;
+// Source installs do not inherit the candidate checkout's frozen lockfile.
+const wire = engine.dependencies?.['@wildshard/wire'];
+if (typeof wire === 'string' && /^\^?\d+\.\d+\.\d+$/u.test(wire)) {
+  pkg.pnpm.overrides['@wildshard/engine>@wildshard/wire'] = wire.replace(/^\^/u, '');
+}
 if (process.argv.includes('--ci21')) {
+  pkg.pnpm.packageExtensions ??= {};
+  pkg.pnpm.packageExtensions['@wildshard/kit@0.4.11'] = {
+    dependencies: { '@types/three': pkg.devDependencies['@types/three'] },
+  };
   // Type-lint the source reader against one format while keeping the pinned SDK.
   pkg.dependencies['@wildshard/format'] = exact;
   for (const name of ['sdk', 'build', 'dev', 'upload']) {

@@ -5,7 +5,7 @@ import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
 import { prepareAssetDecoders } from '@wildshard/format/shardfileAssets';
 import { scriptAdmissionRows } from '@wildshard/format/scriptContract';
 import { outputDescriptor } from '@wildshard/engine/game/shardfile/outputDescriptor';
-import { productClosureFile } from '@wildshard/engine/game/shardfile/shardFolder';
+import { folderClosureFile } from '@wildshard/engine/game/shardfile/shardFolder';
 import { driftwoodEmittedProduct } from '../fixtures/driftwood-emitted-product';
 
 async function readEmittedWorld() {
@@ -18,7 +18,7 @@ async function readEmittedWorld() {
   // ring. The ordinary build owns production; this reader never regenerates.
   for (let offset = 0; offset < refs.length; offset += 16) {
     const batch = refs.slice(offset, offset + 16);
-    const bytes = await Promise.all(batch.map(hash => productClosureFile(product, hash)));
+    const bytes = await Promise.all(batch.map(hash => folderClosureFile(product, hash)));
     for (const [index, hash] of batch.entries()) {
       const value = bytes[index]; if (value === undefined) throw new Error('Missing emitted asset read'); assets.set(hash, value);
     }
