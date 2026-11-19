@@ -24,14 +24,14 @@ async function readEmittedWorld() {
     }
   }
   await prepareAssetDecoders();
-  return { shard, assets, scripts: scriptAdmissionRows(output.sections) };
+  return { shard, assets, sections: output.sections, scripts: scriptAdmissionRows(output.sections) };
 }
 let pendingWorld: ReturnType<typeof readEmittedWorld> | undefined;
 function emittedWorld(): ReturnType<typeof readEmittedWorld> { pendingWorld ??= readEmittedWorld(); return pendingWorld; }
 
 test('admits the real generated ground, tile and library assets for the trusted world', async () => {
   const loaded = await emittedWorld();
-  expect(validateShardfileAssets(loaded.shard, loaded.assets, hashImmutableBytes, undefined, undefined, loaded.scripts)).toEqual(loaded.shard);
+  expect(validateShardfileAssets(loaded.shard, loaded.assets, hashImmutableBytes, undefined, undefined, loaded.scripts, loaded.sections)).toEqual(loaded.shard);
   expect(loaded.shard.runtime?.binds).toContain('props');
   expect(loaded.shard.runtime?.binds).toContain('terrain');
 });
@@ -51,7 +51,7 @@ test('refuses the CLI far bake when its actual image envelope exceeds the cap', 
   expect(projected.far).not.toBeNull();
   expect(projected.far?.files.length).toBeGreaterThan(0);
   expect(validateShardfileAssets(projected, projectedAssets, hashImmutableBytes,
-    undefined, undefined, loaded.scripts)).toEqual(projected);
+    undefined, undefined, loaded.scripts, loaded.sections)).toEqual(projected);
   expect(projected.far?.impostor).toBeUndefined();
   expect((projected.far?.decoded ?? Infinity) + (projected.far?.gpu ?? Infinity)).toBeLessThanOrEqual(1_600_000);
   expect(projected.far?.compressed).toBeLessThanOrEqual(1_000_000);

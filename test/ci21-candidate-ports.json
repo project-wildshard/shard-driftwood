@@ -48,7 +48,7 @@
       "sourcePath": "test/driftwood-scene.test.ts",
       "sourceBlob": "a5fc017fc06f852b247bbe34276ee700c8b7994d",
       "targetPath": "test/ci21-candidate/driftwood-scene.test.ts",
-      "targetBlob": "d42d9554e092e55853d23448523c3949cf0afd38",
+      "targetBlob": "f111e9a991dabff3876d0d1a76d134b06f43f00f",
       "originalTests": [
         "admits the real generated ground, tile and library assets for the trusted world",
         "refuses the CLI far bake when its actual image envelope exceeds the cap",
@@ -211,7 +211,7 @@
     },
     {
       "targetPath": "test/proof/driftwood-isle/checkpoints/manifest.json",
-      "targetBlob": "706a133a06ef7f2e3f3c9cc5c82fe21fa5f21c22"
+      "targetBlob": "fe196a13cb840af0264d4856772df575861d9ee1"
     },
     {
       "targetPath": "test/fixtures/quest-step-legacy-saves.json",

@@ -9,3 +9,10 @@ matching the original lock rather than the latest compatible release.
 
 The global store isolates each consumer's declaration imports. Add
 Three type declarations beside navcat and postprocessing as well as kit.
+
+The exact c7d87608 proof now validates the producer's full section context.
+Its guest compiler uses the simulation loader so the SDK's Rolldown define
+keys survive. Record the real 22,657-tick native witness with the current
+save epoch. The original ordered facts, durable rewards, fixed checkpoint
+fences, and exact replay still pass. The new record reaches the lookout at
+7,701 ticks and the Captain at 21,696 ticks.

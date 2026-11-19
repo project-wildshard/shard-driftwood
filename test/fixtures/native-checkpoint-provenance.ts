@@ -14,7 +14,7 @@ const Fact = v.looseObject({ tick: count, instance: v.string(), shard: v.string(
 
 function profile(rows: readonly (readonly [string, string])[]): unknown {
   return rows.map(([key, text]) => {
-    assert.match(key, /^wildshard\.save\.v2(?:@1)?\.(?:device|global|profile)$/u);
+    assert.match(key, /^wildshard\.save\.v2(?:@[12])?\.(?:device|global|profile)$/u);
     const value = v.parse(v.looseObject({ keys: v.record(v.string(), v.unknown()) }), JSON.parse(text));
     const ledger = value.keys['platform.ledger'];
     if (ledger !== undefined) {
@@ -28,7 +28,7 @@ function profile(rows: readonly (readonly [string, string])[]): unknown {
       const facts = Object.values(saved.data.facts).map(({ tick: _tick, ...fact }) => fact);
       value.keys['platform.ledger'] = { ...saved, data: { ...saved.data, facts } };
     }
-    return [key.replace(/^wildshard\.save\.v2(?:@1)?\./u, ''), value];
+    return [key.replace(/^wildshard\.save\.v2(?:@[12])?\./u, ''), value];
   });
 }
 
