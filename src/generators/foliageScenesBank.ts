@@ -1,5 +1,5 @@
 import { DataUtils, Float16BufferAttribute, MeshStandardMaterial, type BufferGeometry } from 'three';
-import { WebIO } from '@gltf-transform/core';
+import { VertexLayout, WebIO } from '@gltf-transform/core';
 import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
 import { weldPrimitive } from '@gltf-transform/functions';
 import { staticGlb } from '@wildshard/sharddev/bake/glb';
@@ -195,8 +195,8 @@ export async function foliageSceneFiles(only?: ReadonlySet<string>): Promise<Map
   const files = foliageSceneGlbs(only);
   for (const [name, glb] of files) if (isPhoneFile(name)) {
     if (name === PHONE_PALMS) {
-      // The palm material keeps flat colours and per-corner wind. Share only identical packed corners.
-      const io = new WebIO().registerExtensions(ALL_EXTENSIONS);
+      // Share only identical packed corners. Separate vertex attributes compress better on the wire.
+      const io = new WebIO().registerExtensions(ALL_EXTENSIONS).setVertexLayout(VertexLayout.SEPARATE);
       const document = await io.readBinary(glb);
       for (const mesh of document.getRoot().listMeshes()) for (const primitive of mesh.listPrimitives()) weldPrimitive(primitive);
       files.set(name, await io.writeBinary(document));

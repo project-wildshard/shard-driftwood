@@ -114,6 +114,18 @@ jobs:
           else
             pnpm install --frozen-lockfile --config.ci=false
           fi
+      - name: Make the shard audio encoder available
+        run: |
+          if ! command -v ffmpeg || ! command -v ffprobe; then
+            if [ "$RUNNER_OS" = macOS ]; then
+              HOMEBREW_NO_AUTO_UPDATE=1 brew install ffmpeg
+            else
+              sudo apt-get update
+              sudo apt-get install -y ffmpeg
+            fi
+          fi
+          ffmpeg -version
+          ffprobe -version
       # As each shard repo's ci.yml does: build:shards first (its
       # publish-public step lays out public/assets), then check.
       - name: Build, and name the product

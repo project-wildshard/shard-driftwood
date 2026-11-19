@@ -1,11 +1,11 @@
 {
-  "content": "6a310fd8c42a31d88b998da28cd73bd47eb008c59a44c721282ec78e5132d97f",
-  "captured": "2026-11-19T02:30:38.336Z",
+  "content": "844153e16297c4bd684da27f7943ccf43dfbae39fa9c53357cf621170086204e",
+  "captured": "2026-11-19T04:15:07.170Z",
   "base": "stamp-existing: the hero files already in the shard, adopted without a capture",
   "card": {
     "thumbs/driftwood-isle.jpg": "38524675b82efe887cf278b25ea727490c54afed6e7a3ad3bc721de01f615127",
-    "thumbs/driftwood-isle-portrait.jpg": "de7f2abe6075d2444fb0909193a2f0aac791219a9edfc53c83d6132aae6becd2",
-    "thumbs/driftwood-isle-landscape.jpg": "cca4f44d16ba27181325f4f49183332ba911a3689082ee30e04d3317dc848880"
+    "thumbs/driftwood-isle-portrait.jpg": "147b76186ef873d52dda6c7663e518456c956336baa0cfd82eba56e9e1898fc1",
+    "thumbs/driftwood-isle-landscape.jpg": "b58ad693bb52a489eed8d8bb3f2422ed429dea03be07ce3a00910710ba2ef9cb"
   },
   "curated": true
 }
