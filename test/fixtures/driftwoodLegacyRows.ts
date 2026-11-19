@@ -1,4 +1,4 @@
-import type { ShardProduct } from '@wildshard/engine/game/shardfile/shardProduct';
+import type { ShardFolder } from '@wildshard/engine/game/shardfile/shardFolder';
 import * as v from 'valibot';
 import { SECTIONS } from './driftwoodLegacySections';
 import { ISLAND } from './driftwoodLegacyAssets';
@@ -13,7 +13,7 @@ function deepFreeze<T>(value: T): T {
   return value;
 }
 /** Test-only original world oracle, separate from the platform product. */
-export function admitDriftwoodRows(product: ShardProduct, rows: ReadonlyMap<string, unknown>): void {
+export function admitDriftwoodRows(product: ShardFolder, rows: ReadonlyMap<string, unknown>): void {
   ISLAND.admit(product);
   fixtureRows.clear();
   for (const [name, value] of rows) fixtureRows.set(name, deepFreeze(structuredClone(value)));
@@ -25,4 +25,4 @@ export function driftwoodRows<K extends keyof typeof SECTIONS>(name: K): v.Infer
   return deepFreeze(value);
 }
 /** Native boot borrows the same session-admitted named bytes. */
-export function driftwoodProduct(): ShardProduct { return ISLAND.product; }
+export function driftwoodProduct(): ShardFolder { return ISLAND.product; }

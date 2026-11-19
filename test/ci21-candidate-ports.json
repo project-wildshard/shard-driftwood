@@ -36,7 +36,7 @@
       "sourcePath": "test/driftwood-output.test.ts",
       "sourceBlob": "caf4488dbaa194dc6a7eacb19581ed5e6fcda310",
       "targetPath": "test/ci21-candidate/driftwood-output.test.ts",
-      "targetBlob": "c9f7766b47f509585ef417169a68825ba9a27f39",
+      "targetBlob": "ba9bc255ee2316679dbb49b08c7e5d7fa387ae38",
       "originalTests": [
         "Driftwood fixed draws and island cover files name admitted product blobs (no legacy URL table)"
       ],
@@ -48,14 +48,14 @@
       "sourcePath": "test/driftwood-scene.test.ts",
       "sourceBlob": "a5fc017fc06f852b247bbe34276ee700c8b7994d",
       "targetPath": "test/ci21-candidate/driftwood-scene.test.ts",
-      "targetBlob": "8921242064605bfa91f452a295fb3a01cd88cd8b",
+      "targetBlob": "5be10a1daaa4ce3f626de5a465272a278965bdb7",
       "originalTests": [
         "admits the real generated ground, tile and library assets for the trusted world",
         "refuses the CLI far bake when its actual image envelope exceeds the cap",
         "publishes real pier parents in place of vacant L1 metadata without duplicate addresses"
       ],
       "fixturePath": "test/fixtures/driftwood-emitted-product.ts",
-      "fixtureBlob": "9e63aee7591ba6ff88ce743a8a020f28df9e87c0",
+      "fixtureBlob": "b20b258a3a86a51f57f8becadfa5af1502d0ea68",
       "changes": "Every original case/assertion and timeout retained; public imports and owner-local paths only. Scene it spelling becomes direct test for static case inventory. Source proof borrows sealed normal-produced bytes; no default admission or engine removal.",
       "caseAdaptations": [
         "SDK 5aa81bdddd65e0737a5e614337f1f9d8540f1add (2026-11-13) deliberately retains the in-cap mesh and drops the over-cap impostor in projectPlaceholders. Preserve the original over-cap refusal through the unchanged standalone bake on this actual product collider/look; additionally assert current CLI keeps an in-cap far mesh with no impostor and admitted files."
@@ -129,7 +129,7 @@
       "sourcePath": "test/scripts/ground-encounters.test.ts",
       "sourceBlob": "1f8a65954fabe39190f3d5f68f64f362bced4bf6",
       "targetPath": "test/ci21-candidate/captain-encounter-script.test.ts",
-      "targetBlob": "233453d16845be996694bd944e7b822b43e48fdc",
+      "targetBlob": "15b00c217183d8dfd89f9d682b502a3111b6100a",
       "originalTests": [
         "Captain published guest rises, sinks, relocates inside the pool and resumes its second cut"
       ],
@@ -155,7 +155,7 @@
       "sourcePath": "test/quest-step-native-parity.test.ts",
       "sourceBlob": "c4c61ca31516f0a5262657cf378ad05f74dc27fd",
       "targetPath": "test/ci21-candidate/quest-step-native-parity.test.ts",
-      "targetBlob": "c5338a670dcddd974825882635394f28261d98a9",
+      "targetBlob": "7032285cec2727a259cfc777a2e438f10874e9c4",
       "originalTests": [
         "driftwood-isle: recorded native checkpoints regenerate and verify before replay",
         "driftwood-isle: recorded native quest saves restore and replay byte-identically",
@@ -175,7 +175,7 @@
       "sourcePath": "test/director-shipping-product.test.ts",
       "sourceBlob": "a8717e0faf4cd12ddd6889ae77bb9466caed5ae2",
       "targetPath": "test/ci21-candidate/driftwood-director-product.test.ts",
-      "targetBlob": "9a83ec872d2aae5a16edd38b7cd3aa379d2c27d5",
+      "targetBlob": "94096b607897085b7499e67692d7001658ed91a1",
       "originalTests": [
         "driftwood-isle ships one raw director and admits its original native factory"
       ],

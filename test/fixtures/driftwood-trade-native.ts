@@ -7,7 +7,7 @@ import type { PrepareHeadlessRuntime } from '@wildshard/engine/host/headlessRunt
 /** The ordinary native continuation plus the original coin/shop owners. */
 export const prepareHeadlessRuntime: PrepareHeadlessRuntime = async preparation => {
   installPortableMath();
-  const {prepareProductPlan} = await import('@wildshard/engine/test/headless-native');
+  const {prepareFolderPlan: prepareProductPlan} = await import('@wildshard/engine/test/headless-native');
   const plan = await prepareProductPlan(preparation);
   const { installNativeEconomy } = await import('./native-hosts/loot/nativeEconomy');
   const { mixedPopulation } = await import('@wildshard/engine/game/population/mixedRoster');

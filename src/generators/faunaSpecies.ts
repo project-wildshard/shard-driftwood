@@ -1,5 +1,5 @@
 import { DRIFTWOOD_FAUNA_TUNING } from './fauna';
-import { commonSpeciesRows, deriveSpeciesRows } from '@wildshard/sharddev/bake/species';
+import { commonSpeciesRows, deriveSpeciesRows } from '@wildshard/kit/bake/species';
 
 const BOAR = commonSpeciesRows('boar', 'kit.creature.boar');
 const BEAR = commonSpeciesRows('bear', 'kit.creature.bear');

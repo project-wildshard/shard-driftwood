@@ -4,7 +4,7 @@ import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
 import { weldPrimitive } from '@gltf-transform/functions';
 import { staticGlb } from '@wildshard/sharddev/bake/glb';
 import { compactPhoneGlb } from '@wildshard/sharddev/bake/compactGlb';
-import { withPortableMath } from '@wildshard/sharddev/commons/bake/portableMath';
+import { withPortableMath } from '@wildshard/sharddev/math/portableMath';
 import { emitNamedBlobs, nameBlob, nameMeshoptBlob, type EmittedBlobs } from '@wildshard/sharddev/blobs';
 import type { ProjectGenerationContext } from '@wildshard/sharddev/projectGeneration';
 import inventory from '../data/fixedGeometry.json' with { type: 'json' };

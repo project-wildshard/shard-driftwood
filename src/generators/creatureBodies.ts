@@ -11,7 +11,7 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { smoothstep as sstep } from '@wildshard/sharddev/noise';
 import { Rng } from '@wildshard/sharddev/random';
-import { loft, skinPlain, S, boneIndex, mix, paletteColors, srgb, withSpeciesGeometry, commonBodyVariants, bakeCommonBody, type CommonBodyKind, type Paint, type RGB, type AnimalSpecies, type BoneDef, type VariantDef } from '@wildshard/sharddev/bake/species';
+import { loft, skinPlain, S, boneIndex, mix, paletteColors, srgb, withSpeciesGeometry, commonBodyVariants, bakeCommonBody, type CommonBodyKind, type Paint, type RGB, type AnimalSpecies, type BoneDef, type VariantDef } from '@wildshard/kit/bake/species';
 
 // three returns null for incompatible attributes (its types say otherwise), as the engine's mergeAnimalGeometry reads it
 const merge = (parts: THREE.BufferGeometry[]): THREE.BufferGeometry | null => mergeGeometries(parts, false);

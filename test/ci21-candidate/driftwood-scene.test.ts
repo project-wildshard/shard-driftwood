@@ -5,7 +5,7 @@ import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
 import { prepareAssetDecoders } from '@wildshard/format/shardfileAssets';
 import { scriptAdmissionRows } from '@wildshard/format/scriptContract';
 import { outputDescriptor } from '@wildshard/engine/game/shardfile/outputDescriptor';
-import { productClosureFile } from '@wildshard/engine/game/shardfile/shardProduct';
+import { productClosureFile } from '@wildshard/engine/game/shardfile/shardFolder';
 import { driftwoodEmittedProduct } from '../fixtures/driftwood-emitted-product';
 
 async function readEmittedWorld() {

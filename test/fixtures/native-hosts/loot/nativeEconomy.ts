@@ -1,7 +1,7 @@
 import * as v from 'valibot';
 import { Scene } from 'three';
 import type { SimHost, SimValue } from '@wildshard/engine/sim';
-import type { ShardProduct } from '@wildshard/engine/game/shardfile/shardProduct';
+import type { ShardFolder } from '@wildshard/engine/game/shardfile/shardFolder';
 import { CoinMotion } from '@wildshard/engine/game/loot/CoinMotion';
 import { readCoinBurstState } from '@wildshard/engine/game/loot/coinBurstState';
 import { Owned, isOwnedId, isCosmetic } from '@wildshard/engine/game/loot/Owned';
@@ -34,7 +34,7 @@ export function nativeEconomy(host: SimHost): ReturnType<typeof installNativeEco
 
 /** The page's actual purse, bounty, coin pool, ownership and exchange; only the
  * storage/RNG and command delivery belong to this fixed native fixture. */
-export function installNativeEconomy(host: SimHost, product: ShardProduct, roster: () => readonly MixedPopulationBody[],
+export function installNativeEconomy(host: SimHost, product: ShardFolder, roster: () => readonly MixedPopulationBody[],
   questStep: string, closeDistance: number): { readonly purse: () => Purse; readonly owned: () => Owned; readonly exchange: Exchange; readonly coins: CoinMotion } {
   if (economies.has(host)) throw new Error('Native economy already installed');
   const rows = declaredLootEconomy(product.section('economy/loot').rows.loot);
