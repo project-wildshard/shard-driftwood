@@ -27,7 +27,9 @@ if (process.argv.includes('--ci21')) {
   pkg.pnpm.packageExtensions ??= {};
   // pnpm's global store isolates each package. Their source and declaration
   // imports need Three types beside the package that actually imports them.
-  for (const name of ['@wildshard/kit@0.4.11', 'navcat', 'postprocessing']) {
+  const kitPin = pkg.dependencies['@wildshard/kit'];
+  if (typeof kitPin !== 'string' || !/^\d+\.\d+\.\d+$/u.test(kitPin)) throw new Error('Driftwood must pin the packed kit exactly');
+  for (const name of [`@wildshard/kit@${kitPin}`, 'navcat', 'postprocessing']) {
     pkg.pnpm.packageExtensions[name] = {
       dependencies: { '@types/three': pkg.devDependencies['@types/three'] },
     };
