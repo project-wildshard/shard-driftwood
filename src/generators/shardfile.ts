@@ -3,6 +3,7 @@ import { CAPTAIN_FIELDS } from './captainFields';
 import { DRIFTWOOD_LOOT as LOOT } from './loot';
 import { emptyShardfile } from '@wildshard/sharddev/author';
 import { parseShardfile } from '@wildshard/format/shardSchema';
+import { lowerMaterialGraphs } from '@wildshard/sharddev/internal/materialGraphFiles';
 import { driftwoodQuestRows } from './questRows';
 import { DRIFTWOOD_LEDGER } from './ledger';
 import { driftwoodItems } from './items';
@@ -21,8 +22,9 @@ import { driftwoodLookMaterials } from './lookMaterials';
 import { driftwoodSkyChannels } from './skyChannels';
 import { parseClientChannels } from '@wildshard/sharddev/rows';
 import captainCoat from '../data/captainCoat.json' with { type: 'json' };
-import { CAPTAIN_ENCOUNTER, CAPTAIN_SPAWN, CAPTAIN_SPECIES } from './declaredCaptain';
+import { CAPTAIN_ENCOUNTER, CAPTAIN_LOOK, CAPTAIN_SPAWN, CAPTAIN_SPECIES } from './declaredCaptain';
 import type { DriftwoodGuestRows } from './guestPrograms';
+import { driftwoodDeclaredRoster } from './rows/declaredRoster';
 
 
 // SF46 step 1: content and the existing look stay in the declared trusted entry until the grid-ready bake lands.
@@ -44,18 +46,22 @@ const row = (authored: readonly number[]): { heights: number[]; colours: [number
   return { heights, colours: heights.map((): [number, number, number] => [0.5, 0.5, 0.5]), roadHeight: 0 };
 };
 /** Compose the unchanged admitted declaration from caller-owned fixed-world values. */
-export function driftwoodShardfileRows(fixed: DriftwoodFixedShardfile, audio: AudioData, bridgePages: DriftwoodGuestRows['bridge']['pages'], navigation: ReturnType<typeof driftwoodNavigationRows>): ReturnType<typeof parseShardfile> {
+export function driftwoodShardfileRows(fixed: DriftwoodFixedShardfile, audio: AudioData, guests: Pick<DriftwoodGuestRows, 'bridge' | 'returnProgram'>, navigation: ReturnType<typeof driftwoodNavigationRows>): ReturnType<typeof parseShardfile> {
 const questRows = driftwoodQuestRows();
 const simulationFiles = [...navigation.files, ...fixed.files.filter(file => fixed.critical.includes(file.hash))];
 // G7: the Drowned Captain's painted coat, an admitted look texture his graph samples by hash (scripts/bake-captain-coat.mjs)
 const coat = captainCoat.file;
 // The fixed view guest retains live and rewind memory under the existing client limits.
-const viewMemory = bridgePages * 65536 * 2;
-return parseShardfile({
+const viewMemory = guests.bridge.pages * 65536 * 2;
+// ONE-FORMAT OF22b4: the island's 34 keeper bodies are declared rows (generators/rows/declaredRoster.ts), beside the Captain
+const roster = driftwoodDeclaredRoster(guests.returnProgram), items = driftwoodItems();
+const declaration = {
   ...base,state:{...base.state,shared:CAPTAIN_FIELDS},
   // ONE-FORMAT OF22c2: the Drowned Captain is a declared spawn at the pool with his boss encounter (generators/declaredCaptain.ts)
-  rows: { ...base.rows, loot: [LOOT], species: [CAPTAIN_SPECIES] },
-  creatures: { ...base.creatures, spawns: [CAPTAIN_SPAWN] }, encounters: [CAPTAIN_ENCOUNTER],
+  rows: { ...base.rows, loot: [LOOT], species: [CAPTAIN_SPECIES, ...roster.species], strikes: [...roster.strikes],
+    // every species names a look (the SDK's creature check); the Captain's is a placeholder too, the page draws him as before
+    looks: [...roster.looks, { id: CAPTAIN_LOOK, species: CAPTAIN_SPECIES.id, recipe: 'engine.sphere', material: null, parameters: {}, animation: { recipe: 'engine.sphere', parameters: {} } }] },
+  creatures: { ...base.creatures, brains: [...roster.brains], spawns: [CAPTAIN_SPAWN, ...roster.spawns], perchBodies: [...roster.perchBodies] }, encounters: [CAPTAIN_ENCOUNTER],
   sim: { ...base.sim, scripts: [] },
   navigation: navigation.navigation, files: [...navigation.files, ...fixed.files, coat], critical: [...navigation.critical, ...fixed.critical],
   tiles: fixed.tiles, terrain: fixed.terrain, library: [...fixed.library, coat.hash],
@@ -75,7 +81,7 @@ return parseShardfile({
     samplers: { [coat.hash]: { wrap: 'repeat' } } },
   runtime: { kind: 'client-plan', cost: DRIFTWOOD_RUNTIME_COST, binds: ['state', 'quests', 'ledger', 'items', 'spawns', 'modes', 'props', 'terrain', 'movers', 'loot', 'clientChannels'], spawns: { ...DRIFTWOOD_SPAWNS, bosses: [] } }, // OF22c2: his declared spawn is his one body
   clientChannels: [...parseClientChannels(driftwoodSkyChannels()), ...NPC_FOCUS_PROGRAMS],
-  quests: { ...questRows.quests, achievements: DRIFTWOOD_FEATS }, questHost: questRows.host, questNpcs: questRows.npcs, ledger: DRIFTWOOD_LEDGER, items: driftwoodItems(),
+  quests: { ...questRows.quests, achievements: DRIFTWOOD_FEATS }, questHost: questRows.host, questNpcs: questRows.npcs, ledger: DRIFTWOOD_LEDGER, items: { ...items, catalogue: [...items.catalogue ?? [], ...roster.items.filter(item => !(items.catalogue ?? []).some(entry => entry.id === item.id))] },
   edge: { north: row(DRIFTWOOD_EDGE_HEIGHTS.north), east: row(DRIFTWOOD_EDGE_HEIGHTS.east), south: row(DRIFTWOOD_EDGE_HEIGHTS.south), west: row(DRIFTWOOD_EDGE_HEIGHTS.west) },
   audio,
   // G164 (SHARDFILE.md socketOverWater): every entry meets the road over the lowered sea. The sea row clips the four 8 × 15 m
@@ -89,7 +95,12 @@ return parseShardfile({
     colliders: [...ENTRY_LANDINGS.map((landing) => ({ id: `landing.${landing.edge}`, panel: null, initialActive: true, shapes: [{ ...landing.box }] })),
       ...SOLID_ROWS as SolidRow[]] },
   spawn: { x: 0, y: 1.2, z: -194, yaw: Math.PI },
-});
+};
+// ONE-FORMAT OF22b4: with the roster as rows the declaration passes 100,000 JSON nodes while its look graphs are inline
+// (20,000 of them). The build lowers those graphs into graph files (D74) before admission, so the declaration is checked
+// in that lowered form and handed to the build inline, as before.
+parseShardfile(lowerMaterialGraphs(declaration).declaration);
+return declaration as unknown as ReturnType<typeof parseShardfile>;
 }
 // oxlint-disable-next-line import/no-default-export -- Offline callers supply the same admitted fixed-world rows.
 export default driftwoodShardfileRows;

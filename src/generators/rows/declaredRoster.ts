@@ -121,13 +121,18 @@ export interface DriftwoodDeclaredRoster {
   readonly brains: ShardCreatures['brains'];
   readonly spawns: Spawn[];
   readonly perchBodies: PerchBody[];
+  /** OF22b4: one placeholder look per species. The page draws these bodies from the client plan's product creatures
+   *  through engine 15e54b885's temporary bridge, so it never reads these rows; OF27d gives them their real looks. */
+  readonly looks: ShardRows['looks'];
   /** The kit hunts' harvest items (meat, hide, tusk; pelt, claw) for the item catalogue. */
   readonly items: ReturnType<typeof commonCreature>['items'];
   /** The program's exact creature strikes, for `actors/strikes`. */
   readonly catalogue: ConvertedSpecies['catalogue'];
 }
-/** The island's roster as rows (no looks yet: the page still draws the hull book's bodies; OF22b1's look half). */
+/** The island's roster as rows (placeholder looks: the page still draws the product creatures until OF27d). */
 export function driftwoodDeclaredRoster(returnProgram: DriftwoodGuestRows['returnProgram']): DriftwoodDeclaredRoster {
   return { species: speciesRows, strikes: [...converted.strikes.map(plainShape), ...hunts.flatMap(row => row.strikes)], brains: converted.brains,
-    spawns: spawns(), perchBodies: [perchBody(returnProgram)], items: hunts.flatMap(row => row.items), catalogue: converted.catalogue };
+    spawns: spawns(), perchBodies: [perchBody(returnProgram)],
+    looks: speciesRows.map(row => ({ id: lookOf(row.kind), species: row.id, recipe: 'engine.sphere', material: null, parameters: {},
+      animation: { recipe: 'engine.sphere', parameters: {} } })), items: hunts.flatMap(row => row.items), catalogue: converted.catalogue };
 }

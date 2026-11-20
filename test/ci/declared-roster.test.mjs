@@ -1,7 +1,6 @@
 // ONE-FORMAT OF22b1 and OF22b4, CI only after a real build: the island's roster as rows. The keeper's 34 bodies (`data/nativeKeeper.json`)
 // are declared spawns (`generators/rows/declaredRoster.ts`); with the population hosts cut from the native plan, OF22b0's
-// path stands every one of them under its own id, kind and variant, and they save and restore exactly. Until the rows ship
-// (OF22b4 cuts the hosts in the product), the test declares them on the built product itself.
+// path stands every one of them under its own id, kind and variant on the built product, and they save and restore exactly.
 import '@wildshard/engine/scripts/sim-node-loader.mjs';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -18,38 +17,21 @@ const { populationCensus } = await import('@wildshard/engine/game/population/cen
 const { runHeadlessJourney } = await import('@wildshard/engine/host/headlessJourney');
 const { canonicalSimDigest } = await import('@wildshard/engine/test/simState');
 const { Vector3 } = await import('three');
-const { emptyShardfile } = await import('@wildshard/engine/host/author');
-const { parseShardfile } = await import('@wildshard/format/shardSchema');
 const { NATIVE_ASSEMBLY_FILE } = await import('@wildshard/format/nativeAssembly');
-const { driftwoodDeclaredRoster } = await import('../../src/generators/rows/declaredRoster.ts');
 const engineRequire = createRequire(import.meta.resolve('@wildshard/engine/package.json'));
 const keeper = JSON.parse(readFileSync('src/data/nativeKeeper.json', 'utf8'));
 
-/** The hosts the declared roster replaces; on engine 0.1.53 the quest hosts still read the island population, so they go
- *  too (engine 9d401465d, OF22e1, reads declared bodies). */
-const CUT = new Set(['population.mixed', 'population.reactions', 'population.settle', 'population.poses', 'quest.kill-steps', 'quest.chapter', 'quest.composition', 'quest.body-scripts']);
-
+/** The built product as it ships (OF22b4): the roster is its declared rows and no population host stands them. */
 async function declared() {
   const directory = resolve('out/driftwood-isle'), product = await loadHeadlessFolder(directory), shard = product.shardfile;
   const descriptor = outputDescriptor(shard); assert.ok(descriptor, 'The built shard must pass admission');
   const assets = new Map(descriptor.index.files.filter(file => serverReadsFile(file, shard.terrain?.collider))
     .map(file => [file.commons === true ? `commons:${file.hash}` : file.hash, readFileSync(join(directory, file.path))]));
   const rapier = await loadRapier(readFileSync(engineRequire.resolve('@dimforge/rapier3d-simd/rapier_wasm3d_bg.wasm')));
-  const program = JSON.parse(new TextDecoder().decode(await product.file('poses/monkey.json'))).program;
-  const roster = driftwoodDeclaredRoster(program);
-  const base = emptyShardfile({ slug: 'driftwood-roster', name: 'Roster', author: 'Test', revision: 1, seed: 7 });
-  const looks = roster.species.map(row => ({ id: row.body.look, species: row.id, recipe: 'of22b1.rig', material: null, parameters: {}, animation: { recipe: 'of22b1.clips', parameters: {} } }));
-  const parsed = parseShardfile({ ...base, items: { ...base.items, catalogue: roster.items }, rows: { ...base.rows, species: roster.species, strikes: roster.strikes, looks },
-    creatures: { ...base.creatures, brains: roster.brains, spawns: roster.spawns, perchBodies: roster.perchBodies } });
-  const source = { ...shard, rows: { ...shard.rows, species: [...shard.rows.species, ...parsed.rows.species], strikes: [...shard.rows.strikes, ...parsed.rows.strikes],
-    looks: [...shard.rows.looks, ...parsed.rows.looks] }, creatures: parsed.creatures };
   const plan = JSON.parse(new TextDecoder().decode(await product.file(NATIVE_ASSEMBLY_FILE)));
-  const bytes = new TextEncoder().encode(JSON.stringify({ ...plan, features: plan.features.filter(row => !CUT.has(row.host)) }));
-  // With the population hosts gone the returns program's only reader is the perch body, which lends it itself: the
-  // `actors/return-scripts` row leaves with them (on 0.1.53 both loans on one host refuse, "Raw return module loan changed").
-  const cut = { ...product, shardfile: source, file: name => name === NATIVE_ASSEMBLY_FILE ? Promise.resolve(bytes) : product.file(name),
-    has: name => name !== 'actors/return-scripts' && product.has(name) };
-  return { roster, open: snapshot => createNativeHeadlessResident({ shard: source, assets, rapier, product: cut }, snapshot) };
+  assert.deepEqual(plan.features.map(row => row.host).filter(host => host.startsWith('population.')), []);
+  const roster = { species: shard.rows.species, spawns: shard.creatures.spawns.filter(row => row.id !== 'driftwood.captain') };
+  return { roster, open: snapshot => createNativeHeadlessResident({ shard, assets, rapier, product }, snapshot) };
 }
 
 test('driftwood-isle: the declared roster stands the keeper\'s 34 bodies with their ids, kinds and variants', { timeout: 60_000 }, async () => {
@@ -89,9 +71,10 @@ test('driftwood-isle: the declared roster lives as the native roster did (census
   let restored;
   try {
     const bodies = keeper.bodies.filter(body => body.kind !== 'captain'), rows = bodies.toSorted((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
-    const born = populationCensus(live.host);
-    assert.deepEqual(born.bodies.map(body => [body.id, body.kind, body.variant]), rows.map(row => [row.id, row.kind, row.variant]));
-    assert.deepEqual(born.kinds, { boar: { alive: 11, fallen: 0 }, bear: { alive: 2, fallen: 0 }, crab: { alive: 9, fallen: 0 }, monkey: { alive: 11, fallen: 0 }, sailor: { alive: 1, fallen: 0 } });
+    // the Drowned Captain (OF22c2) waits in the world beside them, dormant (counted fallen), until the chapter wakes him
+    const born = populationCensus(live.host), island = born.bodies.filter(body => body.id !== 'driftwood.captain');
+    assert.deepEqual(island.map(body => [body.id, body.kind, body.variant]), rows.map(row => [row.id, row.kind, row.variant]));
+    assert.deepEqual(born.kinds, { boar: { alive: 11, fallen: 0 }, bear: { alive: 2, fallen: 0 }, crab: { alive: 9, fallen: 0 }, monkey: { alive: 11, fallen: 0 }, sailor: { alive: 1, fallen: 0 }, captain: { alive: 0, fallen: 1 } });
 
     const journey = runHeadlessJourney(live.host, input => { live.step(input); }, { ticks: 900, points: [{ x: 0, z: -194 }, { x: 60, z: -130 }] });
     assert.equal(journey.ticks, 900);

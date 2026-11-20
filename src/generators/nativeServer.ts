@@ -1,5 +1,4 @@
 import { nativeAssemblyFiles, type NativeAssemblyPlan, type ServerBlob } from '@wildshard/sharddev/blobs';
-import keeper from '../data/nativeKeeper.json' with { type: 'json' };
 import mixedPopulation from '../data/mixedPopulation.json' with { type: 'json' };
 import nativePopulationPolicy from '../data/nativePopulationPolicy.json' with { type: 'json' };
 import questKillSteps from '../data/questKillSteps.json' with { type: 'json' };
@@ -54,22 +53,20 @@ function driftwoodNativeAssembly(inputs: ReturnType<typeof nativeInputs>): Nativ
       ground: 'data/physics-ground.generated.bin', colliders: ['data/physics-colliders.bin'], read: 'solids', keep: ['actors', 'herds', 'habitat', 'captain'] },
     collision: { resolution: 256 }, entries: { walk: inputs.entries },
     // ONE-FORMAT OF22a2: the day is the look's toon sky clock and the sea the declared sea row (no day or sea host)
+    // ONE-FORMAT OF22b4: the island's creatures are declared rows (the shard file's `creatures`); no population host stands them
     features: [{ host: 'decisions' },
-      { host: 'population.mixed', rows: { file: 'server/mixed-population.json' }, perch: { file: 'poses/monkey.json', path: ['program'] }, keeper: { file: 'server/keeper.json' },
-        placement: { file: 'sim/enemy-placement.json' }, launch: 'coconut', sea: 'sea' },
       { host: 'quest.chapter', id: quest.reward.director, rows: { file: 'quests/chapter-director.json' }, wake: { file: 'quests/wake-boss.json' }, reward: quest.reward.channels, population: quest.acquisition.population },
-      { host: 'commands' }, { host: 'population.reactions' },
+      { host: 'commands' },
       // ONE-FORMAT OF22d3: the swords are the held/melee section (output.ts), which the engine stands before any host
       { host: 'quest.kill-steps', rows: { file: 'server/kill-steps.json' }, counters: { file: 'quests/achievements.json' } }, { host: 'quest.body-scripts' },
       { host: 'quest.composition', table: { file: 'quests/interaction-source.json', path: ['constants', 'interact'] }, rows: { file: 'server/quest-policy.json' }, spots: { file: 'server/quest-spots.json' }, readSpots: true,
-        counters: { file: 'quests/achievements.json' }, nativeFeats: true, props: { file: 'server/quest-props.json' }, restoring: true },
-      { host: 'population.settle' }, { host: 'population.poses', step: 'driftwood.poses' }] };
+        counters: { file: 'quests/achievements.json' }, nativeFeats: true, props: { file: 'server/quest-props.json' }, restoring: true }] };
 }
 
 /** Driftwood's server class (J91): the plan and the rows it names, on no client path. */
 export function driftwoodServerFiles(): ServerBlob[] {
   const inputs = driftwoodNativeInputs();
-  const rows = new Map<string, unknown>([['server/physics.json', inputs.physics], ['server/mixed-population.json', inputs.mixedPopulation], ['server/keeper.json', keeper],
+  const rows = new Map<string, unknown>([['server/physics.json', inputs.physics],
     ['server/kill-steps.json', inputs.questKillSteps], ['server/quest-policy.json', inputs.nativeQuest], ['server/quest-spots.json', inputs.nativeQuestSpots], ['server/quest-props.json', inputs.questProps]]);
   return nativeAssemblyFiles(driftwoodNativeAssembly(inputs), rows);
 }

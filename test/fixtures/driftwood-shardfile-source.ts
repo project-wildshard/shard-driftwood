@@ -9,6 +9,6 @@ import { driftwoodAudio } from '../../src/generators/audio';
 import { DRIFTWOOD_LAYOUTS } from './driftwood-layout-source';
 
 // Complete original fixed-world declaration oracle, frozen before the GR7 source cut.
-const shardfile: ReturnType<typeof driftwoodShardfileRows> = driftwoodShardfileRows(driftwoodFixedShardfileRows(fixed), driftwoodAudio(DRIFTWOOD_LAYOUTS.wreck, DRIFTWOOD_ISLAND_FACTS), DRIFTWOOD_GUEST_ROWS.bridge.pages, DRIFTWOOD_NAVIGATION);
+const shardfile: ReturnType<typeof driftwoodShardfileRows> = driftwoodShardfileRows(driftwoodFixedShardfileRows(fixed), driftwoodAudio(DRIFTWOOD_LAYOUTS.wreck, DRIFTWOOD_ISLAND_FACTS), DRIFTWOOD_GUEST_ROWS, DRIFTWOOD_NAVIGATION);
 // oxlint-disable-next-line import/no-default-export -- Existing declaration-only tests borrow the original full header.
 export default shardfile;
