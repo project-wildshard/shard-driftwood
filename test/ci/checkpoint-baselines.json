@@ -22,5 +22,11 @@
   },
   "0.1.53 linux-x64": {
     "driftwood-isle": "3a9b89acd13e695462d070a1474a46109bae9885eeff2304d6e9988c56af9505"
+  },
+  "0.1.54-next.6bab8fcc darwin-arm64": {
+    "driftwood-isle": "d37e5d782fc4e586e661db63d8362f3f94afb400b798687cb6aec7e1c2dc66c5"
+  },
+  "0.1.54-next.6bab8fcc linux-x64": {
+    "driftwood-isle": "3a9b89acd13e695462d070a1474a46109bae9885eeff2304d6e9988c56af9505"
   }
 }
