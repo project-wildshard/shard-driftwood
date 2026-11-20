@@ -6,7 +6,7 @@
  * oceanFiles.ts); the runtime only loads them.
  *
  * - **grid**: `cell` metres fine over the chunk (plus 30 m), then each ring ×1.16 wider (×1.25 when the cell is over 3 m)
- *   out to 4.2 km; alternate diagonals so the facets don't all lean one way.
+ *   out to 4.2 km; alternate diagonals so the facets don't all lean one way; facets wholly under dry ground are left out.
  * - **sea floor**: `SEA_RES`² half floats over the chunk, the floor height at each texel's centre.
  */
 import * as THREE from 'three';
@@ -15,6 +15,8 @@ import { staticGlb } from '@wildshard/sharddev/bake/glb';
 import { SEA_RES } from './oceanLook';
 
 const CHUNK_SIZE = geometryPolicy.size, CHUNK_HALF = CHUNK_SIZE / 2;
+/** m of ground above the sea under all three corners of a facet that is left out (DF9) */
+export const DRY_CUT = 2;
 
 /** the ground the bake samples */
 export interface OceanGround { readonly heightAt: (x: number, z: number) => number; readonly inChunk: (x: number, z: number) => boolean }
@@ -42,15 +44,19 @@ export function oceanGrid(g: OceanGround, cell: number, level: number, deepDepth
     seed[i] = hash2(ix, iz);
   }
   const Index = N * N <= 0x1_0000 ? Uint16Array : Uint32Array;
-  const idx = new Index((N - 1) * (N - 1) * 6);
+  const all = new Index((N - 1) * (N - 1) * 6);
   let k = 0;
+  // DF9: a facet whose three corners all stand under ground at least DRY_CUT m above the sea is never seen (the island
+  // hides it and the wobble is far smaller), so it is left out; 15% of the phone grid's triangles.
+  const dry = (t: number): boolean => (depth[t] ?? 0) < -DRY_CUT;
+  const tri = (p: number, q: number, r: number): void => { if (dry(p) && dry(q) && dry(r)) return; all[k++] = p; all[k++] = q; all[k++] = r; };
   for (let iz = 0; iz < N - 1; iz++) for (let ix = 0; ix < N - 1; ix++) {
     const a = iz * N + ix, b = a + 1, c = a + N, d = c + 1;
     // alternate diagonals so the facets don't all lean one way
-    idx[k++] = a; idx[k++] = c;
-    if ((ix + iz) & 1) { idx[k++] = d; idx[k++] = a; idx[k++] = d; idx[k++] = b; }
-    else { idx[k++] = b; idx[k++] = b; idx[k++] = c; idx[k++] = d; }
+    if ((ix + iz) & 1) { tri(a, c, d); tri(a, d, b); }
+    else { tri(a, c, b); tri(b, c, d); }
   }
+  const idx = all.slice(0, k);
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
   geo.setAttribute('aDepth', new THREE.BufferAttribute(depth, 1));

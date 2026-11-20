@@ -10,7 +10,7 @@ export interface IslandKnobs {
   bushShadows: boolean; boulderShadows: boolean;
 }
 export const ISLAND_KNOBS: Readonly<Record<IslandTier, IslandKnobs>> = {
-  phone: { oceanCell: 4.0, palmCount: 120, palmFrondSegs: 4, bushCount: 170, bushDetail: 0, bushShadows: false, boulderShadows: true },
+  phone: { oceanCell: 5.0, palmCount: 120, palmFrondSegs: 4, bushCount: 170, bushDetail: 0, bushShadows: false, boulderShadows: true },
   desktop: { oceanCell: 2.75, palmCount: 150, palmFrondSegs: 6, bushCount: 260, bushDetail: 1, bushShadows: true, boulderShadows: true },
 };
 /** Exact authored knobs for the supplied tier. */
