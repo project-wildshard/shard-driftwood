@@ -13,3 +13,8 @@ an engine release, so it rides one pin: engine 0.1.54-next.6bab8fcc from npm
 The product-play walk checkpoint is re-taken on 0.1.54 (darwin measured;
 linux takes the linux digest every earlier engine row has carried). The
 curated hero is re-stamped with no capture: the art is unchanged.
+
+Main CI on 97393c1 then failed twice: the curated hero's stamp no longer
+matched once the push replayed onto origin's palm weld (d37ece9), so it is
+re-stamped again; and the producer check took only `x.y.z` engine pins, so
+it now also admits npm `next`'s exact prerelease (`0.1.54-next.<sha>`).
