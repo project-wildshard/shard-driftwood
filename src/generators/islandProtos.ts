@@ -13,14 +13,34 @@ const isMesh = (o: THREE.Object3D): o is THREE.Mesh => o instanceof THREE.Mesh;
 /** a prototype as the bake holds it: world-space positions, Uint8 RGBA (alpha: its baked AO), index */
 export interface IslandProto { pos: Float32Array; col: Uint8Array; index: Uint32Array }
 
-/** `p` with its triangles simplified (to `ratio` of them, never past `error` of its size) and its vertices compacted. */
+/**
+ * `p` with its triangles simplified (to `ratio` of them, never past `error` of its size), each triangle keeping vertices of
+ * its own so its normal stays flat. The cove's prototypes are flat-shaded, so no two triangles share a vertex and the
+ * simplifier could collapse nothing: every far copy was its near copy (a palm's 3134 triangles both ways, DF9). The
+ * vertices are welded by position first; a welded vertex takes the mean colour of the corners it joins.
+ */
 function simplifiedProto(p: IslandProto, ratio: number, error: number): IslandProto {
-  const [idx] = MeshoptSimplifier.simplify(p.index, p.pos, 3, Math.max(3, Math.floor((p.index.length * ratio) / 3) * 3), error);
-  const remap = new Int32Array(p.pos.length / 3).fill(-1);
-  let n = 0;
-  for (const vi of idx) if ((remap[vi] ?? 0) < 0) remap[vi] = n++;
-  const pos = new Float32Array(n * 3), col = new Uint8Array(n * 4), index = Uint32Array.from(idx, (vi) => remap[vi] ?? 0);
-  remap.forEach((r, vi) => { if (r >= 0) { pos.set(p.pos.subarray(vi * 3, vi * 3 + 3), r * 3); col.set(p.col.subarray(vi * 4, vi * 4 + 4), r * 4); } });
+  const corners = p.pos.length / 3, weld = new Map<string, number>(), welded = new Uint32Array(corners);
+  for (let i = 0; i < corners; i++) {
+    const key = `${String(p.pos[i * 3])},${String(p.pos[i * 3 + 1])},${String(p.pos[i * 3 + 2])}`;
+    let w = weld.get(key);
+    if (w === undefined) { w = weld.size; weld.set(key, w); }
+    welded[i] = w;
+  }
+  const wpos = new Float32Array(weld.size * 3), sum = new Float64Array(weld.size * 4), count = new Uint32Array(weld.size);
+  for (let i = 0; i < corners; i++) {
+    const w = welded[i] ?? 0;
+    wpos.set(p.pos.subarray(i * 3, i * 3 + 3), w * 3);
+    for (let k = 0; k < 4; k++) sum[w * 4 + k] = (sum[w * 4 + k] ?? 0) + (p.col[i * 4 + k] ?? 0);
+    count[w] = (count[w] ?? 0) + 1;
+  }
+  const windex = Uint32Array.from(p.index, (i) => welded[i] ?? 0);
+  const [idx] = MeshoptSimplifier.simplify(windex, wpos, 3, Math.max(3, Math.floor((windex.length * ratio) / 3) * 3), error);
+  const pos = new Float32Array(idx.length * 3), col = new Uint8Array(idx.length * 4), index = Uint32Array.from(idx, (_, i) => i);
+  idx.forEach((w, i) => {
+    pos.set(wpos.subarray(w * 3, w * 3 + 3), i * 3);
+    for (let k = 0; k < 4; k++) col[i * 4 + k] = Math.round((sum[w * 4 + k] ?? 0) / (count[w] ?? 1));
+  });
   return { pos, col, index };
 }
 
