@@ -54,14 +54,15 @@ function kitHunt(kind: 'boar' | 'bear') {
 }
 const hunts = [kitHunt('boar'), kitHunt('bear')];
 
-/** The returns (`data/ecology.json`, OF22b3): the practice crab's quick fade-in, the night sailor, spread and away. */
+/** The returns (`data/ecology.json`, OF22b3): the practice crab's quick fade-in, the sailor's day return, spread and away. */
 const RETURNS: Readonly<Record<Kind | 'practice', Pick<Spawn, 'respawn' | 'respawnWhen'>>> = {
   practice: { respawn: 45, respawnWhen: { away: 30, fade: 1.5 } },
   crab: { respawn: 240, respawnWhen: { spread: 120, away: 60 } },
   monkey: { respawn: 300, respawnWhen: { spread: 120, away: 60 } },
   boar: { respawn: 300, respawnWhen: { spread: 120, away: 60 } },
   bear: { respawn: 600, respawnWhen: { spread: 300, away: 60 } },
-  sailor: { respawn: 180, respawnWhen: { night: true, away: 60 } },
+  // OF22e2: by day too, so a player who arrives after another beat him can still win the hold key (dead:sailor is per player)
+  sailor: { respawn: 180, respawnWhen: { away: 60 } },
 };
 const PERCH_BODY = 'driftwood.perch.monkey';
 /** Each body's contact strike: the crab's snap, the sailor's swing, the monkey's bite (its perch body's authority names it
