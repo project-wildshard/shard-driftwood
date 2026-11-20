@@ -22,3 +22,10 @@ variant. What the first stand hit:
   and so does the product's `actors/return-scripts` row; two loans of
   one module refuse ("Raw return module loan changed"). The row leaves
   with the population hosts (OF22b4), so the test hides it.
+
+The population test (OF22b4) runs the engine's Driftwood checks on the
+declared roster: census, movement under the walk, a monkey on a perch,
+a fallen boar, the practice crab's return and an exact restore. The
+restore split until engine 181d4c18e saved a declared hunt's cached
+player; the bridge 15e54b885 keeps the page drawing the product
+creatures until OF27d's looks.
