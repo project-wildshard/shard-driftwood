@@ -15,6 +15,18 @@ import { NATIVE_QUEST_PROPS } from './nativeQuestProps';
 import { driftwoodPhysics } from './physics';
 import { DRIFTWOOD_SPAWNS } from './spawnTables';
 import { DRIFTWOOD_SPOTS } from './spots';
+import solidRows from '../data/solidRows.json' with { type: 'json' };
+import { solidRowId } from './solidRows';
+
+/** ONE-FORMAT OF22a3c: a prompt that sees through its own prop (`sight.body`, the bake's owner the collision host tagged)
+ *  names the prop row its collider now stands in, whose id tags it. */
+const SOLID_ROW_IDS = new Set(solidRows.map(row => row.id));
+function serverSpots(spots: typeof DRIFTWOOD_SPOTS): typeof DRIFTWOOD_SPOTS {
+  return { ...spots, promptRegistrations: spots.promptRegistrations.map(row => {
+    const body: unknown = row.sight.body;
+    return typeof body === 'string' && SOLID_ROW_IDS.has(solidRowId(body)) ? { ...row, sight: { ...row.sight, body: solidRowId(body) } } : row;
+  }) };
+}
 
 function declared<T>(value: T | undefined, message: string): T { if (value === undefined) throw new Error(message); return value; }
 
@@ -22,7 +34,7 @@ function nativeInputs() {
   return { nativeQuest: { ...DRIFTWOOD_NATIVE_QUEST,
       reward: declared(DRIFTWOOD_NATIVE_QUEST.reward, 'Missing native quest reward'),
       acquisition: declared(DRIFTWOOD_NATIVE_QUEST.acquisition, 'Missing native quest acquisition') },
-    nativeQuestSpots: DRIFTWOOD_SPOTS,
+    nativeQuestSpots: serverSpots(DRIFTWOOD_SPOTS),
     mixedPopulation: { ...mixedPopulation, attackTurnCap: nativePopulationPolicy.attackTurnCap,
       practice: { ...mixedPopulation.practice, at: PRACTICE_AT,
         ...DRIFTWOOD_SPAWNS.find(row => row.id === 'spawn.driftwood.practice')?.respawn },
@@ -42,7 +54,8 @@ function driftwoodNativeAssembly(inputs: ReturnType<typeof nativeInputs>): Nativ
     bake: { rows: { file: 'server/physics.json' }, reader: { label: 'Driftwood', resolution: 256, size: 500, parked: false, rig: 'axis', shapes: [1, 2, 9], provenance: 'tagged' },
       ground: 'data/physics-ground.generated.bin', colliders: ['data/physics-colliders.bin'], read: 'solids', keep: ['actors', 'herds', 'habitat', 'captain'] },
     collision: { resolution: 256 }, entries: { walk: inputs.entries },
-    features: [{ host: 'day.toon', start: 0.16666666666666669, cycle: 2880, phases: { dusk: 'dusk' } }, { host: 'water.sea', id: 'sea' }, { host: 'collision', skipOnRestore: true }, { host: 'decisions' },
+    // ONE-FORMAT OF22a2: the day is the look's toon sky clock and the sea the declared sea row (no day or sea host)
+    features: [{ host: 'decisions' },
       { host: 'population.mixed', rows: { file: 'server/mixed-population.json' }, perch: { file: 'poses/monkey.json', path: ['program'] }, keeper: { file: 'server/keeper.json' },
         placement: { file: 'sim/enemy-placement.json' }, launch: 'coconut', sea: 'sea' },
       { host: 'quest.chapter', id: quest.reward.director, rows: { file: 'quests/chapter-director.json' }, wake: { file: 'quests/wake-boss.json' }, reward: quest.reward.channels, population: quest.acquisition.population },

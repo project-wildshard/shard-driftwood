@@ -13,6 +13,8 @@ import { DRIFTWOOD_EDGE_HEIGHTS } from './edges';
 import DRIFTWOOD_RUNTIME_COST from '../data/runtimeCost.json' with { type: 'json' };
 import { DECLARED_SEA, WORLD_DROP } from './sea';
 import { ENTRY_LANDINGS } from './entryLandings';
+import SOLID_ROWS from '../data/solidRows.json' with { type: 'json' };
+import type { SolidRow } from './solidRows';
 import type { driftwoodNavigationRows } from './navigation';
 import type { DriftwoodFixedShardfile } from './fixedShardfile';
 import { driftwoodLookMaterials } from './lookMaterials';
@@ -78,7 +80,10 @@ return parseShardfile({
   entryways: base.entryways.map(({ edge, at, width }) => ({ edge, at, width, kind: 'socketOverWater' as const })),
   water: [{ ...DECLARED_SEA, dryEntries: [...DECLARED_SEA.dryEntries] }],
   props: { ...fixed.props,
-    colliders: ENTRY_LANDINGS.map((landing) => ({ id: `landing.${landing.edge}`, panel: null, initialActive: true, shapes: [{ ...landing.box }] })) },
+    // ONE-FORMAT OF22a3: the bake's solids are plain prop rows (data/solidRows.json, from generators/solidRows.ts), so no
+    // `collision` host stands them; the server stands them beside the bake's ground
+    colliders: [...ENTRY_LANDINGS.map((landing) => ({ id: `landing.${landing.edge}`, panel: null, initialActive: true, shapes: [{ ...landing.box }] })),
+      ...SOLID_ROWS as SolidRow[]] },
   spawn: { x: 0, y: 1.2, z: -194, yaw: Math.PI },
 });
 }
