@@ -3,7 +3,6 @@ import keeper from '../data/nativeKeeper.json' with { type: 'json' };
 import mixedPopulation from '../data/mixedPopulation.json' with { type: 'json' };
 import nativePopulationPolicy from '../data/nativePopulationPolicy.json' with { type: 'json' };
 import questKillSteps from '../data/questKillSteps.json' with { type: 'json' };
-import swords from '../data/nativeSwords.json' with { type: 'json' };
 import { CRAB_CLIPS } from './crabClips';
 import { ENTRY_WALK } from './entryWalk';
 import { PRACTICE_AT } from './enemyPlacement';
@@ -42,7 +41,7 @@ function nativeInputs() {
         { kind: 'sailor', clips: [SAILOR_CLIPS], lift: [1.5, 1.5, -2.3, 6] },
         { kind: 'captain', clips: [CAPTAIN_CLIPS] }, { kind: 'monkey', clips: MONKEY_CLIPS }] },
     questProps: NATIVE_QUEST_PROPS, physics: driftwoodNativeRows(driftwoodPhysics()).physics,
-    questKillSteps, entries: ENTRY_WALK, swords };
+    questKillSteps, entries: ENTRY_WALK };
 }
 /** The typed facts Driftwood's native server hosts read: its bake, roster, quest policy and entry walk. */
 export const driftwoodNativeInputs: typeof nativeInputs = nativeInputs;
@@ -59,7 +58,8 @@ function driftwoodNativeAssembly(inputs: ReturnType<typeof nativeInputs>): Nativ
       { host: 'population.mixed', rows: { file: 'server/mixed-population.json' }, perch: { file: 'poses/monkey.json', path: ['program'] }, keeper: { file: 'server/keeper.json' },
         placement: { file: 'sim/enemy-placement.json' }, launch: 'coconut', sea: 'sea' },
       { host: 'quest.chapter', id: quest.reward.director, rows: { file: 'quests/chapter-director.json' }, wake: { file: 'quests/wake-boss.json' }, reward: quest.reward.channels, population: quest.acquisition.population },
-      { host: 'commands' }, { host: 'population.reactions' }, { host: 'item.swept', policy: { file: 'server/swords.json' } },
+      { host: 'commands' }, { host: 'population.reactions' },
+      // ONE-FORMAT OF22d3: the swords are the held/melee section (output.ts), which the engine stands before any host
       { host: 'quest.kill-steps', rows: { file: 'server/kill-steps.json' }, counters: { file: 'quests/achievements.json' } }, { host: 'quest.body-scripts' },
       { host: 'quest.composition', table: { file: 'quests/interaction-source.json', path: ['constants', 'interact'] }, rows: { file: 'server/quest-policy.json' }, spots: { file: 'server/quest-spots.json' }, readSpots: true,
         counters: { file: 'quests/achievements.json' }, nativeFeats: true, props: { file: 'server/quest-props.json' }, restoring: true },
@@ -69,7 +69,7 @@ function driftwoodNativeAssembly(inputs: ReturnType<typeof nativeInputs>): Nativ
 /** Driftwood's server class (J91): the plan and the rows it names, on no client path. */
 export function driftwoodServerFiles(): ServerBlob[] {
   const inputs = driftwoodNativeInputs();
-  const rows = new Map<string, unknown>([['server/physics.json', inputs.physics], ['server/mixed-population.json', inputs.mixedPopulation], ['server/keeper.json', keeper], ['server/swords.json', inputs.swords],
+  const rows = new Map<string, unknown>([['server/physics.json', inputs.physics], ['server/mixed-population.json', inputs.mixedPopulation], ['server/keeper.json', keeper],
     ['server/kill-steps.json', inputs.questKillSteps], ['server/quest-policy.json', inputs.nativeQuest], ['server/quest-spots.json', inputs.nativeQuestSpots], ['server/quest-props.json', inputs.questProps]]);
   return nativeAssemblyFiles(driftwoodNativeAssembly(inputs), rows);
 }
