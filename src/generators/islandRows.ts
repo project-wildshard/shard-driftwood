@@ -18,14 +18,16 @@ export const ISLAND_TIERS = {
 /**
  * The tier-free numbers. `lod`: past this (m, camera to the tile's rect) a caster tile draws its far copy (E90: the palms
  * keep their full model to 110 m on the phone too, and every far copy casts). `far`: E117, a caster's far copy is its near
- * one simplified to `ratio` of the triangles, never past `error` of its size (~8 cm on a palm). `coverDepth`: how much of
+ * one simplified to `ratio` of the triangles, never past `error` of its size (~15 cm on a palm; DF9: 0.25 and 1% left the
+ * broad palms at three quarters of their near copy, ~55k triangles of far palms at the dock on the phone, ~35k now; 4% broke
+ * the thin trunks off their crowns). `coverDepth`: how much of
  * the cover the splat turns into optical depth. `names`: which
  * placements set apart (E114: the shore boulders are Boulders.ts's, the small rocks rockKit's), which kinds cast, which
  * cover is big. `protoPrefix`: the prototypes' mesh names in island.glb.
  */
 export const ISLAND_LOOK: { lod: number; far: { ratio: number; error: number; }; coverDepth: number; names: { casterKinds: string[]; skip: string; apart: string; big: string; }; protoPrefix: string; meshPrefix: string; palmCell: number; } = {
   lod: 110,
-  far: { ratio: 0.25, error: 0.01 },
+  far: { ratio: 0.15, error: 0.02 },
   coverDepth: 0.6,
   names: { casterKinds: ['palm', 'rock', 'prop'], skip: '^rockb?\\d+$', apart: '^smallrock\\d+$', big: '^(bush|flowerbush|hibiscus|fern)\\d+$' },
   protoPrefix: 'proto_',
