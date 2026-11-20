@@ -143,6 +143,9 @@ jobs:
       - name: Check the offline phone memory limit
         if: github.event_name != 'push'
         run: pnpm exec shard-format validate out/driftwood-isle
+      - name: The declared roster stands the keeper's bodies
+        if: github.event_name != 'push'
+        run: node --import @wildshard/engine/scripts/sim-node-loader.mjs --experimental-transform-types --test test/ci/declared-roster.test.mjs
       - name: Preserve CI21 grid eviction and restore assertions
         if: ${{ !cancelled() && (github.job != 'check' || github.event_name != 'push') }}
         run: |
@@ -284,6 +287,9 @@ jobs:
         run: pnpm build:shards
       - name: Check the offline phone memory limit
         run: pnpm exec shard-format validate out/driftwood-isle
+      - name: The declared roster stands the keeper's bodies
+        if: github.event_name != 'push'
+        run: node --import @wildshard/engine/scripts/sim-node-loader.mjs --experimental-transform-types --test test/ci/declared-roster.test.mjs
       - name: Preserve CI21 grid eviction and restore assertions
         if: ${{ !cancelled() && (github.job != 'check' || github.event_name != 'push') }}
         run: |
