@@ -14,7 +14,7 @@ overrides:
   '@wildshard/upload>@wildshard/format': npm:@wildshard/shard-format@0.55.2
   '@wildshard/kit>@wildshard/shard-format': 0.48.0
 
-packageExtensionsChecksum: sha256-jEcbvReOP3E4kocLT4c/v7zZRv9VIFMcwv5YztGY3Ts=
+packageExtensionsChecksum: sha256-RJh8jeFVkqVnMitZTfK/WWI86DKA0y29dqI5wd3Ebes=
 
 importers:
 
@@ -1865,6 +1865,7 @@ snapshots:
 
   '@wildshard/kit@0.4.18(@wildshard/sdk@0.4.18(@types/node@24.3.1)(three@0.186.0)(typescript@6.0.3))(typescript@6.0.3)':
     dependencies:
+      '@types/three': 0.186.0
       '@wildshard/sdk': 0.4.18(@types/node@24.3.1)(three@0.186.0)(typescript@6.0.3)
       '@wildshard/shard-format': 0.48.0(typescript@6.0.3)
       three: 0.186.0

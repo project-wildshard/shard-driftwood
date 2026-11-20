@@ -7,6 +7,8 @@ import {join} from 'node:path';
 function files(root,prefix=''){
  try{return readdirSync(prefix?`${root}/${prefix}`:root,{withFileTypes:true}).flatMap(entry=>{
   const path=prefix?`${prefix}/${entry.name}`:entry.name;assert(!entry.isSymbolicLink(),'Producer paths contain no foreign symlink');
+  // SDK publish output can coexist with this folder-only producer build.
+  if(root==='public'&&path==='shardfiles'&&entry.isDirectory())return [];
   return entry.isDirectory()?files(root,path):[`${root}/${path}`];
  });}catch(error){if(error.code==='ENOENT')return [];throw error;}
 }

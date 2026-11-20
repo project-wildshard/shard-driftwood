@@ -15,7 +15,6 @@ import { readLootTables } from '@wildshard/engine/game/loot/tableRows';
 import { declaredLootEconomy } from '@wildshard/engine/game/shard/declaredRows';
 import { createHeadlessPromptPicker, type HeadlessPrompt } from '@wildshard/engine/game/quest/interactionRows';
 import { nativeQuestInputs } from '@wildshard/engine/game/quest/nativeInputs';
-import type { MixedPopulationBody } from '@wildshard/engine/game/population/mixedRoster';
 import { nativeQuestPromptRoster } from '@wildshard/engine/game/quest/nativeComposition';
 import { leadPlayer } from '@wildshard/engine/sim/leadPlayer';
 
@@ -34,7 +33,8 @@ export function nativeEconomy(host: SimHost): ReturnType<typeof installNativeEco
 
 /** The page's actual purse, bounty, coin pool, ownership and exchange; only the
  * storage/RNG and command delivery belong to this fixed native fixture. */
-export function installNativeEconomy(host: SimHost, product: ShardFolder, roster: () => readonly MixedPopulationBody[],
+export function installNativeEconomy(host: SimHost, product: ShardFolder,
+  roster: () => readonly { kind: string; herd: number; actor: ReturnType<SimHost['entities']['get']> }[],
   questStep: string, closeDistance: number): { readonly purse: () => Purse; readonly owned: () => Owned; readonly exchange: Exchange; readonly coins: CoinMotion } {
   if (economies.has(host)) throw new Error('Native economy already installed');
   const rows = declaredLootEconomy(product.section('economy/loot').rows.loot);
@@ -61,7 +61,7 @@ export function installNativeEconomy(host: SimHost, product: ShardFolder, roster
   const input = nativeQuestInputs(host);
   host.events.on('actor.died', ({ actor }) => {
     const body = roster().find(candidate => candidate.actor?.combatActor() === actor);
-    if (body === undefined || body.actor === null) return;
+    if (body?.actor === undefined) return;
     const amount = coinValue(coinTable?.roll({ kind: body.kind }, () => 0) ?? []);
     if (amount > 0 && bounty.claim(body)) burst.spawn(body.actor.position, amount, callbacks.onCoin, callbacks.onDone);
   }, host.scope, { order: DEATH_ORDER.loot });

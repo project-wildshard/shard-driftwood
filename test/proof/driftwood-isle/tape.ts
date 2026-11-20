@@ -19,11 +19,11 @@ export async function playDriftwood(host: SimHost, tick: (commands: HeadlessComm
     const pack = v.parse(v.object({ pack: v.object({ counts: v.record(v.string(), v.number()) }) }), host.adapters.get(QUEST_STEP)?.snapshot()).pack;
     if (pack.counts.doubloon !== expected) throw new Error(`Real chest pack diverged: expected ${String(expected)} doubloons`);
   };
-  const go = async (x: number, z: number): Promise<void> => {
+  const go = async (x: number, z: number, arrive = 0.25): Promise<void> => {
     let best = Infinity, stall = 0;
     for (let frame = 0; frame < 3600; frame++) {
       const p = leadPlayer(host).position, dx = x - p.x, dz = z - p.z, d = Math.hypot(dx, dz);
-      if (d < 0.25) return;
+      if (d < arrive) return;
       if (d < best - 0.02) { best = d; stall = 0; } else stall++;
       const k = Math.min(1, d / 0.8) / Math.max(0.01, d);
       await tick([{ kind: 'player', moveX: dx * k, moveZ: dz * k, yaw: Math.atan2(-dx, -dz), ...(stall > 60 && stall % 30 === 0 ? { jump: true as const } : {}) }]);
@@ -87,7 +87,10 @@ export async function playDriftwood(host: SimHost, tick: (commands: HeadlessComm
   await fight(sailor.entityId, 1.4, 50);
   // The key follows the sailor's actual fall; water/wading can change where that fight ends.
   const key = v.parse(v.object({ key: v.object({ x: v.number(), z: v.number() }) }), host.adapters.get(QUEST_STEP)?.snapshot()).key;
-  await walk([[154.08, 2.07], [154.56, -0.14], [153.92, -1.11]]); await go(key.x, key.z); await act('hold-key', 'key:hold');
+  // The declared sailor can fall against a solid wall. Approach within USE
+  // reach instead of trying to stand on the key's exact coordinates.
+  await walk([[154.08, 2.07], [154.56, -0.14], [153.92, -1.11]]);
+  await go(key.x, key.z, 0.75); await act('hold-key', 'key:hold');
   await go(155.2, -1.3); await act('hold-pump', 'lever:hold-pump');
   await go(154.7, -1.3); await act('hold-winch', 'winch:up'); await act('strongbox', 'shard:wreck');
   doubloons(5);
@@ -148,8 +151,11 @@ export async function playDriftwood(host: SimHost, tick: (commands: HeadlessComm
   if (!host.flags.has('open:sluice')) throw new Error('Two physical plates did not open the sluice');
   await walk([[140, 9.05], [143.3, 9], ...ring.slice(0, 4).reverse(), [146.8, 12.6], [142, 13.4], [142, 19.2], [142, 21.3]]); await act('shard-cave', 'shard:cave');
   await walk([[142, 19.2], [142, 13.4], [146.8, 12.6], [148, 5], [147, 0.8], [124, 1.5], [100, -2], [80, -1.5], [62, 0], [30, 0], [0, 0], [-30, 0], [-60, 0], [-72, 20], [-80, 45], [-88, 70], [-86.49, 92.26], [-88.26, 94.68], [-89.62, 96.54], [-91.51, 99.12], [-93.39, 101.7], [-93.87, 102.35], [-95.34, 104.37], [-96.82, 106.39], [-97.35, 107.11], [-98, 108.4]]);
-  await act('altar', 'used:altar'); const captain = [...host.entities.values()].find(a => a.kind === 'captain'); if (captain === undefined) throw new Error('Altar did not wake the captain');
+  await act('altar', 'used:altar');
+  const captain = host.entities.get('driftwood.captain');
+  if (captain?.alive !== true) throw new Error('Altar did not wake the declared Captain');
   await fight(captain.entityId, 1.3, 45);
+  await wait(1); // The declared encounter files its kill flag on the next step.
   if (!host.flags.has('dead:captain')) throw new Error('Captain death was not filed');
   await go(spots.reward.x, spots.reward.z); await wait(450);
   if (!host.flags.has('quest:driftwood-done')) throw new Error('Reward did not complete the quest'); await mark('complete');

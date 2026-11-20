@@ -13,6 +13,8 @@ function files(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap(child => {
     if (child.isSymbolicLink()) throw new Error('Foreign producer symlink');
     const path = `${directory}/${child.name}`;
+    // Publish outputs live beside tracked public inputs, outside the folder loan.
+    if (path === 'public/shardfiles' && child.isDirectory()) return [];
     return child.isDirectory() ? files(path) : [path];
   });
 }

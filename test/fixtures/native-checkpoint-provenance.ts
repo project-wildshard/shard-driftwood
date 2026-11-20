@@ -38,7 +38,13 @@ export function verifyNativeCheckpointProvenance(): void {
   const before = v.parse(Manifest, original), after = v.parse(Manifest, current);
   assert.deepEqual(after.effects.map(row => row.effect), before.effects.map(row => row.effect),
     'Every historical ordered fact and actor, including both plate-approach kills, remains earned');
-  assert.deepEqual(after.checkpoints.map(row => row.name), before.checkpoints.map(row => row.name));
+  // The declared Captain is reached before the 20,000-tick sampling fence.
+  // Check gameplay checkpoint order and periodic fences independently.
+  const layout = (row: v.InferOutput<typeof Manifest>) => ({
+    gameplay: row.checkpoints.filter(cp => !cp.name.startsWith('tick-')).map(cp => cp.name),
+    periodic: row.checkpoints.filter(cp => cp.name.startsWith('tick-')).map(cp => cp.name),
+  });
+  assert.deepEqual(layout(after), layout(before));
   assert.ok(after.ticks <= 60_000);
   for (const checkpoint of before.checkpoints) {
     const migrated = after.checkpoints.find(row => row.name === checkpoint.name);

@@ -13,7 +13,6 @@ import { createHash } from 'node:crypto';
 import { gzipSync, gunzipSync } from 'node:zlib';
 import * as v from 'valibot';
 import { readWitnessManifest, witnessPayloadHashes } from '../../fixtures/witness-checkpoints';
-import bossRows from '../../../src/data/bossEncounter.json' with { type: 'json' };
 import { readNativeQuestSpots } from '@wildshard/engine/game/quest/nativeComposition';
 import { DRIFTWOOD_SPOTS as nativeQuestSpots } from '../../../src/generators/spots';
 import policy from '../../../src/data/nativeQuest.json' with { type: 'json' };
@@ -23,10 +22,12 @@ import { SaveStore, type SaveStorage } from '@wildshard/engine/saves/store';
 import { Ledger, LedgerEmitter, type LedgerReceipt } from '@wildshard/engine/game/ledger';
 import type { NativeHeadlessResident } from '@wildshard/engine/host/headlessRuntime';
 import { createNativeProofResident, prepareFolderPlan } from '@wildshard/engine/test/headless-native';
+import { installNativeWalkBounds } from '@wildshard/engine/test/headless/nativeBounds';
+import { installWalkRopeBodies, retainRestoredWalkBodies } from '@wildshard/engine/test/headless/ropeBodies';
 import type { TickWorkerHost } from '@wildshard/engine/host/tickWorkerHost';
 import { createNativeProofWorker } from '../../fixtures/headless-worker';
 import { TickCommandSchema, TickEffectSchema, type HeadlessCommand, type HeadlessEffect } from '@wildshard/engine/host/tickProtocol';
-import { canonicalSimDigest, simWireV1 } from '@wildshard/engine/test/simState';
+import { canonicalSimDigest } from '@wildshard/engine/test/simState';
 import { simMismatchError } from '../../fake/simMismatch';
 import { playDriftwood } from './tape';
 import { leadPlayer } from '@wildshard/engine/sim/leadPlayer';
@@ -57,7 +58,7 @@ const Manifest = v.strictObject({ inputs: v.string(), tape: v.string(), ticks: n
 type Recorded = v.InferOutput<typeof Manifest>;
 const hash = (bytes: Uint8Array | string): string => createHash('sha256').update(bytes).digest('hex');
 const digest = (session: NativeHeadlessResident): string => canonicalSimDigest(snapshotSimHost(session.host));
-const save = (session: NativeHeadlessResident): string => simWireV1(serializeSimSnapshot(snapshotSimHost(session.host)));
+const save = (session: NativeHeadlessResident): string => serializeSimSnapshot(snapshotSimHost(session.host));
 const identity = { instance: 'driftwood-witness', shard: source.identity.slug, revision: source.identity.revision };
 
 /** Every named result is scoped; the remaining page laws below keep whole-shard admission closed. */
@@ -96,8 +97,23 @@ function nativeAssets(): Map<string, Uint8Array> {
   checkedNativeAssets ??= readNativeAssets(witnessProduct);
   return new Map([...checkedNativeAssets].map(([name, bytes]) => [name, bytes.slice()]));
 }
-function boot(rapier: Rapier, snapshot?: string): Promise<NativeHeadlessResident> {
-  return createNativeProofResident({ shard: witnessProduct.shardfile, assets: nativeAssets(), rapier, product: witnessProduct }, prepareFolderPlan, snapshot);
+async function boot(rapier: Rapier, snapshot?: string): Promise<NativeHeadlessResident> {
+  const resident = await createNativeProofResident({ shard: witnessProduct.shardfile, assets: nativeAssets(), rapier, product: witnessProduct },
+    async preparation => {
+      const plan = await prepareFolderPlan(preparation);
+      return { ...plan, install(host, context) {
+        plan.install(host, context);
+        if (context.restoring) retainRestoredWalkBodies(host);
+      } };
+    }, snapshot);
+  try {
+    resident.host.scope.onDispose(installWalkRopeBodies(resident.host, witnessProduct));
+    installNativeWalkBounds(resident.host);
+    return resident;
+  } catch (error) {
+    resident.dispose();
+    throw error;
+  }
 }
 function manifest(): Recorded { return v.parse(Manifest, readWitnessManifest(MANIFEST)); }
 function tape(m: Recorded): HeadlessCommand[][] {
@@ -371,8 +387,8 @@ export async function replayProof(rapier: Rapier, workerTicks = 60): Promise<obj
   if (cp === undefined) throw new Error('No real Captain checkpoint');
   const original = await resume(rapier, cp); let restored: NativeHeadlessResident | undefined, worker: TickWorkerHost | undefined;
   try {
-    const captain = [...original.host.entities.values()].find(actor => actor.kind === 'captain');
-    const encounter = original.host.adapters.get(bossRows.step)?.snapshot();
+    const captain = original.host.entities.get('driftwood.captain');
+    const encounter = original.host.adapters.get('decision.declared')?.snapshot();
     if (captain === undefined || !captain.alive || captain.hp >= 200 || typeof encounter !== 'string') throw new Error('Checkpoint is not the living mid-fight Captain');
     const hp = captain.hp, checkpoint = save(original); restored = await boot(rapier, checkpoint);
     if (digest(original) !== digest(restored)) throw new Error('Mid-fight restore not exact');

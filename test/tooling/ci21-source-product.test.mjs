@@ -16,6 +16,12 @@ test('source-runtime product loans refuse changed source, changed bytes and fore
    inputs:[{path:'src/index.ts',sha256:hash('src/index.ts')}],product:'driftwood-isle',files:[{path:'shard.json',sha256:hash('out/driftwood-isle/shard.json')}]};
   const save=()=>writeFileSync('tmp/ci21-source/product.json',JSON.stringify(receipt));save();
   assert.equal(builtProduct('driftwood-isle'),'out/driftwood-isle');assert.throws(()=>builtProduct('foreign'));
+  mkdirSync('public/shardfiles/driftwood-isle',{recursive:true});
+  writeFileSync('public/shardfiles/driftwood-isle/shard.json','an earlier publish build');
+  assert.equal(builtProduct('driftwood-isle'),'out/driftwood-isle');
+  writeFileSync('public/untracked.bin','unexpected public input');
+  assert.throws(()=>builtProduct('driftwood-isle'),/source inventory differs/u);
+  rmSync('public/untracked.bin');
   writeFileSync('src/index.ts','changed producer input');assert.throws(()=>builtProduct('driftwood-isle'),/source input differs/u);writeFileSync('src/index.ts','actual producer input');
   writeFileSync('out/driftwood-isle/shard.json','changed bytes');assert.throws(()=>builtProduct('driftwood-isle'),/product bytes differ/u);writeFileSync('out/driftwood-isle/shard.json','actual immutable product');
   writeFileSync('src/untracked.ts','untracked producer input');assert.throws(()=>builtProduct('driftwood-isle'),/source inventory differs/u);rmSync('src/untracked.ts');

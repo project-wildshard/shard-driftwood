@@ -70,13 +70,14 @@
         "Driftwood earns the Sealed Ring through real movement, combat, barrel contacts and replay"
       ],
       "fixturePath": "test/proof/driftwood-isle/tape.ts",
-      "fixtureBlob": "2070cf0315996024789a3e4fc90b4eb520f3e3e0",
+      "fixtureBlob": "b3ec197a077067479b270f43bc2328ec44fbe3a5",
       "compilerSupport": [
         "test/fixtures/headless/driftwood-story-run.ts"
       ],
       "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission.",
       "caseAdaptations": [
-        "Equivalent real-input approach follows the actual authored hold stair/pump/winch waypoints before approaching the sailor fallen key, avoiding the solid hull. Original key pickup, full story flags/pack, contact puzzles/combat, independent replay, 3600 walk/6000 fight/60000 tape and original child/case budgets remain; no state grants."
+        "Equivalent real-input approach follows the actual authored hold stair/pump/winch waypoints before approaching the sailor fallen key, avoiding the solid hull. Original key pickup, full story flags/pack, contact puzzles/combat, independent replay, 3600 walk/6000 fight/60000 tape and original child/case budgets remain; no state grants.",
+        "OF22: the sailor key is used from within reach, and the declared Captain files death on the following tick. Retain full input and flag replay."
       ]
     },
     {
@@ -88,7 +89,7 @@
         "the continuous lookout walk and actual cable landing earn the zipline feat"
       ],
       "fixturePath": "test/proof/driftwood-isle/tape.ts",
-      "fixtureBlob": "2070cf0315996024789a3e4fc90b4eb520f3e3e0",
+      "fixtureBlob": "b3ec197a077067479b270f43bc2328ec44fbe3a5",
       "compilerSupport": [],
       "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission."
     },
@@ -102,7 +103,7 @@
         "Driftwood reaches the reef through real HOVER, swim and DIVE before opening its treasure"
       ],
       "fixturePath": "test/proof/driftwood-isle/tape.ts",
-      "fixtureBlob": "2070cf0315996024789a3e4fc90b4eb520f3e3e0",
+      "fixtureBlob": "b3ec197a077067479b270f43bc2328ec44fbe3a5",
       "compilerSupport": [
         "test/fixtures/headless/driftwood-optional-run.ts"
       ],
@@ -119,11 +120,14 @@
         "real kills fund Maren BUY and fresh restoration; omitted BUY cannot grant or spend"
       ],
       "fixturePath": "test/proof/driftwood-isle/tape.ts",
-      "fixtureBlob": "2070cf0315996024789a3e4fc90b4eb520f3e3e0",
+      "fixtureBlob": "b3ec197a077067479b270f43bc2328ec44fbe3a5",
       "compilerSupport": [
         "test/fixtures/headless/driftwood-trade-run.ts"
       ],
-      "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission."
+      "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission.",
+      "caseAdaptations": [
+        "OF22b4: use the shipped declared creature rows for live bounty targets. Return to the counter along the south trail and retain the earned saves and omitted-BUY control."
+      ]
     },
     {
       "sourcePath": "test/scripts/ground-encounters.test.ts",
@@ -134,7 +138,7 @@
         "Captain published guest rises, sinks, relocates inside the pool and resumes its second cut"
       ],
       "fixturePath": "test/fixtures/builtProduct.ts",
-      "fixtureBlob": "ca9f933897c71064e7ffca9441b8246c27e397a2",
+      "fixtureBlob": "9436c4bf882dd121e3f7aa72516b871485026d10",
       "ownerPartition": {
         "sourceCases": [
           "Captain published guest rises, sinks, relocates inside the pool and resumes its second cut",
@@ -168,7 +172,8 @@
       ],
       "changes": "Direct unchanged three-case Driftwood instantiation, defining public imports and typed native child/helpers. Deliberate provenance-guarded full-bit current-source checkpoint migration; whole historical manifest and legacy envelope preserved. No runtime filtering or automatic regoldening; C10/C11 admission/removals held.",
       "caseAdaptations": [
-        "Explicit J232 current-source checkpoint migration: preserve the whole original historical manifest as a blob-bound fixture; keep all 14 ordered facts/actors, both plate-approach crab kills, original checkpoint topology and periodic ticks, and complete named-checkpoint durable ledger/reward content except declared save epoch and route clocks. Current complete raw native capture on exact5a3511aa/normal sealed producer becomes the reviewed full-bit golden; original strict regenerated hashes, payloads, replay/suffix/effects assertions and all original time/input bounds remain. No runtime filtering or automatic regoldening."
+        "Explicit J232 current-source checkpoint migration: preserve the whole original historical manifest as a blob-bound fixture; keep all 14 ordered facts/actors, both plate-approach crab kills, original checkpoint topology and periodic ticks, and complete named-checkpoint durable ledger/reward content except declared save epoch and route clocks. Current complete raw native capture on exact5a3511aa/normal sealed producer becomes the reviewed full-bit golden; original strict regenerated hashes, payloads, replay/suffix/effects assertions and all original time/input bounds remain. No runtime filtering or automatic regoldening.",
+        "OF22: capture the admitted rope deck and current snapshot envelope. All 14 historical facts, named checkpoint profiles, 10k/20k fences and the unchanged legacy quest envelope remain checked."
       ]
     },
     {
@@ -211,7 +216,7 @@
     },
     {
       "targetPath": "test/proof/driftwood-isle/checkpoints/manifest.json",
-      "targetBlob": "fe196a13cb840af0264d4856772df575861d9ee1"
+      "targetBlob": "6163be50797f7b981ed5a278e25592fed8068555"
     },
     {
       "targetPath": "test/fixtures/quest-step-legacy-saves.json",

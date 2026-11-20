@@ -119,7 +119,7 @@ try {
     const p=leadPlayer(host).position,dx=x-p.x,dz=z-p.z,d=Math.hypot(dx,dz);if(d<.25)return;
     if(d<best-.02){best=d;stall=0;}else stall++;
     const k=Math.min(1,d/.8)/Math.max(.01,d);await step([{kind:'player',moveX:dx*k,moveZ:dz*k,yaw:Math.atan2(-dx,-dz),...(stall>60&&stall%30===0?{jump:true}:{})}]);
-  }throw new Error(`Trade walk stuck ${x},${z}`);};
+  }throw new Error(`Trade walk stuck ${x},${z} from ${JSON.stringify(leadPlayer(host).position.toArray())}`);};
   if(stage==='counter'){
   await step([buy]);await flush('out-of-reach-buy');assert.equal(economy.owned().has('cape'),false);
   for(const [x,z] of [[0,-186.5],[-8,-172],[-17,-161],[-20,-150],[-30,-142],[-30,-130],[-30,-118],[-30,-106],[-30,-104],[-24,-80],[-22,-74]] as const)await go(x,z);
@@ -140,7 +140,11 @@ try {
   }
   }
   if(stage==='buy'){
-  assert.ok(economy.purse().coins>=price);await go(-22,-74);await step([{kind:'script',actorId:NATIVE_TRADE,value:-2}]);
+  assert.ok(economy.purse().coins>=price);
+  // Kills from the declared roster can finish east of the ridge. Return
+  // through the same south trail used on the outward approach.
+  for (const [x,z] of [[10,-115],[-16,-118],[-16,-142],[-30,-142],[-30,-130],[-30,-118],[-30,-106],[-30,-104],[-24,-80],[-22,-74]] as const) await go(x,z);
+  await step([{kind:'script',actorId:NATIVE_TRADE,value:-2}]);
   const before=economy.purse().coins;await step([buy]);await flush('earned-buy');
   assert.equal(economy.owned().has('cape'),true);assert.equal(economy.purse().coins,before-price);
   await step([buy]);await flush('repeat-buy');assert.equal(economy.purse().coins,before-price);
