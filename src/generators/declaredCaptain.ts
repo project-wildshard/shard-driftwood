@@ -29,10 +29,9 @@ const converted = CAPTAIN_ROWS.species[0];
 if (converted === undefined) throw new Error('Missing declared Captain species');
 // a species row's dims carry no capsule axis (the bake's spec does)
 const { capsuleAxis: _axis, ...dims } = converted.dims as typeof converted.dims & { capsuleAxis?: string };
-// his blows are his decision row's (`actors/strikes`, by id), so his row names no abilities and adds no plain strikes; and
-// no body look yet: the page draws him from its packed creature looks by kind, as the roster's bodies (OF22b1's look half)
-const { body: _body, ...plain } = converted;
-const species = { ...plain, dims } as typeof converted;
+// his blows are his decision row's (`actors/strikes`, by id), so his row names no abilities and adds no plain strikes; his
+// body draws his `platform.skin` look (rows/creatureSkins.ts, OF27d)
+const species = { ...converted, dims } as typeof converted;
 /** His species row. */
 export const CAPTAIN_SPECIES: typeof species = species;
 

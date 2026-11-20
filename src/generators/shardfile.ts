@@ -22,7 +22,8 @@ import { driftwoodLookMaterials } from './lookMaterials';
 import { driftwoodSkyChannels } from './skyChannels';
 import { parseClientChannels } from '@wildshard/sharddev/rows';
 import captainCoat from '../data/captainCoat.json' with { type: 'json' };
-import { CAPTAIN_ENCOUNTER, CAPTAIN_LOOK, CAPTAIN_SPAWN, CAPTAIN_SPECIES } from './declaredCaptain';
+import { CAPTAIN_ENCOUNTER, CAPTAIN_SPAWN, CAPTAIN_SPECIES } from './declaredCaptain';
+import type { DriftwoodSkinDeclaration } from './rows/creatureSkins';
 import type { DriftwoodGuestRows } from './guestPrograms';
 import { driftwoodDeclaredRoster } from './rows/declaredRoster';
 
@@ -46,7 +47,7 @@ const row = (authored: readonly number[]): { heights: number[]; colours: [number
   return { heights, colours: heights.map((): [number, number, number] => [0.5, 0.5, 0.5]), roadHeight: 0 };
 };
 /** Compose the unchanged admitted declaration from caller-owned fixed-world values. */
-export function driftwoodShardfileRows(fixed: DriftwoodFixedShardfile, audio: AudioData, guests: Pick<DriftwoodGuestRows, 'bridge' | 'returnProgram'>, navigation: ReturnType<typeof driftwoodNavigationRows>): ReturnType<typeof parseShardfile> {
+export function driftwoodShardfileRows(fixed: DriftwoodFixedShardfile, audio: AudioData, guests: Pick<DriftwoodGuestRows, 'bridge' | 'returnProgram'>, navigation: ReturnType<typeof driftwoodNavigationRows>, skins: Omit<DriftwoodSkinDeclaration, 'assets'>): ReturnType<typeof parseShardfile> {
 const questRows = driftwoodQuestRows();
 const simulationFiles = [...navigation.files, ...fixed.files.filter(file => fixed.critical.includes(file.hash))];
 // G7: the Drowned Captain's painted coat, an admitted look texture his graph samples by hash (scripts/bake-captain-coat.mjs)
@@ -55,21 +56,23 @@ const coat = captainCoat.file;
 const viewMemory = guests.bridge.pages * 65536 * 2;
 // ONE-FORMAT OF22b4: the island's 34 keeper bodies are declared rows (generators/rows/declaredRoster.ts), beside the Captain
 const roster = driftwoodDeclaredRoster(guests.returnProgram), items = driftwoodItems();
+// OF27d: the skins' files load with the library
+const skinCost = skins.files.reduce((sum, file) => ({ resident: sum.resident + file.decoded + file.gpu, compressed: sum.compressed + file.compressed }), { resident: 0, compressed: 0 });
 const declaration = {
   ...base,state:{...base.state,shared:CAPTAIN_FIELDS},
   // ONE-FORMAT OF22c2: the Drowned Captain is a declared spawn at the pool with his boss encounter (generators/declaredCaptain.ts)
   rows: { ...base.rows, loot: [LOOT], species: [CAPTAIN_SPECIES, ...roster.species], strikes: [...roster.strikes],
-    // every species names a look (the SDK's creature check); the Captain's is a placeholder too, the page draws him as before
-    looks: [...roster.looks, { id: CAPTAIN_LOOK, species: CAPTAIN_SPECIES.id, recipe: 'engine.sphere', material: null, parameters: {}, animation: { recipe: 'engine.sphere', parameters: {} } }] },
+    // ONE-FORMAT OF27d: every kind draws its `platform.skin` look over its baked body (generators/rows/creatureSkins.ts)
+    looks: [...skins.looks] },
   creatures: { ...base.creatures, brains: [...roster.brains], spawns: [CAPTAIN_SPAWN, ...roster.spawns], perchBodies: [...roster.perchBodies] }, encounters: [CAPTAIN_ENCOUNTER],
   sim: { ...base.sim, scripts: [] },
-  navigation: navigation.navigation, files: [...navigation.files, ...fixed.files, coat], critical: [...navigation.critical, ...fixed.critical],
-  tiles: fixed.tiles, terrain: fixed.terrain, library: [...fixed.library, coat.hash],
+  navigation: navigation.navigation, files: [...navigation.files, ...fixed.files, coat, ...skins.files], critical: [...navigation.critical, ...fixed.critical],
+  tiles: fixed.tiles, terrain: fixed.terrain, library: [...fixed.library, coat.hash, ...skins.library],
   // DL17 (G1000, root's ruling for the grid home): the level is complete at control, so the entered cell attaches every
   // fine tile before control and none retires in play (a 5 x 5 ring streamed tiles in as the boost lap left it)
   ring: 'cell',
   serverBudget: { ...base.serverBudget, memory: base.serverBudget.memory + 6*65536 + simulationFiles.reduce((sum, file) => sum + file.decoded, 0) },
-  budgets: { ...base.budgets, tier: 'large', library: { resident: fixed.libraryCost.resident + coat.decoded + coat.gpu + viewMemory, compressed: fixed.libraryCost.compressed + coat.compressed }, sim: { resident: 6*65536 + simulationFiles.reduce((sum, file) => sum + file.decoded + file.gpu, 0),
+  budgets: { ...base.budgets, tier: 'large', library: { resident: fixed.libraryCost.resident + coat.decoded + coat.gpu + viewMemory + skinCost.resident, compressed: fixed.libraryCost.compressed + coat.compressed + skinCost.compressed }, sim: { resident: 6*65536 + simulationFiles.reduce((sum, file) => sum + file.decoded + file.gpu, 0),
     compressed: simulationFiles.reduce((sum, file) => sum + file.compressed, 0) } },
   accent: 'marigold',
   // the material graphs the runtime draws its own meshes in (runtime/hybrid.ts): the cove's cascade, the castaway's smoke, the shrine's fireflies, the lagoon's reef, the cove's pools, the gulls, the creatures, the baked cove's terrain and props;
@@ -77,7 +80,7 @@ const declaration = {
   // the faceted ground and its slab, and the low-poly kit's variants (compiled by the look's prepareWorld before the ground builds, game/looks/toonLook.ts)
   // the castaway arms, their swords and their swimming (compiled by the kit hook, runtime/hybrid.ts)
   // W2c: every graph is built here at build time (generators/lookMaterials.ts)
-  look: { ...base.look, materials: { ...base.look.materials, ...Object.fromEntries(Object.entries(driftwoodLookMaterials()).map(([id, graph]) => [id, { family: 'graph' as const, graph }])) },
+  look: { ...base.look, materials: { ...base.look.materials, ...Object.fromEntries(Object.entries(driftwoodLookMaterials()).map(([id, graph]) => [id, { family: 'graph' as const, graph }])), ...skins.materials },
     samplers: { [coat.hash]: { wrap: 'repeat' } } },
   runtime: { kind: 'client-plan', cost: DRIFTWOOD_RUNTIME_COST, binds: ['state', 'quests', 'ledger', 'items', 'spawns', 'modes', 'props', 'terrain', 'movers', 'loot', 'clientChannels'], spawns: { ...DRIFTWOOD_SPAWNS, bosses: [] } }, // OF22c2: his declared spawn is his one body
   clientChannels: [...parseClientChannels(driftwoodSkyChannels()), ...NPC_FOCUS_PROGRAMS],

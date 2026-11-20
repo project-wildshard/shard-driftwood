@@ -8,14 +8,16 @@
 // eyes are their own primitive on a glowing look material; the captain wears his painted coat as a painterly map.
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
-import { skinnedGlb } from '@wildshard/sharddev/bake/skinned';
+import { readSourceModel, skinnedGlb } from '@wildshard/sharddev/bake/skinned';
 import { creatureSkin, type CreatureRig } from '@wildshard/sharddev/scene/creature';
 import { encodeCanonicalJson, hashImmutableBytes } from '@wildshard/sharddev/immutable';
 import { parseGlb } from '@wildshard/format/shardfileAssets';
 import { parseSkinFile, skinFileDependencies } from '@wildshard/format/skinAssets';
 import type { ShardRows } from '@wildshard/format/rows';
 import type { Shardfile } from '@wildshard/format/shardSchema';
-import type { BakedCreatureBody } from '../creatureBodies';
+import type { ProjectGenerationContext } from '@wildshard/sharddev/projectGeneration';
+import { bakeCaptainBody, bakeCreatureBodies, faceHeadOf, type BakedCreatureBody } from '../creatureBodies';
+import { CREATURE_BODY_INPUTS } from '../creatureBodyBank';
 import { CRAB_CLIPS } from '../crabClips';
 import { CAPTAIN_CLIPS, SAILOR_CLIPS } from '../humanoidClips';
 import { MONKEY_CLIPS } from '../monkeyClips';
@@ -269,4 +271,53 @@ export function creatureSkinFiles(skins: readonly DriftwoodCreatureSkin[]): { fi
     json(skin.table, [...new Set(skin.skins.map(skinFile))].sort());
   }
   return { files: [...files.values()], library: [...files.keys()], assets: [...assets.values()] };
+}
+
+/** The skins as the shard file declares them: look rows, file rows, library roots, look materials and the bytes. */
+export interface DriftwoodSkinDeclaration {
+  readonly looks: Look[];
+  readonly files: ShardFileRow[];
+  readonly library: string[];
+  readonly materials: Record<string, unknown>;
+  readonly assets: Uint8Array[];
+}
+/** The species each kind's look draws: its id and variant ids. */
+export type SkinSpecies = ReadonlyMap<string, { readonly id: string; readonly variants: readonly string[] }>;
+/** Every species row's kind, id and variants, as `driftwoodCreatureSkins` takes them. */
+export function skinSpecies(rows: readonly ShardRows['species'][number][]): SkinSpecies {
+  return new Map(rows.map(row => [row.kind, { id: row.id, variants: row.variants.map(variant => variant.id) }] as const));
+}
+
+/** The lofted bodies the hull book packed (creatureBodyBank.ts), from its two committed inputs. */
+export async function bakedCreatureBodies(read: (url: string) => Uint8Array): Promise<BakedCreatureBody[]> {
+  const head = await readSourceModel(Uint8Array.from(read(CREATURE_BODY_INPUTS.head)));
+  head.gltf.scene.updateMatrixWorld(true);
+  const meshes: THREE.Mesh[] = [];
+  head.gltf.scene.traverse(node => { if (node instanceof THREE.Mesh) meshes.push(node); });
+  const mesh = meshes[0];
+  if (mesh === undefined || meshes.length !== 1) throw new Error(`${CREATURE_BODY_INPUTS.head} must hold one mesh`);
+  const captain = await readSourceModel(Uint8Array.from(read(CREATURE_BODY_INPUTS.captain)));
+  return [...bakeCreatureBodies(faceHeadOf(mesh.geometry.clone().applyMatrix4(mesh.matrixWorld))), bakeCaptainBody(captain.gltf.scene)];
+}
+
+/** The six looks, their files and materials from the baked bodies. */
+export function driftwoodSkinDeclaration(bodies: readonly BakedCreatureBody[], species: SkinSpecies, coat: string): DriftwoodSkinDeclaration {
+  const skins = driftwoodCreatureSkins(bodies, species, coat);
+  return { looks: skins.map(skin => skin.look), ...creatureSkinFiles(skins), materials: Object.assign({}, ...skins.map(skin => skin.materials)) as Record<string, unknown> };
+}
+
+const ROWS = 'rows.json';
+/** The build's skin step: baked once per input (the generation cache), every file registered as a product asset. */
+export async function driftwoodCreatureSkinStep(ctx: Pick<ProjectGenerationContext, 'cached' | 'asset'>, species: SkinSpecies, coat: string): Promise<DriftwoodSkinDeclaration> {
+  const out = await ctx.cached({ id: 'creature-skins', native: true, inputs: [CREATURE_BODY_INPUTS.head, CREATURE_BODY_INPUTS.captain] }, async inputs => {
+    const read = (url: string): Uint8Array => { const bytes = inputs.get(url); if (bytes === undefined || bytes.byteLength === 0) throw new Error(`Missing creature skin input: ${url}`); return bytes; };
+    const { assets, ...rows } = driftwoodSkinDeclaration(await bakedCreatureBodies(read), species, coat);
+    return new Map([[ROWS, new TextEncoder().encode(encodeCanonicalJson(rows))], ...assets.map(bytes => [hashImmutableBytes(bytes), bytes] as const)]);
+  });
+  const rows = out.get(ROWS); if (rows === undefined) throw new Error('Invalid creature skin cache inventory');
+  const assets = [...out].filter(([name]) => name !== ROWS).map(([name, bytes]) => {
+    if (ctx.asset(bytes) !== name) throw new Error(`Creature skin asset ${name} differs`);
+    return bytes;
+  });
+  return { ...JSON.parse(new TextDecoder().decode(rows)) as Omit<DriftwoodSkinDeclaration, 'assets'>, assets };
 }

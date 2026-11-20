@@ -48,7 +48,9 @@ function kitHunt(kind: 'boar' | 'bear') {
   const tuning = ISLAND_HUNT_TUNING[kind], temperament = content.species.temperament;
   const species = tuning === undefined || temperament === undefined ? content.species
     : { ...content.species, temperament: { ...temperament, tuning: { ...temperament.tuning, ...tuning } } } as ShardRows['species'][number];
-  return { species, strikes: content.strikes, items: content.items };
+  // OF27d: the kit body's bones are the kit quadruped's, so the engine's gait poses its skin as it posed the hull book's
+  const body = species.body === undefined ? undefined : { ...species.body, skeleton: 'quadruped' as const };
+  return { species: body === undefined ? species : { ...species, body }, strikes: content.strikes, items: content.items };
 }
 const hunts = [kitHunt('boar'), kitHunt('bear')];
 
@@ -72,9 +74,10 @@ const groupOf = (body: KeeperBody): string | undefined => body.herd < 0 ? undefi
 /** The keeper's seed is a unit draw; a spawn's is a 32-bit stream seed. */
 const seedOf = (unit: number): number => Math.floor(unit * 0x1_0000_0000) >>> 0;
 
-const speciesRows: ShardRows['species'] = [...converted.species, ...hunts.map(row => row.species)];
+/** The roster's species rows (crab, monkey, sailor through the converter; boar and bear from the kit). */
+export const ROSTER_SPECIES: ShardRows['species'] = [...converted.species, ...hunts.map(row => row.species)];
 const speciesOf = (kind: string): ShardRows['species'][number] => {
-  const row = speciesRows.find(species => species.kind === kind); if (row === undefined) throw new Error(`Missing roster species ${kind}`); return row;
+  const row = ROSTER_SPECIES.find(species => species.kind === kind); if (row === undefined) throw new Error(`Missing roster species ${kind}`); return row;
 };
 
 /** The perch body every monkey climbs: the habitat's perches over their ground bases, the program's root and actions, and
@@ -121,18 +124,13 @@ export interface DriftwoodDeclaredRoster {
   readonly brains: ShardCreatures['brains'];
   readonly spawns: Spawn[];
   readonly perchBodies: PerchBody[];
-  /** OF22b4: one placeholder look per species. The page draws these bodies from the client plan's product creatures
-   *  through engine 15e54b885's temporary bridge, so it never reads these rows; OF27d gives them their real looks. */
-  readonly looks: ShardRows['looks'];
   /** The kit hunts' harvest items (meat, hide, tusk; pelt, claw) for the item catalogue. */
   readonly items: ReturnType<typeof commonCreature>['items'];
   /** The program's exact creature strikes, for `actors/strikes`. */
   readonly catalogue: ConvertedSpecies['catalogue'];
 }
-/** The island's roster as rows (placeholder looks: the page still draws the product creatures until OF27d). */
+/** The island's roster as rows; each species' body names its `platform.skin` look (creatureSkins.ts, OF27d). */
 export function driftwoodDeclaredRoster(returnProgram: DriftwoodGuestRows['returnProgram']): DriftwoodDeclaredRoster {
-  return { species: speciesRows, strikes: [...converted.strikes.map(plainShape), ...hunts.flatMap(row => row.strikes)], brains: converted.brains,
-    spawns: spawns(), perchBodies: [perchBody(returnProgram)],
-    looks: speciesRows.map(row => ({ id: lookOf(row.kind), species: row.id, recipe: 'engine.sphere', material: null, parameters: {},
-      animation: { recipe: 'engine.sphere', parameters: {} } })), items: hunts.flatMap(row => row.items), catalogue: converted.catalogue };
+  return { species: ROSTER_SPECIES, strikes: [...converted.strikes.map(plainShape), ...hunts.flatMap(row => row.strikes)], brains: converted.brains,
+    spawns: spawns(), perchBodies: [perchBody(returnProgram)], items: hunts.flatMap(row => row.items), catalogue: converted.catalogue };
 }

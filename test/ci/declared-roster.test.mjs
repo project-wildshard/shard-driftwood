@@ -11,6 +11,7 @@ import { test } from 'node:test';
 const { loadHeadlessFolder } = await import('@wildshard/engine/host/headlessFolder');
 const { createNativeHeadlessResident } = await import('@wildshard/engine/host/headlessRuntime');
 const { outputDescriptor, serverReadsFile } = await import('@wildshard/engine/game/shardfile/outputDescriptor');
+const { serverInputFiles } = await import('@wildshard/engine/game/shardfile/serverSkinRigs');
 const { loadRapier } = await import('@wildshard/engine/physics/rapier');
 const { serializeSimSnapshot, snapshotSimHost, snapshotSimHostBytes } = await import('@wildshard/engine/sim/snapshot');
 const { populationCensus } = await import('@wildshard/engine/game/population/census');
@@ -25,7 +26,8 @@ const keeper = JSON.parse(readFileSync('src/data/nativeKeeper.json', 'utf8'));
 async function declared() {
   const directory = resolve('out/driftwood-isle'), product = await loadHeadlessFolder(directory), shard = product.shardfile;
   const descriptor = outputDescriptor(shard); assert.ok(descriptor, 'The built shard must pass admission');
-  const assets = new Map(descriptor.index.files.filter(file => serverReadsFile(file, shard.terrain?.collider))
+  const rigs = new Set(serverInputFiles(descriptor.index.files, shard)); // the declared roster's skin rigs too (OF27d)
+  const assets = new Map(descriptor.index.files.filter(file => serverReadsFile(file, shard.terrain?.collider) || rigs.has(file))
     .map(file => [file.commons === true ? `commons:${file.hash}` : file.hash, readFileSync(join(directory, file.path))]));
   const rapier = await loadRapier(readFileSync(engineRequire.resolve('@dimforge/rapier3d-simd/rapier_wasm3d_bg.wasm')));
   const plan = JSON.parse(new TextDecoder().decode(await product.file(NATIVE_ASSEMBLY_FILE)));

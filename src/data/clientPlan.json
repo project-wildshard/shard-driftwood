@@ -37,9 +37,6 @@
       "id": "driftwood.claims"
     },
     {
-      "kind": "population.product-creatures"
-    },
-    {
       "kind": "held.claims.install",
       "claims": "driftwood.claims"
     },
