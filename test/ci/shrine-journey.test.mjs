@@ -56,7 +56,9 @@ test('driftwood-isle: the glyph shards set in the altar and the Captain beaten o
     const wreckTick = host.state.tick;
 
     // Two shards to the shrine: the altar keeps its third socket empty, and the pool stays still.
-    walk(HOLD_TO_COVE); walk(COVE_TO_HUT); toAltar(); press('altar');
+    // The cove's uphill path crosses the same small lip by the creek as the return below: jump it there too. Unjumped it
+    // depended on the line the walker met it on, which moved when engine a0d64526f kept the island's herds on their centres.
+    walk(HOLD_TO_COVE); walk(COVE_TO_HUT, { jumpNear: [14.16, -11.6] }); toAltar(); press('altar');
     assert.ok(!has('used:altar') && !has('quest:shrine-set'), 'Two shards do not wake the altar');
     assert.ok(has('shard:cave') && has('shard:wreck') && !has('shard:lookout'), 'The refused altar keeps the two shards');
     stand(60); assert.equal(captain().length, 0, 'No captain rises while the altar is unset');
