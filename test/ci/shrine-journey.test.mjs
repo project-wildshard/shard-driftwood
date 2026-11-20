@@ -31,7 +31,8 @@ test('driftwood-isle: the glyph shards set in the altar and the Captain beaten o
     const legs = rider(resident), { host, player, head, walk, press, has } = legs;
     const stand = ticks => { for (let tick = 0; tick < ticks; tick++) head(0, 0); };
     const toAltar = () => { walk(TO_SHRINE); walk(SHRINE_STAIR); walk(TO_ALTAR); };
-    const captain = () => [...host.entities].find(([, body]) => body.kind === 'captain') ?? [];
+    // OF22c2: his declared spawn waits in the world, not alive, until the wake cue summons his fight
+    const captain = () => [...host.entities].find(([, body]) => body.kind === 'captain' && body.alive) ?? [];
     assert.ok(Math.hypot(player.position.x - shard.spawn.x, player.position.z - shard.spawn.z) < 0.5, 'The journey starts at the shard spawn');
     const [sailorId, sailor] = findSailor(host);
     assert.ok(sailor?.alive, 'The drowned sailor lies in the hold');
@@ -80,6 +81,9 @@ test('driftwood-isle: the glyph shards set in the altar and the Captain beaten o
     // The Drowned Captain rises out of the shrine's pool and falls to the player's clicks.
     const [captainId, foe] = captain();
     assert.ok(foe?.alive && foe.hp === foe.maxHp, 'The Captain rises from the pool, unhurt, once the altar is set');
+    // ONE-FORMAT OF22c2: he is the declared spawn under his boss encounter, the one body of his kind (no reserved body)
+    assert.equal(captainId, 'driftwood.captain', 'The Captain is his declared spawn');
+    assert.equal([...host.entities.values()].filter(body => body.kind === 'captain').length, 1, 'One Captain stands');
     assert.ok(!has('dead:captain'), 'The Captain is not beaten before the first click');
     const captainFight = beat(legs, captainId, foe, 'dead:captain', 6000);
     console.log(`shrine-journey ${JSON.stringify({ pushTicks, caveTick, sailorFight, wreckTick, lookoutTick, altarTick, captainFight,

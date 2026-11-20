@@ -99,11 +99,15 @@ export function beat({ host, player, head, strike, has }, foeId, foe, deadFlag, 
   // A room stands a fallen player up again at the shard spawn, alive: count the deaths, so a fight lost and won again fails.
   let clicks = 0, lastClick = -Infinity, deaths = 0;
   host.events.on('player.died', () => { deaths++; }, host.scope);
-  for (let tick = 0; tick < limit && foe.alive; tick++) {
+  // a declared encounter files its kill flag on the step after the fall (OF22c2's Captain), so stand still until it lands
+  for (let tick = 0; tick < limit && (foe.alive || !has(deadFlag)); tick++) {
+    if (!foe.alive) { head(0, 0); continue; }
     const dx = foe.position.x - player.position.x, dz = foe.position.z - player.position.z, distance = Math.hypot(dx, dz);
     // Step back out of a wind-up the player sees coming, then close in: a room (HS1's world) sends a player who dies here back
     // to the shard spawn, where the bare resident used to stand them up in place.
-    if (foe.state === 'attack' && distance < 2.6) head(-dx, -dz, false);
+    // a decision-driven body (OF22c2's declared Captain) shows its blow on its strike runner, as the page draws it
+    const winding = foe.state === 'attack' || ['windup', 'active'].includes(host.strikes?.get?.(foe.entityId)?.state);
+    if (winding && distance < 2.6) head(-dx, -dz, false);
     else if (distance > 1.5) head(dx, dz, false);
     else if (tick - lastClick >= 30) { strike(foeId, dx, dz); clicks++; lastClick = tick; }
     else head(0, 0);

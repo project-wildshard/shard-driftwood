@@ -21,6 +21,7 @@ import { driftwoodLookMaterials } from './lookMaterials';
 import { driftwoodSkyChannels } from './skyChannels';
 import { parseClientChannels } from '@wildshard/sharddev/rows';
 import captainCoat from '../data/captainCoat.json' with { type: 'json' };
+import { CAPTAIN_ENCOUNTER, CAPTAIN_SPAWN, CAPTAIN_SPECIES } from './declaredCaptain';
 import type { DriftwoodGuestRows } from './guestPrograms';
 
 
@@ -51,7 +52,10 @@ const coat = captainCoat.file;
 // The fixed view guest retains live and rewind memory under the existing client limits.
 const viewMemory = bridgePages * 65536 * 2;
 return parseShardfile({
-  ...base,state:{...base.state,shared:CAPTAIN_FIELDS}, rows: { ...base.rows, loot: [LOOT] },
+  ...base,state:{...base.state,shared:CAPTAIN_FIELDS},
+  // ONE-FORMAT OF22c2: the Drowned Captain is a declared spawn at the pool with his boss encounter (generators/declaredCaptain.ts)
+  rows: { ...base.rows, loot: [LOOT], species: [CAPTAIN_SPECIES] },
+  creatures: { ...base.creatures, spawns: [CAPTAIN_SPAWN] }, encounters: [CAPTAIN_ENCOUNTER],
   sim: { ...base.sim, scripts: [] },
   navigation: navigation.navigation, files: [...navigation.files, ...fixed.files, coat], critical: [...navigation.critical, ...fixed.critical],
   tiles: fixed.tiles, terrain: fixed.terrain, library: [...fixed.library, coat.hash],
@@ -69,7 +73,7 @@ return parseShardfile({
   // W2c: every graph is built here at build time (generators/lookMaterials.ts)
   look: { ...base.look, materials: { ...base.look.materials, ...Object.fromEntries(Object.entries(driftwoodLookMaterials()).map(([id, graph]) => [id, { family: 'graph' as const, graph }])) },
     samplers: { [coat.hash]: { wrap: 'repeat' } } },
-  runtime: { kind: 'client-plan', cost: DRIFTWOOD_RUNTIME_COST, binds: ['state', 'quests', 'ledger', 'items', 'spawns', 'modes', 'props', 'terrain', 'movers', 'loot', 'clientChannels'], spawns: DRIFTWOOD_SPAWNS },
+  runtime: { kind: 'client-plan', cost: DRIFTWOOD_RUNTIME_COST, binds: ['state', 'quests', 'ledger', 'items', 'spawns', 'modes', 'props', 'terrain', 'movers', 'loot', 'clientChannels'], spawns: { ...DRIFTWOOD_SPAWNS, bosses: [] } }, // OF22c2: his declared spawn is his one body
   clientChannels: [...parseClientChannels(driftwoodSkyChannels()), ...NPC_FOCUS_PROGRAMS],
   quests: { ...questRows.quests, achievements: DRIFTWOOD_FEATS }, questHost: questRows.host, questNpcs: questRows.npcs, ledger: DRIFTWOOD_LEDGER, items: driftwoodItems(),
   edge: { north: row(DRIFTWOOD_EDGE_HEIGHTS.north), east: row(DRIFTWOOD_EDGE_HEIGHTS.east), south: row(DRIFTWOOD_EDGE_HEIGHTS.south), west: row(DRIFTWOOD_EDGE_HEIGHTS.west) },

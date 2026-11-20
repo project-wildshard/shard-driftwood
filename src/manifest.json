@@ -125,9 +125,6 @@
     },
     "telegraphed": true,
     "maxHitDamage": 20,
-    "capExempt": [
-      "captain"
-    ],
     "attackers": 2
   },
   "loot": {
