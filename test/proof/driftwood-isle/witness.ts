@@ -413,9 +413,10 @@ export async function replayProof(rapier: Rapier, workerTicks = 60): Promise<obj
     }
     const endHash = digest(original), replayHash = digest(restored); sameEffects(a, b); sameEffects(a, expected(m, cp.tick, until));
     if (endHash !== replayHash || !original.host.flags.has('dead:captain') || !original.host.flags.has('quest:driftwood-done')) throw new Error('Captain continuation/reward diverged');
-    const reward = v.parse(v.object({ reward: v.object({ elapsed: v.literal(-2), player: v.object({ pitch: v.number(), carried: v.literal(true) }) }) }), original.host.adapters.get(QUEST_STEP)?.snapshot()).reward;
+    // Engine f1ef9b142: the finished reward beat gives the carry back, so the freed player settles within 10 cm of the spot.
+    const reward = v.parse(v.object({ reward: v.object({ elapsed: v.literal(-2), player: v.object({ pitch: v.number(), carried: v.literal(false) }) }) }), original.host.adapters.get(QUEST_STEP)?.snapshot()).reward;
     const target = readNativeQuestSpots(nativeQuestSpots).reward;
-    if (!original.host.flags.has('seen:complete') || Math.hypot(leadPlayer(original.host).position.x - target.x, leadPlayer(original.host).position.y - target.y, leadPlayer(original.host).position.z - target.z) !== 0 || leadPlayer(original.host).yaw !== target.yaw || reward.player.pitch !== target.pitch || original.host.dayClock === undefined || original.host.dayClock.phase < target.phase) throw new Error('Native reward carry/pose/clock handoff diverged');
+    if (!original.host.flags.has('seen:complete') || Math.hypot(leadPlayer(original.host).position.x - target.x, leadPlayer(original.host).position.y - target.y, leadPlayer(original.host).position.z - target.z) > 0.1 || leadPlayer(original.host).yaw !== target.yaw || reward.player.pitch !== target.pitch || original.host.dayClock === undefined || original.host.dayClock.phase < target.phase) throw new Error('Native reward carry/pose/clock handoff diverged');
     return { status: 'passed', resumedFrom: cp.name, prefixTicks: 0, checkpointCaptured: true, checkpointTick: cp.tick, hp, encounter: JSON.parse(encounter) as unknown, suffixTicksExecuted: until - cp.tick, hash: endHash, replayHash, effects: a, workerTicks, workerExact: true, victory: true, reward };
   } finally { await worker?.dispose(); restored?.dispose(); original.dispose(); }
 }

@@ -216,7 +216,7 @@
     },
     {
       "targetPath": "test/proof/driftwood-isle/checkpoints/manifest.json",
-      "targetBlob": "6163be50797f7b981ed5a278e25592fed8068555"
+      "targetBlob": "1dec145c88fa41c03b147365ddc3ea5fb9b78b57"
     },
     {
       "targetPath": "test/fixtures/quest-step-legacy-saves.json",
