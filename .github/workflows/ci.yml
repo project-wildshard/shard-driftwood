@@ -2,7 +2,7 @@ name: ci
 
 on:
   push:
-    branches: [main, 'plan/**']
+    branches: [main]
   pull_request:
   workflow_dispatch:
     inputs:
@@ -27,8 +27,6 @@ permissions:
 
 concurrency:
   group: ci-${{ github.ref }}-${{ github.event_name }}-${{ inputs.engine || github.event.client_payload.engine }}-${{ inputs.sharddev || github.event.client_payload.sharddev }}
-  # A newer push to a plan branch cancels its older run; land reads a
-  # cancelled run as red and stops, so push a plan branch only via land.
   cancel-in-progress: ${{ github.event_name == 'pull_request' || startsWith(github.ref, 'refs/heads/plan/') }}
 
 jobs:
