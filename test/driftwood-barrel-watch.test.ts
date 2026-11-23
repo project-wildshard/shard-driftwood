@@ -2,10 +2,10 @@ import barrelSource from '../src/behaviour/barrels.as?raw';
 import { expect, test } from 'vitest';
 import { compileDecisionScripts } from '@wildshard/sdk/buildDecisionScripts';
 import { decisionBindingMap } from '@wildshard/format/decisionBindings';
-import { DecisionHost, type DecisionScript } from '@wildshard/engine/script/decision';
+import { DecisionHost, type DecisionScript } from '@wildshard/sdk/internal/engine/script/decision';
 import { SCRIPT_V1_READS, type ScriptV1ReadName, type ScriptV1Command } from '@wildshard/format/scriptAbiV1';
 import { BARREL_DECISION } from '../src/generators/barrelDecision';
-import { BARREL_HALF } from '@wildshard/engine/world/interact/barrel';
+import { BARREL_HALF } from '@wildshard/sdk/internal/engine/world/interact/barrel';
 
 // G566: the tide barrel's never-jam watch (PHYSICS P7-L1 BarrelWatch) as Driftwood AS over declared body ops.
 const [row] = BARREL_DECISION, BODY = 5, PLAYER = 0x7fffffff;

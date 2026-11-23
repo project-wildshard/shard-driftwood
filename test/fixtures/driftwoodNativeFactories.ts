@@ -1,11 +1,11 @@
 /** Original pre-G2a factories, frozen for native geometry/pose/material parity. */
-import { FigureRows } from '@wildshard/engine/game/systems/npc/figureRows';
-import { KitFigure } from '@wildshard/engine/game/systems/npc/kitFigure';
-import { SceneHandles } from '@wildshard/engine/game/shardfile/sceneHandles';
+import { FigureRows } from '@wildshard/sdk/internal/engine/game/systems/npc/figureRows';
+import { KitFigure } from '@wildshard/sdk/internal/engine/game/systems/npc/kitFigure';
+import { SceneHandles } from '@wildshard/sdk/internal/engine/game/shardfile/sceneHandles';
 import { driftwoodRows, driftwoodProduct } from './driftwoodLegacyRows';
 import type * as THREE from 'three';
-import { type ModelDef, type ModelPart } from '@wildshard/engine/models/model';
-import { lowPolyLookMaterial } from '@wildshard/engine/world/lowpolyKit';
+import { type ModelDef, type ModelPart } from '@wildshard/sdk/internal/engine/models/model';
+import { lowPolyLookMaterial } from '@wildshard/sdk/internal/engine/world/lowpolyKit';
 import { loadFixedGeometry, fixedDraw, fixedGeometryGroups, FIGURES } from './driftwoodLegacyAssets';
 
 const originalModel = <P extends object>(row: ModelDef<P>): ModelDef<P> => row;

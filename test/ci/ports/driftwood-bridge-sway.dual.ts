@@ -5,7 +5,7 @@ import {assertClose} from '../guest-pair.ts';
  * survive display frames; no live view source, producer or module is changed. */
 const bridge=readFileSync('src/behaviour/bridgeSway.as','utf8');
 import page from '../../../src/data/questPageComposition.json' with { type: 'json' };
-import { ViewLane } from '@wildshard/engine/script/viewLane';
+import { ViewLane } from '@wildshard/sdk/internal/engine/script/viewLane';
 import type { DualPortFixture } from '../port-types.ts';
 
 const legacy = `import {ws_init as init,ws_view as view} from './bridgeSway';

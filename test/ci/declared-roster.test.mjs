@@ -1,25 +1,25 @@
 // ONE-FORMAT OF22b1 and OF22b4, CI only after a real build: the island's roster as rows. The keeper's 34 bodies (`data/nativeKeeper.json`)
 // are declared spawns (`generators/rows/declaredRoster.ts`); with the population hosts cut from the native plan, OF22b0's
 // path stands every one of them under its own id, kind and variant on the built product, and they save and restore exactly.
-import '@wildshard/engine/scripts/sim-node-loader.mjs';
+import '@wildshard/sdk/headless/scripts/sim-node-loader.mjs';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { join, resolve } from 'node:path';
 import { test } from 'node:test';
 
-const { loadHeadlessFolder } = await import('@wildshard/engine/host/headlessFolder');
-const { createNativeHeadlessResident } = await import('@wildshard/engine/host/headlessRuntime');
-const { outputDescriptor, serverReadsFile } = await import('@wildshard/engine/game/shardfile/outputDescriptor');
-const { serverInputFiles } = await import('@wildshard/engine/game/shardfile/serverSkinRigs');
-const { loadRapier } = await import('@wildshard/engine/physics/rapier');
-const { serializeSimSnapshot, snapshotSimHost, snapshotSimHostBytes } = await import('@wildshard/engine/sim/snapshot');
-const { populationCensus } = await import('@wildshard/engine/game/population/census');
-const { runHeadlessJourney } = await import('@wildshard/engine/host/headlessJourney');
-const { canonicalSimDigest } = await import('@wildshard/engine/test/simState');
+const { loadHeadlessFolder } = await import('@wildshard/sdk/headless/host/headlessFolder');
+const { createNativeHeadlessResident } = await import('@wildshard/sdk/headless/host/headlessRuntime');
+const { outputDescriptor, serverReadsFile } = await import('@wildshard/sdk/headless/game/shardfile/outputDescriptor');
+const { serverInputFiles } = await import('@wildshard/sdk/internal/engine/game/shardfile/serverSkinRigs');
+const { loadRapier } = await import('@wildshard/sdk/headless/physics/rapier');
+const { serializeSimSnapshot, snapshotSimHost, snapshotSimHostBytes } = await import('@wildshard/sdk/headless/sim/snapshot');
+const { populationCensus } = await import('@wildshard/sdk/internal/engine/game/population/census');
+const { runHeadlessJourney } = await import('@wildshard/sdk/headless/host/headlessJourney');
+const { canonicalSimDigest } = await import('@wildshard/sdk/internal/engine/test/simState');
 const { Vector3 } = await import('three');
 const { NATIVE_ASSEMBLY_FILE } = await import('@wildshard/format/nativeAssembly');
-const engineRequire = createRequire(import.meta.resolve('@wildshard/engine/package.json'));
+import { engineRequire } from '@wildshard/sdk/headless';
 const keeper = JSON.parse(readFileSync('src/data/nativeKeeper.json', 'utf8'));
 
 /** The built product as it ships (OF22b4): the roster is its declared rows and no population host stands them. */

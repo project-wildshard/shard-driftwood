@@ -1,4 +1,4 @@
-import type { ShardFolder } from '@wildshard/engine/game/shardfile/shardFolder';
+import type { ShardFolder } from '@wildshard/sdk/internal/engine/game/shardfile/shardFolder';
 import * as v from 'valibot';
 import { SECTIONS } from './driftwoodLegacySections';
 import { ISLAND } from './driftwoodLegacyAssets';

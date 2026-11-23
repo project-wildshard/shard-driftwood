@@ -1,13 +1,13 @@
 import {lendDriftwoodReturns} from '../fixtures/driftwood-return-modules';
 import perchRows from '../../src/data/mixedPopulation.json' with { type: 'json' };
 import { Scope } from '../../src/shared/engine/app/scope';
-import { PerchBodyBinding } from '@wildshard/engine/game/population/perchBody';
+import { PerchBodyBinding } from '@wildshard/sdk/internal/engine/game/population/perchBody';
 import { RETURN_PROGRAM } from '../fixtures/driftwood-guest-programs';
 import { MONKEY_CLIPS } from '../../src/generators/monkeyClips';
 import type { SpeciesRow } from '../../src/server/engine/ai/species';
 import { app } from '../../src/client/engine/app/runtime';
 import type { ShardContext } from '../../src/client/game/plugin/context';
-import { legacyDouble } from '@wildshard/engine/test/FakeGame';
+import { legacyDouble } from '@wildshard/sdk/headless/test/FakeGame';
 import { DRIFTWOOD_ENEMY_PROGRAM } from '../../src/generators/speciesPrograms';
 
 /** Test-only authored intake; shipping consumers bind the verified shard file section. */

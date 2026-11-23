@@ -1,6 +1,6 @@
 import { DRIFTWOOD_ORIGINAL_LAYOUTS } from './driftwood-layout-source';
 import { HORIZON_RADIUS } from '@wildshard/format/contentBounds';
-import { SHORE_REVETMENT_INNER_FACE } from '@wildshard/engine/sim/shore';
+import { SHORE_REVETMENT_INNER_FACE } from '@wildshard/sdk/internal/engine/sim/shore';
 import { OCEAN } from '../../src/generators/worldSites';
 import coveComposition from '../../src/data/coveComposition.json' with { type: 'json' };
 import { WORLD_ASSEMBLY } from '../../src/generators/worldAssembly';

@@ -1,10 +1,10 @@
-import { gpuOnlyTrees } from '@wildshard/engine/core/gpuOnly';
-import type { SceneHandles } from '@wildshard/engine/game/shardfile/sceneHandles';
-import { WorldAssembly } from '@wildshard/engine/game/shardfile/worldAssembly';
-import { entryOwner } from '@wildshard/engine/game/shardfile/entryOwners';
-import type { Scope } from '@wildshard/engine/app/scope';
+import { gpuOnlyTrees } from '@wildshard/sdk/internal/engine/core/gpuOnly';
+import type { SceneHandles } from '@wildshard/sdk/internal/engine/game/shardfile/sceneHandles';
+import { WorldAssembly } from '@wildshard/sdk/internal/engine/game/shardfile/worldAssembly';
+import { entryOwner } from '@wildshard/sdk/internal/engine/game/shardfile/entryOwners';
+import type { Scope } from '@wildshard/sdk/headless/app/scope';
 import { driftwoodRows, driftwoodProduct } from './driftwoodLegacyRows';
-import { TIER } from '@wildshard/engine/core/tier';
+import { TIER } from '@wildshard/sdk/headless/core/tier';
 import { loadFixedGeometry, fixedDrawLibrary } from './driftwoodLegacyAssets';
 /**
  * Driftwood Isle's world build (E357 S4.1, 08 §4 `level.world`, §6.1 step 2): the ~15 builders `main.ts`'s `edge` step
@@ -14,12 +14,12 @@ import { loadFixedGeometry, fixedDrawLibrary } from './driftwoodLegacyAssets';
  */
 import type * as THREE from 'three';
 import { sites } from './driftwoodLegacyCatalogue';
-import { macrotask, slicer, type StepProgress } from '@wildshard/engine/boot/plan';
-import type { World } from '@wildshard/engine/core/bootstrap';
+import { macrotask, slicer, type StepProgress } from '@wildshard/sdk/internal/engine/boot/plan';
+import type { World } from '@wildshard/sdk/internal/engine/core/bootstrap';
 import manifest from '../../src/discovery.generated';
-import type { BakedTiles } from '@wildshard/engine/game/shardfile/bakedTiles';
-import { sharedModelContext } from '@wildshard/engine/models/model';
-import type { Placed } from '@wildshard/engine/models/place';
+import type { BakedTiles } from '@wildshard/sdk/internal/engine/game/shardfile/bakedTiles';
+import { sharedModelContext } from '@wildshard/sdk/internal/engine/models/model';
+import type { Placed } from '@wildshard/sdk/internal/engine/models/place';
 
 /** The mooring lines' look: a graph on every tier (its vertex lift has no classic form), lent before the world builds. */
 export const MOOR_LOOK = 'driftwood-kit-moor';

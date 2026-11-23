@@ -1,8 +1,8 @@
 import { nativeRapierFile } from '../../fixtures/native-rapier-file';
-import { folderHeadlessSections } from '@wildshard/engine/host/headlessSections';
-import type { ShardFolder } from '@wildshard/engine/game/shardfile/shardFolder';
-import { outputDescriptor } from '@wildshard/engine/game/shardfile/outputDescriptor';
-import { loadHeadlessFolder } from '@wildshard/engine/host/headlessFolder';
+import { folderHeadlessSections } from '@wildshard/sdk/headless/host/headlessSections';
+import type { ShardFolder } from '@wildshard/sdk/internal/engine/game/shardfile/shardFolder';
+import { outputDescriptor } from '@wildshard/sdk/headless/game/shardfile/outputDescriptor';
+import { loadHeadlessFolder } from '@wildshard/sdk/headless/host/headlessFolder';
 // oxlint-disable-next-line import/no-nodejs-modules -- Read the actual shard, tape and committed native checkpoints.
 import { mkdirSync, readFileSync, realpathSync, writeFileSync } from 'node:fs';
 // oxlint-disable-next-line import/no-nodejs-modules -- Pin the admitted product independently of the mutable out alias.
@@ -13,24 +13,24 @@ import { createHash } from 'node:crypto';
 import { gzipSync, gunzipSync } from 'node:zlib';
 import * as v from 'valibot';
 import { readWitnessManifest, witnessPayloadHashes } from '../../fixtures/witness-checkpoints';
-import { readNativeQuestSpots } from '@wildshard/engine/game/quest/nativeComposition';
+import { readNativeQuestSpots } from '@wildshard/sdk/internal/engine/game/quest/nativeComposition';
 import { DRIFTWOOD_SPOTS as nativeQuestSpots } from '../../../src/generators/spots';
 import policy from '../../../src/data/nativeQuest.json' with { type: 'json' };
-import { loadRapier, type Rapier } from '@wildshard/engine/physics/rapier';
-import { serializeSimSnapshot, snapshotSimHost,leadSnapshot } from '@wildshard/engine/sim/snapshot';
-import { SaveStore, type SaveStorage } from '@wildshard/engine/saves/store';
-import { Ledger, LedgerEmitter, type LedgerReceipt } from '@wildshard/engine/game/ledger';
-import type { NativeHeadlessResident } from '@wildshard/engine/host/headlessRuntime';
-import { createNativeProofResident, prepareFolderPlan } from '@wildshard/engine/test/headless-native';
-import { installNativeWalkBounds } from '@wildshard/engine/test/headless/nativeBounds';
-import { installWalkRopeBodies, retainRestoredWalkBodies } from '@wildshard/engine/test/headless/ropeBodies';
-import type { TickWorkerHost } from '@wildshard/engine/host/tickWorkerHost';
+import { loadRapier, type Rapier } from '@wildshard/sdk/headless/physics/rapier';
+import { serializeSimSnapshot, snapshotSimHost,leadSnapshot } from '@wildshard/sdk/headless/sim/snapshot';
+import { SaveStore, type SaveStorage } from '@wildshard/sdk/internal/engine/saves/store';
+import { Ledger, LedgerEmitter, type LedgerReceipt } from '@wildshard/sdk/internal/engine/game/ledger';
+import type { NativeHeadlessResident } from '@wildshard/sdk/headless/host/headlessRuntime';
+import { createNativeProofResident, prepareFolderPlan } from '@wildshard/sdk/internal/engine/test/headless-native';
+import { installNativeWalkBounds } from '@wildshard/sdk/internal/engine/test/headless/nativeBounds';
+import { installWalkRopeBodies, retainRestoredWalkBodies } from '@wildshard/sdk/internal/engine/test/headless/ropeBodies';
+import type { TickWorkerHost } from '@wildshard/sdk/internal/engine/host/tickWorkerHost';
 import { createNativeProofWorker } from '../../fixtures/headless-worker';
-import { TickCommandSchema, TickEffectSchema, type HeadlessCommand, type HeadlessEffect } from '@wildshard/engine/host/tickProtocol';
-import { canonicalSimDigest } from '@wildshard/engine/test/simState';
+import { TickCommandSchema, TickEffectSchema, type HeadlessCommand, type HeadlessEffect } from '@wildshard/sdk/headless/host/tickProtocol';
+import { canonicalSimDigest } from '@wildshard/sdk/internal/engine/test/simState';
 import { simMismatchError } from '../../fake/simMismatch';
 import { playDriftwood } from './tape';
-import { leadPlayer } from '@wildshard/engine/sim/leadPlayer';
+import { leadPlayer } from '@wildshard/sdk/internal/engine/sim/leadPlayer';
 
 const { actions: DRIFTWOOD_ACT, actor: DRIFTWOOD_INTERACT, step: QUEST_STEP } = policy;
 

@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest';
 import * as v from 'valibot';
-import { loadHeadlessFolder } from '@wildshard/engine/host/headlessFolder';
-import { outputDescriptor } from '@wildshard/engine/game/shardfile/outputDescriptor';
+import { loadHeadlessFolder } from '@wildshard/sdk/headless/host/headlessFolder';
+import { outputDescriptor } from '@wildshard/sdk/headless/game/shardfile/outputDescriptor';
 import { builtProduct } from '../fixtures/builtProduct';
 import { ResolvedIslandLibrarySchema } from '@wildshard/format/islandLibrary';
 import { BAKED_COVE } from '../fixtures/driftwood-baked-cove';

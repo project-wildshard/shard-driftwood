@@ -1,8 +1,8 @@
 // oxlint-disable-next-line import/no-nodejs-modules -- Bind genuinely earned child continuations and their complete input ledger.
 import {createHash} from 'node:crypto';
 import * as v from 'valibot';
-import {HeadlessTapePlanSchema,HeadlessTapeReportSchema,MAX_TICK_SNAPSHOT_CHARS} from '@wildshard/engine/host/tickProtocol';
-import type {SimSnapshot,SimSnapshotBytes} from '@wildshard/engine/sim/snapshot';
+import {HeadlessTapePlanSchema,HeadlessTapeReportSchema,MAX_TICK_SNAPSHOT_CHARS} from '@wildshard/sdk/headless/host/tickProtocol';
+import type {SimSnapshot,SimSnapshotBytes} from '@wildshard/sdk/headless/sim/snapshot';
 
 const natural=v.pipe(v.number(),v.safeInteger(),v.minValue(0)),digest=v.pipe(v.string(),v.regex(/^[a-f0-9]{64}$/u));
 export const TradePartSchema=v.strictObject({plan:HeadlessTapePlanSchema,expected:HeadlessTapeReportSchema,metadata:digest,physics:digest,positive:digest,negative:digest});

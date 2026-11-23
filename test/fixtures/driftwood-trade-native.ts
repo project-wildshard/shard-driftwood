@@ -1,16 +1,16 @@
-import {installPortableMath} from '@wildshard/engine/core/portableMath';
-import {retainRestoredWalkBodies} from '@wildshard/engine/test/headless/ropeBodies';
+import {installPortableMath} from '@wildshard/sdk/internal/engine/core/portableMath';
+import {retainRestoredWalkBodies} from '@wildshard/sdk/internal/engine/test/headless/ropeBodies';
 import { prepareNativeCoinRecipe } from './native-coin-recipe';
 import * as v from 'valibot';
-import type { PrepareHeadlessRuntime } from '@wildshard/engine/host/headlessRuntime';
+import type { PrepareHeadlessRuntime } from '@wildshard/sdk/headless/host/headlessRuntime';
 
 /** The ordinary native continuation plus the original coin/shop owners. */
 export const prepareHeadlessRuntime: PrepareHeadlessRuntime = async preparation => {
   installPortableMath();
-  const {prepareFolderPlan: prepareProductPlan} = await import('@wildshard/engine/test/headless-native');
+  const {prepareFolderPlan: prepareProductPlan} = await import('@wildshard/sdk/internal/engine/test/headless-native');
   const plan = await prepareProductPlan(preparation);
   const { installNativeEconomy } = await import('./native-hosts/loot/nativeEconomy');
-  const { installCoinModel } = await import('@wildshard/engine/game/loot/coinModel');
+  const { installCoinModel } = await import('@wildshard/sdk/internal/engine/game/loot/coinModel');
   const coinGeometry = await prepareNativeCoinRecipe();
   const nativeQuest = v.parse(v.object({step:v.string()}),
     await preparation.product.json('server/quest-policy.json'));

@@ -1,15 +1,15 @@
 import { nativeRapierFile } from '../native-rapier-file';
 // oxlint-disable-next-line import/no-unassigned-import -- The sim's Math goes in before any module body runs.
-import '@wildshard/engine/core/portableMathFirst';
+import '@wildshard/sdk/internal/engine/core/portableMathFirst';
 // oxlint-disable-next-line import/no-nodejs-modules -- Read the current admitted product and shipped physics bytes.
 import {readFileSync} from 'node:fs';
 // oxlint-disable-next-line import/no-nodejs-modules -- Behavior assertions run in the bounded native child.
 import assert from 'node:assert/strict';
 import {beginProductSession} from './productSession';
-import {loadRapier} from '@wildshard/engine/physics/rapier';
-import {createNativeProofResident} from '@wildshard/engine/test/headless-native';
-import {installWalkRopeBodies} from '@wildshard/engine/test/headless/ropeBodies';
-import {installNativeWalkBounds} from '@wildshard/engine/test/headless/nativeBounds';
+import {loadRapier} from '@wildshard/sdk/headless/physics/rapier';
+import {createNativeProofResident} from '@wildshard/sdk/internal/engine/test/headless-native';
+import {installWalkRopeBodies} from '@wildshard/sdk/internal/engine/test/headless/ropeBodies';
+import {installNativeWalkBounds} from '@wildshard/sdk/internal/engine/test/headless/nativeBounds';
 import {prepareHeadlessRuntime} from '../../proof/driftwood-isle/worker';
 import {playDriftwood} from '../../proof/driftwood-isle/tape';
 import {recordedCheckpoints} from './recordedCheckpoints';

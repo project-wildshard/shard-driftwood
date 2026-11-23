@@ -4,7 +4,7 @@ import {assertClose} from '../guest-pair.ts';
 /** The real return rules with identical sampled numeric authorities behind
  * both shadow adapters. No public generator or shipped script is replaced. */
 const returns=readFileSync('src/behaviour/returns.as','utf8');
-import { ScriptModuleV2 } from '@wildshard/engine/script/moduleV2';
+import { ScriptModuleV2 } from '@wildshard/sdk/internal/engine/script/moduleV2';
 import type { DualPortFixture } from '../port-types.ts';
 
 const fields = ['candidates','away','draw','due','fixed','maximum','minimum','night','nocturnal','now','playerX','playerZ','water','x','z',

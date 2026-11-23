@@ -1,5 +1,5 @@
-import type { HeadlessCommand } from '@wildshard/engine/host/tickProtocol';
-import type { HeadlessTapeSegment } from '@wildshard/engine/host/headlessTape';
+import type { HeadlessCommand } from '@wildshard/sdk/headless/host/tickProtocol';
+import type { HeadlessTapeSegment } from '@wildshard/sdk/headless/host/headlessTape';
 
 interface Mark { id: string; tick: number; flags: string[] }
 function deferred<T>(): { promise: Promise<T>; resolve: (value: T) => void; reject: (error: unknown) => void } {

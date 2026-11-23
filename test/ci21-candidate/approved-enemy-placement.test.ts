@@ -4,9 +4,9 @@ import * as v from 'valibot';
 import {createHash} from 'node:crypto';
 import {EnemyPlacementsSchema} from '@wildshard/format/populationProjection';
 import {platformFileFamily,validatePlatformFile} from '@wildshard/format/platformFileFamilies';
-import {registeredJsonSchema} from '@wildshard/engine/host/formatJsonSchema';
+import {registeredJsonSchema} from '@wildshard/sdk/internal/engine/host/formatJsonSchema';
 import {nameBlob} from '@wildshard/sdk/blobs';
-import {encodeCanonicalJson} from '@wildshard/engine/host/immutable';
+import {encodeCanonicalJson} from '@wildshard/sdk/immutable';
 import {EnemyPlacementsSchema as originalPlacement} from '../fixtures/driftwoodLegacySections';
 import fixture from '../fixtures/approved-enemy-placement.json' with {type:'json'};
 

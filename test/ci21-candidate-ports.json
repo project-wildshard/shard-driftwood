@@ -20,7 +20,7 @@
       "sourcePath": "test/driftwood-program-files.test.ts",
       "sourceBlob": "ebad179a551e63f94925dd8fdde7c3f5fe63698a",
       "targetPath": "test/ci21-candidate/driftwood-program-files.test.ts",
-      "targetBlob": "151f59da98e155a6b3fd73e71c5f4f02111c346b",
+      "targetBlob": "051f1a6d4c684dba90908e1c84dcbb8d39ea23e8",
       "originalTests": [
         "both raw files preserve the complete original contracts and admitted executable bytes",
         "the original scoped return owner reuses its raw executable and refuses missing or retired loans"
@@ -36,7 +36,7 @@
       "sourcePath": "test/driftwood-output.test.ts",
       "sourceBlob": "caf4488dbaa194dc6a7eacb19581ed5e6fcda310",
       "targetPath": "test/ci21-candidate/driftwood-output.test.ts",
-      "targetBlob": "ba9bc255ee2316679dbb49b08c7e5d7fa387ae38",
+      "targetBlob": "b01ba736edacbbf0e00507284030ee4f1416039b",
       "originalTests": [
         "Driftwood fixed draws and island cover files name admitted product blobs (no legacy URL table)"
       ],
@@ -55,7 +55,7 @@
         "publishes real pier parents in place of vacant L1 metadata without duplicate addresses"
       ],
       "fixturePath": "test/fixtures/driftwood-emitted-product.ts",
-      "fixtureBlob": "b20b258a3a86a51f57f8becadfa5af1502d0ea68",
+      "fixtureBlob": "cd32bd7ea3ae8eb2150fbfe84928277f6fe81b48",
       "changes": "Every original case/assertion and timeout retained; public imports and owner-local paths only. Scene it spelling becomes direct test for static case inventory. Source proof borrows sealed normal-produced bytes; no default admission or engine removal. SP13 uses the same verified closure reader under its current folderClosureFile export.",
       "caseAdaptations": [
         "SDK 5aa81bdddd65e0737a5e614337f1f9d8540f1add (2026-11-13) deliberately retains the in-cap mesh and drops the over-cap impostor in projectPlaceholders. Preserve the original over-cap refusal through the unchanged standalone bake on this actual product collider/look; additionally assert current CLI keeps an in-cap far mesh with no impostor and admitted files."
@@ -70,7 +70,7 @@
         "Driftwood earns the Sealed Ring through real movement, combat, barrel contacts and replay"
       ],
       "fixturePath": "test/proof/driftwood-isle/tape.ts",
-      "fixtureBlob": "b3ec197a077067479b270f43bc2328ec44fbe3a5",
+      "fixtureBlob": "74479900c88ec70ea2457fb710de2ecca40cc6fb",
       "compilerSupport": [
         "test/fixtures/headless/driftwood-story-run.ts"
       ],
@@ -89,7 +89,7 @@
         "the continuous lookout walk and actual cable landing earn the zipline feat"
       ],
       "fixturePath": "test/proof/driftwood-isle/tape.ts",
-      "fixtureBlob": "b3ec197a077067479b270f43bc2328ec44fbe3a5",
+      "fixtureBlob": "74479900c88ec70ea2457fb710de2ecca40cc6fb",
       "compilerSupport": [],
       "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission."
     },
@@ -103,7 +103,7 @@
         "Driftwood reaches the reef through real HOVER, swim and DIVE before opening its treasure"
       ],
       "fixturePath": "test/proof/driftwood-isle/tape.ts",
-      "fixtureBlob": "b3ec197a077067479b270f43bc2328ec44fbe3a5",
+      "fixtureBlob": "74479900c88ec70ea2457fb710de2ecca40cc6fb",
       "compilerSupport": [
         "test/fixtures/headless/driftwood-optional-run.ts"
       ],
@@ -120,7 +120,7 @@
         "real kills fund Maren BUY and fresh restoration; omitted BUY cannot grant or spend"
       ],
       "fixturePath": "test/proof/driftwood-isle/tape.ts",
-      "fixtureBlob": "b3ec197a077067479b270f43bc2328ec44fbe3a5",
+      "fixtureBlob": "74479900c88ec70ea2457fb710de2ecca40cc6fb",
       "compilerSupport": [
         "test/fixtures/headless/driftwood-trade-run.ts"
       ],
@@ -133,7 +133,7 @@
       "sourcePath": "test/scripts/ground-encounters.test.ts",
       "sourceBlob": "1f8a65954fabe39190f3d5f68f64f362bced4bf6",
       "targetPath": "test/ci21-candidate/captain-encounter-script.test.ts",
-      "targetBlob": "15b00c217183d8dfd89f9d682b502a3111b6100a",
+      "targetBlob": "52c299c04fad43758136a584dcecad613b80f0f1",
       "originalTests": [
         "Captain published guest rises, sinks, relocates inside the pool and resumes its second cut"
       ],
@@ -159,7 +159,7 @@
       "sourcePath": "test/quest-step-native-parity.test.ts",
       "sourceBlob": "c4c61ca31516f0a5262657cf378ad05f74dc27fd",
       "targetPath": "test/ci21-candidate/quest-step-native-parity.test.ts",
-      "targetBlob": "7032285cec2727a259cfc777a2e438f10874e9c4",
+      "targetBlob": "72ff563ae7dd02b46fff3b9a526d02268d4bcc4b",
       "originalTests": [
         "driftwood-isle: recorded native checkpoints regenerate and verify before replay",
         "driftwood-isle: recorded native quest saves restore and replay byte-identically",
@@ -180,7 +180,7 @@
       "sourcePath": "test/director-shipping-product.test.ts",
       "sourceBlob": "a8717e0faf4cd12ddd6889ae77bb9466caed5ae2",
       "targetPath": "test/ci21-candidate/driftwood-director-product.test.ts",
-      "targetBlob": "94096b607897085b7499e67692d7001658ed91a1",
+      "targetBlob": "dea9595e1296b8f88b920181b4b16dffdff31272",
       "originalTests": [
         "driftwood-isle ships one raw director and admits its original native factory"
       ],

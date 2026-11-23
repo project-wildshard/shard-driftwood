@@ -1,9 +1,9 @@
 /** Frozen pre-entry trader adapter for independent geometry, gesture and collider parity. */
 import type * as THREE from 'three';
-import { defineModel, type ModelDef } from '@wildshard/engine/models/model';
-import { FigureRows } from '@wildshard/engine/game/systems/npc/figureRows';
-import { KitFigure } from '@wildshard/engine/game/systems/npc/kitFigure';
-import { SceneHandles } from '@wildshard/engine/game/shardfile/sceneHandles';
+import { defineModel, type ModelDef } from '@wildshard/sdk/internal/engine/models/model';
+import { FigureRows } from '@wildshard/sdk/internal/engine/game/systems/npc/figureRows';
+import { KitFigure } from '@wildshard/sdk/internal/engine/game/systems/npc/kitFigure';
+import { SceneHandles } from '@wildshard/sdk/internal/engine/game/shardfile/sceneHandles';
 import { loadFixedGeometry, fixedDraw, fixedGeometryGroups, FIGURES } from './driftwoodLegacyAssets';
 import { driftwoodProduct } from './driftwoodLegacyRows';
 

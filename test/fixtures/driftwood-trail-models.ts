@@ -1,4 +1,4 @@
-import { defineSpecimenCatalogue } from '@wildshard/engine/game/models/specimenCatalogue';
+import { defineSpecimenCatalogue } from '@wildshard/sdk/internal/engine/game/models/specimenCatalogue';
 import rows from '../../src/data/trailCatalogue.json' with { type: 'json' };
 import type { CatalogueParams } from '../../src/generators/trailParams';
 

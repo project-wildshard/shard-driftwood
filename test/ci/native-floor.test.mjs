@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { test } from 'node:test';
 import * as v from 'valibot';
 import { nativeGroundRecordSchema } from '@wildshard/format/nativePhysics';
-import { nativeBakeGround } from '@wildshard/engine/game/population/nativeBake';
+import { nativeBakeGround } from '@wildshard/sdk/internal/engine/game/population/nativeBake';
 
 function originalInline(row) {
   const binary = atob(row.heights), bytes = new Uint8Array(binary.length);

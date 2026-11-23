@@ -1,4 +1,4 @@
-import { loadHeadlessFolder } from '@wildshard/engine/host/headlessFolder';
+import { loadHeadlessFolder } from '@wildshard/sdk/headless/host/headlessFolder';
 import { builtProduct } from './builtProduct';
 
 let pending: ReturnType<typeof loadHeadlessFolder> | undefined;

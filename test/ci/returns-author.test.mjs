@@ -1,6 +1,6 @@
 // J186: actual owner generator -> public compiler -> real admitted guest.
 // No shadow artifact or authored gameplay byte is published by this proof.
-import '@wildshard/engine/scripts/sim-node-loader.mjs';
+import '@wildshard/sdk/headless/scripts/sim-node-loader.mjs';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
@@ -8,10 +8,10 @@ import { test } from 'node:test';
 const { compileDecisionScripts } = await import('@wildshard/sdk/buildDecisionScripts');
 const { compileScript } = await import('@wildshard/sdk/compileScript');
 const { compileScriptV2 } = await import('@wildshard/sdk/compileScriptV2');
-const { ReturnProgram } = await import('@wildshard/engine/game/population/returnProgram');
+const { ReturnProgram } = await import('@wildshard/sdk/internal/engine/game/population/returnProgram');
 const { Rng } = await import('@wildshard/format/seededRng');
-const { Scope } = await import('@wildshard/engine/app/scope');
-const { setTerrainHeight } = await import('@wildshard/engine/world/terrainHeight');
+const { Scope } = await import('@wildshard/sdk/headless/app/scope');
+const { setTerrainHeight } = await import('@wildshard/sdk/headless/world/terrainHeight');
 const { driftwoodGuestBytes } = await import('../../src/generators/guestPrograms.ts');
 const { driftwoodGroundField } = await import('../../src/generators/groundRows.ts');
 const { WORLD_DROP, SHORE_LEVEL } = await import('../../src/generators/landscapeRows.ts');

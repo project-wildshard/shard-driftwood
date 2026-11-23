@@ -128,9 +128,9 @@ jobs:
       - name: Keep the cleared queue and public imports honest
         run: node scripts/check-test-boundary.mjs
       - name: Actual pose programs and merged numeric values
-        run: node --import @wildshard/engine/scripts/sim-node-loader.mjs --experimental-transform-types --test test/ci/channel-values.test.mjs
+        run: node --import @wildshard/sdk/headless/scripts/sim-node-loader.mjs --experimental-transform-types --test test/ci/channel-values.test.mjs
       - name: Native floor byte and value preservation
-        run: node --import @wildshard/engine/scripts/sim-node-loader.mjs --experimental-transform-types --test test/ci/native-floor.test.mjs
+        run: node --import @wildshard/sdk/headless/scripts/sim-node-loader.mjs --experimental-transform-types --test test/ci/native-floor.test.mjs
       - name: Prove real shipping and shadow director parity
         run: node --test test/ci/director-shadow.test.mjs
       - name: Execute every preserved authored script port
@@ -145,7 +145,7 @@ jobs:
         run: pnpm exec shard-format validate out/driftwood-isle
       - name: The declared roster stands the keeper's bodies
         if: github.event_name != 'push'
-        run: node --import @wildshard/engine/scripts/sim-node-loader.mjs --experimental-transform-types --test test/ci/declared-roster.test.mjs
+        run: node --import @wildshard/sdk/headless/scripts/sim-node-loader.mjs --experimental-transform-types --test test/ci/declared-roster.test.mjs
       - name: Preserve CI21 grid eviction and restore assertions
         if: ${{ !cancelled() && (github.job != 'check' || github.event_name != 'push') }}
         run: |
@@ -289,7 +289,7 @@ jobs:
         run: pnpm exec shard-format validate out/driftwood-isle
       - name: The declared roster stands the keeper's bodies
         if: github.event_name != 'push'
-        run: node --import @wildshard/engine/scripts/sim-node-loader.mjs --experimental-transform-types --test test/ci/declared-roster.test.mjs
+        run: node --import @wildshard/sdk/headless/scripts/sim-node-loader.mjs --experimental-transform-types --test test/ci/declared-roster.test.mjs
       - name: Preserve CI21 grid eviction and restore assertions
         if: ${{ !cancelled() && (github.job != 'check' || github.event_name != 'push') }}
         run: |

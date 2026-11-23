@@ -1,6 +1,6 @@
 import { object, parse } from 'valibot';
 import { WorldSceneModelsSchema } from '@wildshard/format/worldSceneModels';
-import { defineWorldSceneCatalogue } from '@wildshard/engine/game/models/worldSceneCatalogue';
+import { defineWorldSceneCatalogue } from '@wildshard/sdk/internal/engine/game/models/worldSceneCatalogue';
 import { driftwoodModelCatalogue } from './driftwoodModelCatalogue';
 
 export const siteRows=parse(object({siteCatalogue:WorldSceneModelsSchema}),

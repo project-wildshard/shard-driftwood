@@ -1,12 +1,12 @@
-import type { SimHost } from '@wildshard/engine/sim';
-import type { HeadlessCommand } from '@wildshard/engine/host/tickProtocol';
-import { readNativeQuestSpots } from '@wildshard/engine/game/quest/nativeComposition';
+import type { SimHost } from '@wildshard/sdk/internal/engine/sim';
+import type { HeadlessCommand } from '@wildshard/sdk/headless/host/tickProtocol';
+import { readNativeQuestSpots } from '@wildshard/sdk/internal/engine/game/quest/nativeComposition';
 import { DRIFTWOOD_SPOTS as nativeQuestSpots } from '../../../src/generators/spots';
 import policy from '../../../src/data/nativeQuest.json' with { type: 'json' };
 import * as v from 'valibot';
 import { Vector3 } from 'three';
-import { CableLayout } from '@wildshard/engine/sim/cableTraversal';
-import { leadPlayer } from '@wildshard/engine/sim/leadPlayer';
+import { CableLayout } from '@wildshard/sdk/internal/engine/sim/cableTraversal';
+import { leadPlayer } from '@wildshard/sdk/internal/engine/sim/leadPlayer';
 
 const { step: QUEST_STEP } = policy;
 

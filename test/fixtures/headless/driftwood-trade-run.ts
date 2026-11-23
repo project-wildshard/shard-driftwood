@@ -1,26 +1,26 @@
 import { nativeRapierFile } from '../native-rapier-file';
 // oxlint-disable-next-line import/no-unassigned-import -- The sim's Math goes in before any module body runs.
-import '@wildshard/engine/core/portableMathFirst';
+import '@wildshard/sdk/internal/engine/core/portableMathFirst';
 // oxlint-disable-next-line import/no-nodejs-modules -- Compare earned native inputs and independent continuation owners.
 import assert from 'node:assert/strict';
 // oxlint-disable-next-line import/no-nodejs-modules -- The native worker uses the original checked-in physics binary.
 import { readFileSync,writeFileSync,statSync } from 'node:fs';
 import * as v from 'valibot';
 import { beginProductSession } from './productSession';
-import { checkedReplayPipeline } from '@wildshard/engine/test/headless/checkedReplayPipeline';
-import { createNativeProofResident } from '@wildshard/engine/test/headless-native';
-import { loadRapier } from '@wildshard/engine/physics/rapier';
-import { snapshotSimHostBytes, decodeSimSnapshot,serializeSimSnapshot } from '@wildshard/engine/sim/snapshot';
-import { physicsState, sameBytes } from '@wildshard/engine/test/simState';
-import { installWalkRopeBodies } from '@wildshard/engine/test/headless/ropeBodies';
-import { installNativeWalkBounds } from '@wildshard/engine/test/headless/nativeBounds';
+import { checkedReplayPipeline } from '@wildshard/sdk/internal/engine/test/headless/checkedReplayPipeline';
+import { createNativeProofResident } from '@wildshard/sdk/internal/engine/test/headless-native';
+import { loadRapier } from '@wildshard/sdk/headless/physics/rapier';
+import { snapshotSimHostBytes, decodeSimSnapshot,serializeSimSnapshot } from '@wildshard/sdk/headless/sim/snapshot';
+import { physicsState, sameBytes } from '@wildshard/sdk/internal/engine/test/simState';
+import { installWalkRopeBodies } from '@wildshard/sdk/internal/engine/test/headless/ropeBodies';
+import { installNativeWalkBounds } from '@wildshard/sdk/internal/engine/test/headless/nativeBounds';
 import { prepareHeadlessRuntime } from '../driftwood-trade-native';
 import { nativeEconomy, NATIVE_TRADE } from '../native-hosts/loot/nativeEconomy';
-import type { HeadlessCommand, HeadlessEffect } from '@wildshard/engine/host/tickProtocol';
-import type { HeadlessTapeObservation, HeadlessTapeSegment } from '@wildshard/engine/host/headlessTape';
-import {outputDescriptor} from '@wildshard/engine/game/shardfile/outputDescriptor';
+import type { HeadlessCommand, HeadlessEffect } from '@wildshard/sdk/headless/host/tickProtocol';
+import type { HeadlessTapeObservation, HeadlessTapeSegment } from '@wildshard/sdk/headless/host/headlessTape';
+import {outputDescriptor} from '@wildshard/sdk/headless/game/shardfile/outputDescriptor';
 import {TradeHandoffSchema,tradeWire,tradeRead,tradeHash,tradeSnapshotHashes,checkTradeLedger,checkTradeHandoff,type TradeHandoff,type TradePart} from './tradeHandoff';
-import { leadPlayer } from '@wildshard/engine/sim/leadPlayer';
+import { leadPlayer } from '@wildshard/sdk/internal/engine/sim/leadPlayer';
 
 const [stage,outputPath,inputPath,inputHash]=process.argv.slice(2);assert.ok(stage==='counter'||stage==='purse'||stage==='buy');assert.ok(outputPath);
 let inherited:TradeHandoff|undefined;

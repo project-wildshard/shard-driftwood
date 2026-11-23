@@ -1,6 +1,6 @@
 // Preserved authored AS bodies and outcome laws, executed by installed APIs.
 // These are unshipped shadow artifacts, separate from the shipping guest proof.
-import '@wildshard/engine/scripts/sim-node-loader.mjs';
+import '@wildshard/sdk/headless/scripts/sim-node-loader.mjs';
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
 import { test } from 'node:test';

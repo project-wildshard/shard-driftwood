@@ -7,12 +7,12 @@
  * fire where it burns beside him. Its mesh smoke stays hidden until the entered world lends its compiled look.
  */
 import * as THREE from 'three';
-import type { Scope } from '@wildshard/engine/app/scope';
-import type { SkyRig as Sky } from '@wildshard/engine/world/skyRig';
-import { createBuildingCloud } from '@wildshard/engine/game/shardfile/buildingCloud';
-import { SceneHandles } from '@wildshard/engine/game/shardfile/sceneHandles';
-import { KitFigure } from '@wildshard/engine/game/systems/npc/kitFigure';
-import { hasLentLook, lentLook } from '@wildshard/engine/game/shardfile/lentLooks';
+import type { Scope } from '@wildshard/sdk/headless/app/scope';
+import type { SkyRig as Sky } from '@wildshard/sdk/internal/engine/world/skyRig';
+import { createBuildingCloud } from '@wildshard/sdk/internal/engine/game/shardfile/buildingCloud';
+import { SceneHandles } from '@wildshard/sdk/internal/engine/game/shardfile/sceneHandles';
+import { KitFigure } from '@wildshard/sdk/internal/engine/game/systems/npc/kitFigure';
+import { hasLentLook, lentLook } from '@wildshard/sdk/internal/engine/game/shardfile/lentLooks';
 import { driftwoodRows, driftwoodProduct } from './driftwoodLegacyRows';
 import { fixedDraw, fixedGeometryGroups, fixedGeometryReady, FIGURES } from './driftwoodLegacyAssets';
 

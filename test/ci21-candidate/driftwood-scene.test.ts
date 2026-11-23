@@ -1,11 +1,11 @@
 import { expect, test } from 'vitest';
 import { projectPlaceholders, bakeFarPlaceholder, colliderGrid, shardfileLook } from '@wildshard/sdk/bake/placeholders';
 import { validateShardfileAssets } from '@wildshard/format/assetAdmission';
-import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
+import { hashImmutableBytes } from '@wildshard/sdk/immutable';
 import { prepareAssetDecoders } from '@wildshard/format/shardfileAssets';
 import { scriptAdmissionRows } from '@wildshard/format/scriptContract';
-import { outputDescriptor } from '@wildshard/engine/game/shardfile/outputDescriptor';
-import { folderClosureFile } from '@wildshard/engine/game/shardfile/shardFolder';
+import { outputDescriptor } from '@wildshard/sdk/headless/game/shardfile/outputDescriptor';
+import { folderClosureFile } from '@wildshard/sdk/internal/engine/game/shardfile/shardFolder';
 import { driftwoodEmittedProduct } from '../fixtures/driftwood-emitted-product';
 
 async function readEmittedWorld() {

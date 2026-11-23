@@ -3,7 +3,7 @@ import { TOON_LOOK } from '../../src/generators/toonPresentation';
 import { HELD_ARMS } from './driftwood-layout-source';
 import inventory from '../../src/data/fixedGeometry.json' with { type: 'json' };
 import { encodeCanonicalJson, hashImmutableBytes } from '@wildshard/format/immutable';
-import { createShardFolder } from '@wildshard/engine/game/shardfile/shardFolder';
+import { createShardFolder } from '@wildshard/sdk/internal/engine/game/shardfile/shardFolder';
 import { emptyShardfile } from '@wildshard/sdk/author';
 import { DRIFTWOOD_CLIENT_SECTIONS } from './driftwoodLegacyLayouts';
 import { DRIFTWOOD_CLIENT_SECTIONS as PLATFORM_ROWS } from '../../src/generators/clientSections';

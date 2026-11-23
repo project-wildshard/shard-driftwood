@@ -1,29 +1,29 @@
 import { nativeRapierFile } from '../native-rapier-file';
 // oxlint-disable-next-line import/no-unassigned-import -- The sim's Math goes in before any module body runs.
-import '@wildshard/engine/core/portableMathFirst';
+import '@wildshard/sdk/internal/engine/core/portableMathFirst';
 // oxlint-disable-next-line import/no-nodejs-modules -- Only actual native input and independent replay are compared.
 import assert from 'node:assert/strict';
 // oxlint-disable-next-line import/no-nodejs-modules -- The existing checked-in native physics binary is immutable input.
 import {readFileSync} from 'node:fs';
 import * as v from 'valibot';
 import {beginProductSession} from './productSession';
-import {checkedReplayPipeline} from '@wildshard/engine/test/headless/checkedReplayPipeline';
-import {createNativeProofResident} from '@wildshard/engine/test/headless-native';
-import {loadRapier} from '@wildshard/engine/physics/rapier';
-import {snapshotSimHostBytes,decodeSimSnapshot} from '@wildshard/engine/sim/snapshot';
-import {castRay,floorBelow} from '@wildshard/engine/physics/query';
-import {physicsState,sameBytes} from '@wildshard/engine/test/simState';
-import {installWalkRopeBodies} from '@wildshard/engine/test/headless/ropeBodies';
-import {installNativeWalkBounds} from '@wildshard/engine/test/headless/nativeBounds';
+import {checkedReplayPipeline} from '@wildshard/sdk/internal/engine/test/headless/checkedReplayPipeline';
+import {createNativeProofResident} from '@wildshard/sdk/internal/engine/test/headless-native';
+import {loadRapier} from '@wildshard/sdk/headless/physics/rapier';
+import {snapshotSimHostBytes,decodeSimSnapshot} from '@wildshard/sdk/headless/sim/snapshot';
+import {castRay,floorBelow} from '@wildshard/sdk/internal/engine/physics/query';
+import {physicsState,sameBytes} from '@wildshard/sdk/internal/engine/test/simState';
+import {installWalkRopeBodies} from '@wildshard/sdk/internal/engine/test/headless/ropeBodies';
+import {installNativeWalkBounds} from '@wildshard/sdk/internal/engine/test/headless/nativeBounds';
 import {prepareHeadlessRuntime} from '../../proof/driftwood-isle/worker';
 import {DRIFTWOOD_SPOTS} from '../../../src/generators/spots';
-import {readNativeQuestSpots} from '@wildshard/engine/game/quest/nativeComposition';
-import {eyeReaches} from '@wildshard/engine/game/quest/interactionRows';
+import {readNativeQuestSpots} from '@wildshard/sdk/internal/engine/game/quest/nativeComposition';
+import {eyeReaches} from '@wildshard/sdk/internal/engine/game/quest/interactionRows';
 import {REEF_TREASURE} from '../../../src/generators/interactables';
 import policy from '../../../src/data/nativeQuest.json' with {type:'json'};
-import type {HeadlessCommand,HeadlessEffect} from '@wildshard/engine/host/tickProtocol';
-import type {HeadlessTapeObservation,HeadlessTapeSegment} from '@wildshard/engine/host/headlessTape';
-import { leadPlayer } from '@wildshard/engine/sim/leadPlayer';
+import type {HeadlessCommand,HeadlessEffect} from '@wildshard/sdk/headless/host/tickProtocol';
+import type {HeadlessTapeObservation,HeadlessTapeSegment} from '@wildshard/sdk/headless/host/headlessTape';
+import { leadPlayer } from '@wildshard/sdk/internal/engine/sim/leadPlayer';
 
 const stage=process.argv[2]??'bench';
 if(stage!=='bench'&&stage!=='reef')throw new Error('Unknown optional Driftwood tape');
