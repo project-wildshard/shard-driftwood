@@ -351,14 +351,6 @@
     "test/proof/driftwood-isle/witness.ts",
     "test/proof/driftwood-isle/worker.ts"
   ],
-  "nativeDeclarations": [
-    {
-      "targetPath": "node_modules/@wildshard/engine/src/client/engine/types/meshopt-simplifier.d.ts",
-      "targetBlob": "1f530c29fdcae2d17a8da44add4b6bd4b64abbe3",
-      "publicDefiningEdge": "@wildshard/sdk/headless/game/types",
-      "reason": "Explicit nearby native compiler context needs this existing defining ambient module; no consumer declaration or production runtime import."
-    }
-  ],
   "compilerContextPaths": [
     "tsconfig.json",
     "src/tsconfig.json",
