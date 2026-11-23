@@ -355,7 +355,7 @@
     {
       "targetPath": "node_modules/@wildshard/engine/src/client/engine/types/meshopt-simplifier.d.ts",
       "targetBlob": "1f530c29fdcae2d17a8da44add4b6bd4b64abbe3",
-      "publicDefiningEdge": "@wildshard/engine/game/types",
+      "publicDefiningEdge": "@wildshard/sdk/headless/game/types",
       "reason": "Explicit nearby native compiler context needs this existing defining ambient module; no consumer declaration or production runtime import."
     }
   ],

@@ -1,12 +1,11 @@
 {
-  "content": "0eb061e1b1073214720fc2d94c3c5b3da9d016592ac6d8efb0e84a7c8cc9d2b5",
-  "captured": "2026-11-23T14:30:46.805Z",
-  "base": "stamp-existing: the hero files already in the shard, adopted without a capture",
+  "content": "c0b0619923eba834b773007d34e36ccd87b3af5cd3ca8247629023ff4dd95d50",
+  "captured": "2026-11-23T18:02:33.166Z",
+  "base": "auto re-stamp: curated art unchanged, content moved (wildshard build)",
   "card": {
     "thumbs/driftwood-isle.jpg": "38524675b82efe887cf278b25ea727490c54afed6e7a3ad3bc721de01f615127",
     "thumbs/driftwood-isle-portrait.jpg": "147b76186ef873d52dda6c7663e518456c956336baa0cfd82eba56e9e1898fc1",
     "thumbs/driftwood-isle-landscape.jpg": "b58ad693bb52a489eed8d8bb3f2422ed429dea03be07ce3a00910710ba2ef9cb"
   },
-  "curated": true,
-  "look": "1f5db7fdb8462612bb0a259d89be18d0927b0008885fd42976c96991d0f46e32"
+  "curated": true
 }
