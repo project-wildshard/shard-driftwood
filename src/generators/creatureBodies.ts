@@ -4,14 +4,17 @@
  * monkey and sailor ones moved here unchanged, the boar and bear the game's own, called with the island's paints registered
  * as `toonPaint(kind)`), run once per (kind, variant) with the factory's own
  * seed (`Rng(hashSeed('kind:variant'))`) and the island's low-poly loft resolution, each material group (fur, hard, eyes)
- * merged and packed by the creature-body bank (./creatureBodyBank.ts) into one file in the shard file the page reads back
- * (species/bodies.ts). The page still facets, tints and skins them exactly as before.
+ * merged; the skin step (rows/creatureSkins.ts) fits each to its rig as a declared platform.skin look.
  */
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { smoothstep as sstep } from '@wildshard/sdk/noise';
 import { Rng } from '@wildshard/sdk/random';
 import { loft, skinPlain, S, boneIndex, mix, paletteColors, srgb, withSpeciesGeometry, commonBodyVariants, bakeCommonBody, type CommonBodyKind, type Paint, type RGB, type AnimalSpecies, type BoneDef, type VariantDef } from '@wildshard/kit/bake/species';
+import publicInputs from '../data/publicInputs.json' with { type: 'json' };
+
+/** The committed Hunyuan sailor head and the captain the bodies are lofted around. */
+export const CREATURE_BODY_INPUTS: { readonly head: string; readonly captain: string } = publicInputs.creatureBodies;
 
 // three returns null for incompatible attributes (its types say otherwise), as the engine's mergeAnimalGeometry reads it
 const merge = (parts: THREE.BufferGeometry[]): THREE.BufferGeometry | null => mergeGeometries(parts, false);

@@ -16,8 +16,7 @@ import { parseSkinFile, skinFileDependencies } from '@wildshard/format/skinAsset
 import type { ShardRows } from '@wildshard/format/rows';
 import type { Shardfile } from '@wildshard/format/shardSchema';
 import type { ProjectGenerationContext } from '@wildshard/sdk/projectGeneration';
-import { bakeCaptainBody, bakeCreatureBodies, faceHeadOf, type BakedCreatureBody } from '../creatureBodies';
-import { CREATURE_BODY_INPUTS } from '../creatureBodyBank';
+import { CREATURE_BODY_INPUTS, bakeCaptainBody, bakeCreatureBodies, faceHeadOf, type BakedCreatureBody } from '../creatureBodies';
 import { CRAB_CLIPS } from '../crabClips';
 import { CAPTAIN_CLIPS, SAILOR_CLIPS } from '../humanoidClips';
 import { MONKEY_CLIPS } from '../monkeyClips';
@@ -288,7 +287,7 @@ export function skinSpecies(rows: readonly ShardRows['species'][number][]): Skin
   return new Map(rows.map(row => [row.kind, { id: row.id, variants: row.variants.map(variant => variant.id) }] as const));
 }
 
-/** The lofted bodies the hull book packed (creatureBodyBank.ts), from its two committed inputs. */
+/** The lofted bodies (creatureBodies.ts), from their two committed inputs. */
 export async function bakedCreatureBodies(read: (url: string) => Uint8Array): Promise<BakedCreatureBody[]> {
   const head = await readSourceModel(Uint8Array.from(read(CREATURE_BODY_INPUTS.head)));
   head.gltf.scene.updateMatrixWorld(true);

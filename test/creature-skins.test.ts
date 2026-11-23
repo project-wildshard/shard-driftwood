@@ -6,7 +6,7 @@ import { readSourceModel } from '@wildshard/sdk/bake/skinned';
 import { skinLookRules, validateSkinAssets, parseSkinFile } from '@wildshard/format/skinAssets';
 import { hashImmutableBytes } from '@wildshard/sdk/immutable';
 import { bakeCaptainBody, bakeCreatureBodies, faceHeadOf } from '../src/generators/creatureBodies';
-import { CREATURE_BODY_INPUTS } from '../src/generators/creatureBodyBank';
+import { CREATURE_BODY_INPUTS } from '../src/generators/creatureBodies';
 import { driftwoodDeclaredRoster } from '../src/generators/rows/declaredRoster';
 import { CAPTAIN_SPECIES } from '../src/generators/declaredCaptain';
 import { creatureSkinFiles, driftwoodCreatureSkins } from '../src/generators/rows/creatureSkins';

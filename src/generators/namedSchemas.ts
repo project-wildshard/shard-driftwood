@@ -36,10 +36,7 @@ export function parseDriftwoodFixedLayouts(input: unknown): DriftwoodFixedLayout
 const sharedContracts: Readonly<Record<string, string>> = {
     'quests/page-composition.json': 'questPageComposition.QuestPageComposition',
     'world/cover-composition.json': 'streamedCover.CoverComposition',
-    'look/creature-looks.json': 'speciesLooks.PackedCreatureLooks',
-    'actors/creature-install.json': 'speciesLooks.CreatureInstall',
     'quests/wake-boss.json': 'chapterDirector.ChapterWake',
-    'actors/projection.json': 'populationProjection.PopulationProjection',
     'actors/page-life.json': 'pageLife.PageLife',
     'people/catalogue.json': 'figures.FigureCatalogue',
     'people/cards.json': 'questFigures.KitFigureCards',
