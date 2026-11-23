@@ -14,6 +14,9 @@ function draw(id: string): string {
   if (file === undefined) throw new Error(`Missing toon ground draw: ${id}`);
   return file;
 }
+/** QA 11-23 row 11 (Jake: "can we make driftwood a day only zone?"): the toon sky starts at `fixed.midday` (skyDay.json
+ *  `start`) and one cycle lasts about 31 years, so page and server keep the authored midday light. Was 48 * 60. */
+const DAY_ONLY_CYCLE_SECONDS = 1e9;
 /** Build-only composition of authored rows; the admitted host receives no native owner or callback. */
 export const TOON_LOOK: ReturnType<typeof parseToonLook> = parseToonLook({
   id: 'driftwood.toon', lighting: held.look.lighting,
@@ -21,7 +24,7 @@ export const TOON_LOOK: ReturnType<typeof parseToonLook> = parseToonLook({
   // DW (engine-performance section 10): the phone's last cascade ends at 60 m, not 80 (fewer far casters a far tick)
   shadows: { rig: 'phoneSplits', filter: 'tent', fade: true, normalBias: .14, radius: .6, texelBias: 'phone', depth16: 'phone', phoneFar: 60 },
   ground: { materials: GROUND_LOOK.materials, files: { ground: draw('draw:ground:ground'), slab: draw('draw:ground:slab') }, kit: KIT_LENDS },
-  sky: { day: DRIFTWOOD_SKY_DAY, cycleSeconds: 48 * 60, name: 'driftwood-isle', channels: 'driftwood.sky',
+  sky: { day: DRIFTWOOD_SKY_DAY, cycleSeconds: DAY_ONLY_CYCLE_SECONDS, name: 'driftwood-isle', channels: 'driftwood.sky',
     dome: { look: SKY_DOME_LOOK, radius: 2200, segments: [48, 24], order: -20 },
     clouds: { look: SKY_CLOUD_LOOK, order: -15, puffs, detail: 2 }, midday: { zenith: MIDDAY_SKY_ROWS.zenith, horizon: MIDDAY_SKY_ROWS.horizon, cloudLit: MIDDAY_SKY_ROWS.cloudLit, sunGlow: MIDDAY_SKY_ROWS.sunGlow },
     environment: { near: 1, far: 3000 }, crisp: 1 },
