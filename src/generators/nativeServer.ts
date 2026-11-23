@@ -1,4 +1,4 @@
-import { nativeAssemblyFiles, type NativeAssemblyPlan, type ServerBlob } from '@wildshard/sharddev/blobs';
+import { nativeAssemblyFiles, type NativeAssemblyPlan, type ServerBlob } from '@wildshard/sdk/blobs';
 import mixedPopulation from '../data/mixedPopulation.json' with { type: 'json' };
 import nativePopulationPolicy from '../data/nativePopulationPolicy.json' with { type: 'json' };
 import questKillSteps from '../data/questKillSteps.json' with { type: 'json' };

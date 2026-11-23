@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
 import * as v from 'valibot';
-import { achievementCounterRows, questStepRows, questHintRows, questServiceRows, questPageInteractionRows, questPageCompositionRows, coverCompositionRows } from '@wildshard/sharddev/rows';
+import { achievementCounterRows, questStepRows, questHintRows, questServiceRows, questPageInteractionRows, questPageCompositionRows, coverCompositionRows } from '@wildshard/sdk/rows';
 import { parseAchievementCounterData } from '@wildshard/format/achievementCounters';
 import { parseQuestStepRows, parseQuestHintRows, parseQuestServiceActions } from '@wildshard/format/questSteps';
 import { parseQuestPageInteractions } from '@wildshard/format/questInteractions';

@@ -10,7 +10,7 @@ import * as THREE from 'three';
 import geometryPolicy from '../data/groundGeometryPolicy.json' with { type: 'json' };
 import { GROUND_PATHS } from './groundLook';
 import { LP, hash2, lowPolyGroundColor } from './groundColor';
-import { staticGlb } from '@wildshard/sharddev/bake/glb';
+import { staticGlb } from '@wildshard/sdk/bake/glb';
 import { islandClippedIndex } from './islandClips';
 import ISLAND_GRID from '../data/islandClipRows.json' with { type: 'json' };
 

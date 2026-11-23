@@ -5,9 +5,9 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { hashImmutableBytes } from '@wildshard/format/immutable';
-import { parseKtx2 } from '@wildshard/sharddev/assets';
-import { bakeColourTexture } from '@wildshard/sharddev/bake/texture';
-import { readImagePixels, writeImagePixels } from '@wildshard/sharddev/bake/image';
+import { parseKtx2 } from '@wildshard/sdk/assets';
+import { bakeColourTexture } from '@wildshard/sdk/bake/texture';
+import { readImagePixels, writeImagePixels } from '@wildshard/sdk/bake/image';
 
 const root = resolve(import.meta.dirname, '../../../..'), project = resolve(root, 'src/shards/driftwood-isle');
 const pin = resolve(project, 'data/captainCoat.json');

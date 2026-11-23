@@ -1,5 +1,5 @@
 import { IslandLibrary } from '@wildshard/engine/game/models/islandLibrary';
-import type { NamedRowValue } from '@wildshard/sharddev/formatJsonSchema';
+import type { NamedRowValue } from '@wildshard/sdk/formatJsonSchema';
 import type { FixedGeometryGroupsSchema } from '../../src/generators/sections';
 type FixedGeometryGroups = NamedRowValue<typeof FixedGeometryGroupsSchema>;
 

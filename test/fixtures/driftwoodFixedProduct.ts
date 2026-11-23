@@ -7,14 +7,14 @@ import { readFile } from 'node:fs/promises';
 // oxlint-disable-next-line import/no-nodejs-modules -- Native fixture paths resolve from the test repository.
 import { resolve } from 'node:path';
 import { createShardProduct } from '../../src/shared/game/shardfile/shardProduct';
-import { emptyShardfile } from '@wildshard/sharddev/author';
+import { emptyShardfile } from '@wildshard/sdk/author';
 import { DRIFTWOOD_BANK_BLOBS, DRIFTWOOD_OUTPUT } from '../../src/generators/assets';
 import { DRIFTWOOD_CLIENT_SECTIONS } from '../../src/generators/clientSections';
 import { FIGURE_CATALOGUE } from '../../src/generators/figureCatalogue';
 import { NPC_FOCUS_PROGRAMS } from '../../src/generators/npcFocusPrograms';
-import { createProjectGeneration } from '@wildshard/sharddev/projectGeneration';
+import { createProjectGeneration } from '@wildshard/sdk/projectGeneration';
 import { driftwoodFixedModelOutput } from '../../src/generators/fixedModels';
-import { nameMeshoptBlob } from '@wildshard/sharddev/blobs';
+import { nameMeshoptBlob } from '@wildshard/sdk/blobs';
 import { driftwoodSceneBanks } from './driftwoodSceneBanks';
 import { fixtureProductFile, fixtureJsonCheck } from './productFile';
 

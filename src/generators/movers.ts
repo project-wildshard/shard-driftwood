@@ -1,6 +1,6 @@
 import { Group } from 'three';
-import { Mover, swellDriver, type MoverData } from '@wildshard/sharddev/movers';
-import type { ColliderDesc } from '@wildshard/sharddev/bake/placement';
+import { Mover, swellDriver, type MoverData } from '@wildshard/sdk/movers';
+import type { ColliderDesc } from '@wildshard/sdk/bake/placement';
 import { BRIDGE } from './worldSites';
 import authoredLayout from '../data/layout.json' with { type: 'json' };
 import { DECLARED_SEA, WORLD_DROP } from './sea';

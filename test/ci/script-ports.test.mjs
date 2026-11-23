@@ -5,8 +5,8 @@ import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
 import { test } from 'node:test';
 
-const { compileDualScriptV2 } = await import('@wildshard/sharddev/test/compileDualScriptV2');
-const { compileScript } = await import('@wildshard/sharddev/compileScript');
+const { compileDualScriptV2 } = await import('@wildshard/sdk/test/compileDualScriptV2');
+const { compileScript } = await import('@wildshard/sdk/compileScript');
 const names = readdirSync(new URL('./ports/', import.meta.url)).filter(name => name.endsWith('.dual.ts')).sort();
 assert.deepEqual(names, ['driftwood-barrels.dual.ts', 'driftwood-bridge-sway.dual.ts', 'driftwood-captain.dual.ts', 'driftwood-returns.dual.ts']);
 test('every non-director authored AS body is enrolled without stale copied source', { timeout: 9500 }, async () => {

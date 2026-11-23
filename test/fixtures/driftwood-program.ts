@@ -3,7 +3,7 @@ import { nativeCompilers } from './nativeCompilers';
 import {homedir} from 'node:os';
 // oxlint-disable-next-line import/no-nodejs-modules -- Keep the fixture's explicit production input roots.
 import {resolve} from 'node:path';
-import {createProjectGeneration} from '@wildshard/sharddev/projectGeneration';
+import {createProjectGeneration} from '@wildshard/sdk/projectGeneration';
 import {hashImmutableBytes} from '@wildshard/format/immutable';
 import type {Shardfile} from '@wildshard/format/shardSchema';
 import build from '../../src/shard.config';

@@ -1,4 +1,4 @@
-import { creaturePoseRows, numericChannelPrograms, type ClientChannels, type NumericChannelOutput } from '@wildshard/sharddev/clientChannels';
+import { creaturePoseRows, numericChannelPrograms, type ClientChannels, type NumericChannelOutput } from '@wildshard/sdk/clientChannels';
 
 type Read = Parameters<NumericChannelOutput['expr']>[1];
 type Triple = readonly [number, number, number];

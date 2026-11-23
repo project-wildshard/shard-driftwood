@@ -1,6 +1,6 @@
 import barrelSource from '../src/behaviour/barrels.as?raw';
 import { expect, test } from 'vitest';
-import { compileDecisionScripts } from '@wildshard/sharddev/buildDecisionScripts';
+import { compileDecisionScripts } from '@wildshard/sdk/buildDecisionScripts';
 import { decisionBindingMap } from '@wildshard/format/decisionBindings';
 import { DecisionHost, type DecisionScript } from '@wildshard/engine/script/decision';
 import { SCRIPT_V1_READS, type ScriptV1ReadName, type ScriptV1Command } from '@wildshard/format/scriptAbiV1';

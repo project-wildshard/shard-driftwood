@@ -2,9 +2,9 @@
 import { expect, test } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { Mesh } from 'three';
-import { readSourceModel } from '@wildshard/sharddev/bake/skinned';
+import { readSourceModel } from '@wildshard/sdk/bake/skinned';
 import { skinLookRules, validateSkinAssets, parseSkinFile } from '@wildshard/format/skinAssets';
-import { hashImmutableBytes } from '@wildshard/sharddev/immutable';
+import { hashImmutableBytes } from '@wildshard/sdk/immutable';
 import { bakeCaptainBody, bakeCreatureBodies, faceHeadOf } from '../src/generators/creatureBodies';
 import { CREATURE_BODY_INPUTS } from '../src/generators/creatureBodyBank';
 import { driftwoodDeclaredRoster } from '../src/generators/rows/declaredRoster';

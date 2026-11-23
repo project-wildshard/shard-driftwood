@@ -1,4 +1,4 @@
-import { roadSocketMetrics } from '@wildshard/sharddev/entries';
+import { roadSocketMetrics } from '@wildshard/sdk/entries';
 import { driftwoodGroundSampler } from './groundSampling';
 import { ENTRY_ROWS as authoredEntryRows } from './entryRows';
 

@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { projectPlaceholders, bakeFarPlaceholder, colliderGrid, shardfileLook } from '@wildshard/sharddev/bake/placeholders';
+import { projectPlaceholders, bakeFarPlaceholder, colliderGrid, shardfileLook } from '@wildshard/sdk/bake/placeholders';
 import { validateShardfileAssets } from '@wildshard/format/assetAdmission';
 import { hashImmutableBytes } from '@wildshard/engine/host/immutable';
 import { prepareAssetDecoders } from '@wildshard/format/shardfileAssets';

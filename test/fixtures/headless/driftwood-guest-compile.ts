@@ -1,7 +1,7 @@
 // Compile the same production guest files in Node's native compiler/Response realm.
 // oxlint-disable-next-line import/no-nodejs-modules -- Hash the same declared owner source as the native shard compiler.
 import { readFileSync } from 'node:fs';
-import { createProjectGeneration } from '@wildshard/sharddev/projectGeneration';
+import { createProjectGeneration } from '@wildshard/sdk/projectGeneration';
 import { hashImmutableBytes } from '@wildshard/format/immutable';
 import { driftwoodGuestFiles } from '../../../src/generators/guestPrograms.ts';
 

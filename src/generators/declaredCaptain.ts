@@ -4,7 +4,7 @@
 // he waits out of the world until then (`start: 'spawned'`), his fall files `dead:captain`, and his decision row
 // (`sim/scripts`, `driftwood.captain.decision`) is bound to this encounter. His blows skip the fight cap (`capExempt`), so
 // the manifest's `fight.capExempt` kinds and the page's runtime boss spawn go.
-import { speciesProgramToRows, type ConvertedSpecies } from '@wildshard/sharddev/species/toRows';
+import { speciesProgramToRows, type ConvertedSpecies } from '@wildshard/sdk/species/toRows';
 import { bakeSpecies } from '@wildshard/kit/bake/species';
 import encounter from '../data/bossEncounter.json' with { type: 'json' };
 import { CAPTAIN_BODY, CAPTAIN_BRAIN } from './captainDecision';

@@ -1,9 +1,9 @@
 /** Original near/far cover builders, run offline with their shared RNG sequence and exact vertex colours. */
 import * as THREE from 'three';
-import { Rng } from '@wildshard/sharddev/random';
+import { Rng } from '@wildshard/sdk/random';
 import { SEED } from './landscapeRows';
-import { bakeRock as rock, bakeTriangles as tris } from '@wildshard/sharddev/bake/primitives';
-import { FacetedGeometryBuilder as LowPolyKit } from '@wildshard/sharddev/bake/facetedGeometry';
+import { bakeRock as rock, bakeTriangles as tris } from '@wildshard/sdk/bake/primitives';
+import { FacetedGeometryBuilder as LowPolyKit } from '@wildshard/sdk/bake/facetedGeometry';
 import { fern, hibiscus, grassTuft, broadClump, openEnded, PLANT, type Part } from './lowpolyPlants';
 import { authoredRockGeometry as rockGeometry } from './rocks';
 import { triAreas } from './coverTris';

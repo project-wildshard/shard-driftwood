@@ -5,9 +5,9 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 
-const { compileDecisionScripts } = await import('@wildshard/sharddev/buildDecisionScripts');
-const { compileScript } = await import('@wildshard/sharddev/compileScript');
-const { compileScriptV2 } = await import('@wildshard/sharddev/compileScriptV2');
+const { compileDecisionScripts } = await import('@wildshard/sdk/buildDecisionScripts');
+const { compileScript } = await import('@wildshard/sdk/compileScript');
+const { compileScriptV2 } = await import('@wildshard/sdk/compileScriptV2');
 const { ReturnProgram } = await import('@wildshard/engine/game/population/returnProgram');
 const { Rng } = await import('@wildshard/format/seededRng');
 const { Scope } = await import('@wildshard/engine/app/scope');

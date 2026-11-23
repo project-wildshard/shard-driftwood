@@ -41,9 +41,9 @@ importers:
       '@wildshard/kit':
         specifier: 0.4.24
         version: 0.4.24(@wildshard/sdk@0.4.24(@types/node@24.3.1)(three@0.186.0)(typescript@6.0.3))(typescript@6.0.3)
-      '@wildshard/sharddev':
-        specifier: npm:@wildshard/sdk@0.4.24
-        version: '@wildshard/sdk@0.4.24(@types/node@24.3.1)(three@0.186.0)(typescript@6.0.3)'
+      '@wildshard/sdk':
+        specifier: 0.4.24
+        version: 0.4.24(@types/node@24.3.1)(three@0.186.0)(typescript@6.0.3)
       meshoptimizer:
         specifier: 1.2.0
         version: 1.2.0

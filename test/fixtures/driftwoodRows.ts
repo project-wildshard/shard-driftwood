@@ -4,7 +4,7 @@ import { HELD_ARMS } from './driftwood-layout-source';
 import inventory from '../../src/data/fixedGeometry.json' with { type: 'json' };
 import { encodeCanonicalJson, hashImmutableBytes } from '@wildshard/format/immutable';
 import { createShardFolder } from '@wildshard/engine/game/shardfile/shardFolder';
-import { emptyShardfile } from '@wildshard/sharddev/author';
+import { emptyShardfile } from '@wildshard/sdk/author';
 import { DRIFTWOOD_CLIENT_SECTIONS } from './driftwoodLegacyLayouts';
 import { DRIFTWOOD_CLIENT_SECTIONS as PLATFORM_ROWS } from '../../src/generators/clientSections';
 import { admitDriftwoodRows } from './driftwoodLegacyRows';

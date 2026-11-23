@@ -1,7 +1,7 @@
 import { Group } from 'three';
-import { BoxCollider, type BoxColliderData } from '@wildshard/sharddev/physics';
-import { readScene } from '@wildshard/sharddev/scene';
-import { roadSocketMetrics } from '@wildshard/sharddev/entries';
+import { BoxCollider, type BoxColliderData } from '@wildshard/sdk/physics';
+import { readScene } from '@wildshard/sdk/scene';
+import { roadSocketMetrics } from '@wildshard/sdk/entries';
 import { ENTRY_ROWS as authoredEntryRows } from './entryRows';
 
 type DryEntryEdge = (typeof authoredEntryRows.DRY_ENTRIES)[number];

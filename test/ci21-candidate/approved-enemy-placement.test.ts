@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 import {EnemyPlacementsSchema} from '@wildshard/format/populationProjection';
 import {platformFileFamily,validatePlatformFile} from '@wildshard/format/platformFileFamilies';
 import {registeredJsonSchema} from '@wildshard/engine/host/formatJsonSchema';
-import {nameBlob} from '@wildshard/sharddev/blobs';
+import {nameBlob} from '@wildshard/sdk/blobs';
 import {encodeCanonicalJson} from '@wildshard/engine/host/immutable';
 import {EnemyPlacementsSchema as originalPlacement} from '../fixtures/driftwoodLegacySections';
 import fixture from '../fixtures/approved-enemy-placement.json' with {type:'json'};

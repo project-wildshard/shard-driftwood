@@ -1,5 +1,5 @@
 // Retained native terrain compilation, used only by Driftwood authoring.
-import { roadSocketMetrics } from '@wildshard/sharddev/entries';
+import { roadSocketMetrics } from '@wildshard/sdk/entries';
 import { DriftwoodNoise as Noise2D, smoothstep, clamp, lerp } from './landscapeNoise';
 
 const { half: CHUNK_HALF } = roadSocketMetrics();

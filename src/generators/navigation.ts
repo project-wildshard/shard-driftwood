@@ -1,6 +1,6 @@
-import { navigationSourceRows } from '@wildshard/sharddev/bake/navigationAsset';
+import { navigationSourceRows } from '@wildshard/sdk/bake/navigationAsset';
 import { hashImmutableBytes } from '@wildshard/format/immutable';
-import type { ProjectGenerationContext } from '@wildshard/sharddev/projectGeneration';
+import type { ProjectGenerationContext } from '@wildshard/sdk/projectGeneration';
 
 export const DRIFTWOOD_NAVIGATION_HASH = 'c5185248a44d1f5c20c129e6bc25785ff6c1a81206f19f162d32cfe77131b464';
 export const DRIFTWOOD_NAVIGATION_INPUT = `assets/navigation-${DRIFTWOOD_NAVIGATION_HASH}`;

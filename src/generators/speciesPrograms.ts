@@ -1,8 +1,8 @@
 
 import { DRIFTWOOD_SPAWNS } from './spawnTables';
 import { DRIFTWOOD_NATIVE_HUNT } from './nativeHunt';
-import { speciesProgramRows as readSpeciesProgram, type SpeciesData as SpeciesDataType } from '@wildshard/sharddev/species';
-import type { BrainedSpecies } from '@wildshard/sharddev/speciesBrains';
+import { speciesProgramRows as readSpeciesProgram, type SpeciesData as SpeciesDataType } from '@wildshard/sdk/species';
+import type { BrainedSpecies } from '@wildshard/sdk/speciesBrains';
 import { DRIFTWOOD_ENEMY_SPECIES, DRIFTWOOD_ENEMY_STRIKES } from './enemySpecies';
 import { bakeSpecies } from '@wildshard/kit/bake/species';
 import { ISLAND_BOAR, ISLAND_BEAR } from './faunaSpecies';

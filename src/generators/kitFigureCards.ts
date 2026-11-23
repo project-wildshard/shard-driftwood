@@ -1,5 +1,5 @@
 import { driftwoodQuestFigures } from './questFigures';
-import { authorFormatRows } from '@wildshard/sharddev/formatJsonSchema';
+import { authorFormatRows } from '@wildshard/sdk/formatJsonSchema';
 
 type KitFigureCardsRows = ReturnType<typeof authorFormatRows<'questFigures.KitFigureCardsSchema'>>;
 

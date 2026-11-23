@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
 import { parsePlatformDataSection } from '@wildshard/format/platformDataSections';
-import { emitPlatformSections } from '@wildshard/sharddev/platformSections';
+import { emitPlatformSections } from '@wildshard/sdk/platformSections';
 import { BARREL_BODIES } from '../src/generators/barrelDecision';
 
 test('declared body section preserves actual body profiles and captured floors', () => {

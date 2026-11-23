@@ -8,14 +8,14 @@
 // eyes are their own primitive on a glowing look material; the captain wears his painted coat as a painterly map.
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
-import { readSourceModel, skinnedGlb } from '@wildshard/sharddev/bake/skinned';
-import { creatureSkin, type CreatureRig } from '@wildshard/sharddev/scene/creature';
-import { encodeCanonicalJson, hashImmutableBytes } from '@wildshard/sharddev/immutable';
+import { readSourceModel, skinnedGlb } from '@wildshard/sdk/bake/skinned';
+import { creatureSkin, type CreatureRig } from '@wildshard/sdk/scene/creature';
+import { encodeCanonicalJson, hashImmutableBytes } from '@wildshard/sdk/immutable';
 import { parseGlb } from '@wildshard/format/shardfileAssets';
 import { parseSkinFile, skinFileDependencies } from '@wildshard/format/skinAssets';
 import type { ShardRows } from '@wildshard/format/rows';
 import type { Shardfile } from '@wildshard/format/shardSchema';
-import type { ProjectGenerationContext } from '@wildshard/sharddev/projectGeneration';
+import type { ProjectGenerationContext } from '@wildshard/sdk/projectGeneration';
 import { bakeCaptainBody, bakeCreatureBodies, faceHeadOf, type BakedCreatureBody } from '../creatureBodies';
 import { CREATURE_BODY_INPUTS } from '../creatureBodyBank';
 import { CRAB_CLIPS } from '../crabClips';

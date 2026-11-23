@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { roadSocketMetrics } from '@wildshard/sharddev/entries';
+import { roadSocketMetrics } from '@wildshard/sdk/entries';
 import { CHUNK_HALF, ENTRY_WIDTH, ENTRY_ASPHALT } from '@wildshard/format/contentBounds';
 
 // Retain caller ownership; duplicate parser types/diagnostics are J186 trims.

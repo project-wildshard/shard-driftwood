@@ -1,4 +1,4 @@
-import { speciesProgramToRows, type ConvertedSpecies } from '@wildshard/sharddev/species/toRows';
+import { speciesProgramToRows, type ConvertedSpecies } from '@wildshard/sdk/species/toRows';
 import { commonCreature } from '@wildshard/kit/creatures';
 import type { ShardCreatures } from '@wildshard/format/creatures';
 import type { ShardRows } from '@wildshard/format/rows';

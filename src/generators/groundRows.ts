@@ -1,5 +1,5 @@
-import { readNativeTerrain, type TerrainBakeSource } from '@wildshard/sharddev/bake/terrain';
-import { roadSocketMetrics } from '@wildshard/sharddev/entries';
+import { readNativeTerrain, type TerrainBakeSource } from '@wildshard/sdk/bake/terrain';
+import { roadSocketMetrics } from '@wildshard/sdk/entries';
 import { SEED, SHORE_LEVEL, WORLD_DROP, GRADED, TRAILS } from './landscapeRows';
 import { buildDriftwoodField, landscapeHash } from './groundField';
 import { driftwoodLandscape } from './landscape';

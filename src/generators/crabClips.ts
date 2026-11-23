@@ -1,4 +1,4 @@
-import { creaturePoseRows, numericChannelPrograms, type ClientChannels, type NumericChannelOutput } from '@wildshard/sharddev/clientChannels';
+import { creaturePoseRows, numericChannelPrograms, type ClientChannels, type NumericChannelOutput } from '@wildshard/sdk/clientChannels';
 
 type Expr = (b: ClientChannels, read: Parameters<NumericChannelOutput['expr']>[1]) => number;
 /** Preserve the original arithmetic order; these helpers execute only while baking numeric DAG rows. */

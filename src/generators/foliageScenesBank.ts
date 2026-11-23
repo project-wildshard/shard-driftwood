@@ -2,11 +2,11 @@ import { DataUtils, Float16BufferAttribute, MeshStandardMaterial, type BufferGeo
 import { VertexLayout, WebIO } from '@gltf-transform/core';
 import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
 import { weldPrimitive } from '@gltf-transform/functions';
-import { staticGlb } from '@wildshard/sharddev/bake/glb';
-import { compactPhoneGlb } from '@wildshard/sharddev/bake/compactGlb';
-import { withPortableMath } from '@wildshard/sharddev/math/portableMath';
-import { emitNamedBlobs, nameBlob, nameMeshoptBlob, type EmittedBlobs } from '@wildshard/sharddev/blobs';
-import type { ProjectGenerationContext } from '@wildshard/sharddev/projectGeneration';
+import { staticGlb } from '@wildshard/sdk/bake/glb';
+import { compactPhoneGlb } from '@wildshard/sdk/bake/compactGlb';
+import { withPortableMath } from '@wildshard/sdk/math/portableMath';
+import { emitNamedBlobs, nameBlob, nameMeshoptBlob, type EmittedBlobs } from '@wildshard/sdk/blobs';
+import type { ProjectGenerationContext } from '@wildshard/sdk/projectGeneration';
 import inventory from '../data/fixedGeometry.json' with { type: 'json' };
 import { decodePalmWorld, decodeHibiscusWorld, decodeReefWorld } from './foliageGeometry';
 import { DRIFT_SPECIMENS } from './driftLogs';
