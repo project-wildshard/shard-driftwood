@@ -49,5 +49,8 @@
   },
   "0.1.74-next.d6e6bc6b darwin-arm64": {
     "driftwood-isle": "48477d263716f136b5d8ae6e880ed046bea975b9a085a800f07d69d0cdeb7893"
+  },
+  "0.1.74-next.d6e6bc6b linux-x64": {
+    "driftwood-isle": "437afc677c93cc35e09e6bbb6f0dd91fd47672874893716714fc3ce3576a67b1"
   }
 }
