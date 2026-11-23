@@ -59,7 +59,7 @@ type Recorded = v.InferOutput<typeof Manifest>;
 const hash = (bytes: Uint8Array | string): string => createHash('sha256').update(bytes).digest('hex');
 const digest = (session: NativeHeadlessResident): string => canonicalSimDigest(snapshotSimHost(session.host));
 const save = (session: NativeHeadlessResident): string => serializeSimSnapshot(snapshotSimHost(session.host));
-const identity = { instance: 'driftwood-witness', shard: source.identity.slug, revision: source.identity.revision };
+const identity = { instance: 'driftwood-witness', shard: source.identity.slug, revision: source.identity.saveRevision };
 
 /** Every named result is scoped; the remaining page laws below keep whole-shard admission closed. */
 export const OPEN = [

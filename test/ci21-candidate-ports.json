@@ -7,7 +7,7 @@
       "sourcePath": "test/approved-enemy-placement.test.ts",
       "sourceBlob": "3bf6db5ac70f5cee882f4e2486223d1bc8525520",
       "targetPath": "test/ci21-candidate/approved-enemy-placement.test.ts",
-      "targetBlob": "42f0669f1746f9dec78cc3bebd1e3b4035ac8077",
+      "targetBlob": "cb8644fc4badf0a62cb83ce349fe369835c9231c",
       "originalTests": [
         "approved enemy placement retains the entire original page/native file and exact wire bytes",
         "complete enemy placement retains native RNG, population, kind and root refusals"
@@ -48,7 +48,7 @@
       "sourcePath": "test/driftwood-scene.test.ts",
       "sourceBlob": "a5fc017fc06f852b247bbe34276ee700c8b7994d",
       "targetPath": "test/ci21-candidate/driftwood-scene.test.ts",
-      "targetBlob": "f111e9a991dabff3876d0d1a76d134b06f43f00f",
+      "targetBlob": "3694143235b50d36bcdade31c06cc6f143ae823c",
       "originalTests": [
         "admits the real generated ground, tile and library assets for the trusted world",
         "refuses the CLI far bake when its actual image envelope exceeds the cap",
@@ -65,7 +65,7 @@
       "sourcePath": "test/driftwood-story-verbs.test.ts",
       "sourceBlob": "f6ea2041a4dbd43e9e573d0f055c70c845969020",
       "targetPath": "test/ci21-candidate/driftwood-story-verbs.test.ts",
-      "targetBlob": "2cbb03466d31e4f34d88cab7681541d5928957f2",
+      "targetBlob": "e7d4ffb6c1eddfd5031c65be3580ec1ce291ce60",
       "originalTests": [
         "Driftwood earns the Sealed Ring through real movement, combat, barrel contacts and replay"
       ],
@@ -84,7 +84,7 @@
       "sourcePath": "test/driftwood-zipline-verbs.test.ts",
       "sourceBlob": "486bd4373f353d7c9343c0eb6caf114b2cc26bcb",
       "targetPath": "test/ci21-candidate/driftwood-zipline-verbs.test.ts",
-      "targetBlob": "b716b02b4201ba8c30308881f210b893036ddd82",
+      "targetBlob": "e09425fabb4b14f8907bee35ffce258bb54c44d6",
       "originalTests": [
         "the continuous lookout walk and actual cable landing earn the zipline feat"
       ],
@@ -97,7 +97,7 @@
       "sourcePath": "test/driftwood-optional-verbs.test.ts",
       "sourceBlob": "d6d14e5fb1861be04c23aa3ceeb7541cd980747e",
       "targetPath": "test/ci21-candidate/driftwood-optional-verbs.test.ts",
-      "targetBlob": "0ccbf0eeba34add53cca6f2945133f7e228ccfa6",
+      "targetBlob": "a80a3aa114283684148bd00454e764f06cc76636",
       "originalTests": [
         "Driftwood walk-in glass and bench USE earn their real counters exactly once",
         "Driftwood reaches the reef through real HOVER, swim and DIVE before opening its treasure"
@@ -113,7 +113,7 @@
       "sourcePath": "test/driftwood-trade-verbs.test.ts",
       "sourceBlob": "36c10ea5a6721322d3900d0a47218a8ec401317d",
       "targetPath": "test/ci21-candidate/driftwood-trade-verbs.test.ts",
-      "targetBlob": "54e8cad1307e5cffd457e2e608a5968d6e1c9a4a",
+      "targetBlob": "6ed210010101dc5d887c5941f34d8216a4cbd333",
       "originalTests": [
         "walk to the real counter and refuse out-of-reach and empty-purse BUY",
         "the earned counter continuation funds its real purse through the original kills",
