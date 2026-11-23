@@ -24,9 +24,13 @@ function programInputs(entry) {
 }
 
 test(`${owner.slug}: source-owned maps declare their program and defining raster inputs`, () => {
-  assert.ok(settings.inputs.length > 0);
-  const roots = settings.inputs.map(input => resolve(source, input));
-  assert.ok(roots.some(root => program === root || program.startsWith(`${root}/`)), 'Map declaration must cover the actual source entry');
+  // SA10 (264e33b): nothing reads a map's `inputs` list, so Driftwood dropped it; a list that remains must still
+  // cover the actual source entry.
+  if (settings.inputs !== undefined) {
+    assert.ok(settings.inputs.length > 0);
+    const roots = settings.inputs.map(input => resolve(source, input));
+    assert.ok(roots.some(root => program === root || program.startsWith(`${root}/`)), 'Map declaration must cover the actual source entry');
+  }
   const ground = sdkFile('bake/groundMap.ts');
   assert.ok(programInputs(program).has(ground), 'The actual producer must import the installed defining raster entry');
   const raster = programInputs(ground);
