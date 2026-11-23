@@ -5,6 +5,7 @@ import {spawnSync} from 'node:child_process';
 import {mkdirSync,readFileSync,realpathSync,writeFileSync} from 'node:fs';
 import {dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import { enginePackageUrl } from '@wildshard/sdk/headless';
 const engine=process.env.DRIFTWOOD_ENGINE_CANDIDATE;
 assert.match(engine??'',/^[a-f0-9]{40}$/u,'An exact candidate engine is required');
 const listed=spawnSync('pnpm',['list','@wildshard/engine','@wildshard/sdk','@wildshard/format','--depth','0','--json'],{encoding:'utf8'});
@@ -26,11 +27,11 @@ if(producer){
  // SA7b (5b2ec19): the sdk is listed by its own name at an exact version, no longer an npm alias.
  assert.match(sdk,/^(?:npm:@wildshard\/sdk@)?0\.4\.\d+$/u);
  assert.equal(dependencies['@wildshard/sdk'].version,sdk.split('@').at(-1));
- const requireEngine = (await import('node:module')).createRequire(import.meta.resolve('@wildshard/engine/package.json'));
- const declared = requireEngine('@wildshard/engine/package.json').dependencies['@wildshard/format'].replace('@^','@');
+ const requireEngine = (await import('node:module')).createRequire(enginePackageUrl);
+ const declared = requireEngine('./package.json').dependencies['@wildshard/format'].replace('@^','@');
  assert.equal(`npm:@wildshard/shard-format@${dependencies['@wildshard/format'].version}`,declared);
 }
-assert.equal(realpathSync(installed.path),realpathSync(dirname(fileURLToPath(import.meta.resolve('@wildshard/engine/package.json')))));
+assert.equal(realpathSync(installed.path),realpathSync(dirname(fileURLToPath(enginePackageUrl))));
 const result={complete:true,engine:producer?installed.version:engine,resolved:installed.resolved,version:installed.version,sdk:dependencies['@wildshard/sdk'],format:dependencies['@wildshard/format']};
 const directory=process.env.DRIFTWOOD_JOURNEY_DIR??'tmp/driftwood-journeys';mkdirSync(directory,{recursive:true});
 writeFileSync(join(directory,producer?'producer.json':'runtime.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));

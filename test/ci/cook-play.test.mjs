@@ -14,6 +14,7 @@ import {tmpdir} from 'node:os';
 import {dirname,join,resolve} from 'node:path';
 import {brotliCompressSync,brotliDecompressSync,constants} from 'node:zlib';
 import {test} from 'node:test';
+import { enginePackagePath } from '@wildshard/sdk/headless';
 
 const {readServerPackBook,serverPackFile}=await import('@wildshard/sdk/headless/game/shardfile/serverPack');
 const {loadHeadlessFolder}=await import('@wildshard/sdk/headless/host/headlessFolder');
@@ -49,7 +50,7 @@ test('the real cooked Driftwood earns flint and resumes using only served server
   const product=await loadHeadlessFolder(unpacked),shard=product.shardfile,descriptor=outputDescriptor(shard);
   const assets=new Map(serverInputFiles(descriptor.index.files,shard).map(file=>
    [file.commons===true?`commons:${file.hash}`:file.hash,readFileSync(join(unpacked,file.path))]));
-  const engineRequire=createRequire(require.resolve('@wildshard/engine/package.json'));
+  const engineRequire=createRequire(enginePackagePath);
   const rapier=await loadRapier(readFileSync(engineRequire.resolve('@dimforge/rapier3d-simd/rapier_wasm3d_bg.wasm')));
   const create=async snapshot=>{const world=await openWorldAdapter({shard,assets,product,rapier},snapshot);worlds.push(world);return world;};
   const world=await create(),tape=JSON.parse(readFileSync('test/ci/content-tapes.json','utf8'))[report.slug];

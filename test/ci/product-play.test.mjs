@@ -16,8 +16,8 @@ const { outputDescriptor } = await import('@wildshard/sdk/headless/game/shardfil
 const { serverInputFiles } = await import('@wildshard/sdk/internal/engine/game/shardfile/serverSkinRigs');
 const { loadRapier } = await import('@wildshard/sdk/headless/physics/rapier');
 const { manifestFolders, builtShardFolders } = await import('@wildshard/sdk/headless/scripts/shard-outputs.mjs');
-import { engineRequire } from '@wildshard/sdk/headless';
-const engineVersion = engineRequire('@wildshard/engine/package.json').version;
+import { enginePin, engineRequire } from '@wildshard/sdk/headless';
+const engineVersion = enginePin;
 const products = readdirSync('out', { withFileTypes: true }).filter(row => row.isDirectory() && !row.name.startsWith('.') && row.name !== 'tars');
 assert.ok(products.length, 'Build this shard before running its product proof');
 assert.deepEqual(products.map(row => row.name).sort(), builtShardFolders(process.cwd(), manifestFolders(process.cwd())).map(row => row.slug).sort(), 'Every declared product must be built');

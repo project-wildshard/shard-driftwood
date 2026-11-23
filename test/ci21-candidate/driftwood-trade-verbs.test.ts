@@ -19,7 +19,7 @@ let counterHash:string|undefined,purseHash:string|undefined;
 afterAll(()=>{rmSync(directory,{recursive:true});});
 function run(stage:'counter'|'purse'|'buy',output:string,input?:string,hash?:string):string {
   const child = spawnSync(process.execPath, ['--experimental-transform-types', '--import',
-    import.meta.resolve('@wildshard/engine/scripts/sim-node-loader.mjs'), resolve('test/fixtures/headless/driftwood-trade-run.ts'),stage,output,
+    import.meta.resolve('@wildshard/sdk/headless/scripts/sim-node-loader.mjs'), resolve('test/fixtures/headless/driftwood-trade-run.ts'),stage,output,
     ...(input===undefined?[]:[input]),...(hash===undefined?[]:[hash])],
   { encoding: 'utf8', timeout: 30_000 });
   const outcome = JSON.stringify({ status: child.status, signal: child.signal, error: child.error?.message });

@@ -5,7 +5,7 @@ import {resolve} from 'node:path';
 import {expect,test} from 'vitest';
 
 test('the continuous lookout walk and actual cable landing earn the zipline feat',()=>{
-  const child=spawnSync(process.execPath,['--experimental-transform-types','--import',import.meta.resolve('@wildshard/engine/scripts/sim-node-loader.mjs'),
+  const child=spawnSync(process.execPath,['--experimental-transform-types','--import',import.meta.resolve('@wildshard/sdk/headless/scripts/sim-node-loader.mjs'),
     resolve('test/fixtures/headless/driftwood-story-run.ts'),'zipline'],{encoding:'utf8',timeout:30_000});
   expect(child.status,child.stdout+child.stderr).toBe(0);
   expect(child.stdout).toContain('"story":"zipline"');
