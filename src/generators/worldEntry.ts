@@ -14,7 +14,7 @@ const foliage = (kind: 'bushes' | 'palms', mesh: string, castShadow: (tier: type
 
 /**
  * Driftwood Isle's declared world entry rows (each block one `entry` stage of generators/worldAssembly.ts, run by
- * @wildshard/engine/game/shardfile/worldAssembly in world/build.ts): the shore boulders, the hibiscus bushes and the coconut palms for this tier, the wreck, the cove's piece and
+ * engine `game/shardfile/worldAssembly` in world/build.ts): the shore boulders, the hibiscus bushes and the coconut palms for this tier, the wreck, the cove's piece and
  * the cove's small rocks.
  */
 export function driftwoodWorldEntry(cove: FixedCoveLayout): WorldEntryRows {

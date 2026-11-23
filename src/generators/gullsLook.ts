@@ -1,4 +1,4 @@
-// SHARD-PLATFORM M3 (look-family rows): Driftwood's herring gull palette and its flock row (@wildshard/engine/game/ambient/ambientFlock).
+// SHARD-PLATFORM M3 (look-family rows): Driftwood's herring gull palette and its flock row (engine `game/ambient/ambientFlock`).
 export const GULL_PALETTE = {
   white: '#f3f3ef',
   belly: '#ffffff',
@@ -12,7 +12,7 @@ export const GULL_PALETTE = {
 /** the beach perches keep off the pier corridors: |x| < `half` beyond |z| > `beyond`, and the same across */
 export const GULL_CORRIDORS = { half: 8, beyond: 150 };
 
-/** The gull flock row (G466 H6, @wildshard/engine/game/ambient/ambientFlock): perched on the pier, boat, rocks and sand, wheeling in three
+/** The gull flock row (G466 H6, engine `game/ambient/ambientFlock`): perched on the pier, boat, rocks and sand, wheeling in three
  *  loose loops over the lagoon, flushed within ~4 m, and the place guide's V (E309 B); the rig is (flap, head, fold, legs). */
 export const GULL_FLOCK: { seed: number; count: number; scale: number; foot: number; wingbeat: string; flight: { wave: number; amplitude: number; pitch: number; pitchRate: number; bank: number; bankLimit: number; bankRate: number; directionEpsilon: number; }; wingbeats: { gull: { phase: number[]; amplitude: number; foldPhase: number; foldAmplitude: number; rest: number[]; rates: number[]; glide: number[]; beats: number[]; }; }; wheeling: { centre: { x: number; z: number; }; radius: number; loops: number[][]; loopRadius: number[]; speed: number[]; altitude: number[]; bodyScale: number[]; bodyAltitude: number[]; perchAfter: number[]; bank: number; wheel: { xAmplitude: number; xFrequency: number; zScale: number; zAmplitude: number; zFrequency: number; altitudeFrequency: number; altitudeAmplitude: number; detailFrequency: number; detailAmplitude: number; }; }; perch: { share: number; flush: number; flushJitter: number[]; settle: number; clear: number; idle: number[]; every: number[]; hop: { chance: number; duration: number; height: number; turn: number; }; head: { rate: number; range: number; duration: number[]; }; takeoff: { duration: number; out: number; up: number; beats: number; bank: number; }; landing: { speed: number; minimum: number; rise: number; flare: number; bank: number; }; }; guide: { speed: number; borrow: number; start: number[]; pass: number[]; end: { min: number; max: number; up: number; }; formation: number[][]; stagger: number; call: number; bank: number; after: { ahead: number; up: number; speed: number; }; }; call: { cue: string; every: number[]; first: number; }; scavenge: null; visit: null; channels: (string[] | null)[]; attributes: (string | null)[]; system: { id: string; after: never[]; before: string[]; }; }={seed:0xcfb0,count:36,scale:1.3,foot:0.221,wingbeat:'gull',
   flight:{wave:0,amplitude:0,pitch:0.7,pitchRate:4,bank:0.9,bankLimit:0.75,bankRate:2.5,directionEpsilon:1e-4},

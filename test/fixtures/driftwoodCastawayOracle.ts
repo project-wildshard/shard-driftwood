@@ -1,7 +1,7 @@
 /** Frozen pre-declaration castaway oracle; production owns no imports from this fixture. */
 /**
  * Driftwood Isle's people (E306 / E315 M5): Wendell the castaway, who gives the island's quest — a kit figure
- * (@wildshard/engine/game/systems/npc/kitFigure on the figure catalogue's kit rows, generators/figureCatalogue.ts): the striped
+ * (engine `game/systems/npc/kitFigure` on the figure catalogue's kit rows, generators/figureCatalogue.ts): the striped
  * shirt, the straw hat, the driftwood staff, and his campfire and its smoke column beside him. Not skinned: his body,
  * head and waving arm turn on pivots. The quest stands him by the hut; the card is the same build at his own origin, his
  * fire where it burns beside him. Its mesh smoke stays hidden until the entered world lends its compiled look.
