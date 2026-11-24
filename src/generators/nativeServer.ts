@@ -47,20 +47,25 @@ export const driftwoodNativeInputs: typeof nativeInputs = nativeInputs;
 
 /** Driftwood's native assembly (P1-E3.1b, J90): its hosts in install order, as data over the files in its shard file. */
 function driftwoodNativeAssembly(inputs: ReturnType<typeof nativeInputs>): NativeAssemblyPlan {
-  const quest = inputs.nativeQuest;
   return { kind: 'native-assembly', level: { speed: 5, ground: { size: 500, height: 0 } }, terrain: { kind: 'bake-ground' }, navigation: 'shard',
     bake: { rows: { file: 'server/physics.json' }, reader: { label: 'Driftwood', resolution: 256, size: 500, parked: false, rig: 'axis', shapes: [1, 2, 9], provenance: 'tagged' },
       ground: 'data/physics-ground.generated.bin', colliders: ['data/physics-colliders.bin'], read: 'solids', keep: ['actors', 'herds', 'habitat', 'captain'] },
     collision: { resolution: 256 }, entries: { walk: inputs.entries },
     // ONE-FORMAT OF22a2: the day is the look's toon sky clock and the sea the declared sea row (no day or sea host)
     // ONE-FORMAT OF22b4: the island's creatures are declared rows (the shard file's `creatures`); no population host stands them
-    features: [{ host: 'decisions' },
-      { host: 'quest.chapter', id: quest.reward.director, rows: { file: 'quests/chapter-director.json' }, wake: { file: 'quests/wake-boss.json' }, reward: quest.reward.channels, population: quest.acquisition.population },
-      { host: 'commands' },
-      // ONE-FORMAT OF22d3: the swords are the held/melee section (output.ts), which the engine stands before any host
-      { host: 'quest.kill-steps', rows: { file: 'server/kill-steps.json' }, counters: { file: 'quests/achievements.json' } }, { host: 'quest.body-scripts' },
-      { host: 'quest.composition', table: { file: 'quests/interaction-source.json', path: ['constants', 'interact'] }, rows: { file: 'server/quest-policy.json' }, spots: { file: 'server/quest-spots.json' }, readSpots: true,
-        counters: { file: 'quests/achievements.json' }, nativeFeats: true, props: { file: 'server/quest-props.json' }, restoring: true }] };
+    // ONE-FORMAT OF22d3: the swords are the held/melee section (output.ts), which the engine stands before any host
+    // FORMAT-PRUNE FP16: the quest hosts are the quests/server section (driftwoodQuestServer), which the engine stands after these
+    features: [{ host: 'decisions' }, { host: 'commands' }] };
+}
+
+/** FORMAT-PRUNE FP16 (ONE-FORMAT OF17b3): the quest family's rows, in install order, as the `quests/server` section holds them. */
+export function driftwoodQuestServer(): { version: 1; hosts: NativeAssemblyPlan['features'] } {
+  const quest = driftwoodNativeInputs().nativeQuest;
+  return { version: 1, hosts: [
+    { host: 'quest.chapter', id: quest.reward.director, rows: { file: 'quests/chapter-director.json' }, wake: { file: 'quests/wake-boss.json' }, reward: quest.reward.channels },
+    { host: 'quest.kill-steps', rows: { file: 'server/kill-steps.json' }, counters: { file: 'quests/achievements.json' } }, { host: 'quest.body-scripts' },
+    { host: 'quest.composition', table: { file: 'quests/interaction-source.json', path: ['constants', 'interact'] }, rows: { file: 'server/quest-policy.json' }, spots: { file: 'server/quest-spots.json' }, readSpots: true,
+      counters: { file: 'quests/achievements.json' }, nativeFeats: true, props: { file: 'server/quest-props.json' }, restoring: true }] };
 }
 
 /** Driftwood's server class (J91): the plan and the rows it names, on no client path. */
