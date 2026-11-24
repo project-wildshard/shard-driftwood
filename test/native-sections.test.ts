@@ -1,9 +1,9 @@
 // ONE-FORMAT OF22a2 and OF22a3c: Driftwood's server plan names no host for what its sections already say. The day comes
 // from the look's toon sky clock and the sea from the declared sea row (engine 982b2647a); the bake's solids are plain
 // prop collider rows (`data/solidRows.json`, engine c3b7fde16), so neither `day.toon`, `water.sea` nor `collision`
-// stands in `server/native-assembly.json`.
+// stands anywhere. FORMAT-PRUNE FP16b: there is no plan file at all; the world's settings are the `server/world` section.
 import { expect, test } from 'vitest';
-import { driftwoodServerFiles } from '../src/generators/nativeServer';
+import { driftwoodServerFiles, driftwoodServerWorld } from '../src/generators/nativeServer';
 import solidRows from '../src/data/solidRows.json' with { type: 'json' };
 
 function serverRow<T>(name: string): T {
@@ -11,11 +11,9 @@ function serverRow<T>(name: string): T {
   if (blob === undefined) throw new Error(`Missing Driftwood server file ${name}`);
   return JSON.parse(new TextDecoder().decode(blob.bytes)) as T;
 }
-const plan = (): { features: { host: string }[] } => serverRow('server/native-assembly.json');
-
-test('the native plan stands no day, sea or collision host: the sections and prop rows say them', () => {
-  const hosts = plan().features.map(row => row.host);
-  expect(hosts.filter(host => ['day.toon', 'water.sea', 'collision'].includes(host))).toEqual([]);
+test('no native plan stands a day, sea or collision host: the sections and prop rows say them', () => {
+  expect(driftwoodServerFiles().map(row => row.file.name)).not.toContain('server/native-assembly.json');
+  expect(Object.keys(driftwoodServerWorld())).not.toContain('features');
   // the solids the host stood are the shard's own prop rows (edge walls, landings and the engine's training room stay out)
   expect(solidRows.length).toBeGreaterThan(0);
   expect(solidRows.every(row => !row.id.startsWith('piece.entry') && !row.id.startsWith('piece.practice'))).toBe(true);

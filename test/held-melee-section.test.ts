@@ -14,6 +14,6 @@ test('Driftwood\'s swords are the held/melee section, not a native item.swept ho
   expect(parsePlatformDataSection('held/melee', JSON.parse(new TextDecoder().decode(bytes)))).toEqual(parsePlatformDataSection('held/melee', swords));
   const files = driftwoodServerFiles().map(row => row.file.name);
   expect(files).not.toContain('server/swords.json');
-  const plan = JSON.parse(new TextDecoder().decode(driftwoodServerFiles().find(row => row.file.name === 'server/native-assembly.json')?.bytes)) as { features: { host: string }[] };
-  expect(plan.features.map(row => row.host)).not.toContain('item.swept');
+  // FORMAT-PRUNE FP16b: no plan file names any host, item.swept included
+  expect(files).not.toContain('server/native-assembly.json');
 });
