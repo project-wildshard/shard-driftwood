@@ -61,8 +61,5 @@
   },
   "0.1.67 linux-x64": {
     "driftwood-isle": "f5f9fd317158fe4d13ad55bdf4fc9688e40fe1c24a8e1cc4841f774ede54e34d"
-  },
-  "0.1.80-next.be7e944e linux-x64": {
-    "driftwood-isle": "f5f9fd317158fe4d13ad55bdf4fc9688e40fe1c24a8e1cc4841f774ede54e34d"
   }
 }
