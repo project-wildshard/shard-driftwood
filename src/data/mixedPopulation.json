@@ -24,33 +24,6 @@
     "scale": [
       1.35,
       1.35
-    ],
-    "legacyMemory": [
-      {
-        "from": "subT",
-        "to": "subt",
-        "axis": "zero"
-      },
-      {
-        "from": "burstX",
-        "to": "burst-x",
-        "axis": "x"
-      },
-      {
-        "from": "burstZ",
-        "to": "burst-z",
-        "axis": "z"
-      },
-      {
-        "from": "poolX",
-        "to": "pool-x",
-        "axis": "x"
-      },
-      {
-        "from": "poolZ",
-        "to": "pool-z",
-        "axis": "z"
-      }
     ]
   },
   "volley": {

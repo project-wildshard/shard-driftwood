@@ -1,12 +1,11 @@
 {
-  "content": "f34f0e9fbdbf57ee37ef8eebf09ebd008cb5a650337a3c31076ceedc14d13eab",
-  "captured": "2026-11-24T00:08:41.047Z",
+  "content": "2ad645b372509ea5241912e2d3c4a645e5c0310a91035aa1dd77489a9dab9627",
+  "captured": "2026-11-24T02:14:40.218Z",
   "base": "auto re-stamp: curated art unchanged, content moved (wildshard build)",
   "card": {
     "thumbs/driftwood-isle.jpg": "38524675b82efe887cf278b25ea727490c54afed6e7a3ad3bc721de01f615127",
     "thumbs/driftwood-isle-portrait.jpg": "147b76186ef873d52dda6c7663e518456c956336baa0cfd82eba56e9e1898fc1",
     "thumbs/driftwood-isle-landscape.jpg": "b58ad693bb52a489eed8d8bb3f2422ed429dea03be07ce3a00910710ba2ef9cb"
   },
-  "curated": true,
-  "look": "d044a8ba69bcd8f789d2c99e6b5fff1f34939b8dc19193ce740861ed6b5fa2a1"
+  "curated": true
 }
