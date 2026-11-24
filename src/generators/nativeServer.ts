@@ -54,11 +54,12 @@ function driftwoodNativeAssembly(inputs: ReturnType<typeof nativeInputs>): Nativ
     // ONE-FORMAT OF22a2: the day is the look's toon sky clock and the sea the declared sea row (no day or sea host)
     // ONE-FORMAT OF22b4: the island's creatures are declared rows (the shard file's `creatures`); no population host stands them
     // ONE-FORMAT OF22d3: the swords are the held/melee section (output.ts), which the engine stands before any host
-    // FORMAT-PRUNE FP16: the quest hosts are the quests/server section (driftwoodQuestServer), which the engine stands after these
-    features: [{ host: 'decisions' }, { host: 'commands' }] };
+    // FORMAT-PRUNE FP16: no host row; the quest family stands from the server/quest section (driftwoodQuestServer) with its
+    // plumbing (decisions, commands), and the bake (read: solids) stands its own solids (OF22a3)
+    features: [] };
 }
 
-/** FORMAT-PRUNE FP16 (ONE-FORMAT OF17b3): the quest family's rows, in install order, as the `quests/server` section holds them. */
+/** FORMAT-PRUNE FP16 (ONE-FORMAT OF17b3): the quest family's rows, in install order, as the `server/quest` section holds them. */
 export function driftwoodQuestServer(): { version: 1; hosts: NativeAssemblyPlan['features'] } {
   const quest = driftwoodNativeInputs().nativeQuest;
   return { version: 1, hosts: [
