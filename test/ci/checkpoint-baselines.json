@@ -52,5 +52,11 @@
   },
   "0.1.74-next.d6e6bc6b linux-x64": {
     "driftwood-isle": "f5f9fd317158fe4d13ad55bdf4fc9688e40fe1c24a8e1cc4841f774ede54e34d"
+  },
+  "0.1.76-next.f3b1d4c7 linux-x64": {
+    "driftwood-isle": "f5f9fd317158fe4d13ad55bdf4fc9688e40fe1c24a8e1cc4841f774ede54e34d"
+  },
+  "0.1.76-next.f3b1d4c7 darwin-arm64": {
+    "driftwood-isle": "47a0169540ed1d7359c514eded3c4e8baa09f703dc3e79b1c65bf7f41aa954f2"
   }
 }

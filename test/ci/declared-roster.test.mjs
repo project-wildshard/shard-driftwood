@@ -10,7 +10,8 @@ import { test } from 'node:test';
 
 const { loadHeadlessFolder } = await import('@wildshard/sdk/headless/host/headlessFolder');
 const { createNativeHeadlessResident } = await import('@wildshard/sdk/headless/host/headlessRuntime');
-const { outputDescriptor, serverReadsFile } = await import('@wildshard/sdk/headless/game/shardfile/outputDescriptor');
+const { outputDescriptor } = await import('@wildshard/sdk/headless/game/shardfile/outputDescriptor');
+const { serverReadsFile } = await import('@wildshard/format/serverReads');
 const { serverInputFiles } = await import('@wildshard/sdk/internal/engine/game/shardfile/serverSkinRigs');
 const { loadRapier } = await import('@wildshard/sdk/headless/physics/rapier');
 const { serializeSimSnapshot, snapshotSimHost, snapshotSimHostBytes } = await import('@wildshard/sdk/headless/sim/snapshot');
