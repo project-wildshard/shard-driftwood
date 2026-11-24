@@ -36,24 +36,21 @@ test('admits the real generated ground, tile and library assets for the trusted 
   expect(loaded.shard.runtime?.binds).toContain('terrain');
 });
 
-test('refuses the CLI far bake when its actual image envelope exceeds the cap', async () => {
+test('bakes the far view with its impostor over the resident cap (J509), under the download cap', async () => {
   const loaded = await emittedWorld();
-  // SDK 5aa81bdd deliberately keeps the in-cap mesh and drops its over-cap
-  // image in the CLI. The standalone bake still refuses that exact envelope.
+  // J509 (Jake, 11-24; SDK 0.4.31, sharddev 2ca2eb07): the look decides, not the 1.6 MB resident cap, so the far
+  // bake keeps its impostor and warns. Download bytes, which the format refuses, still bound it.
   const terrain = loaded.shard.terrain;
   if (terrain === null) throw new Error('Missing real generated terrain');
   const bytes = loaded.assets.get(terrain.collider);
   if (bytes === undefined) throw new Error('Missing real generated collider');
-  await expect(bakeFarPlaceholder(colliderGrid(bytes), shardfileLook(loaded.shard)))
-    .rejects.toThrow('Far proxy exceeds content caps');
+  await expect(bakeFarPlaceholder(colliderGrid(bytes), shardfileLook(loaded.shard))).resolves.toBeDefined();
   const projectedAssets = new Map(loaded.assets);
   const projected = await projectPlaceholders(loaded.shard, projectedAssets);
   expect(projected.far).not.toBeNull();
   expect(projected.far?.files.length).toBeGreaterThan(0);
   expect(validateShardfileAssets(projected, projectedAssets, hashImmutableBytes,
     undefined, undefined, loaded.scripts, loaded.sections)).toEqual(projected);
-  expect(projected.far?.impostor).toBeUndefined();
-  expect((projected.far?.decoded ?? Infinity) + (projected.far?.gpu ?? Infinity)).toBeLessThanOrEqual(1_600_000);
   expect(projected.far?.compressed).toBeLessThanOrEqual(1_000_000);
   for (const hash of projected.far?.files ?? []) expect(projectedAssets.has(hash)).toBe(true);
 });
