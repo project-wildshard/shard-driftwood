@@ -1,4 +1,5 @@
-import { nativeAssemblyFiles, type NativeAssemblyPlan, type ServerBlob } from '@wildshard/sdk/blobs';
+import { serverBlob, type NativeAssemblyPlan, type ServerBlob } from '@wildshard/sdk/blobs';
+import { NATIVE_ASSEMBLY_DATA_SCHEMA } from '@wildshard/format/nativeAssembly';
 import mixedPopulation from '../data/mixedPopulation.json' with { type: 'json' };
 import nativePopulationPolicy from '../data/nativePopulationPolicy.json' with { type: 'json' };
 import questKillSteps from '../data/questKillSteps.json' with { type: 'json' };
@@ -74,5 +75,12 @@ export function driftwoodServerFiles(): ServerBlob[] {
   const inputs = driftwoodNativeInputs();
   const rows = new Map<string, unknown>([['server/physics.json', inputs.physics],
     ['server/kill-steps.json', inputs.questKillSteps], ['server/quest-policy.json', inputs.nativeQuest], ['server/quest-spots.json', inputs.nativeQuestSpots], ['server/quest-props.json', inputs.questProps]]);
-  return nativeAssemblyFiles(driftwoodNativeAssembly(inputs), rows);
+  // FORMAT-PRUNE FP21: no plan file; the world's settings are the server/world section (driftwoodServerWorld)
+  return [...rows].map(([name, value]) => serverBlob(name, { schema: NATIVE_ASSEMBLY_DATA_SCHEMA, value }));
+}
+
+/** FORMAT-PRUNE FP21: the native world's own settings (level, terrain, bake, collision, entries), as `server/world` holds them. */
+export function driftwoodServerWorld(): Record<string, unknown> {
+  const { kind: _kind, features: _features, ...world } = driftwoodNativeAssembly(driftwoodNativeInputs());
+  return { version: 1, ...world };
 }
