@@ -48,17 +48,18 @@
       "sourcePath": "test/driftwood-scene.test.ts",
       "sourceBlob": "a5fc017fc06f852b247bbe34276ee700c8b7994d",
       "targetPath": "test/ci21-candidate/driftwood-scene.test.ts",
-      "targetBlob": "3694143235b50d36bcdade31c06cc6f143ae823c",
+      "targetBlob": "f001d507a1782da3c9a79746322910ea7b4f31b8",
       "originalTests": [
         "admits the real generated ground, tile and library assets for the trusted world",
-        "refuses the CLI far bake when its actual image envelope exceeds the cap",
+        "bakes the far view with its impostor over the resident cap (J509), under the download cap",
         "publishes real pier parents in place of vacant L1 metadata without duplicate addresses"
       ],
       "fixturePath": "test/fixtures/driftwood-emitted-product.ts",
       "fixtureBlob": "cd32bd7ea3ae8eb2150fbfe84928277f6fe81b48",
       "changes": "Every original case/assertion and timeout retained; public imports and owner-local paths only. Scene it spelling becomes direct test for static case inventory. Source proof borrows sealed normal-produced bytes; no default admission or engine removal. SP13 uses the same verified closure reader under its current folderClosureFile export.",
       "caseAdaptations": [
-        "SDK 5aa81bdddd65e0737a5e614337f1f9d8540f1add (2026-11-13) deliberately retains the in-cap mesh and drops the over-cap impostor in projectPlaceholders. Preserve the original over-cap refusal through the unchanged standalone bake on this actual product collider/look; additionally assert current CLI keeps an in-cap far mesh with no impostor and admitted files."
+        "SDK 5aa81bdddd65e0737a5e614337f1f9d8540f1add (2026-11-13) deliberately retains the in-cap mesh and drops the over-cap impostor in projectPlaceholders. Preserve the original over-cap refusal through the unchanged standalone bake on this actual product collider/look; additionally assert current CLI keeps an in-cap far mesh with no impostor and admitted files.",
+        "J509 (Jake 2026-11-24; SDK 0.4.31, sharddev 2ca2eb07): the look decides, not the 1.6 MB resident cap, so the standalone bake keeps the impostor and warns instead of refusing. The case now asserts the bake resolves and the projection stays under the download cap with every file admitted (opus-prune2)."
       ]
     },
     {
