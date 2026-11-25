@@ -46,3 +46,6 @@ Step 2: the move itself (repo-kit `scripts/lean-move.mjs`).
 
 An untracked, pre-0.5.0 `public/` (7.2 MB of old pin mounts, no
 owner) was parked in `tmp/` for the move and put back afterwards.
+
+Step 3: once the move was committed, `agent-sync --from` re-pointed the
+kit skills at `src/scripts/.kit/`.
