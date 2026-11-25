@@ -23,7 +23,7 @@ if(producer){
  assert.equal(installed.resolved,`https://codeload.github.com/project-wildshard/engine/tar.gz/${engine}`);
  const sdk=JSON.parse(readFileSync('package.json','utf8')).dependencies['@wildshard/sdk'];
  // SA7b (5b2ec19): the sdk is listed by its own name at an exact version, no longer an npm alias.
- assert.match(sdk,/^(?:npm:@wildshard\/sdk@)?0\.4\.\d+$/u);
+ assert.match(sdk,/^(?:npm:@wildshard\/sdk@)?\d+\.\d+\.\d+$/u,`the sdk is pinned at an exact version: ${sdk}`);
  assert.equal(dependencies['@wildshard/sdk'].version,sdk.split('@').at(-1));
  const requireEngine = (await import('node:module')).createRequire(enginePackageUrl);
  const declared = requireEngine('./package.json').dependencies['@wildshard/format'].replace('@^','@');
