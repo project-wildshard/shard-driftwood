@@ -1,7 +1,7 @@
 // G7: the Drowned Captain's painted coat as an admitted look texture. The page used to load the whole captain GLB at run
 // time only to lend its embedded atlas to the captain's graph (species/captainMesh.ts); the atlas is now a UASTC KTX2 in
 // the shard file, bound by hash in data/lookGraphs.json, so the captain's look is rows. GLTF textures are not flipped.
-// node --experimental-transform-types --import ./scripts/bake-loader.mjs src/shards/driftwood-isle/bake/bake-captain-coat.mjs [--encode]
+// node --experimental-transform-types --import ./src/scripts/bake-loader.mjs src/shards/driftwood-isle/bake/bake-captain-coat.mjs [--encode]
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { hashImmutableBytes } from '@wildshard/format/immutable';
