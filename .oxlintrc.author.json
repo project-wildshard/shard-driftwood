@@ -154,15 +154,15 @@
       }
     },
     {
-      // G348 (Jake): the bakes are generic for any shard; a slug branch anywhere in src/scripts/bake is refused. Each shard
+      // G348 (Jake): the bakes are generic for any shard; a slug branch anywhere in scripts/bake is refused. Each shard
       // declares its own far look / grid / parts, ground and tree stand-ins in data/placeholder.ts and its mover modules
       // in data/moverBake.ts; the bakers are the SDK's.
-      "files": ["src/scripts/bake/**"],
+      "files": ["scripts/bake/**"],
       "rules": { "wildshard/no-shard-branch": "error" }
     },
     {
       // H2: guard the live hook family; bounded Git control calls need no inventory buffer.
-      "files": ["src/scripts/precommit*.mjs"],
+      "files": ["scripts/precommit*.mjs"],
       "rules": { "wildshard/exec-max-buffer": "error" }
     },
     {

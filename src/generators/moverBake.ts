@@ -1,5 +1,5 @@
 /**
- * Driftwood's mover bake (G348: declared here, read by the generic `src/scripts/bake/movers.mjs`, schema
+ * Driftwood's mover bake (G348: declared here, read by the generic `scripts/bake/movers.mjs`, schema
  * `@wildshard/format/movers` `MoverBakeSchema`): the boat rides the waves, the rope bridge hangs on a hinge, and
  * `captureDriftwoodMovers(boat, bridge)` emits `data/movers.generated.json` from their hashes.
  */

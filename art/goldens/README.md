@@ -8,13 +8,13 @@ The look to hold for `driftwood-isle`: 24 cameras. The skill `goldens` runs them
 - `shardfile/<nn>-<camera>.jpg`: the SHARDFILE goldens (G859, G873 L5), 22 px label strip on top.
 - `legacy/<nn>-<camera>.jpg`: the frozen LEGACY record (10-28, G843). Never re-captured, never updated.
 - `cameras24.json`: this shard's 24 cameras (eye, yaw, pitch, FOV, probe), the `driftwood-isle` entry of engine
-  `src/scripts/perf/cameras24.json`.
+  `scripts/perf/cameras24.json`.
 - `runs/<date>-<sha10>-board.jpg`: the rerun board (<= 500 KB) a look change lands with.
 
 ## Source
 
 The clean 144-camera rerun on `744c3ab7e2`, captured 2026-10-29 with the capture now at engine
-`src/scripts/goldens/capture.mjs --mode=shardfile` (muted Chromium, iPhone 16 Pro portrait, phone tier, 2x, seed 357,
+`scripts/goldens/capture.mjs --mode=shardfile` (muted Chromium, iPhone 16 Pro portrait, phone tier, 2x, seed 357,
 midday / clear). Re-encoded at 540 x 915 with a 22 px label strip, JPEG quality 72.
 
 ## Updates

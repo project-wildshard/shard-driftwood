@@ -6,9 +6,9 @@ interface BlenderArea { x0: number; x1: number; z0: number; z1: number }
 
 /**
  * Driftwood Isle's Blender area (DRIFTWOOD-REMASTER X2, E52): the spawn cove, the crescent beach, the plank stair and the
- * hut plateau, which src/scripts/blender/driftwood-isle/ bakes and the baked tiles host draws (generators/bakedCove.ts). Procedural cells x 71…184,
+ * hut plateau, which scripts/blender/driftwood-isle/ bakes and the baked tiles host draws (generators/bakedCove.ts). Procedural cells x 71…184,
  * z 18…117 → x −110.8 … 110.8, z −214.7 … −20.6. The manifest declares it as `blender.area` (E405: the engine keeps
- * no per-shard table), so the export (src/scripts/blender/lib/export-scene.mjs) and the game clip at the same lines.
+ * no per-shard table), so the export (scripts/blender/lib/export-scene.mjs) and the game clip at the same lines.
  */
 export const area: BlenderArea = {
   x0: -CHUNK_HALF + ISLAND_GRID.x0 * CELL, x1: -CHUNK_HALF + ISLAND_GRID.x1 * CELL,

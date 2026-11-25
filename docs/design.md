@@ -27,6 +27,6 @@ Only the scaffold exists:
 
 - `src/`
 - `src/static/assets/driftwood-isle/`
-- `src/scripts/blender/driftwood-isle/`
+- `scripts/blender/driftwood-isle/`
 - `art/driftwood*`
 - tests naming driftwood (305 files in test/)

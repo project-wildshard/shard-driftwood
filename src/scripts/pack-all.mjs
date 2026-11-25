@@ -8,7 +8,7 @@ for (const row of readdirSync('out', { withFileTypes: true })) {
   const product = `out/${row.name}`, index = JSON.parse(readFileSync(`${product}/shard.json`, 'utf8'));
   if (index.sdk !== '0.3') {
     const base = process.env.WILDSHARD_PREPARATION_URL;
-    if (!base) throw new Error(`Unprepared ${product}: run wildshard prepare ${product} --base <exact-preview-url> through engine src/scripts/browser-lane.sh; or set WILDSHARD_PREPARATION_URL for pack:shards`);
+    if (!base) throw new Error(`Unprepared ${product}: run wildshard prepare ${product} --base <exact-preview-url> through engine scripts/browser-lane.sh; or set WILDSHARD_PREPARATION_URL for pack:shards`);
     execFileSync('pnpm', ['exec', 'wildshard', 'prepare', product, '--base', base], { stdio: 'inherit' });
   }
   execFileSync('pnpm', ['exec', 'wildshard', 'pack', `out/${row.name}`, '--out', `out/tars/${row.name}.tar`], { stdio: 'inherit' });
