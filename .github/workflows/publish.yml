@@ -145,8 +145,8 @@ jobs:
           path: ~/.cache/wildshard/basis
           key: basis-${{ runner.os }}-${{ runner.arch }}-glibc${{ steps.libc.outputs.libc }}-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: basis-${{ runner.os }}-${{ runner.arch }}-glibc${{ steps.libc.outputs.libc }}-
-      # As each shard repo's ci.yml does: build:shards first (its
-      # publish-public step lays out public/assets), then check.
+      # As each shard repo's ci.yml does: build first (build:shards when
+      # the repo has it, into out/), then check.
       - name: Build, and name the product
         id: product
         run: node scripts/publish-shard.mjs build "${{ inputs.slug }}"
