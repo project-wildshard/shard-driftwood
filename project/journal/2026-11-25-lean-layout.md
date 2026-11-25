@@ -49,3 +49,8 @@ owner) was parked in `tmp/` for the move and put back afterwards.
 
 Step 3: once the move was committed, `agent-sync --from` re-pointed the
 kit skills at `src/scripts/.kit/`.
+
+L4, later the same day: the bins moved to the kit's pnpm profile on
+npm-bin-deps 2.2.0 with `binDependenciesProjectSettings: false`, so they
+share one cache entry with every repo. The re-stamp brought the kit's
+newer files too.
