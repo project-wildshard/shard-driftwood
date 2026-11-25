@@ -27,7 +27,7 @@ export function builtProduct(name: string): string {
   const receipt = v.parse(Receipt, JSON.parse(readFileSync('tmp/ci21-source/product.json', 'utf8')));
   if (process.env.GITHUB_SHA !== undefined && receipt.sourceRevision !== process.env.GITHUB_SHA) throw new Error('Source product belongs to another checkout');
   for (const row of receipt.inputs)
-    if (!/^src\//u.test(row.path) || row.path.split('/').includes('..')) throw new Error('Foreign producer input');
+    if (!row.path.startsWith('src/') || row.path.split('/').includes('..')) throw new Error('Foreign producer input');
   for (const row of receipt.files)
     if (row.path.startsWith('/') || row.path.split('/').includes('..')) throw new Error('Foreign producer output');
   // sdk 0.5.0: the sealed inputs are exactly the tracked src/ tree; nothing is copied out to public/.
