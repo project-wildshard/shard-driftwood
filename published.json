@@ -1,0 +1,9 @@
+{
+  "driftwood-isle": {
+    "version": "0.0.12",
+    "revision": 13,
+    "hash": "2d4515d42e0598a72926d93e2a5751d6d70eab18ae055644c2fb10f732d0a41e",
+    "channel": "staging",
+    "commit": "7cac7d211d28d186020a6701f646d0fe31cb3111"
+  }
+}
