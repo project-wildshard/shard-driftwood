@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// skeleton.mjs — step 1 of Driftwood's first-person arms (E334, scripts/blender/targets.json "driftwood-isle/fp-arms"):
+// skeleton.mjs — step 1 of Driftwood's first-person arms (E334, src/scripts/blender/targets.json "driftwood-isle/fp-arms"):
 // read Nine Dragon's rig (public/assets/nine-dragon/viewmodel/fp-rig.glb: its skeleton and its 16 clips, round 13) and write
 // the bind skeleton as JSON for the Blender script (arms.py), which models the castaway arms round it.
 //

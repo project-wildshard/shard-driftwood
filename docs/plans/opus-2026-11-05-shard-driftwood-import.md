@@ -13,7 +13,7 @@ From `Raynos/project-wildshard-singleplayer@727236c625` (paths may move before t
 
 - `src/shards/driftwood-isle/`
 - `public/assets/driftwood-isle/`
-- `scripts/blender/driftwood-isle/`
+- `src/scripts/blender/driftwood-isle/`
 - `art/driftwood*`
 - tests naming driftwood (305 files in test/)
 

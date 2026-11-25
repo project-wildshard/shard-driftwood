@@ -3,7 +3,7 @@
     blender -b --factory-startup -noaudio --python-exit-code 1 -P src/shards/driftwood-isle/blender/fp-arms/arms.py -- \
         <bind.json> <out dir> [--preview]
 
-Step 2 of the target "driftwood-isle/fp-arms" (scripts/blender/targets.json). skeleton.mjs wrote <bind.json>: Nine
+Step 2 of the target "driftwood-isle/fp-arms" (src/scripts/blender/targets.json). skeleton.mjs wrote <bind.json>: Nine
 Dragon's arm skeleton at its bind pose (fp-rig.glb, round 13), in rig space (the viewmodel camera at scale 1: x right,
 y up, -z forward, metres). This script models round that skeleton and writes <out>/parts.json for bake.mjs, which skins
 the parts, adds the finger bones and the swim clips and writes the GLB. Nothing here is a glTF: the parts are triangle

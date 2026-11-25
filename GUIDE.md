@@ -1941,7 +1941,7 @@ so its files come out byte-identical. The migration:
 - deletes what git ignores under `public/` (the copies
   `publish-public.mjs` made, `map/top.webp`, `public/shardfiles/`),
   then `public/` itself;
-- deletes `scripts/publish-public.mjs` and its `build:shards` prefix,
+- deletes `src/scripts/publish-public.mjs` and its `build:shards` prefix,
   the `--ignore-pattern 'public/**'` lint flags, the `public/` lines in
   `.gitignore` (it adds `out/`) and `public/` in `ci.yml`'s watched
   paths; a `.gitattributes` row for `public/` names `src/static/`;

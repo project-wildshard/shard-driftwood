@@ -1,5 +1,5 @@
 /**
- * Driftwood's far proxy look (SHARD-PLATFORM SF23), read only by the far baker (scripts/bake/far-proxies.mjs): the
+ * Driftwood's far proxy look (SHARD-PLATFORM SF23), read only by the far baker (src/scripts/bake/far-proxies.mjs): the
  * faceted low-poly toon terrain in its own ground palette (`lowPolyGroundColor`, the same function the terrain painter
  * reads), the lagoon as a turquoise sheet at the sea line, and a bright tropical haze.
  */

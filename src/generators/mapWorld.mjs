@@ -1,4 +1,4 @@
-// GR7: the map assembly's rest world over owned bytes only (scripts/map-world.mjs's MapWorld and mapPool, which still serve
+// GR7: the map assembly's rest world over owned bytes only (src/scripts/map-world.mjs's MapWorld and mapPool, which still serve
 // Pine, read source paths from disk). Every blob, recipe and model arrives as bytes; nothing is read from a file.
 import { BufferGeometry, Euler, Float32BufferAttribute, Matrix4, Quaternion, Vector3 } from 'three';
 import { mapModelBytes } from '@wildshard/sdk/bake/mapAssembly';

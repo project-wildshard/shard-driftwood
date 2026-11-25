@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// bake.mjs — step 3 of Driftwood's first-person arms (E334, scripts/blender/targets.json "driftwood-isle/fp-arms"): Nine
+// bake.mjs — step 3 of Driftwood's first-person arms (E334, src/scripts/blender/targets.json "driftwood-isle/fp-arms"): Nine
 // Dragon's rig (fp-rig.glb) + arms.py's castaway parts → public/assets/driftwood-isle/viewmodel/fp-arms.glb.
 //
 //   node src/shards/driftwood-isle/blender/fp-arms/bake.mjs <parts.json> <out.glb> [--raw]

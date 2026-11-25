@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 
-// Driftwood Isle's half of scripts/blender/lib/export-scene.mjs (DRIFTWOOD-REMASTER X2, E52): the game's low-poly ground
+// Driftwood Isle's half of src/scripts/blender/lib/export-scene.mjs (DRIFTWOOD-REMASTER X2, E52): the game's low-poly ground
 // colour, and the cove's layout specs + bake occluders. Moved here unchanged from export-scene.mjs (PH-0.3): the exported
 // scene is byte-for-byte what it was.
 //

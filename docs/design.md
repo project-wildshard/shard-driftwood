@@ -9,9 +9,10 @@ Living doc: **how** this repo is built. What it does and why is
 
 Only the scaffold exists:
 
-- `kit/cli/`: the CLI (`--version`, `--help`; commands arrive with the import).
-- `kit/test/helpers/`: shared test helpers; `git.ts` makes real git repos in temp dirs.
-- `src/scripts/`: repo tooling (asks, md-wrap), plain JS.
+- `src/scripts/`: the repo's own tooling, plain JS; repo-kit's stamped
+  copies sit in `src/scripts/.kit/` and its tests in `src/test/.kit/`.
+- `scripts/blender/`: the Blender targets, at the root because the SDK
+  reads `scripts/blender/targets.json` there.
 
 ## Dependencies
 
@@ -26,6 +27,6 @@ Only the scaffold exists:
 
 - `src/`
 - `src/static/assets/driftwood-isle/`
-- `scripts/blender/driftwood-isle/`
+- `src/scripts/blender/driftwood-isle/`
 - `art/driftwood*`
 - tests naming driftwood (305 files in test/)

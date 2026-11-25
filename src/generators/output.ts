@@ -80,7 +80,7 @@ import { DRIFTWOOD_FEAT_COUNTERS } from './questInventory';
 import { enemyPlacements } from './enemyPlacement';
 import { parseSectionValue } from '@wildshard/sdk/sections';
 import { registeredJsonSchema } from '@wildshard/sdk/formatJsonSchema';
-import { DRIFTWOOD_OUTPUT } from '../generators/assets';
+import { DRIFTWOOD_OUTPUT } from './assets';
 import { DRIFTWOOD_CLIENT_SECTIONS, driftwoodOceanWaterRow } from './clientSections';
 import { driftwoodMap } from './mapProgram';
 import { driftwoodGroundDeclaration } from './groundDeclaration';

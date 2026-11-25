@@ -1,0 +1,4 @@
+# Driftwood's shard source has never been formatted: the old format:check
+# covered kit/ only, and oxfmt over src/ would rewrite 395 files, canonical
+# baked JSON under src/static/ among them. Opt a folder in by removing it here.
+src/**

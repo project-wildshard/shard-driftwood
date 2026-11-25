@@ -20,7 +20,7 @@ const { installAppIdentity } = await import('@wildshard/sdk/internal/engine/app/
 const { WILDSHARD_IDENTITY } = await import('@wildshard/sdk/internal/engine/game/identity'); installAppIdentity(WILDSHARD_IDENTITY);
 await import('../../proof/driftwood-isle/worker');
 const witness = await import('../../proof/driftwood-isle/witness');
-function inputFiles(): Set<string> { return new Set([...loaded, ...witness.witnessProductInputFiles(), ...['src/data/headlessAssembly.json', 'test/fixtures/headless/driftwood-witness-run.ts', 'scripts/sim-node-loader.mjs', 'pnpm-lock.yaml', 'tmp/ci21-source/physics.json', 'tmp/ci21-source/runtime.json', 'tmp/ci21-source/product.json'].map(path => new URL(path, ROOT).href)]); }
+function inputFiles(): Set<string> { return new Set([...loaded, ...witness.witnessProductInputFiles(), ...['src/data/headlessAssembly.json', 'test/fixtures/headless/driftwood-witness-run.ts', 'src/scripts/sim-node-loader.mjs', 'pnpm-lock.yaml', 'tmp/ci21-source/physics.json', 'tmp/ci21-source/runtime.json', 'tmp/ci21-source/product.json'].map(path => new URL(path, ROOT).href)]); }
 function inputs(): string {
   const files = inputFiles();
   const hash = createHash('sha256');

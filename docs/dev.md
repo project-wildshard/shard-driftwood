@@ -9,16 +9,17 @@ Run from the repo root.
 
 - `pnpm install`: installs deps and points `core.hooksPath` at `.githooks/`.
 - `pnpm check`: typecheck + lint + format:check + unit tests + asks. The pre-push hook runs it.
-- `pnpm test`: `node:test` on `src/**/*.test.ts`, run as .ts by Node's type stripping.
-- `pnpm test:hooks`: the `.githooks/` suite (CI, and pre-commit when hooks change).
+- `pnpm test`: `pnpm test:kit` (repo-kit's tests in `src/test/.kit/`, the
+  `.githooks/` suite and the agent hook tests) and `pnpm test:shards` (vitest).
 - `node --test test/ci/director-shadow.test.mjs`: compile real shipping
   and shadow director AS, compare actual admitted event streams and
   restored continuations across captain/reward boundaries and 1,200
   ticks. CI only, outside hooks; no shadow module is shipped.
-- `pnpm lint:fix` / `pnpm format`: the hooks only check; these fix.
-- `node kit/cli/main.ts --help`: the CLI without installing it.
+- `pnpm fix` / `pnpm format`: the hooks only check; these fix. The shard
+  source is outside format (`.prettierignore`): it was never formatted.
+- `pnpm dev` / `pnpm build`: `wildshard dev src` / `wildshard build src`.
 - `pnpm md:wrap`: rewraps Markdown prose to ~72 columns.
-- `kit/scripts/ask-new.sh "<Jake's words>"`: opens an ask (`docs/tasks/asks/README.md`).
+- `src/scripts/.kit/ask-new.sh "<Jake's words>"`: opens an ask (`docs/tasks/asks/README.md`).
 
 The preserved script-port proof runs independently of a whole cook:
 
@@ -64,9 +65,10 @@ The root stays thin: README.md and AGENTS.md (humans only), CLAUDE.md
 .editorconfig, `docs/`, `project/`, `src/` and the dot dirs. Scratch
 goes in `tmp/<task>/` and is deleted when done.
 
-- `kit/cli/`: the CLI (`--version`, `--help`; commands arrive with the import).
-- `kit/test/helpers/`: shared test helpers; `git.ts` makes real git repos in temp dirs.
-- `src/scripts/`: repo tooling (asks, md-wrap), plain JS.
+- `src/scripts/`: the repo's own tooling, plain JS; repo-kit's stamped
+  copies sit in `src/scripts/.kit/` and its tests in `src/test/.kit/`.
+- `scripts/blender/`: the Blender targets (the SDK reads its manifest
+  from the root). `test/`: the shard's own tests.
 - `docs/`: living docs. `docs/plans/` is the queue, `docs/tasks/asks/`
   the receipts.
 - `project/`: history. `journal/`, `origins/` (the meta-repo plans this
@@ -75,7 +77,7 @@ goes in `tmp/<task>/` and is deleted when done.
 ## Code rules
 
 - TypeScript only, imports with explicit `.ts`/`.tsx` extensions.
-- Every function has an explicit return type. `kit/.oxlintrc.json` denies
+- Every function has an explicit return type. `.oxlintrc.author.json` denies
   every category (D28); disable a rule only with a one-line reason beside it.
 - Pin dependencies exactly (`.npmrc` has `save-exact=true`).
 - Other Wildshard repos are git dependencies pinned by tag

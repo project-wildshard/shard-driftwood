@@ -1,9 +1,9 @@
 """
-build_island.py — the Blender island, spawn cove first (DRIFTWOOD-REMASTER X2, E52). Run by scripts/blender/build.sh driftwood-isle/island (pnpm blender:island):
+build_island.py — the Blender island, spawn cove first (DRIFTWOOD-REMASTER X2, E52). Run by src/scripts/blender/build.sh driftwood-isle/island (pnpm blender:island):
 
     blender -b --factory-startup -P src/shards/driftwood-isle/blender/build_island.py -- <cache dir> <out dir> [--quick]
 
-Input (<cache>, written by scripts/blender/lib/export-scene.mjs from the game's own code): the area grid (height, the game's
+Input (<cache>, written by src/scripts/blender/lib/export-scene.mjs from the game's own code): the area grid (height, the game's
 ground colour, slope, trail distance), the whole chunk's coarse heights, the layout specs and the kept structures.
 
 What it builds, all from code (src/shards/driftwood-isle/blender/assets.py):
