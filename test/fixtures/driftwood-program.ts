@@ -11,7 +11,7 @@ import {runSnapshot} from './runSnapshot';
 
 const project = 'src';
 const inputs = [{prefix:'/src/shards/driftwood-isle/',directory:project},
-  {prefix:'/assets/',directory:resolve('public/assets')}];
+  {prefix:'/assets/',directory:resolve('src/static/assets')}];
 /** The declaration admitted by Driftwood's real source program over its CLI input roots (CI7: once per CI run). */
 export const DRIFTWOOD: Shardfile = await runSnapshot('driftwood-program', () => {
   const context = createProjectGeneration(project,hashImmutableBytes(new TextEncoder().encode('driftwood-program-fixture-v1')),

@@ -25,7 +25,7 @@ Only the scaffold exists:
 ## Coming with the import
 
 - `src/`
-- `public/assets/driftwood-isle/`
+- `src/static/assets/driftwood-isle/`
 - `scripts/blender/driftwood-isle/`
 - `art/driftwood*`
 - tests naming driftwood (305 files in test/)

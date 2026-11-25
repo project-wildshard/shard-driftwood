@@ -22,7 +22,7 @@ import { fixtureProductFile, fixtureJsonCheck } from './productFile';
 // intentionally omits them. Admit its real native outputs into this fixture too.
 const fixedModels = driftwoodFixedModelOutput(createProjectGeneration('src',
   hashImmutableBytes(new TextEncoder().encode('driftwood-fixed-product-fixture-v1')), new Map(), undefined,
-  [{ prefix: '/assets/', directory: resolve('public/assets') }]));
+  [{ prefix: '/assets/', directory: resolve('src/static/assets') }]));
 
 // The production scene-bank emitter uses the same lossless transport selection
 // for scaled cargo choices, which are absent from the static source table.
