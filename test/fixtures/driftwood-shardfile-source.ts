@@ -14,7 +14,7 @@ import { CAPTAIN_SPECIES } from '../../src/generators/declaredCaptain';
 import captainCoat from '../../src/data/captainCoat.json' with { type: 'json' };
 
 // OF27d: the six kinds' skin looks, baked from the same committed bodies the build reads
-const skins = driftwoodSkinDeclaration(await bakedCreatureBodies(url => new Uint8Array(readFileSync(`public${url}`))), skinSpecies([...ROSTER_SPECIES, CAPTAIN_SPECIES]), captainCoat.file.hash);
+const skins = driftwoodSkinDeclaration(await bakedCreatureBodies(url => new Uint8Array(readFileSync(`src/static${url}`))), skinSpecies([...ROSTER_SPECIES, CAPTAIN_SPECIES]), captainCoat.file.hash);
 
 // Complete original fixed-world declaration oracle, frozen before the GR7 source cut.
 const shardfile: ReturnType<typeof driftwoodShardfileRows> = driftwoodShardfileRows(driftwoodFixedShardfileRows(fixed), driftwoodAudio(DRIFTWOOD_LAYOUTS.wreck, DRIFTWOOD_ISLAND_FACTS), DRIFTWOOD_GUEST_ROWS, DRIFTWOOD_NAVIGATION, skins);

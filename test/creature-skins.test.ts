@@ -12,7 +12,7 @@ import { CAPTAIN_SPECIES } from '../src/generators/declaredCaptain';
 import { creatureSkinFiles, driftwoodCreatureSkins } from '../src/generators/rows/creatureSkins';
 import captainCoat from '../src/data/captainCoat.json' with { type: 'json' };
 
-const read = (url: string): Uint8Array => new Uint8Array(readFileSync(`public${url}`));
+const read = (url: string): Uint8Array => new Uint8Array(readFileSync(`src/static${url}`));
 async function bodies() {
   const head = await readSourceModel(read(CREATURE_BODY_INPUTS.head)); head.gltf.scene.updateMatrixWorld(true);
   const meshes: Mesh[] = []; head.gltf.scene.traverse(node => { if (node instanceof Mesh) meshes.push(node); });

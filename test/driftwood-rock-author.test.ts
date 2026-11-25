@@ -6,7 +6,7 @@ import { originalRockObservation } from './fixtures/driftwood-rock-author';
 import original from './fixtures/driftwood-rock-author-original.json' with { type: 'json' };
 
 test('retains every original rock channel, bound, copy, card and hull byte', async () => {
-  const result = await originalRockObservation(url => new Uint8Array(readFileSync(`public${url}`)));
+  const result = await originalRockObservation(url => new Uint8Array(readFileSync(`src/static${url}`)));
   expect(result).toEqual(original);
   expect([result.shore, result.small, result.contacts]).toEqual([109, 400, 91]);
 });

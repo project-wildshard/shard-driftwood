@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { driftwoodSceneBanksFrom, type DriftwoodSceneBanks } from '../../src/generators/sceneBanks';
 import { DRIFTWOOD_FIXED_INPUTS, driftwoodFixedBytes } from '../../src/generators/fixedProgram';
 
-const read = (url: string): Uint8Array => new Uint8Array(readFileSync(`public${url}`));
+const read = (url: string): Uint8Array => new Uint8Array(readFileSync(`src/static${url}`));
 let fixed: Promise<Map<string, Uint8Array>> | undefined, banks: Promise<DriftwoodSceneBanks> | undefined;
 /** The fixed program's files (the native, cargo and scene sources the shard file ships), built once per test file. */
 export function driftwoodFixedFiles(): Promise<Map<string, Uint8Array>> {

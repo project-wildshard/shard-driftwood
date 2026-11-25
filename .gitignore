@@ -17,8 +17,5 @@ blob-report/
 out/
 tmp/
 .cache/
-public/assets/driftwood-isle/map/top.webp
-/public/assets/driftwood-isle/entry-reads.json
 /src/discovery.generated.ts
-/public/assets/driftwood-isle/
 /.owner

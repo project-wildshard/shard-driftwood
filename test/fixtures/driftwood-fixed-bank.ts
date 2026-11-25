@@ -4,7 +4,7 @@ import { driftwoodFixedBytes, DRIFTWOOD_FIXED_INPUTS } from '../../src/generator
 let files: Promise<ReadonlyMap<string, Uint8Array>> | undefined;
 /** Original fixed files come from the defining producer over committed native inputs. */
 export function driftwoodFixedBank(): Promise<ReadonlyMap<string, Uint8Array>> {
-  files ??= driftwoodFixedBytes(new Map(DRIFTWOOD_FIXED_INPUTS.map(url => [url, new Uint8Array(readFileSync(`public${url}`))])));
+  files ??= driftwoodFixedBytes(new Map(DRIFTWOOD_FIXED_INPUTS.map(url => [url, new Uint8Array(readFileSync(`src/static${url}`))])));
   return files;
 }
 
