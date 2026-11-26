@@ -7,7 +7,7 @@ import * as v from 'valibot';
 
 const result=v.object({story:v.picklist(['driftwood-optional','driftwood-reef']),ticks:v.number(),commands:v.number(),parts:v.number(),glass:v.number(),vista:v.number(),doubloons:v.number(),divingTicks:v.number(),boardTicks:v.number()});
 function run(stage: 'bench' | 'reef'): void {
-  const child=spawnSync(process.execPath,['--experimental-transform-types','--import',import.meta.resolve('@wildshard/sdk/headless/scripts/sim-node-loader.mjs'),
+  const child=spawnSync(process.execPath,['--import',import.meta.resolve('@wildshard/sdk/headless/scripts/sim-node-loader.mjs'),
     resolve('test/fixtures/headless/driftwood-optional-run.ts'),stage],{encoding:'utf8',timeout:stage==='reef'?60_000:30_000});
   const outcome=JSON.stringify({stage,status:child.status,signal:child.signal,error:child.error?.message});
   expect(child.error,`${outcome}\n${child.stdout}${child.stderr}`).toBeUndefined();

@@ -5,7 +5,7 @@
   "description": "Driftwood Isle: a Wildshard shard.",
   "type": "module",
   "engines": {
-    "node": ">=24.18.0 <25"
+    "node": ">=24.18.0 <27"
   },
   "packageManager": "pnpm@10.34.9",
   "scripts": {
@@ -39,11 +39,11 @@
     "@gltf-transform/core": "4.5.0",
     "@gltf-transform/extensions": "4.5.0",
     "@gltf-transform/functions": "4.5.0",
-    "@wildshard/cli": "0.5.0",
-    "@wildshard/dev": "0.5.0",
-    "@wildshard/format": "npm:@wildshard/shard-format@0.78.0",
-    "@wildshard/kit": "0.5.0",
-    "@wildshard/sdk": "0.5.0",
+    "@wildshard/cli": "0.7.0",
+    "@wildshard/dev": "0.7.0",
+    "@wildshard/format": "npm:@wildshard/shard-format@0.79.3",
+    "@wildshard/kit": "0.7.0",
+    "@wildshard/sdk": "0.7.0",
     "meshoptimizer": "1.2.0",
     "three": "0.186.0",
     "valibot": "1.5.0",
@@ -144,12 +144,12 @@
     "overrides": {
       "binaryen": "npm:@pre-bundled/binaryen@132.0.0-patch-1",
       "assemblyscript>binaryen": "npm:@pre-bundled/binaryen@131.0.0-nightly.20260721-patch-1",
-      "@wildshard/sdk>@wildshard/format": "npm:@wildshard/shard-format@0.78.0",
-      "@wildshard/build>@wildshard/format": "npm:@wildshard/shard-format@0.78.0",
-      "@wildshard/dev>@wildshard/format": "npm:@wildshard/shard-format@0.78.0",
-      "@wildshard/upload>@wildshard/format": "npm:@wildshard/shard-format@0.78.0",
-      "@wildshard/kit>@wildshard/shard-format": "0.78.0",
-      "@wildshard/format": "npm:@wildshard/shard-format@0.78.0"
+      "@wildshard/sdk>@wildshard/format": "npm:@wildshard/shard-format@0.79.3",
+      "@wildshard/build>@wildshard/format": "npm:@wildshard/shard-format@0.79.3",
+      "@wildshard/dev>@wildshard/format": "npm:@wildshard/shard-format@0.79.3",
+      "@wildshard/upload>@wildshard/format": "npm:@wildshard/shard-format@0.79.3",
+      "@wildshard/kit>@wildshard/shard-format": "0.79.3",
+      "@wildshard/format": "npm:@wildshard/shard-format@0.79.3"
     }
   },
   "binDependencies": {
@@ -159,7 +159,7 @@
   },
   "binDependenciesInstaller": "pnpm",
   "wildshard": {
-    "migrated": "0.5.0"
+    "migrated": "0.7.0"
   },
   "binDependenciesProjectSettings": false
 }
