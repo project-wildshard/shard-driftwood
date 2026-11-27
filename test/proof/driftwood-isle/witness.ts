@@ -164,7 +164,9 @@ class FactIngress {
   private readonly emitters = new Map<string, LedgerEmitter>();
   private now = 0;
   private readonly dedupe: string[] = [];
-  constructor(private readonly ledger: Ledger) {}
+  private readonly ledger: Ledger;
+  // Node 26 runs this file strip-only: no parameter properties (SF24).
+  constructor(ledger: Ledger) { this.ledger = ledger; }
   ingest(tick: number, effects: readonly HeadlessEffect[]): LedgerReceipt[] {
     this.now = tick;
     return effects.flatMap(effect => {
