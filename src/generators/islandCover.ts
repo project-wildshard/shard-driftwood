@@ -159,7 +159,7 @@ export function islandSets(f: Float32Array, meta: CoverMeta, used: number, phone
 /** The tier's cover file (a vertex wear row, game/looks/vertexWear.ts): the ground map, then each terrain's cover bytes — part 0 the faceted
  *  ground's grid (TERRAIN_RES², row by row), then the island's terrain tiles — and the layout its declaration carries. */
 export async function bakeFullIslandCover(readAsset: (url: string) => Uint8Array, phone: boolean, palms: readonly {x:number;z:number}[], ground: {heightAt:(x:number,z:number)=>number;normalAt:(x:number,z:number,eps:number)=>[number,number,number];trailDistance:(x:number,z:number)=>number}, seed: number, facts: DriftwoodIslandFacts): Promise<{bytes:Uint8Array;cells:Uint8Array;used:number;texture:{width:number;height:number};groundRect:[number,number,number,number];parts:[number,number][]}> {
-  const base = '/assets/models/driftwood-blender/';
+  const base = '/assets/driftwood-isle/models/driftwood-blender/';
   const meta = modelCoverMetadata(JSON.parse(new TextDecoder().decode(readAsset(`${base}island.json`))));
   const protos = await islandProtos(readAsset(`${base}island.glb`), meta), f = islandPlacements(Uint8Array.from(readAsset(`${base}placements.bin`)).buffer);
   const used = islandUsed(f, meta, phone), sets = islandSets(f, meta, used, phone);

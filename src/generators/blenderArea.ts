@@ -20,4 +20,4 @@ export function inArea(x: number, z: number, margin = 0): boolean {
 }
 
 /** the island build's folder: Driftwood's predates the per-shard `<slug>-blender` folders */
-export const BLENDER_MODELS = '/assets/models/driftwood-blender/';
+export const BLENDER_MODELS = '/assets/driftwood-isle/models/driftwood-blender/';

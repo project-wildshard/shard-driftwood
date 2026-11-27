@@ -22,7 +22,7 @@ In the game the AO multiplies the (day/night-driven) hemisphere fill, the bounce
 direct sun stays dynamic (toon ramp + CSM shadows) — see src/shards/driftwood-isle/world/BlenderIsland.ts.
 
 Output (<out>): island.glb (terrain tiles + prototypes, no materials), placements.bin, island.json, lm-ao.png,
-lm-bounce.png (run.sh converts / compresses them into public/assets/models/driftwood-blender/).
+lm-bounce.png (run.sh converts / compresses them into public/assets/driftwood-isle/models/driftwood-blender/).
 """
 import bpy
 import bmesh

@@ -311,7 +311,7 @@ function sailorPaint(v: VariantDef): Paint {
 }
 
 /**
- * E343 (Jake's pick D): the Drowned Sailor's head (public/assets/models/driftwood-hero/faces/sailor-head.glb: a Hunyuan3D-2
+ * E343 (Jake's pick D): the Drowned Sailor's head (public/assets/driftwood-isle/models/driftwood-hero/faces/sailor-head.glb: a Hunyuan3D-2
  * skull + bandana from a codex portrait in the island's toon look, art/driftwood-isle/round-14-faces/, its own paint, cut at
  * its neck by scripts/img2mesh/head_cut.py, the faceted post) on the head bone, fitted to the lofted skull's span (its neck
  * at 1.53 m, the bandana's top at 1.80 m). The bake requires it (no lofted stand-in). `eyes` gets the painted sockets'

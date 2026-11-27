@@ -2,7 +2,7 @@
   "slug": "driftwood-isle",
   "look": {
     "id": "driftwood.held-arms",
-    "url": "/assets/models/driftwood-fp/fp-arms.glb",
+    "url": "/assets/driftwood-isle/models/driftwood-fp/fp-arms.glb",
     "skeleton": "driftwood-fp",
     "lighting": {
       "id": "driftwood.day-light",
