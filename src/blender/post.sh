@@ -3,7 +3,7 @@
 # desktop and phone (512-square). Linear data in 8-bit WebP: Blender writes the WebP, this only resizes. build.sh has
 # already meshopt'd island.glb and copied placements.bin + island.json. Env from build.sh: BUILD, BLENDER.
 set -euo pipefail
-DEST=public/assets/models/driftwood-blender
+DEST=src/static/assets/driftwood-isle/models/driftwood-blender
 "$BLENDER" -b --factory-startup -noaudio --python-exit-code 1 --python-expr "
 import bpy
 for src, dst, size, q in [('lm-ao.png', 'lm-ao', 2048, 78), ('lm-bounce.png', 'lm-bounce', 1024, 90)]:

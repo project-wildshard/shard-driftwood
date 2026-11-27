@@ -1,6 +1,6 @@
 {
   "name": "@wildshard/shard-driftwood",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "private": true,
   "description": "Driftwood Isle: a Wildshard shard.",
   "type": "module",

@@ -20,13 +20,13 @@ function embeddedImage(glb) {
   const start = bin + (buffer.byteOffset ?? 0);
   return glb.subarray(start, start + buffer.byteLength);
 }
-const source = Uint8Array.from(readFileSync(resolve(root, 'public/assets/models/driftwood-hero/captain/captain.glb')));
+const source = Uint8Array.from(readFileSync(resolve(root, 'public/assets/driftwood-isle/models/driftwood-hero/captain/captain.glb')));
 const raster = await readImagePixels(embeddedImage(source));
 if (process.argv.includes('--encode')) {
   const bytes = bakeColourTexture(await writeImagePixels(raster)), hash = hashImmutableBytes(bytes);
   writeFileSync(resolve(project, 'assets', hash), bytes);
   const file = { hash, kind: 'ktx2', compressed: bytes.length, ...parseKtx2(bytes), dependencies: [], critical: false };
-  writeFileSync(pin, `${JSON.stringify({ source: 'public/assets/models/driftwood-hero/captain/captain.glb#images/0', width: raster.width, height: raster.height, file }, null, 2)}\n`);
+  writeFileSync(pin, `${JSON.stringify({ source: 'public/assets/driftwood-isle/models/driftwood-hero/captain/captain.glb#images/0', width: raster.width, height: raster.height, file }, null, 2)}\n`);
 }
 const { file } = JSON.parse(readFileSync(pin, 'utf8'));
 const bytes = Uint8Array.from(readFileSync(resolve(project, 'assets', file.hash)));

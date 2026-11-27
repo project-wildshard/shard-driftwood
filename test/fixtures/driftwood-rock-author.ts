@@ -7,7 +7,7 @@ import { bakeRockScenes } from '../../src/generators/rockScenes';
 
 /** Observe every native rock channel and contact before any transport codec runs. */
 export async function originalRockObservation(read: (url: string) => Uint8Array) {
-  const base = '/assets/models/driftwood-blender/';
+  const base = '/assets/driftwood-isle/models/driftwood-blender/';
   const facts = await driftwoodIslandFactsFrom(read);
   const plan = driftwoodIslandPlan(read(`${base}placements.bin`), read(`${base}island.json`), 'phone', facts);
   const bake = bakeRockScenes(shoreBoulderFacts().placements, plan.smallRocks);

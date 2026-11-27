@@ -20,7 +20,7 @@ import { ENTRY_DECKS } from './entryDecks.ts';
 import { driftwoodFacetedGroundBank } from './facetedGroundBank.ts';
 import { driftwoodIslandPlan } from './pageFiles.ts';
 
-const SHARD = 'src/shards/driftwood-isle/', ISLAND = 'public/assets/models/driftwood-blender/';
+const SHARD = 'src/shards/driftwood-isle/', ISLAND = 'public/assets/driftwood-isle/models/driftwood-blender/';
 const named = (name, value) => ({ file: { name }, bytes: new TextEncoder().encode(JSON.stringify(value)) });
 const simple = (geometry, material = 'plant', name = geometry) => ({ scene: { version: 1, root: 'root', nodes: [{ id: 'root', kind: 'group', children: ['mesh'] }, { id: 'mesh', kind: 'mesh', geometry, material, name }], materials: [] }, imports: [] });
 

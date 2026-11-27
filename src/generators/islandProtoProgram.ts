@@ -3,7 +3,7 @@ import { emitNamedBlobs, nameBlob, type EmittedBlobs } from '@wildshard/sdk/blob
 import { islandProtoGlb } from './islandProtos';
 
 /** Complete native inputs; generated dressing metadata and hash-named source files are never inputs. */
-export const ISLAND_PROTO_INPUTS: readonly string[] = ['/assets/models/driftwood-blender/island.glb', '/assets/models/driftwood-blender/island.json'];
+export const ISLAND_PROTO_INPUTS: readonly string[] = ['/assets/driftwood-isle/models/driftwood-blender/island.glb', '/assets/driftwood-isle/models/driftwood-blender/island.json'];
 const file = 'world/island/protos.glb';
 
 /** Construct the same compact prototype bank without publishing a source-tree handoff. */

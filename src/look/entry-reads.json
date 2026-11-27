@@ -13,12 +13,12 @@
     "bytes": 262144
    },
    {
-    "url": "/assets/gpu/baked/driftwood-isle/tex/giant-db470988.ktx2",
+    "url": "/assets/driftwood-isle/gpu/baked/tex/giant-db470988.ktx2",
     "hash": "db4709889a0178640f16a3502442c80419054b60986feae50dfef7977b99d257",
     "bytes": 154680
    },
    {
-    "url": "/assets/lut/driftwood-isle.bin?v=1232cd60",
+    "url": "/assets/driftwood-isle/lut.bin?v=1232cd60",
     "hash": "1232cd60c9419c5d42b65acb6f18784b3d0114dc68fdc504c165243342490620",
     "bytes": 143748
    },
@@ -323,12 +323,12 @@
     "bytes": 1570020
    },
    {
-    "url": "/assets/baked/driftwood-isle/near.json?v=ffc3b61e",
+    "url": "/assets/driftwood-isle/baked/near.json?v=ffc3b61e",
     "hash": "ffc3b61e4d36780844927aca6902e05b0b1a5a237c4e86959ad8dc2468b89aa6",
     "bytes": 456
    },
    {
-    "url": "/assets/baked/driftwood-isle/near.glb?v=48fc8a98",
+    "url": "/assets/driftwood-isle/baked/near.glb?v=48fc8a98",
     "hash": "48fc8a98e788c592a26423f10dc7b932b4797149597303bb9c062fd75f8eb1f9",
     "bytes": 4166428
    },
@@ -348,7 +348,7 @@
     "bytes": 11492
    },
    {
-    "url": "/assets/models/driftwood-fp/fp-arms.glb?v=2c233b8c",
+    "url": "/assets/driftwood-isle/models/driftwood-fp/fp-arms.glb?v=2c233b8c",
     "hash": "2c233b8c91c82a26c8fbfd3867095cbfec6cec81caa9bd9a12b243075236550a",
     "bytes": 373240
    }
@@ -368,22 +368,22 @@
     "bytes": 262144
    },
    {
-    "url": "/assets/baked/driftwood-isle/tex/giant.jpg?v=29445521",
+    "url": "/assets/driftwood-isle/baked/tex/giant.jpg?v=29445521",
     "hash": "294455219e4cae78bc8ef095924dc7f7e03d4c4bba2708033ceffa244cf7443c",
     "bytes": 25127
    },
    {
-    "url": "/assets/lut/driftwood-isle.bin?v=1232cd60",
+    "url": "/assets/driftwood-isle/lut.bin?v=1232cd60",
     "hash": "1232cd60c9419c5d42b65acb6f18784b3d0114dc68fdc504c165243342490620",
     "bytes": 143748
    },
    {
-    "url": "/assets/baked/driftwood-isle/near.json?v=ffc3b61e",
+    "url": "/assets/driftwood-isle/baked/near.json?v=ffc3b61e",
     "hash": "ffc3b61e4d36780844927aca6902e05b0b1a5a237c4e86959ad8dc2468b89aa6",
     "bytes": 456
    },
    {
-    "url": "/assets/baked/driftwood-isle/near.glb?v=48fc8a98",
+    "url": "/assets/driftwood-isle/baked/near.glb?v=48fc8a98",
     "hash": "48fc8a98e788c592a26423f10dc7b932b4797149597303bb9c062fd75f8eb1f9",
     "bytes": 4166428
    },
@@ -393,7 +393,7 @@
     "bytes": 2320
    },
    {
-    "url": "/assets/models/driftwood-fp/fp-arms.glb?v=2c233b8c",
+    "url": "/assets/driftwood-isle/models/driftwood-fp/fp-arms.glb?v=2c233b8c",
     "hash": "2c233b8c91c82a26c8fbfd3867095cbfec6cec81caa9bd9a12b243075236550a",
     "bytes": 373240
    }
