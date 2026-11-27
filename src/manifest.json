@@ -7,8 +7,8 @@
   "kitLook": "toon",
   "hands": "toon",
   "horizonStrips": {
-    "day": "/assets/driftwood-isle/horizon/driftwood-isle-day.webp",
-    "night": "/assets/driftwood-isle/horizon/driftwood-isle-night.webp",
+    "day": "/assets/driftwood-isle/horizon/driftwood-isle-day.png",
+    "night": "/assets/driftwood-isle/horizon/driftwood-isle-night.png",
     "elMin": -4,
     "elMax": 24
   },
@@ -25,11 +25,7 @@
     "public/assets/driftwood-isle/models/driftwood-cc0/**",
     "public/assets/driftwood-isle/models/driftwood-fp/**",
     "public/assets/driftwood-isle/models/driftwood-hero/**",
-    "public/assets/driftwood-isle/gpu/models/driftwood-blender/**",
-    "public/assets/driftwood-isle/gpu/models/driftwood-hero/**",
-    "public/assets/driftwood-isle/gpu/baked/**",
     "public/assets/driftwood-isle/horizon/driftwood-isle-*",
-    "public/assets/driftwood-isle/gpu/horizon/driftwood-isle-*",
     "public/assets/driftwood-isle/lut.bin",
     "public/assets/title/driftwood-isle-portrait.jpg",
     "public/assets/driftwood-isle/sfx/driftwood-isle/**",

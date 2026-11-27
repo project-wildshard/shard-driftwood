@@ -1,13 +1,13 @@
 // G7: the Drowned Captain's painted coat as an admitted look texture. The page used to load the whole captain GLB at run
-// time only to lend its embedded atlas to the captain's graph (species/captainMesh.ts); the atlas is now a UASTC KTX2 in
+// time only to lend its embedded atlas to the captain's graph (species/captainMesh.ts); the atlas is now the GLB's own PNG in
 // the shard file, bound by hash in data/lookGraphs.json, so the captain's look is rows. GLTF textures are not flipped.
+// SF8c (J525): a shardfile carries images only; the cook makes the coat's KTX2 (a graph texture param cooks as colour).
 // node --import ./src/scripts/bake-loader.mjs src/shards/driftwood-isle/bake/bake-captain-coat.mjs [--encode]
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { hashImmutableBytes } from '@wildshard/format/immutable';
-import { parseKtx2 } from '@wildshard/sdk/assets';
-import { bakeColourTexture } from '@wildshard/sdk/bake/texture';
-import { readImagePixels, writeImagePixels } from '@wildshard/sdk/bake/image';
+import { assetCost } from '@wildshard/sdk/assets';
+import { readImagePixels } from '@wildshard/sdk/bake/image';
 
 const root = resolve(import.meta.dirname, '../../../..'), project = resolve(root, 'src/shards/driftwood-isle');
 const pin = resolve(project, 'data/captainCoat.json');
@@ -23,9 +23,9 @@ function embeddedImage(glb) {
 const source = Uint8Array.from(readFileSync(resolve(root, 'public/assets/driftwood-isle/models/driftwood-hero/captain/captain.glb')));
 const raster = await readImagePixels(embeddedImage(source));
 if (process.argv.includes('--encode')) {
-  const bytes = bakeColourTexture(await writeImagePixels(raster)), hash = hashImmutableBytes(bytes);
+  const bytes = Uint8Array.from(embeddedImage(source)), hash = hashImmutableBytes(bytes);
   writeFileSync(resolve(project, 'assets', hash), bytes);
-  const file = { hash, kind: 'ktx2', compressed: bytes.length, ...parseKtx2(bytes), dependencies: [], critical: false };
+  const file = { hash, kind: 'image', compressed: bytes.length, ...assetCost('image', bytes), dependencies: [], critical: false };
   writeFileSync(pin, `${JSON.stringify({ source: 'public/assets/driftwood-isle/models/driftwood-hero/captain/captain.glb#images/0', width: raster.width, height: raster.height, file }, null, 2)}\n`);
 }
 const { file } = JSON.parse(readFileSync(pin, 'utf8'));

@@ -59,10 +59,10 @@
     "src/static/assets/models/driftwood-blender/island.glb",
     "src/static/assets/models/driftwood-blender/placements.bin",
     "src/static/assets/models/driftwood-blender/island.json",
-    "src/static/assets/models/driftwood-blender/lm-ao.webp",
-    "src/static/assets/models/driftwood-blender/lm-ao.phone.webp",
-    "src/static/assets/models/driftwood-blender/lm-bounce.webp",
-    "src/static/assets/models/driftwood-blender/lm-bounce.phone.webp"
+    "src/static/assets/models/driftwood-blender/lm-ao.png",
+    "src/static/assets/models/driftwood-blender/lm-ao.phone.png",
+    "src/static/assets/models/driftwood-blender/lm-bounce.png",
+    "src/static/assets/models/driftwood-blender/lm-bounce.phone.png"
    ],
    "feeds": [
     "src/generators/bakedCove.ts",
