@@ -11,7 +11,7 @@ import { islandFoliagePlacements } from './islandDressing';
 import { shoreBoulderFacts } from './shoreBoulders';
 
 /** The voxel AO the fixed world's sources read (generators/fixedSource.ts), the coarse tiles' one input file. */
-export const DRIFTWOOD_AO = '/assets/models/driftwood-blender/voxel-ao.bin';
+export const DRIFTWOOD_AO = '/assets/driftwood-isle/models/driftwood-blender/voxel-ao.bin';
 
 /** Tile streaming T8 (G786) / G748: Driftwood's coarse L1 tiles, its fixed world's whole shapes simplified in their own
  *  vertex colours (`coarseCopy`, 10 %, 2 m error, sloppy past the target: the fixed sources are unwelded) and baked as the props bake's coarse source. The occupied parents only

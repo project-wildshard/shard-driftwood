@@ -31,7 +31,7 @@ test('cached model facts preserve complete original rows and exact finite refusa
 });
 
 test('model source and cover metadata retain projections, storage order and numeric laws', () => {
-  const input: unknown = JSON.parse(readFileSync('src/static/assets/models/driftwood-blender/island.json', 'utf8'));
+  const input: unknown = JSON.parse(readFileSync('src/static/assets/driftwood-isle/models/driftwood-blender/island.json', 'utf8'));
   for (const [read, schema] of [[modelSourceMetadata, source], [modelCoverMetadata, cover]] as const) {
     expect(JSON.stringify(read(input))).toBe(JSON.stringify(v.parse(schema, input)));
     expect(read(input)).not.toBe(input);

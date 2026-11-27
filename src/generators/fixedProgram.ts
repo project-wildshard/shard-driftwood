@@ -15,8 +15,8 @@ import { driftwoodCoarseTiles } from './coarseTiles';
 
 /** The complete native inputs; every other value is constructed from this producer's author source. */
 export const DRIFTWOOD_FIXED_INPUTS: readonly string[] = [
-  '/assets/models/driftwood-hero/faces/wendell-head.glb',
-  '/assets/models/driftwood-blender/voxel-ao.bin',
+  '/assets/driftwood-isle/models/driftwood-hero/faces/wendell-head.glb',
+  '/assets/driftwood-isle/models/driftwood-blender/voxel-ao.bin',
 ];
 const text = new TextEncoder();
 const isMesh = (node: Object3D): node is Mesh => node instanceof Mesh;

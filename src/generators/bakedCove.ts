@@ -14,7 +14,7 @@ import coverFiles from '../data/islandCoverFiles.json' with { type: 'json' };
 
 // iPhone downloads I8: the cove's tiles, lightmaps, placement table and plans are files in the shard file (pageFiles.ts)
 const at = (name: string) => pageFile(`world/island/${name}`);
-const lightmap = (param: string, name: string) => ({ param, source: { phone: at(`${name}.phone.webp`), desktop: at(`${name}.webp`) }, channel: 0, anisotropy: 4 });
+const lightmap = (param: string, name: string) => ({ param, source: { phone: at(`${name}.phone.png`), desktop: at(`${name}.png`) }, channel: 0, anisotropy: 4 });
 const cells = { size: 16, pad: 4 };
 /** E156: the island cover (generators/islandCover.ts) as vertex wear rows: its ground map, then per part aCover (rgba) and
  *  aCoverSide, part 0 the faceted ground and one part per baked tile */

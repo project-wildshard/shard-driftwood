@@ -13,8 +13,8 @@ import original from './fixtures/driftwood-plan-rows.json' with { type: 'json' }
 
 const metadata = v.parse(v.object({ protos: v.array(v.object({ name: v.string(), kind: v.string() })),
   mustDraw: v.number(), colliders: BakedPlanSchema.entries.unclaimed }),
-JSON.parse(readFileSync('src/static/assets/models/driftwood-blender/island.json', 'utf8')));
-const placements = islandPlacements(Uint8Array.from(readFileSync('src/static/assets/models/driftwood-blender/placements.bin')).buffer);
+JSON.parse(readFileSync('src/static/assets/driftwood-isle/models/driftwood-blender/island.json', 'utf8')));
+const placements = islandPlacements(Uint8Array.from(readFileSync('src/static/assets/driftwood-isle/models/driftwood-blender/placements.bin')).buffer);
 const encode = (value: unknown) => new TextEncoder().encode(JSON.stringify(value));
 
 for (const tier of ['phone', 'desktop'] as const) test(`whole ${tier} baked plan preserves the original partition, matrix and collider bytes`, () => {

@@ -22,7 +22,7 @@ In the game the AO multiplies the (day/night-driven) hemisphere fill, the bounce
 direct sun stays dynamic (toon ramp + CSM shadows) — see src/shards/driftwood-isle/world/BlenderIsland.ts.
 
 Output (<out>): island.glb (terrain tiles + prototypes, no materials), placements.bin, island.json, lm-ao.png,
-lm-bounce.png (run.sh converts / compresses them into public/assets/models/driftwood-blender/).
+lm-bounce.png (run.sh converts / compresses them into public/assets/driftwood-isle/models/driftwood-blender/).
 """
 import bpy
 import bmesh
@@ -290,8 +290,14 @@ def proto(name, part, kind):
     return len(PROTOS) - 1
 
 
-REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', '..'))
-MODELS = f'{REPO}/public/assets/models'
+REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+MODELS = f'{REPO}/src/static/assets/driftwood-isle/models'
+PINE_MODELS = f'{os.path.dirname(REPO)}/shard-pine-hollow/src/static/assets/pine-hollow/models'
+
+
+def model_path(kit, name):
+    root = PINE_MODELS if kit == 'driftwood-cc0' else MODELS
+    return f'{root}/{kit}/{name}/{name}.glb'
 
 
 def glb_part(path, target=None, lean_to_x=False, gain=1.0):
@@ -359,7 +365,7 @@ PALM_V = []
 LOD = {}  # proto → its far proto (the game swaps a caster tile to its far copy past a distance)
 PALM_SRC = [('cc0', 'cc0-palm-bent'), ('cc0', 'cc0-palm-tall'), ('cc0', 'cc0-palm-young'), ('hero', 'palm-a'), ('hero', 'palm-b')]
 for i, (kit, name) in enumerate(PALM_SRC):
-    path = f"{MODELS}/{'driftwood-cc0' if kit == 'cc0' else 'driftwood-hero'}/{name}/{name}.glb"
+    path = model_path('driftwood-cc0' if kit == 'cc0' else 'driftwood-hero', name)
     # near: the model as authored (collapse-decimating it tore the ringed trunk apart and shredded the fronds);
     # far: the procedural low palm (4 × 3-segment fronds, 5-sided trunk) at the same height and lean, recoloured to the
     # model's own frond / trunk colours so the swap reads as the same tree
@@ -391,7 +397,7 @@ def normalised(part, width=1.5):
 
 
 # shore boulders: the hero boulders and the CC0 large rock, lifted from their dark blue-grey to the mockup's mid grey
-ROCK_V = [proto(f'rock{i}', normalised(glb_part(f'{MODELS}/{d}/{n}/{n}.glb', gain=g)), 'rock') for i, (d, n, g) in enumerate([
+ROCK_V = [proto(f'rock{i}', normalised(glb_part(model_path(d, n), gain=g)), 'rock') for i, (d, n, g) in enumerate([
     ('driftwood-hero', 'boulder-round', 1.8), ('driftwood-hero', 'boulder-slab', 1.8), ('driftwood-cc0', 'cc0-rock-large', 1.25),
     ('driftwood-hero', 'boulder-small-a', 1.8)])]
 ROCK_V += [proto(f'rockb{i}', A.rock(R, 1.0, squash=R.uniform(0.55, 0.85), cuts=R.randint(5, 8), moss=0.0), 'rock') for i in range(3)]
@@ -401,8 +407,8 @@ KIND = {
     'shell': [proto(f'shell{i}', A.shell(R), 'small') for i in range(4)],
     'star': [proto(f'star{i}', A.starfish(R), 'small') for i in range(3)],
     'pebble': [proto(f'pebble{i}', A.pebbles(R), 'small') for i in range(4)],
-    'drift': [proto(f'drift{i}', glb_part(f'{MODELS}/driftwood-hero/{n}/{n}.glb', target=260), 'prop') for i, n in enumerate(('driftwood-log', 'driftwood-fork', 'driftwood-branch', 'driftwood-log'))],
-    'coconuts': [proto('coconuts0', glb_part(f'{MODELS}/driftwood-hero/coconut-cluster/coconut-cluster.glb', target=120), 'prop')],
+    'drift': [proto(f'drift{i}', glb_part(model_path('driftwood-hero', n), target=260), 'prop') for i, n in enumerate(('driftwood-log', 'driftwood-fork', 'driftwood-branch', 'driftwood-log'))],
+    'coconuts': [proto('coconuts0', glb_part(model_path('driftwood-hero', 'coconut-cluster'), target=120), 'prop')],
     'beachgrass': [proto(f'beachgrass{i}', A.beach_grass(R), 'plant') for i in range(3)],
     'tuft': [proto(f'tuft{i}', A.grass_tuft(R, n=7), 'plant') for i in range(4)],
     'fern': [proto(f'fern{i}', A.fern(R, R.uniform(0.7, 0.95), fronds=6, seg=4), 'plant') for i in range(3)],

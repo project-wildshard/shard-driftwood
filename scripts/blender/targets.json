@@ -24,11 +24,11 @@
     "node_modules/@wildshard/sdk/scripts/blender/lib/export-scene.mjs"
    ],
    "inputs": [
-    "src/static/assets/baked/driftwood-isle/terrain.bin",
-    "src/static/assets/models/driftwood-hero/"
+    "src/static/assets/driftwood-isle/baked/terrain.bin",
+    "src/static/assets/driftwood-isle/models/driftwood-hero/"
    ],
    "external": {
-    "src/static/assets/models/driftwood-cc0/": "shard-pine-hollow: the CC0 palms and rocks build_island.py places live in that repo since the split"
+    "src/static/assets/pine-hollow/models/driftwood-cc0/": "shard-pine-hollow: the CC0 palms and rocks build_island.py places live in that repo since the split"
    },
    "lock": true,
    "build": [
@@ -41,28 +41,28 @@
    "meshopt": [
     [
      "island.glb",
-     "src/static/assets/models/driftwood-blender/island.glb"
+     "src/static/assets/driftwood-isle/models/driftwood-blender/island.glb"
     ]
    ],
    "copy": [
     [
      "placements.bin",
-     "src/static/assets/models/driftwood-blender/placements.bin"
+     "src/static/assets/driftwood-isle/models/driftwood-blender/placements.bin"
     ],
     [
      "island.json",
-     "src/static/assets/models/driftwood-blender/island.json"
+     "src/static/assets/driftwood-isle/models/driftwood-blender/island.json"
     ]
    ],
    "post": "src/blender/post.sh",
    "outputs": [
-    "src/static/assets/models/driftwood-blender/island.glb",
-    "src/static/assets/models/driftwood-blender/placements.bin",
-    "src/static/assets/models/driftwood-blender/island.json",
-    "src/static/assets/models/driftwood-blender/lm-ao.webp",
-    "src/static/assets/models/driftwood-blender/lm-ao.phone.webp",
-    "src/static/assets/models/driftwood-blender/lm-bounce.webp",
-    "src/static/assets/models/driftwood-blender/lm-bounce.phone.webp"
+    "src/static/assets/driftwood-isle/models/driftwood-blender/island.glb",
+    "src/static/assets/driftwood-isle/models/driftwood-blender/placements.bin",
+    "src/static/assets/driftwood-isle/models/driftwood-blender/island.json",
+    "src/static/assets/driftwood-isle/models/driftwood-blender/lm-ao.png",
+    "src/static/assets/driftwood-isle/models/driftwood-blender/lm-ao.phone.png",
+    "src/static/assets/driftwood-isle/models/driftwood-blender/lm-bounce.png",
+    "src/static/assets/driftwood-isle/models/driftwood-blender/lm-bounce.phone.png"
    ],
    "feeds": [
     "src/generators/bakedCove.ts",
@@ -99,11 +99,11 @@
    "meshopt": [
     [
      "fp-arms.raw.glb",
-     "src/static/assets/models/driftwood-fp/fp-arms.glb"
+     "src/static/assets/driftwood-isle/models/driftwood-fp/fp-arms.glb"
     ]
    ],
    "outputs": [
-    "src/static/assets/models/driftwood-fp/fp-arms.glb"
+    "src/static/assets/driftwood-isle/models/driftwood-fp/fp-arms.glb"
    ],
    "feeds": [
     "src/data/heldArms.json",

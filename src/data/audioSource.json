@@ -415,12 +415,15 @@
         }
       ],
       "sets": {
-        "island": "base"
+        "island": "driftwood-isle"
       },
       "slots": [
         "island"
       ],
-      "source": null,
+      "source": {
+        "dir": "/assets/driftwood-isle/music/driftwood-isle/",
+        "manifestKey": "driftwood-isle"
+      },
       "synthLead": "marimba"
     },
     "observations": [

@@ -1,4 +1,4 @@
-// Taken from public/assets/baked/driftwood-isle/terrain.bin (the committed WSTR bake, 256 samples over 500 m; the analytic
+// Taken from public/assets/driftwood-isle/baked/terrain.bin (the committed WSTR bake, 256 samples over 500 m; the analytic
 // terrain agrees to 0.5 mm): Driftwood's four native boundary height rows (north / south run west → east, east / west run
 // south → north). SF46 declares them in the shardfile so the grid's seams read Driftwood's real seabed (−2.6 … −1.0 m off
 // the entries) instead of an all-zero substitute; each midpoint's sandbar is exactly road height across its 8 m entry

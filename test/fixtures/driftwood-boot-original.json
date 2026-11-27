@@ -3,21 +3,21 @@
     "modes": {
       "phone": {
         "img": [
-          "/assets/baked/driftwood-isle/tex/giant.phone.webp",
+          "/assets/driftwood-isle/baked/tex/giant.phone.webp",
           "/assets/physics/rapier.wasm"
         ],
         "ktx2": [
-          "/assets/gpu/baked/driftwood-isle/tex/giant-db470988.ktx2",
+          "/assets/driftwood-isle/gpu/baked/tex/giant-db470988.ktx2",
           "/assets/physics/rapier.wasm"
         ]
       },
       "desktop": {
         "img": [
-          "/assets/baked/driftwood-isle/tex/giant.jpg",
+          "/assets/driftwood-isle/baked/tex/giant.jpg",
           "/assets/physics/rapier.wasm"
         ],
         "ktx2": [
-          "/assets/gpu/baked/driftwood-isle/tex/giant-db470988.ktx2",
+          "/assets/driftwood-isle/gpu/baked/tex/giant-db470988.ktx2",
           "/assets/physics/rapier.wasm"
         ]
       }
@@ -29,7 +29,7 @@
         "img": {
           "sky": [],
           "baked": [
-            "/assets/baked/driftwood-isle/tex/giant.phone.webp"
+            "/assets/driftwood-isle/baked/tex/giant.phone.webp"
           ],
           "terrain": [],
           "trees": [],
@@ -45,7 +45,7 @@
         "ktx2": {
           "sky": [],
           "baked": [
-            "/assets/gpu/baked/driftwood-isle/tex/giant-db470988.ktx2"
+            "/assets/driftwood-isle/gpu/baked/tex/giant-db470988.ktx2"
           ],
           "terrain": [],
           "trees": [],
@@ -63,7 +63,7 @@
         "img": {
           "sky": [],
           "baked": [
-            "/assets/baked/driftwood-isle/tex/giant.jpg"
+            "/assets/driftwood-isle/baked/tex/giant.jpg"
           ],
           "terrain": [],
           "trees": [],
@@ -79,7 +79,7 @@
         "ktx2": {
           "sky": [],
           "baked": [
-            "/assets/gpu/baked/driftwood-isle/tex/giant-db470988.ktx2"
+            "/assets/driftwood-isle/gpu/baked/tex/giant-db470988.ktx2"
           ],
           "terrain": [],
           "trees": [],
@@ -99,30 +99,30 @@
     "modes": {
       "phone": {
         "img": [
-          "/assets/lut/driftwood-isle.bin",
-          "/assets/horizon/driftwood-isle-day.webp",
-          "/assets/horizon/driftwood-isle-night.webp",
-          "/assets/models/driftwood-hero/captain/captain.glb"
+          "/assets/driftwood-isle/lut.bin",
+          "/assets/driftwood-isle/horizon/driftwood-isle-day.webp",
+          "/assets/driftwood-isle/horizon/driftwood-isle-night.webp",
+          "/assets/driftwood-isle/models/driftwood-hero/captain/captain.glb"
         ],
         "ktx2": [
-          "/assets/lut/driftwood-isle.bin",
-          "/assets/gpu/horizon/driftwood-isle-day-2ca8c3a2.ktx2",
-          "/assets/gpu/horizon/driftwood-isle-night-f949f086.ktx2",
-          "/assets/gpu/models/driftwood-hero/captain/captain-51fb1b40.glb"
+          "/assets/driftwood-isle/lut.bin",
+          "/assets/driftwood-isle/gpu/horizon/driftwood-isle-day-2ca8c3a2.ktx2",
+          "/assets/driftwood-isle/gpu/horizon/driftwood-isle-night-f949f086.ktx2",
+          "/assets/driftwood-isle/gpu/models/driftwood-hero/captain/captain-51fb1b40.glb"
         ]
       },
       "desktop": {
         "img": [
-          "/assets/lut/driftwood-isle.bin",
-          "/assets/horizon/driftwood-isle-day.webp",
-          "/assets/horizon/driftwood-isle-night.webp",
-          "/assets/models/driftwood-hero/captain/captain.glb"
+          "/assets/driftwood-isle/lut.bin",
+          "/assets/driftwood-isle/horizon/driftwood-isle-day.webp",
+          "/assets/driftwood-isle/horizon/driftwood-isle-night.webp",
+          "/assets/driftwood-isle/models/driftwood-hero/captain/captain.glb"
         ],
         "ktx2": [
-          "/assets/lut/driftwood-isle.bin",
-          "/assets/gpu/horizon/driftwood-isle-day-2ca8c3a2.ktx2",
-          "/assets/gpu/horizon/driftwood-isle-night-f949f086.ktx2",
-          "/assets/gpu/models/driftwood-hero/captain/captain-51fb1b40.glb"
+          "/assets/driftwood-isle/lut.bin",
+          "/assets/driftwood-isle/gpu/horizon/driftwood-isle-day-2ca8c3a2.ktx2",
+          "/assets/driftwood-isle/gpu/horizon/driftwood-isle-night-f949f086.ktx2",
+          "/assets/driftwood-isle/gpu/models/driftwood-hero/captain/captain-51fb1b40.glb"
         ]
       }
     }

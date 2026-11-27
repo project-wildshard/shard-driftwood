@@ -9,7 +9,7 @@ export interface DriftwoodIslandFacts {
  extraPalms: { x:number;z:number;h:number;lean:number;leanDir:number;rot:number;fronds:number }[];
  bake: { bounceGain:number;sunY:number };
 }
-export const DRIFTWOOD_ISLAND_FACT_INPUTS: readonly string[] = ['/assets/models/driftwood-blender/island.glb', '/assets/models/driftwood-blender/island.json'];
+export const DRIFTWOOD_ISLAND_FACT_INPUTS: readonly string[] = ['/assets/driftwood-isle/models/driftwood-blender/island.glb', '/assets/driftwood-isle/models/driftwood-blender/island.json'];
 
 /** Admit complete native prototype observations before synchronous declaration readers use them. */
 export function parseDriftwoodIslandFacts(bytes: Uint8Array): DriftwoodIslandFacts {
@@ -39,7 +39,7 @@ export function prototypeFacts(name:string,proto:IslandProto|undefined):ProtoFac
 }
 /** The native Blender GLB and LOD recipe are the sole authority for these cheap metadata rows. */
 export async function islandPrototypeFacts(readAsset:(url:string)=>Uint8Array):Promise<Uint8Array> {
- const base='/assets/models/driftwood-blender/';
+ const base='/assets/driftwood-isle/models/driftwood-blender/';
  const meta=modelSourceMetadata(JSON.parse(new TextDecoder().decode(readAsset(`${base}island.json`))));
  const protos=await islandProtos(readAsset(`${base}island.glb`),meta);
  // everything the runtime reads of island.json (G467): the prototype facts, the extra palms the monkeys climb, and the

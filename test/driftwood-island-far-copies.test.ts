@@ -6,7 +6,7 @@ import { expect, test } from 'vitest';
 import { islandProtos } from '../src/generators/islandProtos';
 
 test('each LOD pair\'s far copy has at most 55% of its near copy\'s triangles, the big palms at most 20%, every triangle flat', async () => {
-  const base = 'src/static/assets/models/driftwood-blender/';
+  const base = 'src/static/assets/driftwood-isle/models/driftwood-blender/';
   const meta = JSON.parse(readFileSync(`${base}island.json`, 'utf8')) as { protos: { name: string }[]; lod: Record<string, number> };
   const protos = await islandProtos(new Uint8Array(readFileSync(`${base}island.glb`)), meta);
   const pairs = Object.entries(meta.lod);

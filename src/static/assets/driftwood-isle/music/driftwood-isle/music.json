@@ -1,0 +1,17 @@
+{
+  "style": "piano",
+  "model": "MiniMax-Music3",
+  "credit": "Music: MiniMax-Music3",
+  "slots": {
+    "island": {
+      "calm": "island-calm-05125ed8.m4a",
+      "tension": "island-tension-7faf0468.m4a",
+      "bpm": 76.781,
+      "beatsPerBar": 4,
+      "loopStart": 14.3035,
+      "loopEnd": 54.9384,
+      "duration": 58.0693
+    }
+  },
+  "stings": {}
+}
