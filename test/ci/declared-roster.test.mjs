@@ -31,8 +31,9 @@ async function declared() {
   const assets = new Map(descriptor.index.files.filter(file => serverReadsFile(file, shard.terrain?.collider) || rigs.has(file))
     .map(file => [file.commons === true ? `commons:${file.hash}` : file.hash, readFileSync(join(directory, file.path))]));
   const rapier = await loadRapier(readFileSync(engineRequire.resolve('@dimforge/rapier3d-simd/rapier_wasm3d_bg.wasm')));
-  const plan = JSON.parse(new TextDecoder().decode(await product.file(NATIVE_ASSEMBLY_FILE)));
-  assert.deepEqual(plan.features.map(row => row.host).filter(host => host.startsWith('population.')), []);
+  // FP16b: the roster boots from server/world and the declared spawn rows.
+  assert.ok(product.has('server/world'), 'Driftwood ships its declared server world');
+  assert.equal(product.hasFile(NATIVE_ASSEMBLY_FILE), false, 'Driftwood ships no legacy native plan');
   const roster = { species: shard.rows.species, spawns: shard.creatures.spawns.filter(row => row.id !== 'driftwood.captain') };
   return { roster, open: snapshot => createNativeHeadlessResident({ shard, assets, rapier, product }, snapshot) };
 }
