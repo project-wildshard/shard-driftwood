@@ -66,7 +66,7 @@
       "sourcePath": "test/driftwood-story-verbs.test.ts",
       "sourceBlob": "f6ea2041a4dbd43e9e573d0f055c70c845969020",
       "targetPath": "test/ci21-candidate/driftwood-story-verbs.test.ts",
-      "targetBlob": "e7d4ffb6c1eddfd5031c65be3580ec1ce291ce60",
+      "targetBlob": "cfdc8c8735fff554184741467a763a3729f2a96f",
       "originalTests": [
         "Driftwood earns the Sealed Ring through real movement, combat, barrel contacts and replay"
       ],
@@ -78,27 +78,31 @@
       "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission.",
       "caseAdaptations": [
         "Equivalent real-input approach follows the actual authored hold stair/pump/winch waypoints before approaching the sailor fallen key, avoiding the solid hull. Original key pickup, full story flags/pack, contact puzzles/combat, independent replay, 3600 walk/6000 fight/60000 tape and original child/case budgets remain; no state grants.",
-        "OF22: the sailor key is used from within reach, and the declared Captain files death on the following tick. Retain full input and flag replay."
+        "OF22: the sailor key is used from within reach, and the declared Captain files death on the following tick. Retain full input and flag replay.",
+        "Node 26 (4d1676a, SDK 0.7.0) strips types natively, so the child spawn drops --experimental-transform-types; the case, its clocks and every assertion are unchanged (opus-pins, 2026-11-27)."
       ]
     },
     {
       "sourcePath": "test/driftwood-zipline-verbs.test.ts",
       "sourceBlob": "486bd4373f353d7c9343c0eb6caf114b2cc26bcb",
       "targetPath": "test/ci21-candidate/driftwood-zipline-verbs.test.ts",
-      "targetBlob": "e09425fabb4b14f8907bee35ffce258bb54c44d6",
+      "targetBlob": "a264c0b153be2b904351d9cc94865048214255c7",
       "originalTests": [
         "the continuous lookout walk and actual cable landing earn the zipline feat"
       ],
       "fixturePath": "test/proof/driftwood-isle/tape.ts",
       "fixtureBlob": "74479900c88ec70ea2457fb710de2ecca40cc6fb",
       "compilerSupport": [],
-      "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission."
+      "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission.",
+      "caseAdaptations": [
+        "Node 26 (4d1676a, SDK 0.7.0) strips types natively, so the child spawn drops --experimental-transform-types; the case, its clocks and every assertion are unchanged (opus-pins, 2026-11-27)."
+      ]
     },
     {
       "sourcePath": "test/driftwood-optional-verbs.test.ts",
       "sourceBlob": "d6d14e5fb1861be04c23aa3ceeb7541cd980747e",
       "targetPath": "test/ci21-candidate/driftwood-optional-verbs.test.ts",
-      "targetBlob": "a80a3aa114283684148bd00454e764f06cc76636",
+      "targetBlob": "83a024c12e069f7092ee446cd30cbb95b11b01dc",
       "originalTests": [
         "Driftwood walk-in glass and bench USE earn their real counters exactly once",
         "Driftwood reaches the reef through real HOVER, swim and DIVE before opening its treasure"
@@ -108,13 +112,16 @@
       "compilerSupport": [
         "test/fixtures/headless/driftwood-optional-run.ts"
       ],
-      "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission."
+      "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission.",
+      "caseAdaptations": [
+        "Node 26 (4d1676a, SDK 0.7.0) strips types natively, so the child spawn drops --experimental-transform-types; the case, its clocks and every assertion are unchanged (opus-pins, 2026-11-27)."
+      ]
     },
     {
       "sourcePath": "test/driftwood-trade-verbs.test.ts",
       "sourceBlob": "36c10ea5a6721322d3900d0a47218a8ec401317d",
       "targetPath": "test/ci21-candidate/driftwood-trade-verbs.test.ts",
-      "targetBlob": "6ed210010101dc5d887c5941f34d8216a4cbd333",
+      "targetBlob": "8846ceca58707c6c7befd34c4dde18464fd63158",
       "originalTests": [
         "walk to the real counter and refuse out-of-reach and empty-purse BUY",
         "the earned counter continuation funds its real purse through the original kills",
@@ -127,7 +134,8 @@
       ],
       "changes": "Whole original cases, numerical assertions, native replay comparisons, input/child/tape limits retained. Public defining engine imports and shard-local source paths. Optional fixed two-stage loop becomes equivalent direct named tests for exhaustive static admission.",
       "caseAdaptations": [
-        "OF22b4: use the shipped declared creature rows for live bounty targets. Return to the counter along the south trail and retain the earned saves and omitted-BUY control."
+        "OF22b4: use the shipped declared creature rows for live bounty targets. Return to the counter along the south trail and retain the earned saves and omitted-BUY control.",
+        "Node 26 (4d1676a, SDK 0.7.0) strips types natively, so the child spawn drops --experimental-transform-types; the case, its clocks and every assertion are unchanged (opus-pins, 2026-11-27)."
       ]
     },
     {
