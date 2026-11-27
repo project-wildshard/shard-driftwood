@@ -208,7 +208,8 @@ jobs:
   ring-2-cook:
     if: inputs.ci21_source != true && github.event_name == 'push'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # SF24: the images-only cook encodes every texture cold (310 s on 2026-11-27, run 46006266762).
+    timeout-minutes: 40
     env:
       APP_CLIENT_ID: ${{ secrets.APP_CLIENT_ID }}
     steps:
