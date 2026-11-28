@@ -292,11 +292,16 @@ def proto(name, part, kind):
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 MODELS = f'{REPO}/src/static/assets/driftwood-isle/models'
-PINE_MODELS = f'{os.path.dirname(REPO)}/shard-pine-hollow/src/static/assets/pine-hollow/models'
+# The CC0 kit lives in a sibling shard-pine-hollow checkout: WILDSHARD_REPOS names the folder holding the org's
+# checkouts, else this repo's parent folder (meta QA 11-25 row 157; skeleton.mjs reads Nine Dragon's rig the same way).
+REPOS = os.path.abspath(os.environ.get('WILDSHARD_REPOS') or os.path.dirname(REPO))
+PINE_MODELS = f'{REPOS}/shard-pine-hollow/src/static/assets/pine-hollow/models'
 
 
 def model_path(kit, name):
     root = PINE_MODELS if kit == 'driftwood-cc0' else MODELS
+    if root == PINE_MODELS and not os.path.isdir(PINE_MODELS):
+        raise SystemExit(f'build_island.py: no CC0 kit at {PINE_MODELS}; set WILDSHARD_REPOS to the folder holding a shard-pine-hollow checkout')
     return f'{root}/{kit}/{name}/{name}.glb'
 
 

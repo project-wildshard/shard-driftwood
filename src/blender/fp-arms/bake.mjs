@@ -23,7 +23,7 @@ import { readFileSync } from 'node:fs';
 import { Matrix4, Quaternion, Vector3 } from 'three';
 import { meshopt, prune } from '@gltf-transform/functions';
 import { MeshoptEncoder } from 'meshoptimizer';
-import { rigIO, SRC, bindSkeleton, ARM } from './skeleton.mjs';
+import { rigIO, rigPath, bindSkeleton, ARM } from './skeleton.mjs';
 import { armConst, buildBones, measure, twoBone, LEFT_HAND, RIGHT_HAND } from '@wildshard/sdk/headless/game/systems/viewmodel/armRig';
 
 const positional = process.argv.slice(2).filter((a) => !a.startsWith('--'));
@@ -33,7 +33,7 @@ if (positional.length < 2) throw new Error('usage: bake.mjs <parts.json> <out.gl
 const partsPath = positional[0], outPath = positional[1];
 const P = JSON.parse(readFileSync(partsPath, 'utf8'));
 const io = await rigIO();
-const doc = await io.read(SRC);
+const doc = await io.read(rigPath());
 const root = doc.getRoot();
 const buffer = root.listBuffers()[0];
 const bind = bindSkeleton(doc);

@@ -1,23 +1,34 @@
 #!/usr/bin/env node
 // skeleton.mjs — step 1 of Driftwood's first-person arms (E334, src/scripts/blender/targets.json "driftwood-isle/fp-arms"):
-// read Nine Dragon's rig (public/assets/nine-dragon/viewmodel/fp-rig.glb: its skeleton and its 16 clips, round 13) and write
-// the bind skeleton as JSON for the Blender script (arms.py), which models the castaway arms round it.
+// read Nine Dragon's rig (shard-nine-dragon's src/static/assets/nine-dragon-stack/viewmodel/fp-rig.glb: its skeleton and its
+// 16 clips, round 13) and write the bind skeleton as JSON for the Blender script (arms.py), which models the castaway arms
+// round it. The rig lives in a sibling checkout: WILDSHARD_REPOS names the folder holding the org's checkouts, else this
+// repo's parent folder (meta QA 11-25 row 157).
 //
-//   node src/shards/driftwood-isle/blender/fp-arms/skeleton.mjs <out.json>
+//   WILDSHARD_REPOS=~/projects/games/wildshard node src/blender/fp-arms/skeleton.mjs <out.json>
 //
 // Rig space = the viewmodel camera's space at scale 1 (x right, y up, −z forward, metres). Every bone's bind world
 // matrix is the product of the node TRS down from vm_root (the GLB's nodes sit at the bind pose).
-import { writeFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { existsSync, writeFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
 import { NodeIO } from '@gltf-transform/core';
 import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
 import { MeshoptDecoder, MeshoptEncoder } from 'meshoptimizer';
 import { Matrix4, Quaternion, Vector3 } from 'three';
 
-const ROOT = resolve(import.meta.dirname, '../../../../..');
-export const SRC = resolve(ROOT, 'public/assets/nine-dragon/viewmodel/fp-rig.glb');
+const ROOT = resolve(import.meta.dirname, '../../..');
+/** the folder holding the org's checkouts: WILDSHARD_REPOS, else this repo's parent */
+export const REPOS = resolve(process.env.WILDSHARD_REPOS || dirname(ROOT));
+const RIG = 'shard-nine-dragon/src/static/assets/nine-dragon-stack/viewmodel/fp-rig.glb';
+export const SRC = resolve(REPOS, RIG);
 /** the joints each arm keeps, in the skin's order */
 export const ARM = ['shoulder', 'upperarm', 'forearm', 'twist1', 'twist2', 'twist3', 'hand'];
+
+/** Nine Dragon's rig, or a refusal naming where it looked and the env var that moves it */
+export function rigPath() {
+  if (!existsSync(SRC)) throw new Error(`skeleton.mjs: no Nine Dragon rig at ${SRC}; set WILDSHARD_REPOS to the folder holding a shard-nine-dragon checkout`);
+  return SRC;
+}
 
 export async function rigIO() {
   await MeshoptDecoder.ready;
@@ -43,9 +54,9 @@ export function bindSkeleton(doc) {
 if (import.meta.url === `file://${process.argv[1]}`) {
   if (process.argv.length < 3) throw new Error('usage: skeleton.mjs <out.json>');
   const outPath = process.argv[2];
-  const doc = await (await rigIO()).read(SRC);
+  const doc = await (await rigIO()).read(rigPath());
   const bones = bindSkeleton(doc);
   const clips = doc.getRoot().listAnimations().map((a) => a.getName());
-  writeFileSync(outPath, JSON.stringify({ source: 'public/assets/nine-dragon/viewmodel/fp-rig.glb', bones, clips }, null, 1));
+  writeFileSync(outPath, JSON.stringify({ source: RIG, bones, clips }, null, 1));
   console.log(`skeleton.mjs: ${Object.keys(bones).length} nodes, ${clips.length} clips → ${outPath}`);
 }

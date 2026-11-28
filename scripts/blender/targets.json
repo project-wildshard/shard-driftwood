@@ -1,5 +1,5 @@
 {
- "about": "Every model a Blender script builds (M10, E315; docs/design/blender-practice.md). The script is the source, the GLB it exports is committed, a .blend never is. Run a target from the repo root with `bash node_modules/@wildshard/sdk/scripts/blender/build.sh <target>`, check one against its committed GLB with `--check`. Fields: script (the Blender entry, run with --python-exit-code 1), args, pre (shell, before Blender), sources (every other file the target needs: node_modules/@wildshard/sdk/scripts/check-model-sources.mjs refuses a file under src/blender/ that no target names; the SDK's own Blender lib is named as $SDK/scripts/blender/lib/ in commands and node_modules/@wildshard/sdk/scripts/blender/lib/ in file lists), inputs (committed files it reads), external (files it reads that another repo owns: path there → that repo and why), lock (Cycles work: take the model lock), build (files Blender must leave in $BUILD), meshopt / copy ([build file, repo file] pairs), post (shell, after the copies), outputs (the committed files it makes), feeds (the code that loads them), manual (not buildable here: why), check (the command --check runs for a manual target).",
+ "about": "Every model a Blender script builds (M10, E315; docs/design/blender-practice.md). The script is the source, the GLB it exports is committed, a .blend never is. Run a target from the repo root with `bash node_modules/@wildshard/sdk/scripts/blender/build.sh <target>`, check one against its committed GLB with `--check`. Fields: script (the Blender entry, run with --python-exit-code 1), args, pre (shell, before Blender), sources (every other file the target needs: node_modules/@wildshard/sdk/scripts/check-model-sources.mjs refuses a file under src/blender/ that no target names; the SDK's own Blender lib is named as $SDK/scripts/blender/lib/ in commands and node_modules/@wildshard/sdk/scripts/blender/lib/ in file lists), inputs (committed files it reads), external (files it reads that another repo owns: path there → that repo and why; read from that repo's checkout in $WILDSHARD_REPOS, else beside this repo), lock (Cycles work: take the model lock), build (files Blender must leave in $BUILD), meshopt / copy ([build file, repo file] pairs), post (shell, after the copies), outputs (the committed files it makes), feeds (the code that loads them), manual (not buildable here: why), check (the command --check runs for a manual target).",
  "blender": {
   "version": "5.2.1",
   "path": "/opt/homebrew/bin/blender"
@@ -89,7 +89,7 @@
     "node_modules/@wildshard/sdk/src/sharddev/headless/game/systems/viewmodel/armRig.ts"
    ],
    "external": {
-    "src/static/assets/nine-dragon/viewmodel/fp-rig.glb": "shard-nine-dragon: Nine Dragon's round-13 rig, whose skeleton and clips skeleton.mjs reads"
+    "src/static/assets/nine-dragon-stack/viewmodel/fp-rig.glb": "shard-nine-dragon: Nine Dragon's round-13 rig, whose skeleton and clips skeleton.mjs reads"
    },
    "lock": false,
    "build": [
